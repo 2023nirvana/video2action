@@ -1842,5 +1842,1610 @@
       "no_imitation_gt": true,
       "overfit": false
     }
+  ],
+  "showcase_items": [
+    {
+      "id": "showcase-long120",
+      "title": "连续120秒 · 手臂与全身动作",
+      "action": "抬臂、下蹲与身体转向",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "MoVi",
+      "split": "existing_VAL_long",
+      "splitLabel": "MoVi · VAL被试 · 连续长序列",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "MoVi_F_S55_natural",
+      "video": "media/showcase/showcase-long120.mp4",
+      "poster": "media/showcase/showcase-long120.jpg",
+      "duration": 120,
+      "duration_seconds": 120,
+      "caption": "抬臂、下蹲与身体转向；连续执行，动作间不重置。",
+      "description": "固定站姿出发，整段连续执行，动作之间不重置。真人输入与Student实际G1轨迹同步展示；该序列无同步G1模仿真值。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "arms",
+        "long",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "config_sha256": "1c9ed11fdee0c207b6ba5d5b617a57a82b527c6ff5d267afa9243ae117adf749",
+        "failure": null,
+        "foot_contact_xy_speed_proxy_mps": 0.03378736277446107,
+        "foot_floor_contact_fraction": [
+          0.9018333333333334,
+          0.9353333333333333
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.13018858313794868,
+          "net_xy_displacement_m": 1.5804936238233267,
+          "path_xy_m": 15.620026204891081,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.8424152570625242,
+          "root_height_min_m": 0.6236694994544935
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "MoVi_F_S55_natural",
+        "stationary_time_fraction_speed_lt005": 0.5009168194699116,
+        "status": "complete",
+        "upright_zz_mean": 0.9963119175203383,
+        "upright_zz_min": 0.9436800052443257
+      },
+      "bytes": 3250582,
+      "sha256": "1aa13e455be5a2c6ae7099128a269fdec8426d9d5c4ca69688da5eafa6d817a9",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 368,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_120s/render/input_and_actual_robot.mp4",
+        "sha256": "390dd7b12188ffbad08acefc638647a2bbfb564185bdbe20e39e5f272333f5d5",
+        "bytes": 30072816
+      },
+      "receipt": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_120s/render/completed.json",
+        "sha256": "bb7d858ccd984dc823b2f68301b8e366cd9e4a18d5ecfff604006aeaeb873981",
+        "bytes": 701
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "VAL",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_120s/render/completed.json",
+          "sha256": "bb7d858ccd984dc823b2f68301b8e366cd9e4a18d5ecfff604006aeaeb873981",
+          "bytes": 701
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_120s/physics/completed.json",
+          "sha256": "9de1108ed43629f37f8aff1878662941717c170f0a6025765b6ff60b58bc3577",
+          "bytes": 1555
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_120s/prediction/completed.json",
+          "sha256": "7044025231288fc28e466dce053c6f44b50d90d0b4325241905143d14fe18635",
+          "bytes": 1529
+        },
+        "physical_execution": true,
+        "initialization": "fixed_standing_offset_h076_yaw0",
+        "crop": "none",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 120,
+        "original_human_action_seconds": 153.833333,
+        "source_prediction": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_120s/prediction/completed.json",
+          "sha256": "7044025231288fc28e466dce053c6f44b50d90d0b4325241905143d14fe18635",
+          "bytes": 1529
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "historical_VAL_person_natural_sequence_diagnostic"
+      },
+      "original_retained": true,
+      "long_without_gt": true,
+      "no_imitation_gt": true,
+      "overfit": false
+    },
+    {
+      "id": "showcase-wave",
+      "title": "挥手",
+      "action": "单臂抬起与挥动",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "MoVi",
+      "split": "VAL43",
+      "splitLabel": "MoVi · VAL43 · 未参与模型训练",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "MoVi_F_S57_hand_waving_part2_v1",
+      "video": "media/showcase/showcase-wave.mp4",
+      "poster": "media/showcase/showcase-wave.jpg",
+      "duration": 3.08,
+      "duration_seconds": 3.08,
+      "caption": "单臂抬起与挥动。",
+      "description": "真人与该模型的G1实际物理执行同步播放；采用参考首姿态初始化。从原三栏视频保留真人与Student两栏。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "arms",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "q29_rmse_rad": 0.07288587712179702,
+        "root_xy_rmse_m": 0.00942069782823096,
+        "heading_mae_deg": 2.887456339838539,
+        "G1_29_root_translation_relative_MPJPE_mm": 15.52077910460041,
+        "contact_force_F1": 1
+      },
+      "bytes": 64142,
+      "sha256": "640910668d1580f38bbf599a6929e0ba4680f0634ec86c3f39d0339ad2865113",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 328,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_VAL43_MoVi_F_S57_hand_waving_part2_v1/attempts/66070f8ff58843bb854775239cb265dc/comparison.mp4",
+        "sha256": "dc4021bf2b3589cd7321eab369d045f21a5e3bdf69f7cbf338919805d010e31c",
+        "bytes": 351188
+      },
+      "receipt": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_VAL43_MoVi_F_S57_hand_waving_part2_v1/completed.json",
+        "sha256": "9c045f3d45861056d590bd9ca5ed889c95a703cb1edb88265dfacfee2b267102",
+        "bytes": 31302
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "VAL",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_VAL43_MoVi_F_S57_hand_waving_part2_v1/completed.json",
+          "sha256": "9c045f3d45861056d590bd9ca5ed889c95a703cb1edb88265dfacfee2b267102",
+          "bytes": 31302
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/physics/r38_F_expand48_6000_VAL43_MoVi_F_S57_hand_waving_part2_v1/completed.json",
+          "sha256": "1aa0222dd3a9160e9326bc82fe3b93a198f714a986e8c798045dc2961fa61663",
+          "bytes": 22121
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_VAL43_MoVi_F_S57_hand_waving_part2_v1/completed.json",
+          "sha256": "1984448d86dfe4ea7922ae21ea329bdbaf1f174f308176235a81d2e855d2d163",
+          "bytes": 21518
+        },
+        "physical_execution": true,
+        "initialization": "reference_first_pose",
+        "crop": "left Human and right Student panels; middle Teacher omitted",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 3.06,
+        "original_human_action_seconds": 5,
+        "source_prediction": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_VAL43_MoVi_F_S57_hand_waving_part2_v1/completed.json",
+          "sha256": "1984448d86dfe4ea7922ae21ea329bdbaf1f174f308176235a81d2e855d2d163",
+          "bytes": 21518
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "Full original admitted VAL RGB segment; original60 predeclared, supplemental coverage prepared after fixed12 student outcomes; no outcome-based source selection."
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": false,
+      "overfit": false
+    },
+    {
+      "id": "showcase-arm-knee",
+      "title": "交替抬臂 · 外部真人",
+      "action": "单臂上举与双侧交替",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "HuMMan-Point",
+      "split": "external",
+      "splitLabel": "HuMMan · MoVi训练外部视频",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "p001110_a000652",
+      "video": "media/showcase/showcase-arm-knee.mp4",
+      "poster": "media/showcase/showcase-arm-knee.jpg",
+      "duration": 2.92,
+      "duration_seconds": 2.92,
+      "caption": "单臂上举与双侧交替。",
+      "description": "固定站姿出发，整段连续执行，动作之间不重置。真人输入与Student实际G1轨迹同步展示；该序列无同步G1模仿真值。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "arms",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "config_sha256": "1a85cea60272c66cfe93370cf141c9fbf4af321f8443f3da723f999531eb54ee",
+        "failure": null,
+        "foot_contact_xy_speed_proxy_mps": 0.0497677599803768,
+        "foot_floor_contact_fraction": [
+          0.9793103448275862,
+          0.9241379310344827
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.08205090692117872,
+          "net_xy_displacement_m": 0.1541477417122041,
+          "path_xy_m": 0.2363066119329948,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.7870205297047852,
+          "root_height_min_m": 0.7288829564348269
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "p001110_a000652",
+        "stationary_time_fraction_speed_lt005": 0.375,
+        "status": "complete",
+        "upright_zz_mean": 0.9921664242734832,
+        "upright_zz_min": 0.9759552848887475
+      },
+      "bytes": 138192,
+      "sha256": "4a4b1f111b45b7439f0a19b66c8baefb001a63a425b0b5943b775294c3bfc281",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 368,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/render/input_and_actual_robot.mp4",
+        "sha256": "c842f23703bd42df22207270a59ad818dc69ee860c7ccbd882aee78124bddc2c",
+        "bytes": 619240
+      },
+      "receipt": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/render/completed.json",
+        "sha256": "670a20d3e25db8239f76cf4d2ab072a8350b27bf9dfd7f82be8b06a54a8d4aa6",
+        "bytes": 681
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "external_dataset",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/render/completed.json",
+          "sha256": "670a20d3e25db8239f76cf4d2ab072a8350b27bf9dfd7f82be8b06a54a8d4aa6",
+          "bytes": 681
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/physics/completed.json",
+          "sha256": "c3f0d9c80e57b294f3d9e9323b8f2b2c2ac81200f6fb4b9686b37139dcbca381",
+          "bytes": 1537
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/prediction/completed.json",
+          "sha256": "43563868cbdd5648be81b26615e0c4287a1d9d2e59678125fea23bd086bae5a9",
+          "bytes": 1500
+        },
+        "physical_execution": true,
+        "initialization": "fixed_standing_offset_h076_yaw0",
+        "crop": "none",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 2.9,
+        "original_human_action_seconds": 3.966667,
+        "source_prediction": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/prediction/completed.json",
+          "sha256": "43563868cbdd5648be81b26615e0c4287a1d9d2e59678125fea23bd086bae5a9",
+          "bytes": 1500
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "external_to_MoVi_training_not_pristine_historical_test"
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": true,
+      "overfit": false
+    },
+    {
+      "id": "showcase-long60",
+      "title": "连续60秒 · 抬臂与姿态切换",
+      "action": "单臂上举与身体姿态切换",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "MoVi",
+      "split": "existing_VAL_long",
+      "splitLabel": "MoVi · VAL被试 · 连续长序列",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "MoVi_F_S56_natural",
+      "video": "media/showcase/showcase-long60.mp4",
+      "poster": "media/showcase/showcase-long60.jpg",
+      "duration": 60,
+      "duration_seconds": 60,
+      "caption": "单臂上举与身体姿态切换；连续执行，动作间不重置。",
+      "description": "固定站姿出发，整段连续执行，动作之间不重置。真人输入与Student实际G1轨迹同步展示；该序列无同步G1模仿真值。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "arms",
+        "long",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "config_sha256": "edf518921fe7e4084831fb2e2558480e578845bfb195afb328364509dc7907b0",
+        "failure": null,
+        "foot_contact_xy_speed_proxy_mps": 0.018279308375582982,
+        "foot_floor_contact_fraction": [
+          0.9763333333333334,
+          0.9676666666666667
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.06355687484746123,
+          "net_xy_displacement_m": 0.5818644363975246,
+          "path_xy_m": 3.8121413533507225,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.8485996165102511,
+          "root_height_min_m": 0.6470189866286458
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "MoVi_F_S56_natural",
+        "stationary_time_fraction_speed_lt005": 0.598866288762921,
+        "status": "complete",
+        "upright_zz_mean": 0.9975951268302424,
+        "upright_zz_min": 0.972657735057195
+      },
+      "bytes": 1427519,
+      "sha256": "ed551a9f72bdab2679077862487d16d9d60a90a673674f17442ba9ad7e909007",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 368,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S56_natural_60s/render/input_and_actual_robot.mp4",
+        "sha256": "3125b8dd9bc3d367d91c1e18845078d0d8e0e2c755b4815e8c1de184f89ed81c",
+        "bytes": 15082084
+      },
+      "receipt": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S56_natural_60s/render/completed.json",
+        "sha256": "4f224127d8ee276196f7f5262b917b6bed7c9bc6c1dc8461adfd660c0916a03b",
+        "bytes": 699
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "VAL",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S56_natural_60s/render/completed.json",
+          "sha256": "4f224127d8ee276196f7f5262b917b6bed7c9bc6c1dc8461adfd660c0916a03b",
+          "bytes": 699
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S56_natural_60s/physics/completed.json",
+          "sha256": "1b0a05255ec3a28a3177d39d82ecee66331770021847a90d964308147c814abb",
+          "bytes": 1551
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S56_natural_60s/prediction/completed.json",
+          "sha256": "85e03c58ad50f0ec5b9a5f56e6cf48744a2bf5f082b23aa0e03c0816d66bcafe",
+          "bytes": 1525
+        },
+        "physical_execution": true,
+        "initialization": "fixed_standing_offset_h076_yaw0",
+        "crop": "none",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 60,
+        "original_human_action_seconds": 155.233333,
+        "source_prediction": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S56_natural_60s/prediction/completed.json",
+          "sha256": "85e03c58ad50f0ec5b9a5f56e6cf48744a2bf5f082b23aa0e03c0816d66bcafe",
+          "bytes": 1525
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "historical_VAL_person_natural_sequence_diagnostic"
+      },
+      "original_retained": true,
+      "long_without_gt": true,
+      "no_imitation_gt": true,
+      "overfit": false
+    },
+    {
+      "id": "showcase-humman-squat",
+      "title": "双臂前举与屈膝",
+      "action": "双臂前举配合屈膝",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "HuMMan-Point",
+      "split": "external",
+      "splitLabel": "HuMMan · MoVi训练外部视频",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "p000475_a000210",
+      "video": "media/showcase/showcase-humman-squat.mp4",
+      "poster": "media/showcase/showcase-humman-squat.jpg",
+      "duration": 4.4,
+      "duration_seconds": 4.4,
+      "caption": "双臂前举配合屈膝。",
+      "description": "固定站姿出发，整段连续执行，动作之间不重置。真人输入与Student实际G1轨迹同步展示；该序列无同步G1模仿真值。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "arms",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "config_sha256": "d3adce3c0c42276d9825f170bb484465761a19ca2842c91de94dfad2db9aa466",
+        "failure": null,
+        "foot_contact_xy_speed_proxy_mps": 0.05365823782563117,
+        "foot_floor_contact_fraction": [
+          0.9272727272727272,
+          0.9318181818181818
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.15995175188043848,
+          "net_xy_displacement_m": 0.4640683352822749,
+          "path_xy_m": 0.7005886732363207,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.7858427096698742,
+          "root_height_min_m": 0.6178646903114444
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "p000475_a000210",
+        "stationary_time_fraction_speed_lt005": 0.1917808219178082,
+        "status": "complete",
+        "upright_zz_mean": 0.9898580288343433,
+        "upright_zz_min": 0.9675666107265566
+      },
+      "bytes": 187127,
+      "sha256": "e88baef649320f3d87efaf0b6554972438f109acef882f12e6681458f165165b",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 368,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/render/input_and_actual_robot.mp4",
+        "sha256": "3710f0c483a496c390b34bd92f4c80186fa1a1554cd649265f53a4838eec0d78",
+        "bytes": 942859
+      },
+      "receipt": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/render/completed.json",
+        "sha256": "c9df7d676f5bd12f3619ebab86d8a986e737e3772443fdb6cc515d255f172d85",
+        "bytes": 681
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "external_dataset",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/render/completed.json",
+          "sha256": "c9df7d676f5bd12f3619ebab86d8a986e737e3772443fdb6cc515d255f172d85",
+          "bytes": 681
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/physics/completed.json",
+          "sha256": "6c8d58c3168ba3f2693fbed147bf1fdd17d2bc0a7f00ffe6c38bcec033c42b26",
+          "bytes": 1538
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/prediction/completed.json",
+          "sha256": "a6d531bce5a8edd76444d5928f8ea632e80491e0c4307c46e8e55f1b40d914eb",
+          "bytes": 1499
+        },
+        "physical_execution": true,
+        "initialization": "fixed_standing_offset_h076_yaw0",
+        "crop": "none",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 4.4,
+        "original_human_action_seconds": 5.466667,
+        "source_prediction": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/prediction/completed.json",
+          "sha256": "a6d531bce5a8edd76444d5928f8ea632e80491e0c4307c46e8e55f1b40d914eb",
+          "bytes": 1499
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "external_to_MoVi_training_not_pristine_historical_test"
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": true,
+      "overfit": false
+    },
+    {
+      "id": "showcase-sideways",
+      "title": "侧向移动",
+      "action": "横向迈步与重心转移",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "MoVi",
+      "split": "DEV12",
+      "splitLabel": "MoVi · DEV12 · 未参与模型训练",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "MoVi_F_S59_sideways_part2_v1",
+      "video": "media/showcase/showcase-sideways.mp4",
+      "poster": "media/showcase/showcase-sideways.jpg",
+      "duration": 11.8,
+      "duration_seconds": 11.8,
+      "caption": "横向迈步与重心转移。",
+      "description": "真人与该模型的G1实际物理执行同步播放；采用参考首姿态初始化。从原三栏视频保留真人与Student两栏。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "locomotion",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "q29_rmse_rad": 0.0575347716010274,
+        "root_xy_rmse_m": 0.13350171120933904,
+        "heading_mae_deg": 4.9973001960435575,
+        "G1_29_root_translation_relative_MPJPE_mm": 20.205711345869968,
+        "contact_force_F1": 0.9400599400599401
+      },
+      "bytes": 270361,
+      "sha256": "ede141101aa9e632126de2736ce03fbd31dfd4410393aef9488fb3ee7652b254",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 328,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/attempts/fada5649244c4593a8c9a50482d51192/comparison.mp4",
+        "sha256": "61e476c5f87763b550ef4f13aa993b6636e0098cc058195e788e735ffdda8948",
+        "bytes": 1404814
+      },
+      "receipt": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/completed.json",
+        "sha256": "2fe989e60b6a4980e253d58d8ec8352610f510adc10839fa09da191c14b602ec",
+        "bytes": 30885
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "VAL",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/completed.json",
+          "sha256": "2fe989e60b6a4980e253d58d8ec8352610f510adc10839fa09da191c14b602ec",
+          "bytes": 30885
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/physics/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/completed.json",
+          "sha256": "fd128976bca64da91a6463bd149df352a7d78fdaebd4c6080ae83143fc3d49fd",
+          "bytes": 21706
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/completed.json",
+          "sha256": "bef8acf7af61f7fc3524331a3c630b8977432b6e08171e16be5e512e846a8b2a",
+          "bytes": 21106
+        },
+        "physical_execution": true,
+        "initialization": "reference_first_pose",
+        "crop": "left Human and right Student panels; middle Teacher omitted",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 11.78,
+        "original_human_action_seconds": 13.7,
+        "source_prediction": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/completed.json",
+          "sha256": "bef8acf7af61f7fc3524331a3c630b8977432b6e08171e16be5e512e846a8b2a",
+          "bytes": 21106
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "Full original admitted VAL RGB segment; original60 predeclared, supplemental coverage prepared after fixed12 student outcomes; no outcome-based source selection."
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": false,
+      "overfit": false
+    },
+    {
+      "id": "showcase-jogging",
+      "title": "慢跑与摆臂",
+      "action": "连续迈步与双臂交替摆动",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "MoVi",
+      "split": "DEV12",
+      "splitLabel": "MoVi · DEV12 · 未参与模型训练",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "MoVi_F_S57_jogging_part2_v1",
+      "video": "media/showcase/showcase-jogging.mp4",
+      "poster": "media/showcase/showcase-jogging.jpg",
+      "duration": 8,
+      "duration_seconds": 8,
+      "caption": "连续迈步与双臂交替摆动。",
+      "description": "真人与该模型的G1实际物理执行同步播放；采用参考首姿态初始化。从原三栏视频保留真人与Student两栏。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "arms",
+        "locomotion",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "q29_rmse_rad": 0.09558760560911521,
+        "root_xy_rmse_m": 0.19614201667674197,
+        "heading_mae_deg": 13.162176534009818,
+        "G1_29_root_translation_relative_MPJPE_mm": 36.015830651391255,
+        "contact_force_F1": 0.9227799227799228
+      },
+      "bytes": 219725,
+      "sha256": "f100e0ba62ec82a5ee928fdb80443c242a040cd7e2d0aa3b92d3c063951a9684",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 328,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_jogging_part2_v1/attempts/b1b1f43a14544496b4a437f4b6bb3afc/comparison.mp4",
+        "sha256": "5bc4f88d9f0353458355a729a5ce7d3a1a10711843705b92f2edbedba4ed7ddf",
+        "bytes": 1116271
+      },
+      "receipt": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_jogging_part2_v1/completed.json",
+        "sha256": "a863f2ae226d0f9fe7dcdd24b5df1111cd3a3dde6464dee8c061aa4a50c6939e",
+        "bytes": 30908
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "VAL",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_jogging_part2_v1/completed.json",
+          "sha256": "a863f2ae226d0f9fe7dcdd24b5df1111cd3a3dde6464dee8c061aa4a50c6939e",
+          "bytes": 30908
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/physics/r38_F_expand48_6000_DEV12_MoVi_F_S57_jogging_part2_v1/completed.json",
+          "sha256": "ff96bd84440104f79c71e1b033750511571bc725d3a55e74d49d02cf07d88a29",
+          "bytes": 21723
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_DEV12_MoVi_F_S57_jogging_part2_v1/completed.json",
+          "sha256": "c9e3ea580152946a8cee5648235d8cad67df427abe619d7430c20173fe5f0b78",
+          "bytes": 21126
+        },
+        "physical_execution": true,
+        "initialization": "reference_first_pose",
+        "crop": "left Human and right Student panels; middle Teacher omitted",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 8,
+        "original_human_action_seconds": 9.933333333333334,
+        "source_prediction": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_DEV12_MoVi_F_S57_jogging_part2_v1/completed.json",
+          "sha256": "c9e3ea580152946a8cee5648235d8cad67df427abe619d7430c20173fe5f0b78",
+          "bytes": 21126
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "Full original admitted VAL RGB segment; original60 predeclared, supplemental coverage prepared after fixed12 student outcomes; no outcome-based source selection."
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": false,
+      "overfit": false
+    },
+    {
+      "id": "showcase-walking",
+      "title": "行走",
+      "action": "向前行走与自然摆臂",
+      "model": "r38_F_expand48",
+      "model_name": "GVHMR联合模型 · 48段训练",
+      "dataset": "MoVi",
+      "split": "DEV12",
+      "splitLabel": "MoVi · DEV12 · 未参与模型训练",
+      "category": "showcase",
+      "group": "showcase",
+      "source": "MoVi_F_S57_walking_part2_v1",
+      "video": "media/showcase/showcase-walking.mp4",
+      "poster": "media/showcase/showcase-walking.jpg",
+      "duration": 7.52,
+      "duration_seconds": 7.52,
+      "caption": "向前行走与自然摆臂。",
+      "description": "真人与该模型的G1实际物理执行同步播放；采用参考首姿态初始化。从原三栏视频保留真人与Student两栏。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "locomotion",
+        "GVHMR",
+        "SONIC",
+        "G1 mesh"
+      ],
+      "metrics": {
+        "q29_rmse_rad": 0.08251476089973107,
+        "root_xy_rmse_m": 0.1815086943222078,
+        "heading_mae_deg": 13.515943493565992,
+        "G1_29_root_translation_relative_MPJPE_mm": 39.78411164052675,
+        "contact_force_F1": 0.9069557362240289
+      },
+      "bytes": 174204,
+      "sha256": "27c7f36b64da493215dd7d4519dd3debf0caa1486a0f7d3b373de668cd5980e7",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 328,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/attempts/6d7aaaf2b6154920acb0dbacf5936213/comparison.mp4",
+        "sha256": "990251365c22acf22b2fce4a3943e792c29fff5e65b1fbee5dd12038b37b179c",
+        "bytes": 925355
+      },
+      "receipt": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/completed.json",
+        "sha256": "04d8e0c05a80e8f6ca499acbb3d3c9d682f61eb54e0374ff0c48005114b79b9b",
+        "bytes": 30906
+      },
+      "verification": {
+        "checkpoint": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+          "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+          "bytes": 16579191
+        },
+        "training_receipt": {
+          "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/completed.json",
+          "sha256": "68473279c17d42eeae4690c059d5acec299e3b5ac158ab7170f51da70334a87c",
+          "bytes": 145407
+        },
+        "training_config": {
+          "path": "outputs/research38_preparation/configs/r38_F_expand48.json",
+          "sha256": "85e590c3e91d61efbfa5d19699e62d8c2d057d6593568fc61a96980ea1efd74a",
+          "bytes": 1013588
+        },
+        "training_manifest": {
+          "path": "research-data/run/research38_20261106/data/train_extension/train_features.json",
+          "sha256": "4a7955c028f8553b0c15ab8d4a3d142adc7ab6962db615560a56d13e7a311893",
+          "bytes": 42858775
+        },
+        "train_source_count": 48,
+        "train_source_ids": [
+          "MoVi_F_S37_walking_part2_v1",
+          "MoVi_F_S49_walking_part2_v1",
+          "MoVi_F_S35_jogging_part2_v1",
+          "MoVi_F_S31_jogging_part2_v1",
+          "MoVi_F_S51_sideways_part2_v1",
+          "MoVi_F_S30_sideways_part2_v1",
+          "MoVi_F_S30_walking_part2_v1",
+          "MoVi_F_S38_walking_part2_v1",
+          "MoVi_F_S53_walking_part2_v1",
+          "MoVi_F_S54_walking_part2_v1",
+          "MoVi_F_S31_walking_part2_v1",
+          "MoVi_F_S42_walking_part2_v1",
+          "MoVi_F_S42_jogging_part2_v1",
+          "MoVi_F_S54_jogging_part2_v1",
+          "MoVi_F_S38_jogging_part2_v1",
+          "MoVi_F_S43_jogging_part2_v1",
+          "MoVi_F_S52_jogging_part2_v1",
+          "MoVi_F_S49_jogging_part2_v1",
+          "MoVi_F_S40_sideways_part2_v1",
+          "MoVi_F_S35_sideways_part2_v1",
+          "MoVi_F_S52_sideways_part2_v1",
+          "MoVi_F_S49_sideways_part2_v1",
+          "MoVi_F_S43_sideways_part2_v1",
+          "MoVi_F_S48_sideways_part2_v1",
+          "MoVi_F_S48_running_in_spot_part2_v1",
+          "MoVi_F_S35_running_in_spot_part2_v1",
+          "MoVi_F_S49_running_in_spot_part2_v1",
+          "MoVi_F_S42_running_in_spot_part2_v1",
+          "MoVi_F_S49_stretching_part2_v1",
+          "MoVi_F_S37_stretching_part2_v1",
+          "MoVi_F_S47_throw_catch_part2_v1",
+          "MoVi_F_S54_throw_catch_part2_v1",
+          "MoVi_F_S25_scratching_head_part2_v1",
+          "MoVi_F_S27_scratching_head_part2_v1",
+          "MoVi_F_S25_taking_photo_part2_v1",
+          "MoVi_F_S29_taking_photo_part2_v1",
+          "MoVi_F_S27_hand_waving_part2_v1",
+          "MoVi_F_S29_hand_waving_part2_v1",
+          "MoVi_F_S25_phone_talking_part2_v1",
+          "MoVi_F_S27_phone_talking_part2_v1",
+          "MoVi_F_S30_pointing_part2_v1",
+          "MoVi_F_S31_pointing_part2_v1",
+          "MoVi_F_S25_hand_clapping_part2_v1",
+          "MoVi_F_S28_hand_clapping_part2_v1",
+          "MoVi_F_S31_checking_watch_part2_v1",
+          "MoVi_F_S33_checking_watch_part2_v1",
+          "MoVi_F_S29_crossarms_part2_v1",
+          "MoVi_F_S25_stretching_part2_v1"
+        ],
+        "train_subjects": [
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          37,
+          38,
+          40,
+          42,
+          43,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54
+        ],
+        "source_excluded_from_train": true,
+        "subject_split": "VAL",
+        "frozen_split_manifest": {
+          "path": "research-data/data/registration/d600_frozen.json",
+          "sha256": "52063d2b67deb49eeaee788703a15b5886407166467e0189ef4083e6a0a5e222",
+          "bytes": 67225
+        },
+        "receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/completed.json",
+          "sha256": "04d8e0c05a80e8f6ca499acbb3d3c9d682f61eb54e0374ff0c48005114b79b9b",
+          "bytes": 30906
+        },
+        "physics_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/physics/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/completed.json",
+          "sha256": "eed1f6f36d62a933069803fd192aaba0988261e84999755f8eab5bc78125dd5c",
+          "bytes": 21723
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/completed.json",
+          "sha256": "2e671ecc15ea52e949557b22ad97975dd1f4bd8acddc38f84afa0737a82e88d4",
+          "bytes": 21125
+        },
+        "physical_execution": true,
+        "initialization": "reference_first_pose",
+        "crop": "left Human and right Student panels; middle Teacher omitted",
+        "temporal_edits": "none",
+        "playback_speed": 1,
+        "evaluated_input_seconds": 7.5,
+        "original_human_action_seconds": 9.433333333333334,
+        "source_prediction": {
+          "path": "research-data/run/research38_20261106/data/evaluation/predictions/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/completed.json",
+          "sha256": "2e671ecc15ea52e949557b22ad97975dd1f4bd8acddc38f84afa0737a82e88d4",
+          "bytes": 21125
+        },
+        "visual_inspection": "Original rendered contact sheets inspected before action labels; original human RGB and actual Student mesh",
+        "evaluation_scope": "Full original admitted VAL RGB segment; original60 predeclared, supplemental coverage prepared after fixed12 student outcomes; no outcome-based source selection."
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": false,
+      "overfit": false
+    }
   ]
 }

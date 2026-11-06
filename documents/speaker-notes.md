@@ -1,6 +1,14 @@
 # Video2Action：共享控制空间科研汇报讲稿
 
-建议时长约20分钟，含约90秒视频。正文顺序对应网页14节：pipeline、overfit、data、vision、latent、training、ablations、root、generalization、metrics、efficiency、retarget、extensions、resources。方括号为演示动作，不口播。实验数值快照为2026年11月6日；外部验证和效率以网页标注时间及实际完成分母为准。
+建议时长约21分钟，含开场视频展示。正文顺序对应网页14节：pipeline、overfit、data、vision、latent、training、ablations、root、generalization、metrics、efficiency、retarget、extensions、resources。方括号为演示动作，不口播。实验数值快照为2026年11月6日；外部验证和效率以网页标注时间及实际完成分母为准。
+
+## 开场视频：先看训练之外的动作（60–90秒）
+
+[打开页面顶部的8段视频展区，默认双列。先播放挥手、交替抬臂和屈膝前举，再展示120秒自然动作的视频开头与中段；需要放大时用播放器全屏按钮。]
+
+先看几段没有参与对应模型训练的视频。这里既有挥手、交替抬臂，也有双臂前举和屈膝配合，还有一分钟和两分钟的连续动作。每个窗口左边是真人输入，右边是模型驱动的机器人实际执行。八段都使用48段训练的同一个联合模型，以GVHMR作为人体前端，通过SONIC控制接口驱动机器人。
+
+这些片段按动作类型集中展示，便于观察局部姿态、身体移动和动作转场。后面我会解释模型怎样把真人和机器人两种输入连接到共同空间，并用完整评价集合和消融说明效果来自哪里。
 
 ## 1. Main Contribution：人类与机器人共享的可执行运动空间（2分钟）
 
