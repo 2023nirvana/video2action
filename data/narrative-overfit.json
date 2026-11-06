@@ -1,0 +1,571 @@
+{
+  "schema_version": "video2action_scientific_narrative_v1",
+  "generated_at": "2026-11-06",
+  "contribution": {
+    "title": "人类与机器人共享SONIC控制空间",
+    "main": "学习人体运动与机器人视频到共同可执行运动接口的映射，使新视频推理省去逐视频的人体到G1显式重定向。",
+    "method": "真人RGB→冻结GVHMR→145维全身运动→Motion Transformer；机器人RGB→VideoMAE+LoRA；两域汇入同一命令头→固定FSQ→64维SONIC命令→冻结decoder＋机器人状态→PD与物理执行。",
+    "setup": "训练使用MoVi同步动捕生成G1参考与teacher命令标签；内部有参考的跟踪评估按参考首姿态初始化，外部及自然长序列采用固定站姿。推理免重定向指固定训练完成后，新视频的命令生成路径。",
+    "evidence": [
+      "六段RGB配对实验建立共同命令双域可拟合性。",
+      "全身运动入口使12 DEV世界MPJPE从423.82降至289.36mm，改善31.7%。",
+      "固定模型实际朝向反馈使12 DEV朝向误差从20.54降至3.94°。",
+      "扩展至48段训练动作后，在43段额外验证上q误差0.1238rad，世界MPJPE60.97mm。"
+    ]
+  },
+  "modules": [
+    {
+      "id": "gvhmr",
+      "name": "人体全身运动恢复",
+      "input": "真人RGB视频",
+      "operation": "冻结GVHMR恢复21个身体关节旋转、根运动与六点静止概率，构造每时刻145维观测。",
+      "purpose": "把人体外观先转为可学习的运动信息，让命令模型直接利用姿态、转向和移动线索。",
+      "trainable": "GVHMR固定；输出作为模型输入。",
+      "designReason": "相似像素变化可能来自动作、相机或外观；人体运动表示提供结构化观测。",
+      "evidence": "32段训练、相同12k更新的三入口比较中，全身运动入口使12 DEV世界MPJPE从423.8160降至289.3556mm。",
+      "evidenceType": "前端受控重训",
+      "nextTest": "分别遮蔽身体旋转、根运动和静止概率，再用重训检查各组贡献。",
+      "sources": [
+        "gv-method",
+        "gv-results"
+      ]
+    },
+    {
+      "id": "motion-transformer",
+      "name": "人体运动时序编码",
+      "input": "16×145，采样区间为锚点前1.0秒至后0.5秒",
+      "operation": "145→128投影、两层四头Transformer和时间均值读出，得到128维表示。",
+      "purpose": "由姿态及其时间变化判断动作相位，使静止、抬起、落下和转向进入命令预测。",
+      "trainable": "投影、时间编码器和读出可训练。",
+      "designReason": "同一姿态可属于不同运动方向，需要时序上下文。",
+      "evidence": "固定模型将16时刻反序，12 DEV世界MPJPE由289.36升至401.55mm；置零条件有3/12跌倒。",
+      "evidenceType": "固定权重输入干预",
+      "nextTest": "历史长度、单时刻与时序结构在相同训练配置下分别重训。",
+      "sources": [
+        "gv-method",
+        "gv-results"
+      ]
+    },
+    {
+      "id": "robot-rgb",
+      "name": "机器人视频编码",
+      "input": "两个时间窗口，每窗16帧、224×224",
+      "operation": "共享VideoMAE-Base提取空间特征，末4层Q/V加入rank8 LoRA。",
+      "purpose": "保留机器人RGB输入能力，将机器人画面转换为共同控制空间可读的表示。",
+      "trainable": "基础权重冻结，LoRA与视觉读出更新。",
+      "designReason": "短窗观察局部变化，长窗提供动作阶段；LoRA为外观到运动命令提供适配容量。",
+      "evidence": "六段实验中，两域使用同一RGB网络；Joint的人/机器人q误差为0.02884/0.02803rad。",
+      "evidenceType": "完整RGB系统双域拟合",
+      "nextTest": "保持曝光与头容量，分别重训单时间窗、冻结LoRA和不同LoRA容量。",
+      "sources": [
+        "six-provider",
+        "six-results",
+        "module-method"
+      ]
+    },
+    {
+      "id": "rgb-readout",
+      "name": "RGB空间与时间读出",
+      "input": "2×49×768动态特征和静态首帧clip特征",
+      "operation": "绝对特征与静态参照差分拼接；4个可学习query读取空间位置；8锚点Transformer形成128维表示。",
+      "purpose": "同时保留姿态、局部肢体变化与动作节奏，使机器人RGB进入共享命令头。",
+      "trainable": "投影、query、空间注意力与时间模块更新。",
+      "designReason": "静态差分提供相对起始画面的变化；query学习选择相关区域；时序缓解单帧歧义。",
+      "evidence": "使用这些模块的完整RGB模型已完成六段双域拟合；各模块必要性由后续独立重训检验。",
+      "evidenceType": "系统证据与结构设计依据",
+      "nextTest": "分别替换差分、query和历史长度，保持数据与参数预算。",
+      "sources": [
+        "module-method",
+        "six-provider"
+      ]
+    },
+    {
+      "id": "shared-head",
+      "name": "共享命令头",
+      "input": "人体运动或机器人视觉的128维表示",
+      "operation": "同一命令投影输出5×2×32连续pre-FSQ命令；每个锚点覆盖5个50Hz控制子步。",
+      "purpose": "把不同观测方式约束到同一个可执行接口；每个域均学习同一时刻的teacher命令。",
+      "trainable": "共享投影与指定运动辅助分支更新；固定接口实验冻结相应输出模块。",
+      "designReason": "共同标签把外观/运动表示的学习与控制语义联系起来；五子步连接10Hz命令更新与50Hz控制。",
+      "evidence": "六段Joint同时拟合两域；新模型以不同感知入口共同更新命令头。",
+      "evidenceType": "跨域共同监督与系统执行",
+      "nextTest": "比较参数匹配的共享头/分域头，以及固定头/更新头。",
+      "sources": [
+        "six-train",
+        "gv-method",
+        "r38-results"
+      ]
+    },
+    {
+      "id": "fsq",
+      "name": "固定FSQ量化",
+      "input": "每子步2×32连续命令",
+      "operation": "按照发布控制器接口量化一次，得到64维SONIC命令。",
+      "purpose": "使学习到的输出符合冻结控制器的输入形式与数值分布。",
+      "trainable": "量化规则固定。",
+      "designReason": "表示、量化和控制器共同定义执行语义，保持接口可直接复用控制能力。",
+      "evidence": "当前两域模型均通过该接口执行；接口兼容性与量化必要性是不同的实验问题。",
+      "evidenceType": "控制接口定义",
+      "nextTest": "先诊断pre→token敏感度；连续接口比较需匹配控制器训练。",
+      "sources": [
+        "module-method"
+      ]
+    },
+    {
+      "id": "decoder",
+      "name": "状态相关低层控制",
+      "input": "64维命令＋930维机器人本体历史",
+      "operation": "冻结SONIC decoder输出29维动作，结合当前实际身体状态形成关节目标。",
+      "purpose": "由低层策略处理平衡、惯性和接触，把同一运动命令用于当前机器人身体。",
+      "trainable": "decoder固定，当前监督不穿过仿真反传。",
+      "designReason": "视频描述想执行的动作；实际状态决定此刻应如何施加控制。",
+      "evidence": "Student使用自己状态逐帧执行；六段12k全部72次SONIC rollout完整。",
+      "evidenceType": "物理执行记录",
+      "nextTest": "在固定感知输出下检验状态修正与扰动恢复。",
+      "sources": [
+        "six-physics",
+        "six-results",
+        "module-method"
+      ]
+    },
+    {
+      "id": "pd",
+      "name": "PD与接触动力学",
+      "input": "29维动作",
+      "operation": "按默认关节角与动作scale构造PD目标；MuJoCo积分执行器与地面接触，回传下一状态。",
+      "purpose": "把网络命令转成真实仿真运动；根平移由步态与接触产生。",
+      "trainable": "PD与物理参数固定。",
+      "designReason": "浮动基座没有直接XY位置执行器，姿态与世界轨迹需要分别评价。",
+      "evidence": "关节、根路径、朝向、接触与完整率从实际Student轨迹计算。",
+      "evidenceType": "执行与评价定义",
+      "nextTest": "统一初态、控制器与指标后比较执行策略。",
+      "sources": [
+        "six-physics",
+        "module-method"
+      ]
+    },
+    {
+      "id": "heading-feedback",
+      "name": "执行朝向反馈",
+      "input": "视频相对朝向＋机器人实际yaw",
+      "operation": "在固定神经网络下变换SONIC命令，另设1.4动态增益条件。",
+      "purpose": "当身体实际朝向偏移时，让命令继续指向视频描述的运动方向。",
+      "trainable": "部署修正规则固定，来源为旧TRAIN。",
+      "designReason": "命令包含相对朝向语义；相同数值在不同身体朝向下可能产生不同世界方向。",
+      "evidence": "同一全身运动模型12 DEV，heading20.54→3.94°、XY0.247→0.191m；增益条件XY0.176m。",
+      "evidenceType": "固定模型部署干预",
+      "nextTest": "结合扩展动作模型，按移动类型分析方向、路径与足部代理。",
+      "sources": [
+        "root-results"
+      ]
+    }
+  ],
+  "overfit": {
+    "title": "六段配对动作：共享控制空间的可拟合性",
+    "clips": [
+      {
+        "id": "overfit-walking",
+        "action": "行走",
+        "sourceId": "MoVi_F_S37_walking_part2_v1",
+        "sourceGroup": "MoVi/F/Subject37",
+        "split": "TRAIN",
+        "durationSeconds": 11.26,
+        "durationDefinition": "SONIC实际50Hz控制评分时长；MP4封装时长单独列出",
+        "originalActionSeconds": 12.2,
+        "sourceOffsetSeconds": 150.62,
+        "validAnchorCount": 112,
+        "mediaDurationSeconds": 11.28,
+        "media": "/media/overfit-walking.mp4",
+        "sourceIndex": 93,
+        "frames": 563
+      },
+      {
+        "id": "overfit-jogging",
+        "action": "慢跑",
+        "sourceId": "MoVi_F_S35_jogging_part2_v1",
+        "sourceGroup": "MoVi/F/Subject35",
+        "split": "TRAIN",
+        "durationSeconds": 10.06,
+        "durationDefinition": "SONIC实际50Hz控制评分时长；MP4封装时长单独列出",
+        "originalActionSeconds": 11.0,
+        "sourceOffsetSeconds": 67.38,
+        "validAnchorCount": 100,
+        "mediaDurationSeconds": 10.08,
+        "media": "/media/overfit-jogging.mp4",
+        "sourceIndex": 140,
+        "frames": 503
+      },
+      {
+        "id": "overfit-stretch",
+        "action": "伸展",
+        "sourceId": "MoVi_F_S37_stretching_part2_v1",
+        "sourceGroup": "MoVi/F/Subject37",
+        "split": "TRAIN",
+        "durationSeconds": 4.94,
+        "durationDefinition": "SONIC实际50Hz控制评分时长；MP4封装时长单独列出",
+        "originalActionSeconds": 5.866666666666666,
+        "sourceOffsetSeconds": 16.14,
+        "validAnchorCount": 49,
+        "mediaDurationSeconds": 4.96,
+        "media": "/media/overfit-stretch.mp4",
+        "sourceIndex": 94,
+        "frames": 247
+      },
+      {
+        "id": "overfit-throw-catch",
+        "action": "抛接",
+        "sourceId": "MoVi_F_S47_throw_catch_part2_v1",
+        "sourceGroup": "MoVi/F/Subject47",
+        "split": "TRAIN",
+        "durationSeconds": 7.56,
+        "durationDefinition": "SONIC实际50Hz控制评分时长；MP4封装时长单独列出",
+        "originalActionSeconds": 8.5,
+        "sourceOffsetSeconds": 83.28,
+        "validAnchorCount": 75,
+        "mediaDurationSeconds": 7.56,
+        "media": "/media/overfit-throw-catch.mp4",
+        "sourceIndex": 239,
+        "frames": 378
+      },
+      {
+        "id": "overfit-sideways",
+        "action": "侧移",
+        "sourceId": "MoVi_F_S28_sideways_part2_v1",
+        "sourceGroup": "MoVi/F/Subject28",
+        "split": "TRAIN",
+        "durationSeconds": 7.58,
+        "durationDefinition": "SONIC实际50Hz控制评分时长；MP4封装时长单独列出",
+        "originalActionSeconds": 8.5,
+        "sourceOffsetSeconds": 41.14,
+        "validAnchorCount": 75,
+        "mediaDurationSeconds": 7.6,
+        "media": "/media/overfit-sideways.mp4",
+        "sourceIndex": 30,
+        "frames": 379
+      },
+      {
+        "id": "overfit-phone",
+        "action": "打电话",
+        "sourceId": "MoVi_F_S46_phone_talking_part2_v1",
+        "sourceGroup": "MoVi/F/Subject46",
+        "split": "TRAIN",
+        "durationSeconds": 8.56,
+        "durationDefinition": "SONIC实际50Hz控制评分时长；MP4封装时长单独列出",
+        "originalActionSeconds": 9.5,
+        "sourceOffsetSeconds": 136.22,
+        "validAnchorCount": 85,
+        "mediaDurationSeconds": 8.56,
+        "media": "/media/overfit-phone.mp4",
+        "sourceIndex": 219,
+        "frames": 428
+      }
+    ],
+    "setup": {
+      "objective": "用固定配对TRAIN集合检验同一RGB网络和SONIC接口能否同时拟合真人与机器人输入。",
+      "inputProtocol": "两域均读RGB，采用同一VideoMAE+LoRA、空间/时间头与命令投影；这一六段实验与后续GVHMR人体入口分开呈现。",
+      "pairs": "MoVi真人RGB与同步动捕离线构造的G1参考相配；teacher物理执行后生成机器人RGB及记录命令。",
+      "updates": 12000,
+      "seeds": [
+        2026101801,
+        2026101802
+      ],
+      "arms": [
+        {
+          "id": "R",
+          "name": "仅机器人视频训练",
+          "domains": [
+            "paired_robot"
+          ]
+        },
+        {
+          "id": "H",
+          "name": "仅真人视频训练",
+          "domains": [
+            "human"
+          ]
+        },
+        {
+          "id": "J",
+          "name": "真人＋机器人联合训练",
+          "domains": [
+            "human",
+            "paired_robot"
+          ]
+        }
+      ],
+      "sampling": "六段按固定顺序轮换；每步在该段有效锚点中有放回随机抽4个。相同seed的R/H/J复用同一采样表，J在同一4锚点分别读取两域。",
+      "anchorsPerDomainPerUpdate": 4,
+      "updatesPerClip": 2000,
+      "anchorExposuresPerClipPerDomain": 8000,
+      "anchorExposuresPerDomain": 48000,
+      "commandExposuresPerDomain": 240000,
+      "uniqueValidAnchors": 496,
+      "balance": "联合模型两域等权求和；相同更新数和每域曝光量，联合模型总域曝光是单域模型的两倍。",
+      "initialization": "各seed从其机器人单域P0共享头开始；P0训练1000步、40000条旧机器人命令监督。VideoMAE加载同一预训练权重，rank8 LoRA的A采用Kaiming初始化、B置零，初始适配增量为0。R/H/J不继承人域适配权重。",
+      "trainable": "VideoMAE最后4个block的Q/V rank8 LoRA（98,304参数）及完整共享视觉头（715,456参数）；基础VideoMAE、FSQ、SONIC decoder、PD固定。",
+      "loss": "每域mean(((predicted_pre−teacher_pre)/fixed_robot_target_std)^2)；J将human与paired_robot两项相加后一步更新。action_weight=alignment_weight=variance_weight=0；不加入目标差分损失或旧机器人replay。",
+      "optimizer": "AdamW；LoRA/head学习率均1e−4，LoRA权重衰减0、head权重衰减1e−4，betas=(0.9,0.999)、eps=1e−8，梯度范数裁剪1。",
+      "label": "实际teacher记录的连续pre-FSQ SONIC命令，按每锚点5×2×32监督；不是直接回归人体关节或播放teacher轨迹。",
+      "evaluation": "每个R/H/J模型分别输入六段human与paired_robot视频；每格6段×2seed=12次，最终共72次物理rollout。先按参考首qpos初始化、qvel置零，保持首姿态预热10个控制tick，之后连续执行，不作中途重置。",
+      "rollout": "视频先独立预测命令并固定；每20ms由SONIC读取预测token和Student自己的930维状态历史产生动作，经PD/MuJoCo得到下一状态。评分对照是同后端teacher实际轨迹。",
+      "metadataNote": "旧模板中的8H/旧replay/3seed文字未代表本实验；以上由固定采样表、实际循环与完成计数交叉核对。"
+    },
+    "rows": [
+      {
+        "step": 12000,
+        "arm": "R",
+        "domain": "human",
+        "n": 12,
+        "full": 12,
+        "q29_rmse_rad": 0.24713581072914606,
+        "root_xy_rmse_m": 0.2854193330548213,
+        "heading_mae_deg": 64.23657255840702,
+        "contact_F1": 0.8782584178210486,
+        "armLabel": "仅机器人训练",
+        "domainLabel": "真人视频"
+      },
+      {
+        "step": 12000,
+        "arm": "R",
+        "domain": "paired_robot",
+        "n": 12,
+        "full": 12,
+        "q29_rmse_rad": 0.026405118879803836,
+        "root_xy_rmse_m": 0.11262954218393334,
+        "heading_mae_deg": 12.31109908430074,
+        "contact_F1": 0.9759492200743902,
+        "armLabel": "仅机器人训练",
+        "domainLabel": "机器人视频"
+      },
+      {
+        "step": 12000,
+        "arm": "H",
+        "domain": "human",
+        "n": 12,
+        "full": 12,
+        "q29_rmse_rad": 0.030232573918927582,
+        "root_xy_rmse_m": 0.09707335205026016,
+        "heading_mae_deg": 9.627075623038804,
+        "contact_F1": 0.9809160265073318,
+        "armLabel": "仅真人训练",
+        "domainLabel": "真人视频"
+      },
+      {
+        "step": 12000,
+        "arm": "H",
+        "domain": "paired_robot",
+        "n": 12,
+        "full": 12,
+        "q29_rmse_rad": 0.24724618603148898,
+        "root_xy_rmse_m": 0.3148673043359464,
+        "heading_mae_deg": 76.89909618369333,
+        "contact_F1": 0.8695420519942456,
+        "armLabel": "仅真人训练",
+        "domainLabel": "机器人视频"
+      },
+      {
+        "step": 12000,
+        "arm": "J",
+        "domain": "human",
+        "n": 12,
+        "full": 12,
+        "q29_rmse_rad": 0.028839793452314248,
+        "root_xy_rmse_m": 0.07277189260643235,
+        "heading_mae_deg": 5.883556811120816,
+        "contact_F1": 0.9751515219341996,
+        "armLabel": "两域联合训练",
+        "domainLabel": "真人视频"
+      },
+      {
+        "step": 12000,
+        "arm": "J",
+        "domain": "paired_robot",
+        "n": 12,
+        "full": 12,
+        "q29_rmse_rad": 0.028031850369018153,
+        "root_xy_rmse_m": 0.07905334716209637,
+        "heading_mae_deg": 6.882962867825708,
+        "contact_F1": 0.9769026050190683,
+        "armLabel": "两域联合训练",
+        "domainLabel": "机器人视频"
+      }
+    ],
+    "mechanism": [
+      "同步动作在human与robot图像中具有不同外观，却指向相同teacher命令；共同监督为两域提供明确对应关系。",
+      "联合模型所有六段、两种输入共用一套RGB网络参数；单域交叉输入对照区分控制器可用与外观映射可用。",
+      "从有限动作中反复抽时间窗口，优先检验表示和优化是否能容纳两域；扩大人物、动作与来源在独立泛化章节检验。"
+    ],
+    "conclusion": "同一联合RGB模型在真人与机器人输入上的关节RMSE分别为0.02884与0.02803rad，两个域均12/12完整执行；结果建立共同命令空间的双域拟合可行性。",
+    "sources": [
+      {
+        "id": "six-selection",
+        "label": "六段动作登记与原始时长",
+        "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/registration/selection.json"
+      },
+      {
+        "id": "six-panel",
+        "label": "六段评估源与有效时间锚点",
+        "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/registration/evaluation_dataset.json"
+      },
+      {
+        "id": "six-prepare",
+        "label": "固定六段、两种子和采样表生成",
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/paired_overfit27/prepare.py"
+      },
+      {
+        "id": "six-train",
+        "label": "R/H/J实际训练循环与损失",
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/paired_overfit27/sonic_train.py"
+      },
+      {
+        "id": "six-provider",
+        "label": "P0初始化、标签读取与视觉编码器",
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_fresh_raw_train.py"
+      },
+      {
+        "id": "six-registration",
+        "label": "实际可训练参数登记",
+        "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/sonic/models/J_s2026101801/registration.json"
+      },
+      {
+        "id": "six-completed",
+        "label": "联合模型12,000步与曝光计数",
+        "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/sonic/models/J_s2026101801/completed.json"
+      },
+      {
+        "id": "six-results",
+        "label": "六段两种子物理结果",
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json"
+      },
+      {
+        "id": "six-physics",
+        "label": "参考首姿态初始化与独立物理执行",
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_eval_v2.py"
+      }
+    ]
+  },
+  "generalization": {
+    "title": "从配对短片到跨来源连续运动",
+    "internal": "MoVi固定12段DEV检验移动、方向和速度；43段额外VAL覆盖更多非移动动作。两组均与本轮梯度训练隔离，按各自分母报告；这些评估集已有研究使用历史。",
+    "trainingComparison": "全身运动父模型32 TRAIN；继续训练对照保留32 TRAIN；扩展动作模型增加至48 TRAIN。后两者均从同一父模型增加6000步，以继续训练对照区分动作覆盖与训练时长。",
+    "external": "HuMMan使用固定父模型与扩展动作模型，登记人物、动作ID和视频来源；首批48是累计120的子集，按实时已执行/计划数量报告。",
+    "longSequence": "MoVi三段原录制切出30/60/120秒嵌套窗口，从固定站姿一次初始化连续执行；45/120秒既有视频用于直观观察转场与漂移。",
+    "metrics": "有同步G1参考时报告关节、世界/去平移MPJPE、root与接触；没有同步全长G1参考的外部/自然长片报告完整率、跌倒、路径、低速比例和脚速代理。后者描述执行行为，不写作模仿误差。",
+    "plan": "在固定模型下分人物、动作、视角和时长扩展覆盖；后续封存独立测试来源，并为外部长片建立同步参考或有协议的动作一致性评审。"
+  },
+  "modelGlossary": [
+    {
+      "name": "RGB共同空间模型",
+      "meaning": "真人与机器人都读RGB，是六段拟合与入口比较中的视觉方案。"
+    },
+    {
+      "name": "全身运动共同空间模型",
+      "meaning": "真人经GVHMR与Motion Transformer、机器人读RGB，训练与控制接口共享；GV-only指真人入口而非human-only训练。"
+    },
+    {
+      "name": "继续训练对照",
+      "meaning": "保留32段训练动作，从全身运动父模型再训练6000步；复现键r38_A_continue。"
+    },
+    {
+      "name": "固定共享命令接口",
+      "meaning": "冻结末端命令投影及运动到命令模块，训练输入表示；复现键r38_B_freeze。"
+    },
+    {
+      "name": "加强根运动监督",
+      "meaning": "增加运动辅助项权重和指定root分量权重；复现键r38_C_root。"
+    },
+    {
+      "name": "运动观测增强",
+      "meaning": "对输入加入轻微噪声和局部时间遮罩/插值；复现键r38_D_aug。"
+    },
+    {
+      "name": "固定接口＋根运动＋观测增强",
+      "meaning": "组合以上三个修改；复现键r38_E_combo。"
+    },
+    {
+      "name": "扩展动作模型（48段）",
+      "meaning": "将人体训练动作覆盖从32段扩到48段，从同一父模型增加6000步；复现键r38_F_expand48。"
+    },
+    {
+      "name": "原生表示/SONIC执行后端",
+      "meaning": "两套完整控制系统，表示、状态和控制器均有差异；Direct与Flow是原生视觉头的两个候选。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "six-selection",
+      "label": "六段动作登记与原始时长",
+      "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/registration/selection.json"
+    },
+    {
+      "id": "six-panel",
+      "label": "六段评估源与有效时间锚点",
+      "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/registration/evaluation_dataset.json"
+    },
+    {
+      "id": "six-prepare",
+      "label": "固定六段、两种子和采样表生成",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/paired_overfit27/prepare.py"
+    },
+    {
+      "id": "six-train",
+      "label": "R/H/J实际训练循环与损失",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/paired_overfit27/sonic_train.py"
+    },
+    {
+      "id": "six-provider",
+      "label": "P0初始化、标签读取与视觉编码器",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_fresh_raw_train.py"
+    },
+    {
+      "id": "six-registration",
+      "label": "实际可训练参数登记",
+      "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/sonic/models/J_s2026101801/registration.json"
+    },
+    {
+      "id": "six-completed",
+      "label": "联合模型12,000步与曝光计数",
+      "path": "/localssd/video2action_part2_20261018/run/paired_overfit27_20261027/sonic/models/J_s2026101801/completed.json"
+    },
+    {
+      "id": "six-results",
+      "label": "六段两种子物理结果",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json"
+    },
+    {
+      "id": "six-physics",
+      "label": "参考首姿态初始化与独立物理执行",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_eval_v2.py"
+    },
+    {
+      "id": "gv-method",
+      "label": "全身GVHMR输入、共享头与训练方法",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/14_GVHMR全身前端_20261105/01_全身GV前端与训练计划.md"
+    },
+    {
+      "id": "gv-results",
+      "label": "全身运动前端三模型与输入干预",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/14_GVHMR全身前端_20261105/02_终态结果与推荐Demo_20261106.md"
+    },
+    {
+      "id": "root-results",
+      "label": "固定模型根运动反馈与扩展动作验证",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/15_GVHMR根运动与泛化_20261106/03_根反馈与扩展验证.md"
+    },
+    {
+      "id": "r38-results",
+      "label": "扩展48训练动作及五项方法对照",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/15_GVHMR根运动与泛化_20261106/完整指标与配对消融.json"
+    },
+    {
+      "id": "external",
+      "label": "HuMMan与自然长序列固定模型验证",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/17_新模型多来源泛化_20261106/results.json"
+    },
+    {
+      "id": "module-method",
+      "label": "模块定义与独立消融问题",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报网页_20261105/content/module_reasoning.json"
+    }
+  ]
+}

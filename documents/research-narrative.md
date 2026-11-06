@@ -1,369 +1,121 @@
-# Video2Action｜科研汇报材料与证据
+# Video2Action：人类与机器人共享的可执行运动空间
 
-证据快照：2026年11月5日。新版网页按完整Pipeline、逐模块reason、训练、消融与指标展开；20条原精选及3条新增GV融合对照视频在页面内直接播放。最新正文以网页14节为主，以下保留既有实验材料。逐模块可检验假设与24项消融见module_reasoning.json。
+**Main Contribution｜学习不同观测到同一个SONIC控制空间的映射，使新视频推理省去逐视频的人体到G1显式重定向。**
 
-## 研究问题
+真人与机器人拥有不同的外观和身体结构，但动作中包含共同的姿态变化、节奏与运动方向。Video2Action用模态适配的感知入口提取这些信息，再通过共享命令头进入同一个机器人控制接口。人体视频经全身运动恢复与时序编码，机器人视频经视觉编码；两者输出同一类SONIC运动命令，由冻结低层策略结合机器人实际状态完成物理执行。
 
-人和机器人看起来不同，但一个动作仍包含共同的节奏、姿态与方向。我们希望把这些信息交给同一个视觉模型，再通过可执行的运动命令连接到机器人身体。困难不仅在于看懂视频：机器人一旦产生方向或速度偏差，原本在teacher状态下成立的命令，也可能不再适合当前身体状态。
+这一路线有三组互相衔接的证据：六段配对动作建立同一RGB模型的双域拟合能力；全身运动入口在12段开发视频上将世界身体点误差从423.82降至289.36毫米；固定模型的实际朝向反馈进一步将方向误差从20.54降至3.94度。动作覆盖扩大到48段后，43段额外验证的世界身体点误差为60.97毫米。各组实验采用各自固定的输入、训练与评分协议。
 
-因此，项目同时研究三个问题：人和机器人能否共享命令；视觉动作能否在物理中持续执行；视频意图如何与机器人的实际状态匹配。
+## 1. 从运动观测到机器人执行
 
-## 方法：从RGB到实际运动
+**真人入口。** 真人RGB先经冻结的GVHMR恢复人体全身运动。每时刻145维观测包含21个身体关节的6D旋转（126维）、身体局部速度与相对朝向等根运动特征（7维）、去初始朝向的根旋转（6维），以及六点静止概率（6维）。静止概率提供时段线索；机器人接触力由后续物理执行产生。
 
-### 01 · 读取运动上下文
+**运动编码。** 每个命令锚点采样前1.0秒至后0.5秒的16个时刻，经145→128投影、两层四头Motion Transformer和时间读出形成128维表示。它学习姿态怎样变化、处于动作哪个阶段，从而区分抬起与落下、停顿与启动。
 
-双时间窗口同时保留局部动作和较长节奏。VideoMAE提供视觉特征，末4层LoRA与后续预测头学习从两种外观到运动命令的映射。每个锚点读取2×49×768特征。
+**机器人入口。** 机器人RGB经VideoMAE与末四层LoRA形成视觉表示。短、长两个时间窗口分别提供局部变化与动作阶段；静态首帧参照差分、空间注意力和八锚点时序模块将视觉信息汇聚到128维。两个入口在感知形式上各取所长，在命令头处共享参数与监督。
 
-### 02 · 汇聚姿态与时间变化
+**共享命令。** 一个128维表示预测未来五个50Hz控制子步，每步输出2×32个连续pre-FSQ数值。固定FSQ按SONIC发布接口量化一次，形成64维运动命令。五子步连接10Hz命令更新与50Hz控制，每一步均有独立预测值。
 
-绝对特征与相对静态首帧clip的特征差共同输入。空间query关注局部身体信息，8锚点时序模块整合节奏与相位。这里的特征差是相对第一帧重复16次构成的静态clip的特征差，不是相邻帧时间导数。
+**状态相关执行。** 冻结SONIC decoder读取64维命令及930维机器人本体历史，输出29维动作。动作经过默认角与尺度转换为PD关节目标，再由MuJoCo接触动力学产生下一状态。图中的回环箭头对应Student自己的实际状态；世界平移通过步态与地面接触形成。
 
-### 03 · 预测共享命令
+**数据与评价设置。** 训练使用MoVi同步动捕离线生成G1参考，并由teacher物理执行记录共同命令标签和机器人RGB；真人视频通过统一物理时间与之配对。内部有参考的跟踪评估从参考首姿态初始化；外部与自然长序列使用固定站姿启动。这里的“推理免重定向”描述固定模型处理新视频时的命令生成路径。GVHMR采用离线视频恢复，运动窗口含0.5秒未来信息。
 
-真人与机器人RGB经过同一个forward，预测未来5个50Hz命令，输出5×2×32个连续pre-FSQ数值，再执行一次固定量化。训练时，同步的人类视频与teacher机器人渲染指向同一命令标签。推理时使用视频预测，不读取teacher动作序列。
+## 2. 六段配对动作：共同空间怎样建立
 
-### 04 · 让方向匹配实际状态
+这一实验把问题集中为：同一套视觉网络能否将两种外观映射到相同的可执行命令？因此固定六段TRAIN动作，反复采样有效时间窗口，先建立共同空间的可拟合性。六段均来自MoVi，包含移动、全身协调和局部上肢动作。
 
-已有研究分支将视频估计的相对yaw与机器人实际yaw结合，对冻结的RGB命令作状态相关变换。在12片几何可用DEV上，新Joint的heading从38.06°降至5.23°。该分支使用离线GVHMR，不是所有RGB模型的默认输入；方向改善之后，移动路程仍约为参考的一半。
+| 动作 | 来源人物 | 原始动作时长 / 秒 | 实际SONIC评分时长 / 秒 | 有效锚点数 |
+|---|---|---:|---:|---:|
+| 行走 | S37 | 12.20 | 11.26 | 112 |
+| 慢跑 | S35 | 11.00 | 10.06 | 100 |
+| 伸展 | S37 | 5.87 | 4.94 | 49 |
+| 抛接 | S47 | 8.50 | 7.56 | 75 |
+| 侧移 | S28 | 8.50 | 7.58 | 75 |
+| 打电话 | S46 | 9.50 | 8.56 | 85 |
 
-### 05 · 在物理中执行
+六个动作实例来自五位人物，共496个有效时间锚点。表中时长为实际50Hz控制评分时长；播放器的MP4封装时长单独保留在素材记录中。
 
-64维命令与930维本体状态送入冻结SONIC decoder，产生29维关节动作，经PD控制和MuJoCo接触动力学得到实际运动。student列显示这一物理执行结果。teacher列仅作为评分参考。
+**如何重复训练。** 六段动作按固定顺序轮换，每步从当段有效锚点中有放回抽取四个。每个锚点读取八个历史位置的短、长RGB窗口，监督未来五条命令。每个seed运行12,000次参数更新，每段被选中2,000步，即每域8,000次锚点曝光。联合模型在相同四个锚点上同时读取真人和机器人画面，分别计算域内平均损失，再等权相加。
 
-**训练与部署说明。** 主线训练使用离线动捕适配和teacher命令；主线部署输入为RGB与机器人本体状态。部分数据窗口含0.5秒前瞻，参考姿态初始化也影响部署条件。头部因果mask不等于整个系统零延迟因果。当前主结果来自监督训练，不应标为端到端视觉PPO。
+**如何设对照。** 仅机器人训练（R）、仅真人训练（H）与两域联合训练（J）使用两个随机种子。相同seed的三个模型共享采样表，并从该seed的机器人单域P0头初始化；P0已训练1,000步。VideoMAE基础权重固定，末四层Q/V的rank8 LoRA初始增量为零。实验更新98,304个LoRA参数和715,456个视觉头参数，冻结FSQ、SONIC decoder及PD。
 
-## 逐片实验与来源
+**究竟优化什么。** 标签是teacher实际记录的连续pre-FSQ命令。每域损失为标准化命令均方误差：`mean(((prediction − teacher_pre) / fixed_target_std)²)`。采用AdamW，LoRA和head学习率均为1e−4，head权重衰减1e−4，梯度裁剪1。该六段实验没有启用action、额外表示alignment或目标差分损失，也不加入旧机器人replay。每域共48,000次锚点曝光、240,000条控制命令监督；J与单域模型更新数和每域曝光相同，总域曝光为两倍。
 
-以下视频全部可追溯到汇报目录中的现有文件；不改轨迹，不重跑物理。
+**怎样得到Student。** 先独立预测整段视频命令，再以参考首姿态、零速度初始化，保持首姿态预热十个控制tick，随后连续物理执行。每20毫秒，SONIC根据预测token和Student自身状态重新输出动作；中途不重置。teacher另行执行以提供共同评分参照。表中每格包含六段×两个seed，共12次实际rollout。
 
-### 01 · 机器人RGB → 物理执行
+| 训练模型 | 评价视频 | 关节RMSE / rad | Root XY RMSE / m | 朝向MAE / ° | 完整执行 |
+|---|---|---:|---:|---:|---:|
+| 仅机器人训练 | 真人 | 0.24714 | 0.28542 | 64.24 | 12/12 |
+| 仅机器人训练 | 机器人 | 0.02641 | 0.11263 | 12.31 | 12/12 |
+| 仅真人训练 | 真人 | 0.03023 | 0.09707 | 9.63 | 12/12 |
+| 仅真人训练 | 机器人 | 0.24725 | 0.31487 | 76.90 | 12/12 |
+| 两域联合训练 | 真人 | **0.02884** | **0.07277** | **5.88** | 12/12 |
+| 两域联合训练 | 机器人 | 0.02803 | **0.07905** | **6.88** | 12/12 |
 
-**Robot / Native / Flow / TRAIN · 6.00s**
+**结论。** 同一个联合RGB模型能够同时拟合两域，动作由共同命令空间驱动实际机器人执行。真人抛接和机器人抛接视频最直接地展示这一点：输入外观变化，使用的网络参数、命令接口与控制器相同。六段试验承担双域可拟合性的论证；未见人物、动作、视角与来源在泛化章节分别检验。后续全身运动模型使用专门的人体入口，共享的是命令头与控制后端。
 
-原生Flow控制器链路：机器人RGB、源动作重建与视觉驱动物理执行；三栏展示坐标有初始对齐。
+## 3. 每个模块承担什么问题
 
-本精选清单未绑定可信的逐片数值；不从视频外观推测定量分数。
+| 模块 | 解决的问题 | 已有证据与下一项验证 |
+|---|---|---|
+| GVHMR全身观测 | 将人体外观转换为身体姿态与根运动线索 | 三入口重训比较支持全身运动入口；分组干预可进一步定位身体、root与静止概率的作用 |
+| Motion Transformer | 区分姿态相同、运动方向或相位不同的时刻 | 固定模型反序输入提高物理误差，支持时序信息被使用；历史长度由重训比较 |
+| VideoMAE＋LoRA | 将机器人画面适配到命令预测 | 双域RGB拟合及实际梯度记录支持系统可用；窗口尺度与LoRA容量分别消融 |
+| 静态差分与空间query | 同时保留姿态与局部变化，并选择相关位置 | 结构提供明确的信息通路；差分、query及数量的贡献用替换后重训衡量 |
+| 共享命令头 | 用同一监督定义两种输入的执行含义 | 六段单域交叉输入与联合输入构成直接对照；共享头和分域头可进一步匹配容量比较 |
+| 固定FSQ | 对接冻结SONIC控制器的命令分布 | 是已验证执行接口的一部分；连续接口比较需要同步匹配控制器 |
+| SONIC＋PD | 根据真实身体状态完成平衡与接触 | Student实际rollout给出关节、方向、路径与接触评价 |
+| 实际朝向反馈 | 修正视频运动方向与当前身体朝向的偏差 | 固定同一模型开关反馈，直接衡量部署变换的作用 |
 
-视频：[01_机器人输入_原生Flow控制器_训练动作009868.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/01_机器人输入_原生Flow控制器_训练动作009868.mp4)
+设计动机说明模块为何值得加入；固定权重干预说明模型是否使用某种信息；相同训练条件下的重训对照说明改变模块会带来什么效果。网页将这三类结论分别对应到实验。
 
-证据：[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)；[Demo来源与视频信息.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/Demo来源与视频信息.json)
+## 4. 全身运动入口带来的改善
 
-### 02 · 原生链路 · 验证动作
+从同一父模型出发，固定32段训练动作、相同采样表与12,000次更新，比较“RGB入口”“全身运动＋RGB”“全身运动入口”。机器人侧均保留RGB，联合训练目标为真人命令损失加0.5倍机器人命令损失，并保留0.1权重的运动辅助项。GVHMR输出作为输入进入模型。
 
-**Robot / Native / DEV · 6.00s**
+在相同12段DEV、五位人物上，全身运动入口将关节RMSE从0.1310降至0.0986rad，世界G1-29 MPJPE从423.8160降至289.3556mm，Root XY从0.3513降至0.2468m，速度向量误差从0.2596降至0.1773m/s。世界误差按人物聚类的配对95%区间为−157.50至−93.91mm。全身运动加RGB的世界误差为428.5890mm，比较支持直接让人体运动表示承担命令预测这一结构。
 
-动作012203未参与该视觉模型梯度训练，展示机器人输入的开发验证案例。
+固定全身运动模型，将16个输入时刻反序，世界误差由289.36增至401.55mm；置零输入造成3/12段跌倒。这组干预支持模型利用了输入的运动内容与时序。组件层面的归因将继续通过身体旋转、根运动和静止概率的分组干预与重训检验。
 
-本精选清单未绑定可信的逐片数值；不从视频外观推测定量分数。
+播放行走换向时，观察Student的实际移动：同源视频的路程从0.97增至2.40m，参考为2.81m；朝向从73.38改善到17.75°。慢跑与侧移进一步展示全身协调。关节、世界路径、接触F1与接触脚速分列，分别反映姿态、空间运动、接触时段和足部运动。
 
-视频：[03_机器人输入_原生Flow控制器_验证动作012203.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/03_机器人输入_原生Flow控制器_验证动作012203.mp4)
+## 5. 将视频方向与实际身体状态连接
 
-证据：[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)；[Demo来源与视频信息.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/Demo来源与视频信息.json)
+SONIC命令与编码时的身体朝向有关。机器人实际偏航后，继续发送固定数值可能改变世界运动方向。因此，在固定神经网络的前提下，用视频估计的相对朝向和机器人实际yaw变换命令；部署变换与1.4动态增益沿用既有TRAIN设置。
 
-### 03 · 同一Joint模型 · 行走
+同一个全身运动模型、同12段DEV上，开关朝向反馈使朝向误差20.54→3.94°，XY误差0.247→0.191m，速度误差0.177→0.141m/s。加入1.4动态增益后，XY为0.176m、速度误差0.131m/s。这是将状态相关控制语义显式接入共享空间的证据。
 
-**Human / Joint / TRAIN / 6段Overfit · 11.28s**
+## 6. 统一泛化验证：人物、动作、来源与时长
 
-持续行走展示姿态和步态拟合，同时仍可观察全局位置偏差。
+内部MoVi验证分成两个固定面板：12段DEV以移动和方向为重点；43段额外VAL覆盖更多非移动动作。两组均与本轮梯度训练隔离，已有研究使用历史，表格按各自分母报告。
 
-q 0.03745rad · XY 0.27725m · heading 8.95°。
+扩展动作模型从全身运动父模型继续训练，将训练覆盖从32段增加到48段；继续训练对照保留原32段。两者都增加6,000步，从而区分覆盖变化与单纯继续训练。12段DEV上，世界MPJPE为281.55→261.02mm；43段VAL上，关节误差为0.1522→0.1238rad，世界MPJPE为67.44→60.97mm，两个模型均43/43完整。这组结果支持扩大动作覆盖对共同控制空间的价值。
 
-视频：[05_双域联合训练_真人行走_六段Overfit.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/05_双域联合训练_真人行走_六段Overfit.mp4)
+HuMMan用于检验外部人物、服装、动作与拍摄分布；固定比较全身运动父模型和扩展动作模型。首批48源是累计120源的子集，网页同时显示计划数、实际执行数、完整数与跌倒数。自然长序列选取三段MoVi原录制的30、60、120秒嵌套窗口，从固定站姿一次初始化连续执行，观察动作切换与长期状态变化。
 
-证据：[六段联合拟合_原始审计.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json)；[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)
+没有同步全长G1参考的HuMMan及自然长片，报告完整率、跌倒、实际路径、低速比例和接触脚速代理。这些量描述执行行为；有参考的短片才报告对应的跟踪误差。后续沿人物、动作、视角和时长扩大覆盖，并为外部长序列建立同步参考或明确的动作一致性评审协议。
 
-### 04 · 同一Joint模型 · 慢跑
+## 7. 推理成本与研究推进
 
-**Human / Joint / TRAIN / 6段Overfit · 10.08s**
+共享接口把部署计算分成视频感知、学习式命令适配和状态控制三部分。缓存145维运动观测后，实测每100毫秒锚点的命令预测平均约1.45毫秒；CPU的SONIC与PD/MuJoCo每20毫秒控制tick平均约10.93毫秒。同一A40、同12个原始视频及三次重复的完整流程实测已计入GVHMR全视频恢复、命令生成和物理执行，数值见网页效率表的快照。进一步比较将固定同一原始视频、硬件和精度，完整统计“GVHMR＋学习式适配”与“GVHMR＋显式重定向＋同控制器”的总时间，并单列一次训练成本。
 
-关注足部交替、躯干节奏与上肢协调。
+下一步围绕三个明确问题展开：更广动作覆盖如何提高未见动作执行；身体、根运动与静止概率各贡献哪些信息；固定共享接口和状态反馈如何同时保持机器人输入能力与人体运动表达。对应实验将保持来源划分、初态和评分时钟一致，用真实物理轨迹回答。
 
-q 0.03437rad · XY 0.01786m · heading 2.21°。
+## 模型名称
 
-视频：[06_双域联合训练_真人慢跑_六段Overfit.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/06_双域联合训练_真人慢跑_六段Overfit.mp4)
+| 正文名称 | 改变的条件 | 复现键 |
+|---|---|---|
+| RGB共同空间模型 | 人与机器人均读RGB | 六段R/H/J；入口对照RGB |
+| 全身运动共同空间模型 | 人体读GVHMR运动，机器人读RGB | r37_gv_only |
+| 继续训练对照 | 保留32段训练覆盖，增加6,000步 | r38_A_continue |
+| 固定共享命令接口 | 冻结末端命令投影及运动到命令模块 | r38_B_freeze |
+| 加强根运动监督 | 增加运动辅助项及指定root分量权重 | r38_C_root |
+| 运动观测增强 | 输入噪声与局部时间遮罩/插值 | r38_D_aug |
+| 固定接口＋根运动＋观测增强 | 组合三项修改 | r38_E_combo |
+| 扩展动作模型（48段） | 扩大训练动作覆盖，增加6,000步 | r38_F_expand48 |
 
-证据：[六段联合拟合_原始审计.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json)；[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)
+“GV-only”指真人入口使用全身运动，整个模型仍按真人与机器人联合训练。原生表示后端与SONIC是两个完整执行系统；Direct和Flow是原生视觉命令头的两个候选形式。
 
-### 05 · 同一Joint模型 · 伸展
+## 来源
 
-**Human / Joint / TRAIN / 6段Overfit · 4.96s**
-
-关注手臂幅度及全身姿态传递。
-
-q 0.03071rad · XY 0.01077m · heading 2.14°。
-
-视频：[07_双域联合训练_真人伸展_六段Overfit.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/07_双域联合训练_真人伸展_六段Overfit.mp4)
-
-证据：[六段联合拟合_原始审计.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json)；[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)
-
-### 06 · 同一Joint模型 · 抛接
-
-**Human / Joint / TRAIN / 6段Overfit · 7.56s**
-
-上肢和躯干协调；与机器人抛接视频共享同一模型参数。
-
-q 0.02980rad · XY 0.00498m · heading 3.45°。
-
-视频：[08_双域联合训练_真人抛接_六段Overfit.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/08_双域联合训练_真人抛接_六段Overfit.mp4)
-
-证据：[六段联合拟合_原始审计.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json)；[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)
-
-### 07 · 同一Joint模型 · 侧移
-
-**Human / Joint / TRAIN / 6段Overfit · 7.60s**
-
-关注身体朝向和横向步态的配合。
-
-q 0.02132rad · XY 0.07984m · heading 8.00°。
-
-视频：[09_双域联合训练_真人侧移_六段Overfit.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/09_双域联合训练_真人侧移_六段Overfit.mp4)
-
-证据：[六段联合拟合_原始审计.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json)；[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)
-
-### 08 · 同一Joint模型 · 打电话
-
-**Human / Joint / TRAIN / 6段Overfit · 8.56s**
-
-小幅局部上肢动作，与移动动作共用一个模型。
-
-q 0.02423rad · XY 0.02876m · heading 1.51°。
-
-视频：[10_双域联合训练_真人打电话_六段Overfit.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/10_双域联合训练_真人打电话_六段Overfit.mp4)
-
-证据：[六段联合拟合_原始审计.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json)；[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)
-
-### 09 · 同一Joint模型 · 机器人抛接
-
-**Robot / Joint / TRAIN / 6段Overfit · 7.56s**
-
-与真人抛接共享前端参数、命令空间和SONIC控制器；输入外观改变，命令目标对应同一动作。
-
-q 0.02992rad · XY 0.00498m · heading 5.73°。
-
-视频：[11_同一联合模型_机器人视频输入_抛接.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/11_同一联合模型_机器人视频输入_抛接.mp4)
-
-证据：[六段联合拟合_原始审计.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json)；[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)
-
-### 10 · 失败案例 · 动了，但没有走够
-
-**Human / DEV/VAL / 失败对照 / Root · 8.52s**
-
-267段模型在未训练人物上的行走：局部动作可见，全局推进不足。完整保留这一失败，解释姿态误差与世界轨迹误差的差别。
-
-本精选清单未绑定可信的逐片数值；不从视频外观推测定量分数。
-
-视频：[15_问题示例_未训练人物行走_平移不足.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/15_问题示例_未训练人物行走_平移不足.mp4)
-
-证据：[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)；[Demo来源与视频信息.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/Demo来源与视频信息.json)
-
-### 11 · Human续训 · 连续45秒
-
-**Human / 45秒 / 无重置 / 无连续GT · 45.00s**
-
-一次初始化，连续执行45秒。该human-only续训模型来自Joint父模型，用于与联合模型作行为对照。
-
-没有全程连续GT；用于观察动作切换、行为与稳定性，不计入定量跟踪表。
-
-视频：[19_真人续训模型_连续45秒_无重置.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/19_真人续训模型_连续45秒_无重置.mp4)
-
-证据：[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)；[Demo来源与视频信息.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/Demo来源与视频信息.json)
-
-### 12 · Joint模型 · 连续45秒
-
-**Joint / 45秒 / 无重置 / 无连续GT · 45.00s**
-
-同样一次初始化连续执行，与Human续训长片对照动作衔接、移动与稳定性。
-
-没有全程连续GT；用于观察动作切换、行为与稳定性，不计入定量跟踪表。
-
-视频：[20_联合模型_连续45秒_无重置.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/20_联合模型_连续45秒_无重置.mp4)
-
-证据：[观看顺序与说明.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/观看顺序与说明.md)；[Demo来源与视频信息.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/Demo来源与视频信息.json)
-
-### 13 · 未训练人物 · Joint第二种子
-
-**Human / Joint / DEV / Intent · 5.20s**
-
-S56侧移，5.20秒。局部迁移案例；与同源无intent对照一起看，不能由单片推出整体优势。
-
-q 0.07712rad · XY 0.06529m · heading 10.82°。
-
-视频：[01_未训练人物侧移_Joint第二种子_5秒.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/Demo/01_未训练人物侧移_Joint第二种子_5秒.mp4)
-
-证据：[展示视频来源与逐片指标.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/展示视频来源与逐片指标.json)；[04_Demo观看顺序与证据.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md)
-
-### 14 · 同人同动作 · 无intent对照
-
-**Human / Joint / DEV / Control · 5.20s**
-
-同源、同seed的control。该片q略低，XY与heading较高；同时保留收益与取舍。
-
-q 0.07520rad · XY 0.07623m · heading 14.54°。
-
-视频：[02_同一人物侧移_无intent对照_5秒.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/Demo/02_同一人物侧移_无intent对照_5秒.mp4)
-
-证据：[展示视频来源与逐片指标.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/展示视频来源与逐片指标.json)；[04_Demo观看顺序与证据.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md)
-
-### 15 · 跨视角探针 · PG1
-
-**Human / DEV / PG1 / 跨视角 · 1.84s**
-
-固定模型、同一看手表动作的PG1相机；与PG2配对观察视角敏感性。
-
-q 0.14391rad · XY 0.00720m · heading 4.41°。
-
-视频：[07_跨视角探针_看手表_PG1.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/Demo/07_跨视角探针_看手表_PG1.mp4)
-
-证据：[展示视频来源与逐片指标.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/展示视频来源与逐片指标.json)；[04_Demo观看顺序与证据.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md)
-
-### 16 · 跨视角探针 · PG2
-
-**Human / DEV / PG2 / 跨视角 · 1.84s**
-
-同一模型、同步动作换为PG2视角。关节误差增大，是待解决的视角局限。
-
-q 0.25774rad · XY 0.01857m · heading 8.39°。
-
-视频：[08_同模型同动作_看手表_PG2.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/Demo/08_同模型同动作_看手表_PG2.mp4)
-
-证据：[展示视频来源与逐片指标.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/展示视频来源与逐片指标.json)；[04_Demo观看顺序与证据.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md)
-
-### 17 · 行走对照 · 加入朝向反馈
-
-**Human / Joint / DEV / 朝向反馈 / 失败对照 · 7.50s**
-
-真人 / 原Joint / 绿色朝向修正Joint。S57单片heading 101.64°→7.31°，实际路程1.002→1.097m，参考2.811m；方向改善，推进仍不足。
-
-该单片与12片主表的adapter版本分列，不能把单片数值当总体均值。
-
-视频：[05_行走_原Joint与朝向修正_8秒.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/Demo/05_行走_原Joint与朝向修正_8秒.mp4)
-
-证据：[04_Demo观看顺序与证据.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md)；[project_research_and_worklog_zh.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/docs/project_research_and_worklog_zh.md)
-
-### 18 · 连续120秒 · 一次初始化
-
-**Joint / 120秒 / 无重置 / 无连续GT · 120.00s**
-
-新Joint模型连续执行，未叠加朝向修正。观察动作切换与长期稳定性，也保留低姿态跟随不足。
-
-没有全程连续GT；用于观察动作切换、行为与稳定性，不计入定量跟踪表。
-
-视频：[06_连续120秒_新Joint模型_无朝向修正.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/Demo/06_连续120秒_新Joint模型_无朝向修正.mp4)
-
-证据：[04_Demo观看顺序与证据.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md)；[展示视频来源与逐片指标.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/展示视频来源与逐片指标.json)
-
-### 19 · 最新Joint · 未训练人物侧移
-
-**Human / Joint / DEV / Research35 · 5.20s**
-
-S56侧移，J_r025_t01。q 0.0662rad、heading 8.54°；局部迁移更好，但该DEV已反复用于开发。
-
-q 0.06624rad · XY 0.06906m · heading 8.54°。
-
-视频：[01_新Joint_未训练人物侧移_5秒.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/Demo/01_新Joint_未训练人物侧移_5秒.mp4)
-
-证据：[01_新Joint_未训练人物侧移_5秒.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/Demo/01_新Joint_未训练人物侧移_5秒.json)；[00_本轮结果总结.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/00_本轮结果总结.md)
-
-### 20 · 最新Joint · 11.78秒侧移
-
-**Human / Joint / VAL / Research35 · 11.80s**
-
-S59侧移，J_r05_t0。连续动作可见，实际路程1.9065m / 参考2.8314m，推进不足仍然存在。
-
-q 0.09302rad · XY 0.24203m · heading 14.19°。
-
-视频：[02_新Joint_较长侧移_12秒.mp4](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/Demo/02_新Joint_较长侧移_12秒.mp4)
-
-证据：[02_新Joint_较长侧移_12秒.json](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/Demo/02_新Joint_较长侧移_12秒.json)；[00_本轮结果总结.md](/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/00_本轮结果总结.md)
-
-## 定量结果：小幅改善，以及清楚的边界
-
-Research35六臂均完成24k续训。402次计划评估全部执行，其中401次完整，1次触发原始跌倒阈值。402是模型—来源评估次数，不是402个独立视频。
-
-主表使用相同55个DEV/VAL源，来自5人，每片等权。Joint父模型与五个Joint续训均55/55完整。H_t01有一条S59 jogging跌倒，H/J另用共同完整54片比较，同时保留失败计数。
-
-| 模型 | q↓ rad | XY↓ m | heading↓ ° | World MPJPE↓ mm | Root-relative MPJPE↓ mm | 接触F1↑ |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Joint父模型 | 0.15289 | 0.12200 | 19.29 | 161.25 | 56.00 | 0.94456 |
-| J_r025_t01 | 0.15151 | 0.12277 | 17.99 | 161.71 | 53.98 | 0.94552 |
-| J_r05_t01 | 0.15258 | 0.12493 | 18.91 | 162.37 | 56.05 | 0.94502 |
-| J_r1_t01 | 0.15288 | 0.12584 | 18.72 | 165.18 | 55.55 | 0.94470 |
-| J_r1_t0 | 0.15395 | 0.12391 | 18.73 | 162.24 | 55.29 | 0.94428 |
-| J_r05_t0 | 0.15237 | 0.11836 | 18.25 | 156.94 | 55.01 | 0.94383 |
-
-J_r05_t0的世界MPJPE相对父模型降低约2.67%，配对差−4.311mm，人物聚类95%区间[−13.585,+2.922]mm。平均小幅改善尚未形成稳定泛化优势。不同分支在q、方向与世界位置上存在取舍，不能用单一最优指标宣布全面胜出。
-
-H_t01在本轮关闭机器人梯度，但父模型已接受Joint训练，不能称“从未见过机器人域”的纯human-only模型。本轮未新增机器人域保持评估，也没有新的GVHMR融合或heading纠偏；不能把续训收益归因于这些未参与模块。
-
-### 指标怎么读
-
-- **q RMSE**：29关节全时段角度误差的均方根，单位rad。
-- **World MPJPE**：G1的29个活动关节link原点在世界坐标下的平均欧氏误差，保留root平移与朝向；无逐帧对齐、Procrustes或DTW。
-- **Root-relative MPJPE**：只去各自root平移，仍保留朝向误差。
-- **Root XY**：按两个平面坐标与时间平均的RMSE；**heading**为环绕yaw差的绝对均值。
-- **接触F1**：ankle-floor法向力大于1N视作接触，再与teacher比较。
-
-这些指标使用同后端teacher实际执行轨迹、50Hz采样与固定G1-29集合。它们不是与论文中不同身体集合、参考、成功筛选或初始化协议可以直接排名的benchmark分数。
-
-## 消融：哪些设计得到支持
-
-### 共享命令可以同时拟合两域
-
-六段TRAIN×2seed，Joint在human/robot输入的q分别为0.02884/0.02803rad。
-
-范围：小集合TRAIN可拟合性。不证明未见人物泛化优势。
-
-### 机器人配对梯度保留机器人输入能力
-
-P0起点、30k、12个TRAIN机器人输入：H→J的q两seed分别为0.30770→0.12607与0.30472→0.12607rad。
-
-范围：已见机器人域保持。55片人域上第一seed收益未在第二seed重复；双域保持与人域泛化需分开。
-
-### 方向需要与实际执行状态对齐
-
-冻结新Joint，12片几何DEV：heading 38.06°→5.23°；速度向量RMSE 0.2608→0.2260m/s。错时heading为53.29°。
-
-范围：TRAIN拟合adapter，固定12片开发评估。9个移动片路径比仍约0.546；没有解决推进距离。
-
-### 目标差分loss的收益依赖机器人权重
-
-相同24k更新，在机器人权重0.5下关闭temporal：43VAL世界MPJPE −7.154mm，人物聚类95%CI [−12.076,−3.103]mm；权重1下差值−2.349mm，CI跨0。
-
-范围：一个续训seed，同Joint父模型，同数据/更新数。目标差分loss匹配标签变化，不是把运动幅度压向零的平滑项。
-
-### 辅助运动预测尚未带来一致收益
-
-control/intent两seed、55片最终比较：整体q均微退，heading略降，XY没有一致收益；推理置零/反序引起的pre和token变化很小。
-
-范围：同父模型control/intent重训＋同checkpoint干预。结构可训练不等于该辅助支路已被充分使用；不把motion intent等同GVHMR输入。
-
-### 视角变化仍是明确挑战
-
-固定旧模型2段同步相机探针：PG1→PG2平均q 0.12470→0.25235rad。
-
-范围：2段短片、固定模型。只是视角敏感性诊断，不是多视角训练结果，更不能代表当前所有模型。
-
-## 当前局限
-
-**全局轨迹仍有误差。** S57 walking在本轮六臂仍约69.6–103.0°偏航，路径约0.896–1.003m，teacher为2.811m。局部动作像，不代表方向和位移正确。
-
-**开发集不等于封存测试。** 55片来自5人，已反复用于开发。最新世界MPJPE平均改善2.67%，人物聚类区间跨0，只有一个续训seed。
-
-**部署输入与训练监督分开。** 主线推理输入为RGB和机器人本体状态；训练使用离线动捕适配及teacher命令。参考姿态初始化、0.5秒lookahead和离线几何会影响真实部署条件。
-
-**长片用于观察，不伪造全片分数。** 45/120秒视频一次初始化连续执行，没有全程连续GT。它们显示行为与稳定性，不构成全片高精度追踪证据。
-
-**跨构型与视觉RL尚在推进。** 尚无本模型跨构型物理追踪成功结论，主要结果也不是端到端PPO。后续优先研究root反馈、速度纠偏、跨视角与外部来源验证。
-
-## 下一步
-
-优先把已有heading反馈接到当前候选，再研究实际状态下的速度纠偏；随后扩大同步双视角验证和外部自然视频覆盖。跨构型物理追踪与视觉RL保留独立证据要求。进行中的Research36必须以完成后的真实轨迹、分母和失败记录更新本页，准备与连通性小测不能提前写成效果结论。
-
-## 维护约定
-
-1. `evidence.json`保存原始数值，网页显示时再四舍五入。每张表绑定来源与评分范围。
-2. 新增demo填写稳定id、报告相对source、绝对source_path、标题、split、overfit、无连续GT标记、评分时段和证据路径。已有原片不改；网页素材可单独压缩并保留源绑定。
-3. 20条精选视频与媒体manifest用`source`连接。没有逐片分数的原生链、失败片和长片不凭画面补数值。
-4. 当前六段TRAIN字幕已在汇报副本中修正：历史原渲染曾误写DEV，动作轨迹未改。网页以训练配置核实后的标签为准。
-5. 同源多个模型、阶段、相机与seed不增加独立人物数。新增结果按日期形成证据快照，保留旧表和旧结论。
-6. 网页采用项目进展页语气。作者、机构、论文及代码公开入口仅在有真实可核实信息后添加。
+精确六段设置、原始数值、模块论证与文件路径集中在[narrative-overfit.json](narrative-overfit.json)。前端三模型及输入干预见[全身运动结果](../../科研汇报_20260917至20261103/14_GVHMR全身前端_20261105/02_终态结果与推荐Demo_20261106.md)，固定模型反馈与扩展验证见[根运动与扩展验证](../../科研汇报_20260917至20261103/15_GVHMR根运动与泛化_20261106/03_根反馈与扩展验证.md)，外部与长序列以[多来源验证快照](../../科研汇报_20260917至20261103/17_新模型多来源泛化_20261106/results.json)的时间和分母为准。

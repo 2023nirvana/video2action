@@ -1405,5 +1405,442 @@
     "parallel_jobs": 1,
     "operation": "stream-copy faststart",
     "decoded_frames_verified": true
-  }
+  },
+  "latest_items": [
+    {
+      "id": "f-walking",
+      "title": "F48 · 行走",
+      "model": "r38_F_expand48",
+      "model_name": "F · 扩展至48个训练来源",
+      "dataset": "MoVi",
+      "split": "DEV12",
+      "splitLabel": "MoVi · DEV12 · 未参与本轮训练",
+      "category": "latest",
+      "group": "latest",
+      "source": "MoVi_F_S57_walking_part2_v1",
+      "video": "media/latest/f-walking.mp4",
+      "poster": "media/latest/f-walking.jpg",
+      "duration": 7.52,
+      "duration_seconds": 7.52,
+      "metrics": {
+        "q29_rmse_rad": 0.08251476089973107,
+        "root_xy_rmse_m": 0.1815086943222078,
+        "heading_mae_deg": 13.515943493565992,
+        "root_velocity_vector_rmse_mps": 0.15429577848758882,
+        "G1_29_global_MPJPE_mm": 226.70012803867814,
+        "G1_29_root_translation_relative_MPJPE_mm": 39.78411164052675,
+        "contact_force_F1": 0.9069557362240289,
+        "contact_ankle_xy_speed_proxy_m_s": 0.09853610772005765,
+        "student_path_m": 2.474648910101937,
+        "teacher_path_m": 2.811264938214535
+      },
+      "caption": "同一真人片段、同一参考首姿态；Teacher与Student实际物理执行同步展示。",
+      "description": "同一真人片段、同一参考首姿态；Teacher与Student实际物理执行同步展示。",
+      "panels": [
+        "真人输入视频",
+        "Teacher执行参考",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "GVHMR",
+        "SONIC",
+        "G1 mesh",
+        "R38"
+      ],
+      "bytes": 221133,
+      "sha256": "9a3fc2a0805d49260b74766584a3670a49f2bbbc31777e8d80f4bd7148c78738",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 1152,
+        "height": 328,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/attempts/6d7aaaf2b6154920acb0dbacf5936213/comparison.mp4",
+        "sha256": "990251365c22acf22b2fce4a3943e792c29fff5e65b1fbee5dd12038b37b179c",
+        "bytes": 925355
+      },
+      "receipt": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S57_walking_part2_v1/completed.json",
+        "sha256": "04d8e0c05a80e8f6ca499acbb3d3c9d682f61eb54e0374ff0c48005114b79b9b",
+        "bytes": 30906
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": false,
+      "overfit": false
+    },
+    {
+      "id": "f-sideways",
+      "title": "F48 · 侧向移动",
+      "model": "r38_F_expand48",
+      "model_name": "F · 扩展至48个训练来源",
+      "dataset": "MoVi",
+      "split": "DEV12",
+      "splitLabel": "MoVi · DEV12 · 未参与本轮训练",
+      "category": "latest",
+      "group": "latest",
+      "source": "MoVi_F_S59_sideways_part2_v1",
+      "video": "media/latest/f-sideways.mp4",
+      "poster": "media/latest/f-sideways.jpg",
+      "duration": 11.8,
+      "duration_seconds": 11.8,
+      "metrics": {
+        "q29_rmse_rad": 0.0575347716010274,
+        "root_xy_rmse_m": 0.13350171120933904,
+        "heading_mae_deg": 4.9973001960435575,
+        "root_velocity_vector_rmse_mps": 0.07995323020445098,
+        "G1_29_global_MPJPE_mm": 176.36979661158006,
+        "G1_29_root_translation_relative_MPJPE_mm": 20.205711345869968,
+        "contact_force_F1": 0.9400599400599401,
+        "contact_ankle_xy_speed_proxy_m_s": 0.04719481910625398,
+        "student_path_m": 2.5483978548958084,
+        "teacher_path_m": 2.8314236947780325
+      },
+      "caption": "同一真人片段、同一参考首姿态；Teacher与Student实际物理执行同步展示。",
+      "description": "同一真人片段、同一参考首姿态；Teacher与Student实际物理执行同步展示。",
+      "panels": [
+        "真人输入视频",
+        "Teacher执行参考",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "GVHMR",
+        "SONIC",
+        "G1 mesh",
+        "R38"
+      ],
+      "bytes": 325118,
+      "sha256": "e41433f9827d044ae3daf7d4c346dde22d1ca9bb8ee54695ca6dfb4c8e3df3d2",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 1152,
+        "height": 328,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/attempts/fada5649244c4593a8c9a50482d51192/comparison.mp4",
+        "sha256": "61e476c5f87763b550ef4f13aa993b6636e0098cc058195e788e735ffdda8948",
+        "bytes": 1404814
+      },
+      "receipt": {
+        "path": "research-data/run/research38_20261106/data/evaluation/demos/r38_F_expand48_6000_DEV12_MoVi_F_S59_sideways_part2_v1/completed.json",
+        "sha256": "2fe989e60b6a4980e253d58d8ec8352610f510adc10839fa09da191c14b602ec",
+        "bytes": 30885
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": false,
+      "overfit": false
+    },
+    {
+      "id": "parent-walking",
+      "title": "父模型 · 同源行走",
+      "model": "r37_parent",
+      "model_name": "R37 · GV全身前端父模型",
+      "dataset": "MoVi",
+      "split": "DEV12",
+      "splitLabel": "MoVi · DEV12 · 未参与本轮训练",
+      "category": "latest",
+      "group": "latest",
+      "source": "MoVi_F_S57_walking_part2_v1",
+      "video": "media/latest/parent-walking.mp4",
+      "poster": "media/latest/parent-walking.jpg",
+      "duration": 7.52,
+      "duration_seconds": 7.52,
+      "metrics": {
+        "q29_rmse_rad": 0.07565070704689178,
+        "root_xy_rmse_m": 0.204398569040696,
+        "heading_mae_deg": 17.753789219988853,
+        "root_velocity_vector_rmse_mps": 0.14357417218736523,
+        "G1_29_global_MPJPE_mm": 240.8079548104948,
+        "G1_29_root_translation_relative_MPJPE_mm": 40.87332121626686,
+        "contact_force_F1": 0.9346642468239564,
+        "contact_ankle_xy_speed_proxy_m_s": 0.10347431183475489,
+        "student_path_m": 2.3982924861332995,
+        "teacher_path_m": 2.811264938214535
+      },
+      "caption": "同一真人片段、同一参考首姿态；Teacher与Student实际物理执行同步展示。",
+      "description": "同一真人片段、同一参考首姿态；Teacher与Student实际物理执行同步展示。",
+      "panels": [
+        "真人输入视频",
+        "Teacher执行参考",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "GVHMR",
+        "SONIC",
+        "G1 mesh",
+        "R38"
+      ],
+      "bytes": 222014,
+      "sha256": "8173f31132d6cf5e4524e5c7a6c59b011ec41ca9c16d601c1e5a977fe84d2ed4",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 1152,
+        "height": 328,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research37_20261105/evaluation/demos/r37_gv_only_s371105_12000_estimated_MoVi_F_S57_walking_part2_v1/attempts/7d01d17a5662400593ebd7ab06fe3aca/comparison.mp4",
+        "sha256": "3e2303cdffe60b110b7f522c98e2bdaf8e3a8207ff0bcd62f67eceecae5a6610",
+        "bytes": 931480
+      },
+      "receipt": {
+        "path": "research-data/run/research37_20261105/evaluation/demos/r37_gv_only_s371105_12000_estimated_MoVi_F_S57_walking_part2_v1/completed.json",
+        "sha256": "a3bb8d7c884e111113980ff954d135f245cdc6795626226fb724633b056cec98",
+        "bytes": 30977
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": false,
+      "overfit": false
+    },
+    {
+      "id": "r40-f48-movi30",
+      "title": "F48 · 自然连续30秒",
+      "model": "r38_F_expand48",
+      "model_name": "F · 扩展至48个训练来源",
+      "dataset": "MoVi",
+      "split": "existing_VAL_long",
+      "splitLabel": "既有VAL录制 · 连续长序列",
+      "category": "generalization",
+      "group": "generalization",
+      "source": "MoVi_F_S55_natural",
+      "video": "media/latest/r40-f48-movi30.mp4",
+      "poster": "media/latest/r40-f48-movi30.jpg",
+      "duration": 30,
+      "duration_seconds": 30,
+      "metrics": {
+        "requested_seconds": 30,
+        "completed_seconds": 30,
+        "full": true,
+        "failure": null,
+        "config_sha256": "88bbf505d6a9482e21f60d572964186d446be75726c085f44d6ccb846e331c0e",
+        "foot_contact_xy_speed_proxy_mps": 0.005567881456583933,
+        "foot_floor_contact_fraction": [
+          0.9986666666666667,
+          0.994
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.03644654067586511,
+          "net_xy_displacement_m": 0.13032014511732776,
+          "path_xy_m": 1.092667289462436,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.8424152570625242,
+          "root_height_min_m": 0.6796016970303711
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "MoVi_F_S55_natural",
+        "stationary_time_fraction_speed_lt005": 0.819212808539026,
+        "status": "complete",
+        "upright_zz_mean": 0.9982262147352128,
+        "upright_zz_min": 0.9790606285308898
+      },
+      "caption": "固定站姿初始化；无逐动作重置；输入真人与该模型实际G1轨迹同步展示。",
+      "description": "固定站姿初始化；无逐动作重置；输入真人与该模型实际G1轨迹同步展示。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "GVHMR",
+        "SONIC",
+        "G1 mesh",
+        "R40"
+      ],
+      "bytes": 508310,
+      "sha256": "fe052667b54adde3cdd0f0afbd84682f34fb1e1f485ba481a3e3cbb39532e5c6",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 368,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_30s/render/input_and_actual_robot.mp4",
+        "sha256": "3657b25ac5e8b5ff70fff841e5530e39c3421412e75ba296abe8abb9adec46f7",
+        "bytes": 7519662
+      },
+      "receipt": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_MoVi_F_S55_natural_30s/render/completed.json",
+        "sha256": "4d4221f8bfe773170d6fdae93a854352e08d5159afabced5f15596dda4327cdd",
+        "bytes": 697
+      },
+      "original_retained": true,
+      "long_without_gt": true,
+      "no_imitation_gt": true,
+      "overfit": false
+    },
+    {
+      "id": "r40-parent-humman",
+      "title": "HuMMan · 父模型 · 动作a000055",
+      "model": "r37_parent",
+      "model_name": "R37 · GV全身前端父模型",
+      "dataset": "HuMMan-Point",
+      "split": "external",
+      "splitLabel": "HuMMan · 当前MoVi训练外部视频",
+      "category": "generalization",
+      "group": "generalization",
+      "source": "p000448_a000055",
+      "video": "media/latest/r40-parent-humman.mp4",
+      "poster": "media/latest/r40-parent-humman.jpg",
+      "duration": 2,
+      "duration_seconds": 2,
+      "metrics": {
+        "requested_seconds": 2,
+        "completed_seconds": 2,
+        "full": true,
+        "failure": null,
+        "config_sha256": "4d159d06fbe98df1ca596fbcf9b278bdbf61fbb4605fcb792dcf4e7b13cafd0f",
+        "foot_contact_xy_speed_proxy_mps": 0.04301824306564641,
+        "foot_floor_contact_fraction": [
+          0.83,
+          0.95
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r37_parent",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.08788627139086867,
+          "net_xy_displacement_m": 0.08962615620694642,
+          "path_xy_m": 0.17401481735392,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.7760378335643587,
+          "root_height_min_m": 0.7017219612805062
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "p000448_a000055",
+        "stationary_time_fraction_speed_lt005": 0.18181818181818182,
+        "status": "complete",
+        "upright_zz_mean": 0.9933607059778524,
+        "upright_zz_min": 0.9833232171395331
+      },
+      "caption": "固定站姿初始化；无逐动作重置；输入真人与该模型实际G1轨迹同步展示。",
+      "description": "固定站姿初始化；无逐动作重置；输入真人与该模型实际G1轨迹同步展示。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "GVHMR",
+        "SONIC",
+        "G1 mesh",
+        "R40"
+      ],
+      "bytes": 81796,
+      "sha256": "03ccefd4900a3cfc58920fef9b975692860c6c1719a55d33b5d915f9a2a30055",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 368,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research40_20261106/evaluation/r37_parent_p000448_a000055/render/input_and_actual_robot.mp4",
+        "sha256": "bfd609f7a365131fb6a4b3758795a53069fd4e36a1a6f5c122ec07d7af46101f",
+        "bytes": 359944
+      },
+      "receipt": {
+        "path": "research-data/run/research40_20261106/evaluation/r37_parent_p000448_a000055/render/completed.json",
+        "sha256": "ddad5a1f36341c4f68435fe1aa3019adda36e16c4e7864fc0241dd93e1f3fd6a",
+        "bytes": 673
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": true,
+      "overfit": false
+    },
+    {
+      "id": "r40-f48-humman",
+      "title": "HuMMan · F48 · 动作a000055",
+      "model": "r38_F_expand48",
+      "model_name": "F · 扩展至48个训练来源",
+      "dataset": "HuMMan-Point",
+      "split": "external",
+      "splitLabel": "HuMMan · 当前MoVi训练外部视频",
+      "category": "generalization",
+      "group": "generalization",
+      "source": "p000448_a000055",
+      "video": "media/latest/r40-f48-humman.mp4",
+      "poster": "media/latest/r40-f48-humman.jpg",
+      "duration": 2,
+      "duration_seconds": 2,
+      "metrics": {
+        "requested_seconds": 2,
+        "completed_seconds": 2,
+        "full": true,
+        "failure": null,
+        "config_sha256": "9380d2d374a42afeae70953ee5325075ee7775c5a71c6fee3c793d8e2b8591ea",
+        "foot_contact_xy_speed_proxy_mps": 0.055256645827763115,
+        "foot_floor_contact_fraction": [
+          0.98,
+          0.95
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.07721203599089788,
+          "net_xy_displacement_m": 0.08725181143462536,
+          "path_xy_m": 0.1528798312619778,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.7789520791401593,
+          "root_height_min_m": 0.7182853232400371
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "p000448_a000055",
+        "stationary_time_fraction_speed_lt005": 0.32323232323232326,
+        "status": "complete",
+        "upright_zz_mean": 0.9953289821972011,
+        "upright_zz_min": 0.9846147136385944
+      },
+      "caption": "固定站姿初始化；无逐动作重置；输入真人与该模型实际G1轨迹同步展示。",
+      "description": "固定站姿初始化；无逐动作重置；输入真人与该模型实际G1轨迹同步展示。",
+      "panels": [
+        "真人输入视频",
+        "Student实际G1 mesh"
+      ],
+      "tags": [
+        "GVHMR",
+        "SONIC",
+        "G1 mesh",
+        "R40"
+      ],
+      "bytes": 81126,
+      "sha256": "88d7828b068872565383ce65dd82ff696da15e65e9b8d92aea5e8738500d911b",
+      "video_info": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 368,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1"
+      },
+      "original": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000448_a000055/render/input_and_actual_robot.mp4",
+        "sha256": "df91aeca9620fad366fb54cb33bef7b354ef5a4efec22d43bb957603d8f6c57c",
+        "bytes": 357364
+      },
+      "receipt": {
+        "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000448_a000055/render/completed.json",
+        "sha256": "a0059ec59417480aa2cd6f6f5bf45711079c5b56bb343470d150e16d0a79ff9f",
+        "bytes": 681
+      },
+      "original_retained": true,
+      "long_without_gt": false,
+      "no_imitation_gt": true,
+      "overfit": false
+    }
+  ]
 }
