@@ -1,0 +1,1804 @@
+{
+  "schema": "latency_media_evidence_v1",
+  "audit_date": "2026-11-13",
+  "scope": "只读历史证据、ffprobe与抽帧；无训练、无新模型推理、未修改网站",
+  "headline_zh": "完整常驻视觉前端约0.63秒/更新；完整RGB到机器人首动作延迟尚无实测。未发现可证更好的新真人外部执行demo，保留旧演示并标注模型。",
+  "latency": {
+    "resident_frontend": {
+      "hardware": "NVIDIA A40, physical GPU2, CPU torch threads=2",
+      "gpu_uuid": "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874",
+      "input": "每项8s/240帧，30fps；3新帧一批；warmup30帧；最多120帧/4s上下文；每项71次有效GV更新",
+      "included": [
+        "MP4增量解码",
+        "YOLO人体检测及因果bbox选择/EMA",
+        "crop",
+        "ViTPose + image encoder (flip_test=true)",
+        "GVHMR siga24完整predict及postprocess",
+        "CPU传回及后向root145特征",
+        "已提交点yaw+translation坐标接续"
+      ],
+      "excluded": [
+        "预先30fps重编码",
+        "模型初始化（另列）",
+        "相机采集/传输",
+        "命令适配器、FSQ、SONIC、PD/物理、真实机器人执行",
+        "实时丢帧/最新帧调度"
+      ],
+      "service_p50_range_s": [
+        0.6243370026350021,
+        0.646537434309721
+      ],
+      "service_p95_range_s": [
+        0.6340667475014925,
+        0.6665026862174273
+      ],
+      "load_range_s": [
+        11.676891505718231,
+        12.607053805142641
+      ],
+      "estimated_hz_range": [
+        1.5467008512316927,
+        1.601699075626656
+      ],
+      "scope_note": "完整视觉前端，不能称完整RGB→机器人端到端；倒数中位数为服务能力估计，不是实时摄像头测得更新率。",
+      "causality": "0/250ms仅访问已到达RGB；250ms在30fps向下取7帧，实际233.333ms；静态相机假设。窗口内双向GV合法，但不是原全视频缓存变成因果。",
+      "field_semantics_correction": "first_action_serial_simulated_seconds实际是模拟首次前端特征提交，不含动作；serial_fifo_data_age_s代码减target_pts，250ms组实际是目标动作年龄，较最新输入年龄多233.333ms。",
+      "code": "research-data/scripts/research44/resident.py",
+      "cases": [
+        {
+          "id": "MoVi_F_S55_sideways_part2_v1_human_la0",
+          "receipt": {
+            "path": "research-data/run/research44_20261111/resident/MoVi_F_S55_sideways_part2_v1_human_la0/completed.json",
+            "bytes": 43638,
+            "sha256": "e8f48c0986fef0b1a4d41dd9ae48366f4f66eb68649c6f5d2c643cfe1e671e48"
+          },
+          "input_probe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 800,
+                "height": 600,
+                "r_frame_rate": "30/1",
+                "duration": "8.000000",
+                "nb_frames": "240"
+              }
+            ]
+          },
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "domain": "human",
+          "lookahead_requested_s": 0.0,
+          "lookahead_actual_s": [
+            0.0
+          ],
+          "load_seconds": 11.971228953450918,
+          "service_seconds": {
+            "max": 0.7437353171408176,
+            "p50": 0.6350155286490917,
+            "p95": 0.6485428288578987
+          },
+          "timing_parts": {
+            "decode_seconds": {
+              "max": 0.0032371915876865387,
+              "p50": 0.0012972243130207062,
+              "p95": 0.002201138064265251
+            },
+            "detector_seconds": {
+              "max": 0.05346407741308212,
+              "p50": 0.04338859021663666,
+              "p95": 0.04756622947752476
+            },
+            "gv_seconds": {
+              "max": 0.4814066179096699,
+              "p50": 0.38761667162179947,
+              "p95": 0.3957182262092829
+            },
+            "pose_image_seconds": {
+              "max": 0.21621644124388695,
+              "p50": 0.20098819211125374,
+              "p95": 0.20484260469675064
+            }
+          },
+          "updates": 71,
+          "first_feature_commit_serial_fifo_simulated_s": 16.1993604041636,
+          "target_age_serial_fifo_simulated_s": {
+            "max": 52.38238546823462,
+            "p50": 33.57733943139513,
+            "p95": 50.497800767918434
+          },
+          "normalization_outside_service_s": 2.920892935246229,
+          "raw_protocol": {
+            "bbox": "causal last-box IoU selection + EMA; missing carry/full-frame fallback",
+            "context_seconds": 4,
+            "gauge": "yaw+translation anchored at previous committed timestamp",
+            "live_camera_test": false,
+            "lookahead_s": 0.0,
+            "models_resident": true,
+            "new_rgb_features_only": true,
+            "normalization_cost": 2.920892935246229,
+            "past_only_or_bounded_lookahead": true,
+            "queue": "serial FIFO simulation; prototype does not yet skip frames or issue robot commands",
+            "robot_control_included": false,
+            "static_camera_assumed": true
+          },
+          "actual_gpu_uuid": "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874",
+          "estimated_serial_hz_from_median": 1.5747646394212793
+        },
+        {
+          "id": "MoVi_F_S55_sideways_part2_v1_human_la250",
+          "receipt": {
+            "path": "research-data/run/research44_20261111/resident/MoVi_F_S55_sideways_part2_v1_human_la250/completed.json",
+            "bytes": 44724,
+            "sha256": "0567e54e184a74337702a877d3d25a4c540f6ad25cf58f77f85f939ef277a615"
+          },
+          "input_probe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 800,
+                "height": 600,
+                "r_frame_rate": "30/1",
+                "duration": "8.000000",
+                "nb_frames": "240"
+              }
+            ]
+          },
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "domain": "human",
+          "lookahead_requested_s": 0.25,
+          "lookahead_actual_s": [
+            0.233333333
+          ],
+          "load_seconds": 12.277083344757557,
+          "service_seconds": {
+            "max": 0.7193988002836704,
+            "p50": 0.6243370026350021,
+            "p95": 0.6340667475014925
+          },
+          "timing_parts": {
+            "decode_seconds": {
+              "max": 0.006335631012916565,
+              "p50": 0.0016252323985099792,
+              "p95": 0.005050629377365112
+            },
+            "detector_seconds": {
+              "max": 0.04895670339465141,
+              "p50": 0.04167255759239197,
+              "p95": 0.04571983031928539
+            },
+            "gv_seconds": {
+              "max": 0.47945037484169006,
+              "p50": 0.38124367967247963,
+              "p95": 0.39175497367978096
+            },
+            "pose_image_seconds": {
+              "max": 0.21766167134046555,
+              "p50": 0.19669198244810104,
+              "p95": 0.19900872372090816
+            }
+          },
+          "updates": 71,
+          "first_feature_commit_serial_fifo_simulated_s": 16.62997340783477,
+          "target_age_serial_fifo_simulated_s": {
+            "max": 52.34506627644102,
+            "p50": 33.94129791955153,
+            "p95": 50.51217850620547
+          },
+          "normalization_outside_service_s": 2.9704318791627884,
+          "raw_protocol": {
+            "bbox": "causal last-box IoU selection + EMA; missing carry/full-frame fallback",
+            "context_seconds": 4,
+            "gauge": "yaw+translation anchored at previous committed timestamp",
+            "live_camera_test": false,
+            "lookahead_s": 0.25,
+            "models_resident": true,
+            "new_rgb_features_only": true,
+            "normalization_cost": 2.9704318791627884,
+            "past_only_or_bounded_lookahead": true,
+            "queue": "serial FIFO simulation; prototype does not yet skip frames or issue robot commands",
+            "robot_control_included": false,
+            "static_camera_assumed": true
+          },
+          "actual_gpu_uuid": "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874",
+          "estimated_serial_hz_from_median": 1.601699075626656
+        },
+        {
+          "id": "MoVi_F_S55_sideways_part2_v1_paired_robot_la0",
+          "receipt": {
+            "path": "research-data/run/research44_20261111/resident/MoVi_F_S55_sideways_part2_v1_paired_robot_la0/completed.json",
+            "bytes": 43686,
+            "sha256": "24d0d7da197efd0049ff77577eefb58534fa20fe1b2a43ec3bbed6665c7432cb"
+          },
+          "input_probe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 224,
+                "height": 224,
+                "r_frame_rate": "30/1",
+                "duration": "8.000000",
+                "nb_frames": "240"
+              }
+            ]
+          },
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "domain": "paired_robot",
+          "lookahead_requested_s": 0.0,
+          "lookahead_actual_s": [
+            0.0
+          ],
+          "load_seconds": 11.676891505718231,
+          "service_seconds": {
+            "max": 0.7232778072357178,
+            "p50": 0.6414369307458401,
+            "p95": 0.6547088492661715
+          },
+          "timing_parts": {
+            "decode_seconds": {
+              "max": 0.0008705109357833862,
+              "p50": 0.0004426799714565277,
+              "p95": 0.0005574505776166916
+            },
+            "detector_seconds": {
+              "max": 0.06162736937403679,
+              "p50": 0.05189744755625725,
+              "p95": 0.056033214554190636
+            },
+            "gv_seconds": {
+              "max": 0.47170816734433174,
+              "p50": 0.386903740465641,
+              "p95": 0.40005818381905556
+            },
+            "pose_image_seconds": {
+              "max": 0.20493172109127045,
+              "p50": 0.20087924227118492,
+              "p95": 0.20356514677405357
+            }
+          },
+          "updates": 71,
+          "first_feature_commit_serial_fifo_simulated_s": 16.053793594241142,
+          "target_age_serial_fifo_simulated_s": {
+            "max": 52.90892777418097,
+            "p50": 33.879035389175016,
+            "p95": 51.021399731313196
+          },
+          "normalization_outside_service_s": 0.41526250913739204,
+          "raw_protocol": {
+            "bbox": "causal last-box IoU selection + EMA; missing carry/full-frame fallback",
+            "context_seconds": 4,
+            "gauge": "yaw+translation anchored at previous committed timestamp",
+            "live_camera_test": false,
+            "lookahead_s": 0.0,
+            "models_resident": true,
+            "new_rgb_features_only": true,
+            "normalization_cost": 0.41526250913739204,
+            "past_only_or_bounded_lookahead": true,
+            "queue": "serial FIFO simulation; prototype does not yet skip frames or issue robot commands",
+            "robot_control_included": false,
+            "static_camera_assumed": true
+          },
+          "actual_gpu_uuid": "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874",
+          "estimated_serial_hz_from_median": 1.5589997271239677
+        },
+        {
+          "id": "MoVi_F_S55_sideways_part2_v1_paired_robot_la250",
+          "receipt": {
+            "path": "research-data/run/research44_20261111/resident/MoVi_F_S55_sideways_part2_v1_paired_robot_la250/completed.json",
+            "bytes": 44743,
+            "sha256": "50f685414a3c5ddb5d6dac8e332714f51cf34197bc9007328dd9216f514e664e"
+          },
+          "input_probe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 224,
+                "height": 224,
+                "r_frame_rate": "30/1",
+                "duration": "8.000000",
+                "nb_frames": "240"
+              }
+            ]
+          },
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "domain": "paired_robot",
+          "lookahead_requested_s": 0.25,
+          "lookahead_actual_s": [
+            0.233333333
+          ],
+          "load_seconds": 12.434304028749466,
+          "service_seconds": {
+            "max": 0.6938546560704708,
+            "p50": 0.646537434309721,
+            "p95": 0.6665026862174273
+          },
+          "timing_parts": {
+            "decode_seconds": {
+              "max": 0.0015633292496204376,
+              "p50": 0.0005272366106510162,
+              "p95": 0.0007978919893503189
+            },
+            "detector_seconds": {
+              "max": 0.06012735888361931,
+              "p50": 0.05288301035761833,
+              "p95": 0.05829305574297905
+            },
+            "gv_seconds": {
+              "max": 0.4385189600288868,
+              "p50": 0.3906886987388134,
+              "p95": 0.40773216262459755
+            },
+            "pose_image_seconds": {
+              "max": 0.21217872202396393,
+              "p50": 0.20136679336428642,
+              "p95": 0.2034351397305727
+            }
+          },
+          "updates": 71,
+          "first_feature_commit_serial_fifo_simulated_s": 16.833972562104464,
+          "target_age_serial_fifo_simulated_s": {
+            "max": 54.0218050117294,
+            "p50": 34.77406792814533,
+            "p95": 52.10615674729148
+          },
+          "normalization_outside_service_s": 0.4150654189288616,
+          "raw_protocol": {
+            "bbox": "causal last-box IoU selection + EMA; missing carry/full-frame fallback",
+            "context_seconds": 4,
+            "gauge": "yaw+translation anchored at previous committed timestamp",
+            "live_camera_test": false,
+            "lookahead_s": 0.25,
+            "models_resident": true,
+            "new_rgb_features_only": true,
+            "normalization_cost": 0.4150654189288616,
+            "past_only_or_bounded_lookahead": true,
+            "queue": "serial FIFO simulation; prototype does not yet skip frames or issue robot commands",
+            "robot_control_included": false,
+            "static_camera_assumed": true
+          },
+          "actual_gpu_uuid": "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874",
+          "estimated_serial_hz_from_median": 1.5467008512316927
+        },
+        {
+          "id": "external_tennis_human_la0",
+          "receipt": {
+            "path": "research-data/run/research44_20261111/resident/external_tennis_human_la0/completed.json",
+            "bytes": 43613,
+            "sha256": "0164675bd97c81bd719ff1ec44315195445eca2af352b1d1a71771ea8bc97645"
+          },
+          "input_probe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 720,
+                "height": 638,
+                "r_frame_rate": "30/1",
+                "duration": "8.000000",
+                "nb_frames": "240"
+              }
+            ]
+          },
+          "source_id": "external_tennis",
+          "domain": "human",
+          "lookahead_requested_s": 0.0,
+          "lookahead_actual_s": [
+            0.0
+          ],
+          "load_seconds": 11.943197537213564,
+          "service_seconds": {
+            "max": 0.667959701269865,
+            "p50": 0.6440379582345486,
+            "p95": 0.6614060699939728
+          },
+          "timing_parts": {
+            "decode_seconds": {
+              "max": 0.003943365067243576,
+              "p50": 0.0011839121580123901,
+              "p95": 0.002427162602543831
+            },
+            "detector_seconds": {
+              "max": 0.06960764899849892,
+              "p50": 0.05036551132798195,
+              "p95": 0.05596143752336502
+            },
+            "gv_seconds": {
+              "max": 0.41484761610627174,
+              "p50": 0.389522984623909,
+              "p95": 0.40119681507349014
+            },
+            "pose_image_seconds": {
+              "max": 0.24674781784415245,
+              "p50": 0.20227095484733582,
+              "p95": 0.20700622163712978
+            }
+          },
+          "updates": 71,
+          "first_feature_commit_serial_fifo_simulated_s": 16.33421004191041,
+          "target_age_serial_fifo_simulated_s": {
+            "max": 53.17608059023817,
+            "p50": 33.978205027182895,
+            "p95": 51.25483829764029
+          },
+          "normalization_outside_service_s": 4.475877996534109,
+          "raw_protocol": {
+            "bbox": "causal last-box IoU selection + EMA; missing carry/full-frame fallback",
+            "context_seconds": 4,
+            "gauge": "yaw+translation anchored at previous committed timestamp",
+            "live_camera_test": false,
+            "lookahead_s": 0.0,
+            "models_resident": true,
+            "new_rgb_features_only": true,
+            "normalization_cost": 4.475877996534109,
+            "past_only_or_bounded_lookahead": true,
+            "queue": "serial FIFO simulation; prototype does not yet skip frames or issue robot commands",
+            "robot_control_included": false,
+            "static_camera_assumed": true
+          },
+          "actual_gpu_uuid": "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874",
+          "estimated_serial_hz_from_median": 1.5527035126023048
+        },
+        {
+          "id": "external_tennis_human_la250",
+          "receipt": {
+            "path": "research-data/run/research44_20261111/resident/external_tennis_human_la250/completed.json",
+            "bytes": 44681,
+            "sha256": "41b580f950d81cab2a4ad2ec2cfb087115308f497016dc73ba46c9df7efca406"
+          },
+          "input_probe": {
+            "programs": [],
+            "streams": [
+              {
+                "width": 720,
+                "height": 638,
+                "r_frame_rate": "30/1",
+                "duration": "8.000000",
+                "nb_frames": "240"
+              }
+            ]
+          },
+          "source_id": "external_tennis",
+          "domain": "human",
+          "lookahead_requested_s": 0.25,
+          "lookahead_actual_s": [
+            0.233333333
+          ],
+          "load_seconds": 12.607053805142641,
+          "service_seconds": {
+            "max": 0.6726637631654739,
+            "p50": 0.6464574560523033,
+            "p95": 0.6594991460442543
+          },
+          "timing_parts": {
+            "decode_seconds": {
+              "max": 0.007727518677711487,
+              "p50": 0.001365412026643753,
+              "p95": 0.002944149076938629
+            },
+            "detector_seconds": {
+              "max": 0.055436260998249054,
+              "p50": 0.05064024776220322,
+              "p95": 0.05412141792476177
+            },
+            "gv_seconds": {
+              "max": 0.4211755283176899,
+              "p50": 0.3895558565855026,
+              "p95": 0.4005013480782509
+            },
+            "pose_image_seconds": {
+              "max": 0.21011608839035034,
+              "p50": 0.20329377427697182,
+              "p95": 0.20695501007139683
+            }
+          },
+          "updates": 71,
+          "first_feature_commit_serial_fifo_simulated_s": 16.927069135010242,
+          "target_age_serial_fifo_simulated_s": {
+            "max": 53.99191876227657,
+            "p50": 34.77858272294203,
+            "p95": 52.07173014382521
+          },
+          "normalization_outside_service_s": 4.528716657310724,
+          "raw_protocol": {
+            "bbox": "causal last-box IoU selection + EMA; missing carry/full-frame fallback",
+            "context_seconds": 4,
+            "gauge": "yaw+translation anchored at previous committed timestamp",
+            "live_camera_test": false,
+            "lookahead_s": 0.25,
+            "models_resident": true,
+            "new_rgb_features_only": true,
+            "normalization_cost": 4.528716657310724,
+            "past_only_or_bounded_lookahead": true,
+            "queue": "serial FIFO simulation; prototype does not yet skip frames or issue robot commands",
+            "robot_control_included": false,
+            "static_camera_assumed": true
+          },
+          "actual_gpu_uuid": "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874",
+          "estimated_serial_hz_from_median": 1.5468922055701255
+        }
+      ]
+    },
+    "cold_prefix": {
+      "receipt": {
+        "path": "research-data/run/research43_20261110/realtime/review/summary.json",
+        "bytes": 326820,
+        "sha256": "cf654fd98e7e271254f5d79530ba203a3e9b4ed9fb78089d3d86efc0ce99d744"
+      },
+      "status": "complete",
+      "successful_prefixes": 1080,
+      "requested_prefixes": 1080,
+      "input_frames_range": [
+        6,
+        187
+      ],
+      "cutoff_s_range": [
+        0.2,
+        6.25
+      ],
+      "output_fps": 30,
+      "raw_prefix_cold_service_seconds": {
+        "max": 41.91647532209754,
+        "mean": 29.831803860246307,
+        "n": 1080,
+        "p50": 29.881054293364286,
+        "p95": 39.02790119480342
+      },
+      "timing_parts_seconds": {
+        "preprocess_seconds": {
+          "n": 1080,
+          "min": 12.04548254236579,
+          "p50": 21.078627333045006,
+          "p95": 27.566721640340983,
+          "max": 29.467414408922195
+        },
+        "model_load_seconds": {
+          "n": 1080,
+          "min": 1.0578134879469872,
+          "p50": 1.1909396555274725,
+          "p95": 1.2659252027049661,
+          "max": 1.560001727193594
+        },
+        "gv_forward_seconds": {
+          "n": 1080,
+          "min": 0.4238114133477211,
+          "p50": 0.4996225889772177,
+          "p95": 0.5583131868392229,
+          "max": 0.5999077372252941
+        }
+      },
+      "gpu_uuids": [
+        "GPU-a1b26f52-51fb-a7dd-0a22-1201ce592ab7",
+        "GPU-c72dc4f8-c728-ceaf-8ed4-4ea13b342f29",
+        "GPU-e85b8f78-90f0-d2ba-3b8e-47de54874874"
+      ],
+      "scope": "裁剪重编码独立RGB前缀、ffprobe、独立进程/预处理/模型载入与GV推理、后向root特征和16x145输入打包；不含命令头/SONIC/执行器。每个prefix重启，不能换算常驻更新率。",
+      "script": "research-data/scripts/research43_realtime/prefix.py",
+      "future_cutoff_violations": 0,
+      "first_action_latency_s": null
+    },
+    "past_window_quality": {
+      "rows": [
+        {
+          "condition": "r43_rt_frozen_parent24k|future250|human",
+          "cases": 6,
+          "q29_rmse_rad": 0.1464775625517565,
+          "root_xy_rmse_m": 0.21251039437067867,
+          "heading_mae_deg": 22.63141714215379
+        },
+        {
+          "condition": "r43_rt_frozen_parent24k|offline|human",
+          "cases": 6,
+          "q29_rmse_rad": 0.09115834517626714,
+          "root_xy_rmse_m": 0.17807903337655492,
+          "heading_mae_deg": 14.807883738680948
+        },
+        {
+          "condition": "r43_rt_frozen_parent24k|past|human",
+          "cases": 6,
+          "q29_rmse_rad": 0.16502170752724374,
+          "root_xy_rmse_m": 0.2474567875454858,
+          "heading_mae_deg": 30.964979189840935
+        },
+        {
+          "condition": "r43_rt_future250|future250|human",
+          "cases": 6,
+          "q29_rmse_rad": 0.11554755925276568,
+          "root_xy_rmse_m": 0.3443959811995259,
+          "heading_mae_deg": 38.46499425255771
+        },
+        {
+          "condition": "r43_rt_offline_matched|offline|human",
+          "cases": 6,
+          "q29_rmse_rad": 0.09545377107436759,
+          "root_xy_rmse_m": 0.22292332915491675,
+          "heading_mae_deg": 23.490029075676684
+        },
+        {
+          "condition": "r43_rt_past|past|human",
+          "cases": 6,
+          "q29_rmse_rad": 0.15294962895697553,
+          "root_xy_rmse_m": 0.42429772815573585,
+          "heading_mae_deg": 49.5077289942079
+        }
+      ],
+      "scope": "5Hz matched source-time replay with explicit 100ms token hold; NOT compute-delay-inclusive live following",
+      "windows": {
+        "past": "[-1.5,0] s, 16 x 145",
+        "future250": "[-1.25,+0.25] s, 16 x 145",
+        "offline": "原全段GV; adapter [-1,+0.5] s"
+      },
+      "evaluation": "6真人源+6配对机器人；5Hz源时钟回放，5x20ms token后保持末token100ms；不包含真实计算队列延迟",
+      "adaptation": "同R41 shared total24k父模型，3组各额外6000步，command weights bitwise frozen；训练适配不是轻量视觉student",
+      "first_action_latency_s": null
+    },
+    "cached_CPU": {
+      "schema": "research39_cpu_microbenchmark_v1",
+      "generated_at": "2026-11-06T12:07:34.684985+08:00",
+      "checkpoint": {
+        "path": "research-data/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88"
+      },
+      "script": {
+        "path": "research-data/scripts/research39_efficiency/benchmark_cpu.py",
+        "sha256": "c70bebbd424387055efc6e4efa6544337977a03c2de458d1a574ef858ceb86b3"
+      },
+      "torch": "2.12.0.dev20260408+cu128",
+      "python": "3.10.20",
+      "cpu": "AMD EPYC 7542 32-Core Processor x2",
+      "CPU_threads": 1,
+      "GPU_used": false,
+      "parallel_load": "R38 training active on GPU0/2/3/4/5 plus external GPU1 process; shared CPU, nice 10; no isolation",
+      "repeats": 3,
+      "n_sources": 12,
+      "batch_size": 1,
+      "commands_per_anchor": 5,
+      "command_dt_s": 0.02,
+      "caveat": "Cached GVHMR 145D features. Compact exact trained motion modules; excludes original provider initialization, video decoding and GVHMR. Not end-to-end latency or causal streaming.",
+      "motion_module_load_seconds": 0.0469852089881897,
+      "controller_initialization_seconds": 0.3977726325392723,
+      "first_command_after_motion_model_loaded": {
+        "n": 12,
+        "mean_ms": 2.0674106975396476,
+        "P50_ms": 1.9183102995157242,
+        "P95_ms": 3.0229775235056864,
+        "max_ms": 3.971341997385025
+      },
+      "first_command_latency_includes_GVHMR": false,
+      "checkpoint_vs_saved_GPU_prediction_max_abs_prequant_error": 6.854534149169922e-07,
+      "latency": {
+        "motion_anchor_including_interpolation_and_fsq": {
+          "n": 2514,
+          "mean_ms": 1.4496813235580683,
+          "P50_ms": 1.4231391251087189,
+          "P95_ms": 1.5887100249528885,
+          "max_ms": 4.082418978214264
+        },
+        "sonic_controller_tick": {
+          "n": 1125,
+          "mean_ms": 8.749725812011295,
+          "P50_ms": 8.667729794979095,
+          "P95_ms": 9.136911481618881,
+          "max_ms": 25.27107298374176
+        },
+        "physics_tick_including_controller": {
+          "n": 1125,
+          "mean_ms": 10.932581981023153,
+          "P50_ms": 10.828841477632523,
+          "P95_ms": 11.541977524757385,
+          "max_ms": 27.135998010635376
+        },
+        "pd_physics_advance": {
+          "n": 1125,
+          "mean_ms": 1.6913855307632022,
+          "P50_ms": 1.6590878367424011,
+          "P95_ms": 1.9652687013149261,
+          "max_ms": 6.930593401193619
+        }
+      },
+      "clips": [
+        {
+          "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+          "frames": 143,
+          "anchors": 29,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S55_running_in_spot_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 87,
+            "mean_ms": 1.416605222841789,
+            "P50_ms": 1.390710473060608,
+            "P95_ms": 1.5925165265798569,
+            "max_ms": 1.625601202249527
+          }
+        },
+        {
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "frames": 512,
+          "anchors": 103,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S55_sideways_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 309,
+            "mean_ms": 1.461453759940311,
+            "P50_ms": 1.4309994876384735,
+            "P95_ms": 1.621050387620926,
+            "max_ms": 1.8917396664619446
+          }
+        },
+        {
+          "source_id": "MoVi_F_S56_jogging_part2_v1",
+          "frames": 268,
+          "anchors": 54,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S56_jogging_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 162,
+            "mean_ms": 1.4476748528303924,
+            "P50_ms": 1.412058249115944,
+            "P95_ms": 1.6014603897929192,
+            "max_ms": 3.0710287392139435
+          }
+        },
+        {
+          "source_id": "MoVi_F_S57_jogging_part2_v1",
+          "frames": 400,
+          "anchors": 80,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S57_jogging_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 240,
+            "mean_ms": 1.4426297663400571,
+            "P50_ms": 1.4227256178855896,
+            "P95_ms": 1.57856997102499,
+            "max_ms": 1.6743578016757965
+          }
+        },
+        {
+          "source_id": "MoVi_F_S57_sideways_part2_v1",
+          "frames": 490,
+          "anchors": 98,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S57_sideways_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 294,
+            "mean_ms": 1.4513417267475,
+            "P50_ms": 1.4276765286922455,
+            "P95_ms": 1.619547791779041,
+            "max_ms": 1.8361173570156097
+          }
+        },
+        {
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "frames": 375,
+          "anchors": 75,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S57_walking_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 225,
+            "mean_ms": 1.5585810608334012,
+            "P50_ms": 1.451592892408371,
+            "P95_ms": 2.23267525434494,
+            "max_ms": 4.082418978214264
+          }
+        },
+        {
+          "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+          "frames": 265,
+          "anchors": 53,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S58_running_in_spot_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 159,
+            "mean_ms": 1.4094739871205024,
+            "P50_ms": 1.403607428073883,
+            "P95_ms": 1.4331936836242676,
+            "max_ms": 1.5924088656902313
+          }
+        },
+        {
+          "source_id": "MoVi_F_S58_walking_part2_v1",
+          "frames": 375,
+          "anchors": 75,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S58_walking_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 225,
+            "mean_ms": 1.4251210126611922,
+            "P50_ms": 1.4229975640773773,
+            "P95_ms": 1.4621227979660034,
+            "max_ms": 1.5586689114570618
+          }
+        },
+        {
+          "source_id": "MoVi_F_S59_jogging_part2_v1",
+          "frames": 387,
+          "anchors": 78,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S59_jogging_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 234,
+            "mean_ms": 1.4266432859958746,
+            "P50_ms": 1.4184359461069107,
+            "P95_ms": 1.4736952260136604,
+            "max_ms": 1.6495883464813232
+          }
+        },
+        {
+          "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+          "frames": 159,
+          "anchors": 32,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S59_running_in_spot_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 96,
+            "mean_ms": 1.3971463389073808,
+            "P50_ms": 1.3822298496961594,
+            "P95_ms": 1.5201130881905556,
+            "max_ms": 1.6114190220832825
+          }
+        },
+        {
+          "source_id": "MoVi_F_S59_sideways_part2_v1",
+          "frames": 589,
+          "anchors": 118,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S59_sideways_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 354,
+            "mean_ms": 1.4547342171440016,
+            "P50_ms": 1.433955505490303,
+            "P95_ms": 1.5747312456369398,
+            "max_ms": 2.2587329149246216
+          }
+        },
+        {
+          "source_id": "MoVi_F_S59_walking_part2_v1",
+          "frames": 213,
+          "anchors": 43,
+          "receipt": "research-data/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S59_walking_part2_v1/completed.json",
+          "motion_timing": {
+            "n": 129,
+            "mean_ms": 1.4251180050909058,
+            "P50_ms": 1.3988874852657318,
+            "P95_ms": 1.6021490097045896,
+            "max_ms": 1.8318332731723785
+          }
+        }
+      ],
+      "repeat_totals": [
+        {
+          "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.04171089082956314,
+          "frames": 143,
+          "duration_seconds": 2.86
+        },
+        {
+          "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.040847137570381165,
+          "frames": 143,
+          "duration_seconds": 2.86
+        },
+        {
+          "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.04114179685711861,
+          "frames": 143,
+          "duration_seconds": 2.86
+        },
+        {
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.15113072469830513,
+          "frames": 512,
+          "duration_seconds": 10.24
+        },
+        {
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.15162955969572067,
+          "frames": 512,
+          "duration_seconds": 10.24
+        },
+        {
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.1503598727285862,
+          "frames": 512,
+          "duration_seconds": 10.24
+        },
+        {
+          "source_id": "MoVi_F_S56_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.07742633298039436,
+          "frames": 268,
+          "duration_seconds": 5.36
+        },
+        {
+          "source_id": "MoVi_F_S56_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.07964755967259407,
+          "frames": 268,
+          "duration_seconds": 5.36
+        },
+        {
+          "source_id": "MoVi_F_S56_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.07824940979480743,
+          "frames": 268,
+          "duration_seconds": 5.36
+        },
+        {
+          "source_id": "MoVi_F_S57_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.11602325364947319,
+          "frames": 400,
+          "duration_seconds": 8.0
+        },
+        {
+          "source_id": "MoVi_F_S57_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.11559898778796196,
+          "frames": 400,
+          "duration_seconds": 8.0
+        },
+        {
+          "source_id": "MoVi_F_S57_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.11578989028930664,
+          "frames": 400,
+          "duration_seconds": 8.0
+        },
+        {
+          "source_id": "MoVi_F_S57_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.1435386762022972,
+          "frames": 490,
+          "duration_seconds": 9.8
+        },
+        {
+          "source_id": "MoVi_F_S57_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.14261267706751823,
+          "frames": 490,
+          "duration_seconds": 9.8
+        },
+        {
+          "source_id": "MoVi_F_S57_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.1419951692223549,
+          "frames": 490,
+          "duration_seconds": 9.8
+        },
+        {
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.11420255899429321,
+          "frames": 375,
+          "duration_seconds": 7.5
+        },
+        {
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.11629415675997734,
+          "frames": 375,
+          "duration_seconds": 7.5
+        },
+        {
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.12141632661223412,
+          "frames": 375,
+          "duration_seconds": 7.5
+        },
+        {
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "phase": "controller_and_4x_PD_physics",
+          "repeat": 0,
+          "seconds": 4.107734426856041,
+          "frames": 375,
+          "duration_seconds": 7.5,
+          "init_seconds": 0.901556521654129,
+          "max_qpos_difference_from_saved": 0.0
+        },
+        {
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "phase": "controller_and_4x_PD_physics",
+          "repeat": 1,
+          "seconds": 4.127426281571388,
+          "frames": 375,
+          "duration_seconds": 7.5,
+          "init_seconds": 0.6631052158772945,
+          "max_qpos_difference_from_saved": 0.0
+        },
+        {
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "phase": "controller_and_4x_PD_physics",
+          "repeat": 2,
+          "seconds": 4.067099921405315,
+          "frames": 375,
+          "duration_seconds": 7.5,
+          "init_seconds": 0.5596510581672192,
+          "max_qpos_difference_from_saved": 0.0
+        },
+        {
+          "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.07534247264266014,
+          "frames": 265,
+          "duration_seconds": 5.3
+        },
+        {
+          "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.07468833401799202,
+          "frames": 265,
+          "duration_seconds": 5.3
+        },
+        {
+          "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.07485008239746094,
+          "frames": 265,
+          "duration_seconds": 5.3
+        },
+        {
+          "source_id": "MoVi_F_S58_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.1069939024746418,
+          "frames": 375,
+          "duration_seconds": 7.5
+        },
+        {
+          "source_id": "MoVi_F_S58_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.10755476355552673,
+          "frames": 375,
+          "duration_seconds": 7.5
+        },
+        {
+          "source_id": "MoVi_F_S58_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.1072009839117527,
+          "frames": 375,
+          "duration_seconds": 7.5
+        },
+        {
+          "source_id": "MoVi_F_S59_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.11218250170350075,
+          "frames": 387,
+          "duration_seconds": 7.74
+        },
+        {
+          "source_id": "MoVi_F_S59_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.11158084124326706,
+          "frames": 387,
+          "duration_seconds": 7.74
+        },
+        {
+          "source_id": "MoVi_F_S59_jogging_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.11120988428592682,
+          "frames": 387,
+          "duration_seconds": 7.74
+        },
+        {
+          "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.044980019330978394,
+          "frames": 159,
+          "duration_seconds": 3.18
+        },
+        {
+          "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.04481188952922821,
+          "frames": 159,
+          "duration_seconds": 3.18
+        },
+        {
+          "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.044804755598306656,
+          "frames": 159,
+          "duration_seconds": 3.18
+        },
+        {
+          "source_id": "MoVi_F_S59_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.17376908287405968,
+          "frames": 589,
+          "duration_seconds": 11.78
+        },
+        {
+          "source_id": "MoVi_F_S59_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.1721225269138813,
+          "frames": 589,
+          "duration_seconds": 11.78
+        },
+        {
+          "source_id": "MoVi_F_S59_sideways_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.1708407662808895,
+          "frames": 589,
+          "duration_seconds": 11.78
+        },
+        {
+          "source_id": "MoVi_F_S59_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 0,
+          "seconds": 0.06202314794063568,
+          "frames": 213,
+          "duration_seconds": 4.26
+        },
+        {
+          "source_id": "MoVi_F_S59_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 1,
+          "seconds": 0.0603516660630703,
+          "frames": 213,
+          "duration_seconds": 4.26
+        },
+        {
+          "source_id": "MoVi_F_S59_walking_part2_v1",
+          "phase": "cached_motion_to_commands",
+          "repeat": 2,
+          "seconds": 0.06210845336318016,
+          "frames": 213,
+          "duration_seconds": 4.26
+        }
+      ],
+      "measured_script_snapshot": {
+        "path": "research-data/outputs/research39_efficiency/benchmark_cpu_measured_snapshot.py",
+        "sha256": "c70bebbd424387055efc6e4efa6544337977a03c2de458d1a574ef858ceb86b3"
+      },
+      "script_revision_note": "After measurement the import-only CUDA guard was made conditional so the same model helper can be reused by the unlaunched GPU protocol. Measured source preserved verbatim in snapshot.",
+      "warmup": {
+        "motion": 10,
+        "controller": 20
+      }
+    },
+    "rates": {
+      "target_new_visual_command_hz": 10,
+      "commands_per_block": 5,
+      "command_dt_s": 0.02,
+      "low_level_controller_hz": 50,
+      "PD_physics_hz": 200,
+      "interpretation": "10Hz每100ms给出5个未来20ms命令，是目标架构；50Hz控制可消费旧计划；200Hz是物理/PD。三个频率不能互换，R44视觉只约1.6Hz。"
+    },
+    "stream_student": {
+      "status": "研究方案；本次审计R40–R46未找到已完成轻量RGB因果student的训练收据或端到端测量",
+      "proposed": "冻结离线GV/命令teacher，因果GRU/TCN或轻量逐帧视觉，2s历史，每100ms输出5个20ms命令；必要时蒸馏姿态/局部速度/yaw/命令",
+      "distinction": "R43 r43_rt_past是GV几何后的窗口适配训练，不能标成已替代GV的流式视觉学生",
+      "evidence": "research-data/docs/research/research43_realtime_20261110_zh.md"
+    },
+    "complete_RGB_to_robot_latency": {
+      "measured": false,
+      "first_command_submit_s": null,
+      "first_actual_robot_action_s": null,
+      "end_to_end_p95_s": null,
+      "claim": "现有证据不能给出完整摄像头→实际执行的端到端毫秒数；不得拼接不同历史微基准作实测。"
+    }
+  },
+  "selected_demos": [
+    {
+      "id": "humman_squat",
+      "title": "双臂前举与屈膝",
+      "classification": "真实外部真人输入；旧演示",
+      "dataset": "HuMMan-Point",
+      "source_id": "p000475_a000210",
+      "model": "r38_F_expand48",
+      "model_training_source_count": 48,
+      "model_training_dataset": "MoVi",
+      "checkpoint": {
+        "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+        "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+        "bytes": 16579191
+      },
+      "file": {
+        "path": "research-data/科研汇报网页_20261105/public/media/showcase/showcase-humman-squat.mp4",
+        "bytes": 187127,
+        "sha256": "e88baef649320f3d87efaf0b6554972438f109acef882f12e6681458f165165b"
+      },
+      "web_path": "media/showcase/showcase-humman-squat.mp4",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 368,
+            "r_frame_rate": "25/1",
+            "duration": "4.400000",
+            "nb_frames": "110"
+          }
+        ],
+        "format": {
+          "duration": "4.400000",
+          "size": "187127"
+        }
+      },
+      "sampled_frames_s": [
+        0.66,
+        2.2,
+        3.5200000000000005
+      ],
+      "review_contact_sheet": "research-data/科研汇报_20260917至20261103/13_网页汇报/v8_20261113/media_review_frames/humman_squat_contact.jpg",
+      "original_human_duration_s": 5.466667,
+      "actual_execution_duration_s": 4.4,
+      "training_exposure": {
+        "source_excluded_from_this_model_training": true,
+        "dataset_external_to_this_model": true,
+        "upstream_pretraining_overlap": "unknown",
+        "historical_development_exposure": "not pristine historical test"
+      },
+      "model_date": "2026-11-06",
+      "new_improvement_claim": false,
+      "synchronized_G1_imitation_GT": false,
+      "metrics": {
+        "config_sha256": "d3adce3c0c42276d9825f170bb484465761a19ca2842c91de94dfad2db9aa466",
+        "failure": null,
+        "foot_contact_xy_speed_proxy_mps": 0.05365823782563117,
+        "foot_floor_contact_fraction": [
+          0.9272727272727272,
+          0.9318181818181818
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.15995175188043848,
+          "net_xy_displacement_m": 0.4640683352822749,
+          "path_xy_m": 0.7005886732363207,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.7858427096698742,
+          "root_height_min_m": 0.6178646903114444
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "p000475_a000210",
+        "stationary_time_fraction_speed_lt005": 0.1917808219178082,
+        "status": "complete",
+        "upright_zz_mean": 0.9898580288343433,
+        "upright_zz_min": 0.9675666107265566
+      },
+      "initialization": "fixed_standing_offset_h076_yaw0",
+      "causality": "离线完整GV及适配器未来上下文，不是在线零前瞻",
+      "quality_review": "真人与机器人均可见屈膝、手臂前举，末段姿态/手臂幅度仍有差异。",
+      "evidence": {
+        "manifest": "research-data/科研汇报网页_20261105/content/showcase.json",
+        "physics_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/physics/completed.json",
+          "sha256": "6c8d58c3168ba3f2693fbed147bf1fdd17d2bc0a7f00ffe6c38bcec033c42b26",
+          "bytes": 1538
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p000475_a000210/prediction/completed.json",
+          "sha256": "a6d531bce5a8edd76444d5928f8ea632e80491e0c4307c46e8e55f1b40d914eb",
+          "bytes": 1499
+        }
+      }
+    },
+    {
+      "id": "humman_arms",
+      "title": "交替抬臂 · 外部真人",
+      "classification": "真实外部真人输入；旧演示",
+      "dataset": "HuMMan-Point",
+      "source_id": "p001110_a000652",
+      "model": "r38_F_expand48",
+      "model_training_source_count": 48,
+      "model_training_dataset": "MoVi",
+      "checkpoint": {
+        "path": "research-data/run/research38_20261106/models/r38_F_expand48/stage_6000/checkpoint.pt",
+        "sha256": "2ff457d9c52b8f954299727913c42155f5529d96fa3fc7b6420847b8601b1021",
+        "bytes": 16579191
+      },
+      "file": {
+        "path": "research-data/科研汇报网页_20261105/public/media/showcase/showcase-arm-knee.mp4",
+        "bytes": 138192,
+        "sha256": "4a4b1f111b45b7439f0a19b66c8baefb001a63a425b0b5943b775294c3bfc281"
+      },
+      "web_path": "media/showcase/showcase-arm-knee.mp4",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 368,
+            "r_frame_rate": "25/1",
+            "duration": "2.920000",
+            "nb_frames": "73"
+          }
+        ],
+        "format": {
+          "duration": "2.920000",
+          "size": "138192"
+        }
+      },
+      "sampled_frames_s": [
+        0.438,
+        1.46,
+        2.336
+      ],
+      "review_contact_sheet": "research-data/科研汇报_20260917至20261103/13_网页汇报/v8_20261113/media_review_frames/humman_arms_contact.jpg",
+      "original_human_duration_s": 3.966667,
+      "actual_execution_duration_s": 2.9,
+      "training_exposure": {
+        "source_excluded_from_this_model_training": true,
+        "dataset_external_to_this_model": true,
+        "upstream_pretraining_overlap": "unknown",
+        "historical_development_exposure": "not pristine historical test"
+      },
+      "model_date": "2026-11-06",
+      "new_improvement_claim": false,
+      "synchronized_G1_imitation_GT": false,
+      "metrics": {
+        "config_sha256": "1a85cea60272c66cfe93370cf141c9fbf4af321f8443f3da723f999531eb54ee",
+        "failure": null,
+        "foot_contact_xy_speed_proxy_mps": 0.0497677599803768,
+        "foot_floor_contact_fraction": [
+          0.9793103448275862,
+          0.9241379310344827
+        ],
+        "full_input_completed": true,
+        "imitation_metrics": null,
+        "model": "r38_F_expand48",
+        "physical_metrics": {
+          "imitation_metrics": null,
+          "mean_speed_xy_mps": 0.08205090692117872,
+          "net_xy_displacement_m": 0.1541477417122041,
+          "path_xy_m": 0.2363066119329948,
+          "reason": "No synchronized G1 reference; stability and amplitude do not establish imitation accuracy",
+          "root_height_max_m": 0.7870205297047852,
+          "root_height_min_m": 0.7288829564348269
+        },
+        "proxy_note": "MuJoCo ankle-body velocity during geometric floor contact; no human/G1 contact GT, no imitation MPJPE",
+        "source_id": "p001110_a000652",
+        "stationary_time_fraction_speed_lt005": 0.375,
+        "status": "complete",
+        "upright_zz_mean": 0.9921664242734832,
+        "upright_zz_min": 0.9759552848887475
+      },
+      "initialization": "fixed_standing_offset_h076_yaw0",
+      "causality": "离线完整GV及适配器未来上下文，不是在线零前瞻",
+      "quality_review": "可辨认交替举臂，腿部抬起幅度与支撑时序未等同真人；片段较短。",
+      "evidence": {
+        "manifest": "research-data/科研汇报网页_20261105/content/showcase.json",
+        "physics_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/physics/completed.json",
+          "sha256": "c3f0d9c80e57b294f3d9e9323b8f2b2c2ac81200f6fb4b9686b37139dcbca381",
+          "bytes": 1537
+        },
+        "prediction_receipt": {
+          "path": "research-data/run/research40_20261106/evaluation/r38_F_expand48_p001110_a000652/prediction/completed.json",
+          "sha256": "43563868cbdd5648be81b26615e0c4287a1d9d2e59678125fea23bd086bae5a9",
+          "bytes": 1500
+        }
+      }
+    },
+    {
+      "id": "tennis",
+      "title": "外部网球：真人 / GV人体估计 / G1仿真执行",
+      "classification": "真实外部真人输入；旧演示",
+      "dataset": "GVHMR公开网球示例",
+      "source_id": "external_web_tennis",
+      "source_url": "https://github.com/zju3dv/GVHMR/blob/main/docs/example_video/tennis.mp4",
+      "file": {
+        "path": "research-data/run/web_video_tennis_20261110/external_tennis_three_panel.mp4",
+        "bytes": 1652583,
+        "sha256": "5acbd809b3a25bf31c5d5cba0060c6b468c4e05be44501ebe5300573b29cf692"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1440,
+            "height": 500,
+            "r_frame_rate": "25/1",
+            "duration": "9.800000",
+            "nb_frames": "245"
+          }
+        ],
+        "format": {
+          "duration": "9.800000",
+          "size": "1652583"
+        }
+      },
+      "sampled_frames_s": [
+        1.47,
+        4.9,
+        7.840000000000001
+      ],
+      "review_contact_sheet": "research-data/科研汇报_20260917至20261103/13_网页汇报/v8_20261113/media_review_frames/tennis_contact.jpg",
+      "model": {
+        "checkpoint": {
+          "bytes": 10364725,
+          "path": "research-data/run/research41_20261109/frontend/models/r41_frontend_unified_J_total24000/stage_12000/checkpoint.pt",
+          "sha256": "80e596c6b087c6304d047be5123409b2dfb4feefbe1c9c2385e6908245e5455a"
+        },
+        "expected_step": 12000,
+        "id": "r41_frontend_unified_J_total24000",
+        "split_frontend": false,
+        "total_training_steps": 24000,
+        "training_completed": {
+          "bytes": 299858,
+          "path": "research-data/run/research41_20261109/frontend/models/r41_frontend_unified_J_total24000/stage_12000/completed.json",
+          "sha256": "8903287b1d429c42d83f37b93ac274a77e13a28604b9d9a2ee655e2504e80961"
+        },
+        "training_config": {
+          "bytes": 1022729,
+          "path": "research-data/outputs/research41_preparation/frontend/configs/r41_frontend_unified_J_total24000.json",
+          "sha256": "9ac6fcd99a43d32922f74bf4b4f767da679dd590323a7c4e9c0a3091c3efd82e"
+        }
+      },
+      "training_source_count": 32,
+      "model_training_dataset": "MoVi human + paired robot",
+      "training_exposure": {
+        "finetuned_on_this_video": false,
+        "model_selection": "Previously frozen shared GV total24k + TRAIN-fitted heading feedback; not selected on this video",
+        "upstream_pretraining_overlap": "unknown; public estimator demo"
+      },
+      "model_date": "2026-11-10 demonstration of frozen R41 model",
+      "new_improvement_claim": false,
+      "synchronized_G1_imitation_GT": false,
+      "human_mocap_GT": false,
+      "actual_execution_frames": 490,
+      "actual_execution_duration_s": 9.8,
+      "execution_complete": true,
+      "failure": null,
+      "causality": "离线整段GV + 现有带未来RGB窗口的适配器；50Hz仿真回放不是视频实时更新",
+      "quality_review": "三栏清晰、转身与举臂可辨；手臂时序/幅度有偏差，真人起跳时机器人保持接地，不作为跳跃成功或新模型提升。",
+      "evidence": {
+        "provenance": {
+          "path": "research-data/run/web_video_tennis_20261110/provenance.json",
+          "bytes": 1688,
+          "sha256": "2dd89f3fe4805f257bb01ea85c9cd305220812a024fd165758cc970f01e17dd0"
+        },
+        "execution": {
+          "path": "research-data/run/web_video_tennis_20261110/execution_result.json",
+          "bytes": 1344,
+          "sha256": "3ab0d947e0b407d4d57c0b56de2a0c9c59a86ae111139178bd298583a891b7ef"
+        }
+      }
+    },
+    {
+      "id": "robot_singleleg",
+      "title": "LAFAN DEV单腿：普通监督 / 状态再监督 / 仿真Oracle",
+      "classification": "外部动作来源的机器人渲染域；没有真人RGB",
+      "dataset": "LAFAN",
+      "source_id": "r45_lafan_dance2_subject4_singleleg_f02988",
+      "split": "DEV",
+      "domain": "robot RGB; no human video supplied",
+      "file": {
+        "path": "research-data/科研汇报_20260917至20261103/24_双域泛化与困难动作_20261112/直接看视频/05_机器人域未见单腿_15.5秒_三种训练对照.mp4",
+        "bytes": 1996594,
+        "sha256": "345b11745ea506d4f87f2cca0667c2c35b5418f77f3448c3b6d118c05db10d34"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2560,
+            "height": 680,
+            "r_frame_rate": "50/1",
+            "duration": "15.500000",
+            "nb_frames": "775"
+          }
+        ],
+        "format": {
+          "duration": "15.500000",
+          "size": "1996594"
+        }
+      },
+      "sampled_frames_s": [
+        2.3249999999999997,
+        7.75,
+        12.4
+      ],
+      "review_contact_sheet": "research-data/科研汇报_20260917至20261103/13_网页汇报/v8_20261113/media_review_frames/robot_singleleg_contact.jpg",
+      "model": {
+        "research": "R46",
+        "arms": [
+          "teacher_state_bc",
+          "state_requery_event",
+          "state_requery_event_oracle_vcontact"
+        ],
+        "round": 3,
+        "seed": 461112,
+        "updates_each": 12000
+      },
+      "training_exposure": {
+        "TRAIN_windows": 56,
+        "TRAIN_recordings": 19,
+        "TRAIN_seconds_approx": 732,
+        "DEV_windows": 11,
+        "DEV_recordings": 5,
+        "source_is_DEV": true,
+        "subject4_held_out": true
+      },
+      "scoring_reference": "executed SONIC teacher；不是人体mocap GT",
+      "human_RGB_available": false,
+      "metrics": [
+        {
+          "arm": "teacher_state_bc",
+          "metrics": {
+            "G1_29_global_MPJPE_mm": 925.5904867154468,
+            "G1_29_root_translation_relative_MPJPE_mm": 74.9137394014198,
+            "airborne_seconds": 0.05,
+            "airtime_temporal_IoU": 0.0,
+            "contact_force_F1": 0.836582048957389,
+            "first_flight_height_gain_abs_error_m": null,
+            "first_flight_height_gain_m": 0.0,
+            "first_target_takeoff_abs_error_s": null,
+            "heading_mae_deg": 17.96761037049434,
+            "joint_velocity_rmse_rad_s": 2.312008195795415,
+            "landing_survived": true,
+            "post_settling_airtime_temporal_IoU": 0.0,
+            "q29_rmse_rad": 0.3069384481471225,
+            "root_velocity_xyz_rmse_mps": 0.2433283771916199,
+            "root_vz_rmse_mps": 0.16863834061574468,
+            "root_xy_rmse_m": 0.8002210151898219,
+            "root_z_rmse_m": 0.02417537243152504,
+            "single_support_seconds": 8.079999999999998,
+            "target_landing_survived_0p5s": true,
+            "target_landing_survived_1s": true,
+            "teacher_airborne_seconds": 0,
+            "teacher_first_flight_height_gain_m": null
+          }
+        },
+        {
+          "arm": "state_requery_event",
+          "metrics": {
+            "G1_29_global_MPJPE_mm": 414.90315357690804,
+            "G1_29_root_translation_relative_MPJPE_mm": 52.186601520140655,
+            "airborne_seconds": 0.12000000000000001,
+            "airtime_temporal_IoU": 0.0,
+            "contact_force_F1": 0.8837310195227766,
+            "first_flight_height_gain_abs_error_m": null,
+            "first_flight_height_gain_m": 0.0008229530160474008,
+            "first_target_takeoff_abs_error_s": null,
+            "heading_mae_deg": 13.083817393803118,
+            "joint_velocity_rmse_rad_s": 1.2780868886652628,
+            "landing_survived": true,
+            "post_settling_airtime_temporal_IoU": 0.0,
+            "q29_rmse_rad": 0.26496305004500664,
+            "root_velocity_xyz_rmse_mps": 0.1670033565030962,
+            "root_vz_rmse_mps": 0.14008291914164334,
+            "root_xy_rmse_m": 0.34801050745809564,
+            "root_z_rmse_m": 0.022929933006030242,
+            "single_support_seconds": 6.4,
+            "target_landing_survived_0p5s": true,
+            "target_landing_survived_1s": true,
+            "teacher_airborne_seconds": 0,
+            "teacher_first_flight_height_gain_m": null
+          }
+        },
+        {
+          "arm": "state_requery_event_oracle_vcontact",
+          "metrics": {
+            "G1_29_global_MPJPE_mm": 422.26978629730735,
+            "G1_29_root_translation_relative_MPJPE_mm": 51.75878855787521,
+            "airborne_seconds": 0,
+            "airtime_temporal_IoU": null,
+            "contact_force_F1": 0.8851183399978385,
+            "first_flight_height_gain_abs_error_m": null,
+            "first_flight_height_gain_m": null,
+            "first_target_takeoff_abs_error_s": null,
+            "heading_mae_deg": 13.276466474750077,
+            "joint_velocity_rmse_rad_s": 1.2729293412645146,
+            "landing_survived": false,
+            "post_settling_airtime_temporal_IoU": null,
+            "q29_rmse_rad": 0.2575825687786893,
+            "root_velocity_xyz_rmse_mps": 0.16244040958285844,
+            "root_vz_rmse_mps": 0.12284800375085317,
+            "root_xy_rmse_m": 0.3480881355533194,
+            "root_z_rmse_m": 0.018920159843512745,
+            "single_support_seconds": 6.615,
+            "target_landing_survived_0p5s": false,
+            "target_landing_survived_1s": false,
+            "teacher_airborne_seconds": 0,
+            "teacher_first_flight_height_gain_m": null
+          }
+        }
+      ],
+      "oracle_label": "Simulation oracle root velocity/contact; privileged and not deployable",
+      "render_only": true,
+      "physics_rerun": false,
+      "training_rerun": false,
+      "quality_review": "四栏固定相机、完整15.5秒，个体偏小，适合大屏放大看。状态再监督局部改善明确；Oracle含特权真实速度/接触，不能称部署输入。",
+      "evidence": {
+        "receipt": {
+          "path": "research-data/科研汇报_20260917至20261103/24_双域泛化与困难动作_20261112/直接看视频/05_机器人域未见单腿_15.5秒_三种训练对照.receipt.json",
+          "bytes": 17078,
+          "sha256": "aebba3c38c658e38c6e8882710fbacbf3104d36649d9325ece43df9ea0afe296"
+        },
+        "report": "research-data/科研汇报_20260917至20261103/24_双域泛化与困难动作_20261112/下午结果与分析_20261112.md"
+      }
+    }
+  ],
+  "media_findings": {
+    "selected_count": 4,
+    "real_human_external_count": 3,
+    "robot_render_only_count": 1,
+    "no_verified_better_new_real_external_demo": true,
+    "thirty_second_correction": {
+      "site_video": {
+        "path": "research-data/科研汇报网页_20261105/public/media/latest/r40-f48-movi30.mp4",
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 368,
+              "r_frame_rate": "25/1",
+              "duration": "30.000000",
+              "nb_frames": "750"
+            }
+          ],
+          "format": {
+            "duration": "30.000000",
+            "size": "508310"
+          }
+        }
+      },
+      "dataset": "MoVi",
+      "source_id": "MoVi_F_S55_natural",
+      "note": "网站30秒是MoVi，不是HuMMan；已核网站HuMMan为2.0/2.92/4.4秒等短片。"
+    },
+    "motionx": {
+      "status": "找到真实源视频及GV局部姿态辅助，未找到MotionX真人输入的实际机器人执行demo",
+      "source_only_example": {
+        "category": "gangnam_style_dance",
+        "command_supervision": false,
+        "family": "gangnam_style_dance_10",
+        "label_type": "gv_pseudo_pose",
+        "npz": {
+          "bytes": 118215,
+          "path": "research-data/run/research44_20261111/data/motionx/sources/motionx_haa_gangnam_style_dance_10_clip1/pose_aux.npz",
+          "sha256": "3b21c5e0ab6e370bf34ac51716c6396b70b18797e17c34ae461e4ec80ffed772"
+        },
+        "quality": {
+          "admitted_pose_auxiliary": true,
+          "duration_seconds": 6.3999999999999995,
+          "duration_tier": "long_ge5s",
+          "event_ground_truth": false,
+          "frames": 192,
+          "fullbody_fraction": 1.0,
+          "mean_required_keypoint_confidence": 0.9081124663352966,
+          "min_context_rule": "variable-length; no clipped/padded labels count as independent frames",
+          "root_valid": false,
+          "unsupervised_root_features_available": true,
+          "valid_fullbody_frames": 192
+        },
+        "receipt": {
+          "bytes": 3193,
+          "path": "research-data/run/research44_20261111/data/motionx/sources/motionx_haa_gangnam_style_dance_10_clip1/receipt.json",
+          "sha256": "b605c4c80846697d7691da7d1c55c3a6c9f0bbd5de93f111b2ffde54a176a25b"
+        },
+        "source_id": "motionx_haa_gangnam_style_dance_10_clip1",
+        "split": "DEV",
+        "video": {
+          "bytes": 105726,
+          "path": "research-data/run/research44_20261111/data/motionx/sources/motionx_haa_gangnam_style_dance_10_clip1/source.mp4",
+          "sha256": "49542e82a655087dad9b586d49ce72c23c2ff6f6ace39e8809a01270b40930e3"
+        },
+        "world_root_supervision": false
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "hevc",
+            "width": 480,
+            "height": 360,
+            "r_frame_rate": "30/1",
+            "duration": "6.400000",
+            "nb_frames": "192"
+          }
+        ],
+        "format": {
+          "duration": "6.400000",
+          "size": "105726"
+        }
+      },
+      "review_frame": "research-data/科研汇报_20260917至20261103/13_网页汇报/v8_20261113/media_review_frames/motionx_source_only.jpg",
+      "scale_counts": {
+        "DEV": 60,
+        "TRAIN": 1482
+      },
+      "scale_categories": 391,
+      "world_root_supervision": false,
+      "command_supervision": false,
+      "event_supervision": false,
+      "label_type": "gv_pseudo_pose",
+      "not_selected_reason": "source-only不等于执行demo；带motionx模型名的comparison.mp4实际评估输入为MoVi，不能冒充MotionX外部成功"
+    },
+    "not_selected_R42_HuMMan": [
+      {
+        "id": "r42_humman_209",
+        "probe": {
+          "path": "research-data/run/research41_20261109/adapt_newdata/external/r42_adapt_new_humman_p000456_a000209/render/input_and_actual_robot.mp4",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 960,
+                "height": 368,
+                "r_frame_rate": "25/1",
+                "duration": "9.720000",
+                "nb_frames": "243"
+              }
+            ],
+            "format": {
+              "duration": "9.720000",
+              "size": "2321852"
+            }
+          },
+          "sampled_times_s": [
+            5.346000000000001
+          ]
+        },
+        "reason": "9.72s转髋可见；是HuMMan适配模型，不能沿用MoVi训练外部冻结模型口径，未建立优于旧示例的配对证据"
+      },
+      {
+        "id": "r42_humman_084",
+        "probe": {
+          "path": "research-data/run/research41_20261109/adapt_newdata/external/r42_adapt_new_humman_p001008_a000084/render/input_and_actual_robot.mp4",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 960,
+                "height": 368,
+                "r_frame_rate": "25/1",
+                "duration": "3.920000",
+                "nb_frames": "98"
+              }
+            ],
+            "format": {
+              "duration": "3.920000",
+              "size": "766543"
+            }
+          },
+          "sampled_times_s": [
+            2.156
+          ]
+        },
+        "reason": "3.92s真人跪地而机器人站立举臂，抽帧明显不匹配，不列成功展示"
+      }
+    ]
+  },
+  "verification": {
+    "media_probe": "research-data/科研汇报_20260917至20261103/13_网页汇报/v8_20261113/media_probe.json",
+    "visual_review": "4个入选视频各3帧；另2个R42候选各1帧、1个MotionX源1帧；仅抽查，不等同全时序质量评分",
+    "external_web_access_used": false
+  }
+}

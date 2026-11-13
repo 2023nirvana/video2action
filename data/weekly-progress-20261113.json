@@ -1,0 +1,294 @@
+{
+  "updated": "2026-11-13",
+  "matched": [
+    {
+      "name": "原分域 VideoMAE",
+      "q": 0.12023474809884077,
+      "xy": 0.3824711111596283,
+      "heading": 34.83019857498936,
+      "mpjpe": 456.51973581857516,
+      "contactF1": 0.887579637443953
+    },
+    {
+      "name": "共同 GVHMR",
+      "q": 0.09739364959979728,
+      "xy": 0.24685894507560766,
+      "heading": 21.523389746447826,
+      "mpjpe": 276.9453995303208,
+      "contactF1": 0.9213302281840379
+    },
+    {
+      "name": "共同 GVHMR＋图像残差",
+      "q": 0.09642790349711874,
+      "xy": 0.2307400993073359,
+      "heading": 20.637385708542517,
+      "mpjpe": 261.1898780468255,
+      "contactF1": 0.9201445381704321
+    }
+  ],
+  "systems": [
+    {
+      "split": "DEV12",
+      "domain": "真人",
+      "n": 12,
+      "oldQ": 0.08836069744788322,
+      "oldXY": 0.18754766158576638,
+      "oldHeading": 12.918290950757,
+      "oldMPJPE": 222.49209735399725,
+      "newQ": 0.08694988082958675,
+      "newXY": 0.16375812860447955,
+      "newHeading": 11.844354394150654,
+      "newMPJPE": 192.28676204847613
+    },
+    {
+      "split": "DEV12",
+      "domain": "机器人",
+      "n": 12,
+      "oldQ": 0.11987555571453357,
+      "oldXY": 0.4109100292393831,
+      "oldHeading": 28.47329720963584,
+      "oldMPJPE": 484.14426417702276,
+      "newQ": 0.0974110321948049,
+      "newXY": 0.18063645965240385,
+      "newHeading": 12.309252279722694,
+      "newMPJPE": 207.8073250398081
+    },
+    {
+      "split": "VAL43",
+      "domain": "真人",
+      "n": 43,
+      "oldQ": 0.0963013593455819,
+      "oldXY": 0.030396748062767247,
+      "oldHeading": 5.053093207647924,
+      "oldMPJPE": 45.95566227493254,
+      "newQ": 0.10496717165948312,
+      "newXY": 0.03918284597555776,
+      "newHeading": 7.736744016627751,
+      "newMPJPE": 54.52688214868455
+    },
+    {
+      "split": "VAL43",
+      "domain": "机器人",
+      "n": 43,
+      "oldQ": 0.13284275812451452,
+      "oldXY": 0.05170404994939363,
+      "oldHeading": 11.910032198019232,
+      "oldMPJPE": 78.21441346598068,
+      "newQ": 0.10585053765771109,
+      "newXY": 0.04362182169157531,
+      "newHeading": 6.38876106231471,
+      "newMPJPE": 58.516000834659
+    }
+  ],
+  "scale": [
+    {
+      "n": 48,
+      "q": 0.11984217375438122,
+      "xy": 0.03611875742007219,
+      "devXY": 0.2772230398653133
+    },
+    {
+      "n": 128,
+      "q": 0.10754358051286858,
+      "xy": 0.03840355780268121,
+      "devXY": 0.24959438987675656
+    },
+    {
+      "n": 256,
+      "q": 0.0971322130541769,
+      "xy": 0.03456201717859724,
+      "devXY": 0.2794780880653371
+    }
+  ],
+  "sharing": {
+    "sharedParams": 542499,
+    "independentParams": 976547,
+    "rows": [
+      {
+        "split": "DEV12",
+        "domain": "真人",
+        "shared": 0.21172636066137646,
+        "independent": 0.1931792208942968
+      },
+      {
+        "split": "DEV12",
+        "domain": "机器人",
+        "shared": 0.24553850979394876,
+        "independent": 0.23538839052111907
+      },
+      {
+        "split": "VAL43",
+        "domain": "真人",
+        "shared": 0.03349162174269876,
+        "independent": 0.03183961262980278
+      },
+      {
+        "split": "VAL43",
+        "domain": "机器人",
+        "shared": 0.03713581849607154,
+        "independent": 0.037279045176581704
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "common-frontend-walking",
+      "title": "同一机器人视频：原分域 vs 共同 GV 前端",
+      "src": "media/week-20261113/common-frontend-walking.mp4",
+      "poster": "media/week-20261113/common-frontend-walking.jpg",
+      "duration": 7.52,
+      "source": "MoVi · S57 walking · DEV",
+      "exposure": "未参与这两组模型训练；用于开发评价",
+      "model": "上：原分域256（24k）；下：共同GV＋图像残差256（6k）",
+      "note": "两行均为：机器人RGB输入 / Teacher评分参考 / Student实际执行。固定世界镜头；同一动作的位置RMSE 1.234→0.213m，朝向82.26°→14.61°。这是完整模型选择结果，不是同训练步数消融。",
+      "kind": "comparison",
+      "isNew": true
+    },
+    {
+      "id": "lafan-singleleg",
+      "title": "LAFAN：15.5秒单腿与连续姿态变化",
+      "src": "media/week-20261113/lafan-singleleg.mp4",
+      "poster": "media/week-20261113/lafan-singleleg.jpg",
+      "duration": 15.5,
+      "source": "LAFAN · dance2 · subject4 · DEV",
+      "exposure": "该被试/录制未参与本轮困难动作训练；未审计所有上游预训练",
+      "model": "普通监督 / 状态再监督 / 额外真值输入诊断",
+      "note": "从左到右：Teacher参考、普通监督、状态再监督、额外真实速度/接触Oracle。全部为实际G1仿真mesh。此段位置RMSE 0.800→0.348m，去平移MPJPE 74.91→52.19mm；输入域是机器人渲染，非LAFAN真人视频。",
+      "kind": "long",
+      "isNew": true
+    },
+    {
+      "id": "human-robot-kick",
+      "title": "真人与机器人输入：踢腿动作六宫格",
+      "src": "media/week-20261113/human-robot-kick.mp4",
+      "poster": "media/week-20261113/human-robot-kick.jpg",
+      "duration": 4.4,
+      "source": "MoVi · S66 kicking · 困难动作验证",
+      "exposure": "本轮和已查P0动作清单中未用于训练",
+      "model": "共同GV前端 · 困难动作基线",
+      "note": "上排真人输入、真人输入Student、Teacher；下排机器人输入、机器人输入Student、轨迹俯视图。单腿支撑仍比Teacher短；此视频用于观察双域链路和困难动作。",
+      "kind": "diagnostic",
+      "isNew": true
+    },
+    {
+      "id": "humman-arms",
+      "title": "HuMMan：交替抬臂",
+      "src": "media/showcase/showcase-arm-knee.mp4",
+      "poster": "media/showcase/showcase-arm-knee.jpg",
+      "duration": 2.92,
+      "source": "HuMMan-Point · p001110_a000652",
+      "exposure": "未参与该模型的MoVi48训练；无同步G1执行真值",
+      "model": "11月6日 GV真人前端模型 · MoVi48",
+      "note": "真人输入与Student实际执行并排。保留的跨来源演示，用于展示外观变化下的动作响应；不是本周共同机器人前端的新提升。",
+      "kind": "external",
+      "isNew": false
+    },
+    {
+      "id": "humman-squat",
+      "title": "HuMMan：双臂前举与屈膝",
+      "src": "media/showcase/showcase-humman-squat.mp4",
+      "poster": "media/showcase/showcase-humman-squat.jpg",
+      "duration": 4.4,
+      "source": "HuMMan-Point · p000475_a000210",
+      "exposure": "未参与该模型的MoVi48训练；无同步G1执行真值",
+      "model": "11月6日 GV真人前端模型 · MoVi48",
+      "note": "真人与Student全身配合示例；已有模型在新来源上的可视化，不以执行完成替代模仿精度。",
+      "kind": "external",
+      "isNew": false
+    },
+    {
+      "id": "continuous-120",
+      "title": "连续120秒：抬臂、下蹲与转向",
+      "src": "media/showcase/showcase-long120.mp4",
+      "poster": "media/showcase/showcase-long120.jpg",
+      "duration": 120.0,
+      "source": "MoVi · S55 natural · VAL被试",
+      "exposure": "该长录制未参与MoVi48模型训练；无全片同步G1真值",
+      "model": "11月6日 GV真人前端模型 · MoVi48",
+      "note": "统一站立初态，动作间无重置，原速播放。保留的长视频结果；长度本身不代表逐帧动作精确。",
+      "kind": "long",
+      "isNew": false
+    },
+    {
+      "id": "external-tennis",
+      "title": "外部网球：上肢模仿与起跳差异",
+      "src": "media/week-20261113/external-tennis.mp4",
+      "poster": "media/week-20261113/external-tennis.jpg",
+      "duration": 9.8,
+      "source": "网络网球真人视频 · 外部输入",
+      "exposure": "不在该模型训练清单；无同步G1真值",
+      "model": "共同GV模型 · 32源 · 累计24k",
+      "note": "真人 / GV人体估计 / Student。挥拍能引起上肢动作，双脚离地未被充分复现；用于定位从人体估计到物理执行的差异。",
+      "kind": "diagnostic",
+      "isNew": true
+    },
+    {
+      "id": "jump-initialization",
+      "title": "跳跃诊断：参考初态 vs 站立初态",
+      "src": "media/week-20261113/jump-initialization.mp4",
+      "poster": "media/week-20261113/jump-initialization.jpg",
+      "duration": 3.44,
+      "source": "MoVi · S63 vertical jumping",
+      "exposure": "困难动作验证；非本轮训练内overfit",
+      "model": "共同GV前端 · 两种输入域 × 两种初始化",
+      "note": "对照参考初姿态与站立后0.6秒启动。该组6段起跳/开合跳的Teacher均未形成连续50ms双脚离地，须先修复监督目标；踢腿中还存在Teacher可做、Student没跟上的问题。",
+      "kind": "diagnostic",
+      "isNew": true
+    }
+  ],
+  "notes": {
+    "pdf": "documents/weekly-speaker-notes-20261113.pdf",
+    "md": "documents/weekly-speaker-notes-20261113.md"
+  },
+  "figures": {
+    "matched": "figures/week-20261113/matched-frontend.svg",
+    "scale": "figures/week-20261113/scale.svg"
+  },
+  "sources": {
+    "system": "research46/system_audit.json",
+    "matched": "research43/strict_32_source_6000_updates",
+    "latency": "research44/resident"
+  },
+  "latency": {
+    "initMin": 11.676891505718231,
+    "initMax": 12.607053805142641,
+    "p50Min": 0.6243370026350021,
+    "p50Max": 0.646537434309721,
+    "p95Min": 0.6340667475014925,
+    "p95Max": 0.6665026862174273,
+    "hardware": "NVIDIA A40, physical GPU2, CPU torch threads=2",
+    "protocol": "每项8s/240帧，30fps；3新帧一批；warmup30帧；最多120帧/4s上下文；每项71次有效GV更新",
+    "note": "完整视觉前端，不能称完整RGB→机器人端到端；倒数中位数为服务能力估计，不是实时摄像头测得更新率。",
+    "coldP50": 29.881054293364286,
+    "stages": {
+      "decode_seconds": {
+        "max": 0.0032371915876865387,
+        "p50": 0.0012972243130207062,
+        "p95": 0.002201138064265251
+      },
+      "detector_seconds": {
+        "max": 0.05346407741308212,
+        "p50": 0.04338859021663666,
+        "p95": 0.04756622947752476
+      },
+      "gv_seconds": {
+        "max": 0.4814066179096699,
+        "p50": 0.38761667162179947,
+        "p95": 0.3957182262092829
+      },
+      "pose_image_seconds": {
+        "max": 0.21621644124388695,
+        "p50": 0.20098819211125374,
+        "p95": 0.20484260469675064
+      }
+    }
+  },
+  "protocol": {
+    "average": "先每片评分，再片段等权平均",
+    "DEVMeanSeconds": 6.96,
+    "VALMeanSeconds": 3.026,
+    "reference": "Student实际执行 vs 同后端Teacher实际执行；G1 29活动关节对应link原点；世界MPJPE保留root与朝向",
+    "checkpoint_selection": "两组完整256系统依各自DEV选择；原分域24k、共同GV+图像6k；非纯同预算因果比较",
+    "initialization": "主表参考首姿态；站立初始化另做困难动作对照"
+  }
+}
