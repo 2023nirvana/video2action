@@ -1,0 +1,3798 @@
+{
+  "date": "2026-11-20",
+  "demos": [
+    {
+      "title": "未见蛙跳：真人输入",
+      "group": "Motion-X / HAA",
+      "src": "videos/week20261120/scale_01.mp4",
+      "poster": "videos/week20261120/scale_01.jpg",
+      "metrics": {
+        "global MPJPE / mm": 42.85,
+        "root相对 MPJPE / mm": 21.56,
+        "接触 F1": 0.932
+      },
+      "model": "Joint · scale_expanded_J_Hexposure_s491120_60000",
+      "split": "TEST",
+      "note": "左：输入；右：我们的实际物理执行。精选：真实腾空0.235秒，落地后的可观察时间不足0.5秒。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/32_双域模仿展示与对照计划_20261119/media/01_input_and_our_execution.mp4",
+      "duration_seconds": 1.6
+    },
+    {
+      "title": "室外下蹲与手臂：真人输入",
+      "group": "Motion-X / HAA",
+      "src": "videos/week20261120/scale_02.mp4",
+      "poster": "videos/week20261120/scale_02.jpg",
+      "metrics": {
+        "global MPJPE / mm": 48.29,
+        "root相对 MPJPE / mm": 38.02,
+        "接触 F1": 0.994
+      },
+      "model": "Joint · scale_expanded_J_Hexposure_s491120_60000",
+      "split": "TEST",
+      "note": "左：输入；右：我们的实际物理执行。精选：对应源类别为 spraying_wall，片段可见下蹲和手臂动作。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/32_双域模仿展示与对照计划_20261119/media/02_input_and_our_execution.mp4",
+      "duration_seconds": 3.12
+    },
+    {
+      "title": "室外下蹲与手臂：机器人输入",
+      "group": "Motion-X / HAA",
+      "src": "videos/week20261120/scale_03.mp4",
+      "poster": "videos/week20261120/scale_03.jpg",
+      "metrics": {
+        "global MPJPE / mm": 58.07,
+        "root相对 MPJPE / mm": 39.12,
+        "接触 F1": 0.984
+      },
+      "model": "Joint · scale_expanded_J_Hexposure_s491120_60000",
+      "split": "TEST",
+      "note": "左：输入；右：我们的实际物理执行。与真人演示为同一动作来源；有效时间窗略短，未强行拼成同步四宫格。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/32_双域模仿展示与对照计划_20261119/media/03_input_and_our_execution.mp4",
+      "duration_seconds": 2.92
+    },
+    {
+      "title": "太极扇：真人输入",
+      "group": "Motion-X / HAA",
+      "src": "videos/week20261120/scale_04.mp4",
+      "poster": "videos/week20261120/scale_04.jpg",
+      "metrics": {
+        "global MPJPE / mm": 74.37,
+        "root相对 MPJPE / mm": 59.71,
+        "接触 F1": 0.956
+      },
+      "model": "Joint · scale_expanded_J_Hexposure_s491120_60000",
+      "split": "TEST",
+      "note": "左：输入；右：我们的实际物理执行。上肢与转身演示；模型不操纵真实扇子。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/32_双域模仿展示与对照计划_20261119/media/04_input_and_our_execution.mp4",
+      "duration_seconds": 3.12
+    },
+    {
+      "title": "太极扇：机器人输入",
+      "group": "Motion-X / HAA",
+      "src": "videos/week20261120/scale_05.mp4",
+      "poster": "videos/week20261120/scale_05.jpg",
+      "metrics": {
+        "global MPJPE / mm": 122.69,
+        "root相对 MPJPE / mm": 52.71,
+        "接触 F1": 0.868
+      },
+      "model": "Joint · scale_expanded_J_Hexposure_s491120_60000",
+      "split": "TEST",
+      "note": "左：输入；右：我们的实际物理执行。同一 Joint 模型的机器人输入；有手臂和朝向偏差。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/32_双域模仿展示与对照计划_20261119/media/05_input_and_our_execution.mp4",
+      "duration_seconds": 2.92
+    },
+    {
+      "title": "宽站姿与俯身：真人输入",
+      "group": "Motion-X / HAA",
+      "src": "videos/week20261120/scale_06.mp4",
+      "poster": "videos/week20261120/scale_06.jpg",
+      "metrics": {
+        "global MPJPE / mm": 69.45,
+        "root相对 MPJPE / mm": 26.48,
+        "接触 F1": 0.987
+      },
+      "model": "Human-only · scale_expanded_H_s491121_60000",
+      "split": "TEST",
+      "note": "左：输入；右：我们的实际物理执行。较长完整片段；展示 Human-only，不作为 Joint 优势案例。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/32_双域模仿展示与对照计划_20261119/media/06_input_and_our_execution.mp4",
+      "duration_seconds": 7.92
+    },
+    {
+      "title": "宽站姿与俯身：机器人输入",
+      "group": "Motion-X / HAA",
+      "src": "videos/week20261120/scale_07.mp4",
+      "poster": "videos/week20261120/scale_07.jpg",
+      "metrics": {
+        "global MPJPE / mm": 118.37,
+        "root相对 MPJPE / mm": 77.54,
+        "接触 F1": 0.991
+      },
+      "model": "Human-only · scale_expanded_H_s491121_60000",
+      "split": "TEST",
+      "note": "左：输入；右：我们的实际物理执行。与上一段来自同一动作；Human-only 模型经共同 GV 前端处理机器人输入。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/32_双域模仿展示与对照计划_20261119/media/07_input_and_our_execution.mp4",
+      "duration_seconds": 7.72
+    },
+    {
+      "title": "19.6秒连续开合跨步 · 未见长动作",
+      "group": "Motion-X fitness",
+      "src": "videos/week20261120/scale_long_H.mp4",
+      "poster": "videos/week20261120/scale_long_H.jpg",
+      "metrics": {
+        "global MPJPE / mm": 363.83,
+        "root相对 MPJPE / mm": 148.32,
+        "完成 / s": 19.6
+      },
+      "model": "扩量Human-only · H120k",
+      "split": "TEST",
+      "note": "左输入；右模型实际执行，连续无重置。长时root漂移与局部姿态分别评价。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/30_下一轮研究计划_20261118/demo_最终TEST_20261119/03_开合跨步_H_真人输入_19.6秒.mp4",
+      "duration_seconds": 19.6
+    },
+    {
+      "title": "MotionPRO · 四机位探针 2",
+      "group": "MotionPRO",
+      "src": "videos/week20261120/scale_motionpro_toy_1.mp4",
+      "poster": "videos/week20261120/scale_motionpro_toy_1.jpg",
+      "metrics": {
+        "global MPJPE / mm": 35.63,
+        "root相对 MPJPE / mm": 9.97
+      },
+      "model": "扩量 Human-only · H120k",
+      "split": "DIAGNOSTIC",
+      "note": "左：输入真人；右：模型实际执行。误差参考为SONIC可执行轨迹；独立SMPL/压力另作诊断。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/motionpro/evaluation/toy/001/selected_H/cases/motionpro_ae086b03177e_w00_v1__human__oblique/render/same_video_native_vs_shared.mp4",
+      "duration_seconds": 11.52
+    },
+    {
+      "title": "MotionPRO · 四机位探针 6",
+      "group": "MotionPRO",
+      "src": "videos/week20261120/scale_motionpro_toy_5.mp4",
+      "poster": "videos/week20261120/scale_motionpro_toy_5.jpg",
+      "metrics": {
+        "global MPJPE / mm": 11.92,
+        "root相对 MPJPE / mm": 9.18
+      },
+      "model": "扩量 Human-only · H120k",
+      "split": "DIAGNOSTIC",
+      "note": "左：输入真人；右：模型实际执行。误差参考为SONIC可执行轨迹；独立SMPL/压力另作诊断。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/motionpro/evaluation/toy/005/selected_H/cases/motionpro_ae086b03177e_w01_v1__human__oblique/render/same_video_native_vs_shared.mp4",
+      "duration_seconds": 11.52
+    },
+    {
+      "title": "MotionPRO · 新独立记录 1",
+      "group": "MotionPRO",
+      "src": "videos/week20261120/scale_motionpro_expanded_0.mp4",
+      "poster": "videos/week20261120/scale_motionpro_expanded_0.jpg",
+      "metrics": {
+        "global MPJPE / mm": 89.69,
+        "root相对 MPJPE / mm": 22.29
+      },
+      "model": "扩量 Human-only · H120k",
+      "split": "DIAGNOSTIC",
+      "note": "左：输入真人；右：模型实际执行。误差参考为SONIC可执行轨迹；独立SMPL/压力另作诊断。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/motionpro/evaluation/expanded/000/selected_H/cases/motionpro_9f950ee0e04e_w00_v1__human__oblique/render/same_video_native_vs_shared.mp4",
+      "duration_seconds": 11.52
+    }
+  ],
+  "rootDemos": [
+    {
+      "title": "未见灭火器动作 · Human-only",
+      "group": "新TEST",
+      "src": "videos/week20261120/root_newtest_H.mp4",
+      "poster": "videos/week20261120/root_newtest_H.jpg",
+      "metrics": {},
+      "model": "H · R50",
+      "split": "TEST",
+      "note": "双域完整对照，输入与实际执行按画面文字标识。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/30_下一轮研究计划_20261118/demo_最终TEST_20261119/新TEST_灭火器动作_H_双域.mp4",
+      "duration_seconds": 2.72
+    },
+    {
+      "title": "未见灭火器动作 · Joint",
+      "group": "新TEST",
+      "src": "videos/week20261120/root_newtest_J.mp4",
+      "poster": "videos/week20261120/root_newtest_J.jpg",
+      "metrics": {},
+      "model": "J · R50",
+      "split": "TEST",
+      "note": "双域完整对照，输入与实际执行按画面文字标识。",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/30_下一轮研究计划_20261118/demo_最终TEST_20261119/新TEST_灭火器动作_J_双域.mp4",
+      "duration_seconds": 2.72
+    },
+    {
+      "title": "修正前：原目标继续训练",
+      "group": "LAFAN跳跃机制验证",
+      "src": "videos/week20261120/root_root_H_control_s511120.mp4",
+      "poster": "videos/week20261120/root_root_H_control_s511120.jpg",
+      "metrics": {},
+      "model": "root_H_control_s511120",
+      "split": "TRAIN",
+      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/learning/flight_diagnostics/root_H_control_s511120/TRAIN_executed_positive/cases/lafan_jumps1_subject1__robot_positive_control/render/same_video_native_vs_shared.mp4",
+      "duration_seconds": 7.52
+    },
+    {
+      "title": "修正后：加入真实腾空正例",
+      "group": "LAFAN跳跃机制验证",
+      "src": "videos/week20261120/root_root_H_robot_events_s511120.mp4",
+      "poster": "videos/week20261120/root_root_H_robot_events_s511120.jpg",
+      "metrics": {},
+      "model": "root_H_robot_events_s511120",
+      "split": "TRAIN",
+      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/learning/flight_diagnostics/root_H_robot_events_s511120/TRAIN_executed_positive/cases/lafan_jumps1_subject1__robot_positive_control/render/same_video_native_vs_shared.mp4",
+      "duration_seconds": 7.52
+    },
+    {
+      "title": "竖直监督：增强root意图",
+      "group": "LAFAN跳跃机制验证",
+      "src": "videos/week20261120/root_root_H_robot_events_vertical_s511120.mp4",
+      "poster": "videos/week20261120/root_root_H_robot_events_vertical_s511120.jpg",
+      "metrics": {},
+      "model": "root_H_robot_events_vertical_s511120",
+      "split": "TRAIN",
+      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/learning/flight_diagnostics/root_H_robot_events_vertical_s511120/TRAIN_executed_positive/cases/lafan_jumps1_subject1__robot_positive_control/render/same_video_native_vs_shared.mp4",
+      "duration_seconds": 7.52
+    },
+    {
+      "title": "独立SMPL → SONIC：12秒真人对照",
+      "group": "MotionPRO独立诊断",
+      "src": "videos/week20261120/root_smpl_oracle.mp4",
+      "poster": "videos/week20261120/root_smpl_oracle.jpg",
+      "metrics": {
+        "真实腾空 / s": 0.13
+      },
+      "model": "官方人体运动入口",
+      "split": "DIAGNOSTIC",
+      "note": "左：真人；右：独立SMPL经过官方SONIC的实际执行。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/motionpro/native_smpl/toy/001/human_vs_independent_smpl_sonic.mp4",
+      "duration_seconds": 12.067
+    },
+    {
+      "title": "同一MotionPRO动作：GV入口与我们映射",
+      "group": "MotionPRO独立诊断",
+      "src": "videos/week20261120/root_motionpro_gv.mp4",
+      "poster": "videos/week20261120/root_motionpro_gv.jpg",
+      "metrics": {},
+      "model": "H120k",
+      "split": "DIAGNOSTIC",
+      "note": "上排：RGB / GV→官方SONIC / 我们+heading；下排：参考 / 我们无heading / root高度。",
+      "sourceFile": "/data/video2action_motionpro/research51_run/motionpro/evaluation/toy/001/selected_H/cases/motionpro_ae086b03177e_w00_v1__human__oblique/render/same_video_native_vs_shared.mp4",
+      "duration_seconds": 11.52
+    }
+  ],
+  "officialDemos": [
+    {
+      "title": "BASE：下蹲与抬手",
+      "group": "作者官方展示",
+      "src": "videos/week20261120/base_squat.mp4",
+      "poster": "videos/week20261120/base_squat.jpg",
+      "metrics": {},
+      "model": "BeyondRetarget BASE",
+      "split": "作者项目页",
+      "note": "作者提供的展示视频，与我们的输入集合和评测协议不同。来源：https://bear-ty.github.io/Beyondretarget_page/assets/videos/teaser-hand-raise-squat.mp4",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/34_本周四任务汇报_20261120/base_squat_author.mp4",
+      "duration_seconds": 9.934
+    },
+    {
+      "title": "Plus：网球与全局运动",
+      "group": "作者官方展示",
+      "src": "videos/week20261120/plus_tennis.mp4",
+      "poster": "videos/week20261120/plus_tennis.jpg",
+      "metrics": {},
+      "model": "BeyondRetarget Plus",
+      "split": "作者项目页",
+      "note": "作者提供的展示视频，与我们的输入集合和评测协议不同。来源：https://bear-ty.github.io/BR_plus_web/assets/cover/tennis-1.mp4",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/34_本周四任务汇报_20261120/plus_tennis_author.mp4",
+      "duration_seconds": 10.4
+    },
+    {
+      "title": "Plus：跳绳与脚部动作",
+      "group": "作者官方展示",
+      "src": "videos/week20261120/plus_jump.mp4",
+      "poster": "videos/week20261120/plus_jump.jpg",
+      "metrics": {},
+      "model": "BeyondRetarget Plus",
+      "split": "作者项目页",
+      "note": "作者提供的展示视频，与我们的输入集合和评测协议不同。来源：https://bear-ty.github.io/BR_plus_web/assets/cover/jump-rope.mp4",
+      "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/34_本周四任务汇报_20261120/plus_jump_author.mp4",
+      "duration_seconds": 13.2
+    }
+  ],
+  "scale": [
+    {
+      "independent_sources": "256",
+      "Human input / Human-only": "112.35",
+      "Human input / Joint": "130",
+      "Robot input / Human-only": "116.32",
+      "Robot input / Joint": "111.56"
+    },
+    {
+      "independent_sources": "753",
+      "Human input / Human-only": "84.4",
+      "Human input / Joint": "84.66",
+      "Robot input / Human-only": "97.39",
+      "Robot input / Joint": "83.5"
+    },
+    {
+      "independent_sources": "1411",
+      "Human input / Human-only": "68.92",
+      "Human input / Joint": "63.36",
+      "Robot input / Human-only": "96.33",
+      "Robot input / Joint": "81.97"
+    }
+  ],
+  "exposure": [
+    {
+      "model": "H120",
+      "domain": "human",
+      "mpjpe": 290.6761268960554,
+      "seeds": [
+        {
+          "seed": "501119",
+          "n": 52,
+          "mpjpe": 297.0287317190822,
+          "complete": 52
+        },
+        {
+          "seed": "501120",
+          "n": 52,
+          "mpjpe": 284.32352207302864,
+          "complete": 52
+        }
+      ]
+    },
+    {
+      "model": "H120",
+      "domain": "paired_robot",
+      "mpjpe": 354.34547099978306,
+      "seeds": [
+        {
+          "seed": "501119",
+          "n": 52,
+          "mpjpe": 352.6397924858444,
+          "complete": 51
+        },
+        {
+          "seed": "501120",
+          "n": 52,
+          "mpjpe": 356.05114951372167,
+          "complete": 51
+        }
+      ]
+    },
+    {
+      "model": "J120",
+      "domain": "human",
+      "mpjpe": 410.2818266898287,
+      "seeds": [
+        {
+          "seed": "501119",
+          "n": 52,
+          "mpjpe": 391.74529660058676,
+          "complete": 52
+        },
+        {
+          "seed": "501120",
+          "n": 52,
+          "mpjpe": 428.8183567790706,
+          "complete": 52
+        }
+      ]
+    },
+    {
+      "model": "J120",
+      "domain": "paired_robot",
+      "mpjpe": 502.14952429263815,
+      "seeds": [
+        {
+          "seed": "501119",
+          "n": 52,
+          "mpjpe": 520.9958723550319,
+          "complete": 46
+        },
+        {
+          "seed": "501120",
+          "n": 52,
+          "mpjpe": 483.30317623024433,
+          "complete": 46
+        }
+      ]
+    },
+    {
+      "model": "J240",
+      "domain": "human",
+      "mpjpe": 393.15204757735773,
+      "seeds": [
+        {
+          "seed": "501119",
+          "n": 52,
+          "mpjpe": 380.432835782662,
+          "complete": 52
+        },
+        {
+          "seed": "501120",
+          "n": 52,
+          "mpjpe": 405.87125937205343,
+          "complete": 52
+        }
+      ]
+    },
+    {
+      "model": "J240",
+      "domain": "paired_robot",
+      "mpjpe": 603.1195682746218,
+      "seeds": [
+        {
+          "seed": "501119",
+          "n": 52,
+          "mpjpe": 543.7853146887261,
+          "complete": 42
+        },
+        {
+          "seed": "501120",
+          "n": 52,
+          "mpjpe": 662.4538218605173,
+          "complete": 47
+        }
+      ]
+    }
+  ],
+  "rootRows": [
+    {
+      "model": "root_H_control_s511120",
+      "arm": "official_sonic_human",
+      "air": 0.055,
+      "iou": 0.0,
+      "mpjpe": 441.57883364223113,
+      "completed": true
+    },
+    {
+      "model": "root_H_control_s511120",
+      "arm": "shared_heading_on",
+      "air": 0.18,
+      "iou": 0.24675324675324675,
+      "mpjpe": 468.1118660632371,
+      "completed": true
+    },
+    {
+      "model": "root_H_control_s511120",
+      "arm": "shared_heading_off",
+      "air": 0.20500000000000002,
+      "iou": 0.16091954022988506,
+      "mpjpe": 1106.6444715650105,
+      "completed": true
+    },
+    {
+      "model": "root_H_robot_events_s511120",
+      "arm": "official_sonic_human",
+      "air": 0.055,
+      "iou": 0.0,
+      "mpjpe": 441.57883364223113,
+      "completed": true
+    },
+    {
+      "model": "root_H_robot_events_s511120",
+      "arm": "shared_heading_on",
+      "air": 0.185,
+      "iou": 0.38571428571428573,
+      "mpjpe": 413.55794046116426,
+      "completed": true
+    },
+    {
+      "model": "root_H_robot_events_s511120",
+      "arm": "shared_heading_off",
+      "air": 0.31,
+      "iou": 0.8769230769230769,
+      "mpjpe": 115.29928214601345,
+      "completed": true
+    },
+    {
+      "model": "root_H_robot_events_vertical_s511120",
+      "arm": "official_sonic_human",
+      "air": 0.055,
+      "iou": 0.0,
+      "mpjpe": 441.57883364223113,
+      "completed": true
+    },
+    {
+      "model": "root_H_robot_events_vertical_s511120",
+      "arm": "shared_heading_on",
+      "air": 0.095,
+      "iou": 0.234375,
+      "mpjpe": 406.22364657622927,
+      "completed": true
+    },
+    {
+      "model": "root_H_robot_events_vertical_s511120",
+      "arm": "shared_heading_off",
+      "air": 0.335,
+      "iou": 0.8142857142857143,
+      "mpjpe": 108.7115833539791,
+      "completed": true
+    },
+    {
+      "model": "root_J_control_s511120",
+      "arm": "official_sonic_human",
+      "air": 0.055,
+      "iou": 0.0,
+      "mpjpe": 441.57883364223113,
+      "completed": true
+    },
+    {
+      "model": "root_J_control_s511120",
+      "arm": "shared_heading_on",
+      "air": 0.12000000000000001,
+      "iou": 0.024390243902439025,
+      "mpjpe": 306.4819066826549,
+      "completed": false
+    },
+    {
+      "model": "root_J_control_s511120",
+      "arm": "shared_heading_off",
+      "air": 0.255,
+      "iou": 0.23333333333333334,
+      "mpjpe": 1059.276854040458,
+      "completed": true
+    },
+    {
+      "model": "root_J_robot_events_s511120",
+      "arm": "official_sonic_human",
+      "air": 0.055,
+      "iou": 0.0,
+      "mpjpe": 441.57883364223113,
+      "completed": true
+    },
+    {
+      "model": "root_J_robot_events_s511120",
+      "arm": "shared_heading_on",
+      "air": 0.245,
+      "iou": 0.26744186046511625,
+      "mpjpe": 431.39099918209064,
+      "completed": true
+    },
+    {
+      "model": "root_J_robot_events_s511120",
+      "arm": "shared_heading_off",
+      "air": 0.32999999999999996,
+      "iou": 0.8529411764705882,
+      "mpjpe": 101.68566759586653,
+      "completed": true
+    },
+    {
+      "model": "root_J_robot_events_vertical_s511120",
+      "arm": "official_sonic_human",
+      "air": 0.055,
+      "iou": 0.0,
+      "mpjpe": 441.57883364223113,
+      "completed": true
+    },
+    {
+      "model": "root_J_robot_events_vertical_s511120",
+      "arm": "shared_heading_on",
+      "air": 0.16,
+      "iou": 0.19480519480519481,
+      "mpjpe": 498.14467426200264,
+      "completed": true
+    },
+    {
+      "model": "root_J_robot_events_vertical_s511120",
+      "arm": "shared_heading_off",
+      "air": 0.315,
+      "iou": 0.8636363636363636,
+      "mpjpe": 232.8570635945803,
+      "completed": true
+    }
+  ],
+  "rootDev": [
+    {
+      "model": "root_H_control_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 124.83636524779439,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 19.01539386889606,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9451702876364819,
+      "domain": "human",
+      "fixed_denominator": 32,
+      "full_completed": 18,
+      "full_completion_fraction": 0.5625,
+      "heading_mae_deg_macro_mean": 4.2164930484394425,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.06310614658641393,
+      "root_velocity_RMSE_mps_macro_mean": 0.07878420319226123,
+      "root_xy_rmse_m_macro_mean": 0.09947896919458397,
+      "root_z_rmse_m_macro_mean": 0.009570471733184278,
+      "unavailable": 14
+    },
+    {
+      "model": "root_H_control_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 241.48633023359136,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 52.65972866824395,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9184096146680965,
+      "domain": "paired_robot",
+      "fixed_denominator": 32,
+      "full_completed": 17,
+      "full_completion_fraction": 0.53125,
+      "heading_mae_deg_macro_mean": 5.792789042293859,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.1875235656254732,
+      "root_velocity_RMSE_mps_macro_mean": 0.18622966394084173,
+      "root_xy_rmse_m_macro_mean": 0.17995401751586834,
+      "root_z_rmse_m_macro_mean": 0.038084539017637774,
+      "unavailable": 14
+    },
+    {
+      "model": "root_H_robot_events_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 127.58516259908362,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 19.66445791910869,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9432235034667706,
+      "domain": "human",
+      "fixed_denominator": 32,
+      "full_completed": 18,
+      "full_completion_fraction": 0.5625,
+      "heading_mae_deg_macro_mean": 4.2301541155641695,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.07161321820354406,
+      "root_velocity_RMSE_mps_macro_mean": 0.08039696443801536,
+      "root_xy_rmse_m_macro_mean": 0.10334439911071386,
+      "root_z_rmse_m_macro_mean": 0.009857878509083708,
+      "unavailable": 14
+    },
+    {
+      "model": "root_H_robot_events_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 229.0135864448491,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 53.31208717864251,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9087496152260081,
+      "domain": "paired_robot",
+      "fixed_denominator": 32,
+      "full_completed": 17,
+      "full_completion_fraction": 0.53125,
+      "heading_mae_deg_macro_mean": 6.212691111796644,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.20191321052803635,
+      "root_velocity_RMSE_mps_macro_mean": 0.18323452570030258,
+      "root_xy_rmse_m_macro_mean": 0.16430698548984765,
+      "root_z_rmse_m_macro_mean": 0.036985760389546984,
+      "unavailable": 14
+    },
+    {
+      "model": "root_H_robot_events_vertical_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 134.36929708633545,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 19.61809371121052,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9449436484981535,
+      "domain": "human",
+      "fixed_denominator": 32,
+      "full_completed": 18,
+      "full_completion_fraction": 0.5625,
+      "heading_mae_deg_macro_mean": 4.332217982156023,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.06569549200906485,
+      "root_velocity_RMSE_mps_macro_mean": 0.08070596190856637,
+      "root_xy_rmse_m_macro_mean": 0.1078031275337327,
+      "root_z_rmse_m_macro_mean": 0.009605636484215477,
+      "unavailable": 14
+    },
+    {
+      "model": "root_H_robot_events_vertical_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 233.39972480266624,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 53.54137554739857,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9058518792825869,
+      "domain": "paired_robot",
+      "fixed_denominator": 32,
+      "full_completed": 17,
+      "full_completion_fraction": 0.53125,
+      "heading_mae_deg_macro_mean": 6.43726783000756,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.19904441931570815,
+      "root_velocity_RMSE_mps_macro_mean": 0.18271054646322524,
+      "root_xy_rmse_m_macro_mean": 0.16856176795475253,
+      "root_z_rmse_m_macro_mean": 0.037398413272561035,
+      "unavailable": 14
+    },
+    {
+      "model": "root_J_control_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 191.34646221390713,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 24.037760952867863,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9336422594461956,
+      "domain": "human",
+      "fixed_denominator": 32,
+      "full_completed": 18,
+      "full_completion_fraction": 0.5625,
+      "heading_mae_deg_macro_mean": 4.7050714605260575,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.09240387915790454,
+      "root_velocity_RMSE_mps_macro_mean": 0.08847243931961533,
+      "root_xy_rmse_m_macro_mean": 0.14981200319774288,
+      "root_z_rmse_m_macro_mean": 0.011236176648198532,
+      "unavailable": 14
+    },
+    {
+      "model": "root_J_control_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 354.0152684150037,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 37.53982335963375,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9228041760076526,
+      "domain": "paired_robot",
+      "fixed_denominator": 32,
+      "full_completed": 16,
+      "full_completion_fraction": 0.5,
+      "heading_mae_deg_macro_mean": 5.724826593254445,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.1328662775847319,
+      "root_velocity_RMSE_mps_macro_mean": 0.14277210997199186,
+      "root_xy_rmse_m_macro_mean": 0.282032768416602,
+      "root_z_rmse_m_macro_mean": 0.01646231628461832,
+      "unavailable": 14
+    },
+    {
+      "model": "root_J_robot_events_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 224.81024568816272,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 23.63997911046319,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9454518448963163,
+      "domain": "human",
+      "fixed_denominator": 32,
+      "full_completed": 18,
+      "full_completion_fraction": 0.5625,
+      "heading_mae_deg_macro_mean": 4.41717360471337,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.09187275676785482,
+      "root_velocity_RMSE_mps_macro_mean": 0.09098600994518141,
+      "root_xy_rmse_m_macro_mean": 0.17796878211077394,
+      "root_z_rmse_m_macro_mean": 0.011583785583655047,
+      "unavailable": 14
+    },
+    {
+      "model": "root_J_robot_events_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 390.49089969780056,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 37.37059729110065,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9145114245963,
+      "domain": "paired_robot",
+      "fixed_denominator": 32,
+      "full_completed": 16,
+      "full_completion_fraction": 0.5,
+      "heading_mae_deg_macro_mean": 5.530020351589623,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.13476273010662915,
+      "root_velocity_RMSE_mps_macro_mean": 0.14268581052075344,
+      "root_xy_rmse_m_macro_mean": 0.30722597315900124,
+      "root_z_rmse_m_macro_mean": 0.016448056038457743,
+      "unavailable": 14
+    },
+    {
+      "model": "root_J_robot_events_vertical_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 243.19056446439922,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 23.455798609682237,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.9484132394664712,
+      "domain": "human",
+      "fixed_denominator": 32,
+      "full_completed": 18,
+      "full_completion_fraction": 0.5625,
+      "heading_mae_deg_macro_mean": 4.459645503496166,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.09230705558092313,
+      "root_velocity_RMSE_mps_macro_mean": 0.08876697665379808,
+      "root_xy_rmse_m_macro_mean": 0.194304185400369,
+      "root_z_rmse_m_macro_mean": 0.011155068099135381,
+      "unavailable": 14
+    },
+    {
+      "model": "root_J_robot_events_vertical_s511120",
+      "G1_29_global_MPJPE_mm_macro_mean": 605.4541200600482,
+      "G1_29_root_translation_relative_MPJPE_mm_macro_mean": 35.19691052365048,
+      "arm": "shared_heading_on",
+      "cohort": "DEV",
+      "contact_force_F1_macro_mean": 0.933292953316927,
+      "domain": "paired_robot",
+      "fixed_denominator": 32,
+      "full_completed": 17,
+      "full_completion_fraction": 0.53125,
+      "heading_mae_deg_macro_mean": 5.495735579113157,
+      "measured": 18,
+      "q29_rmse_rad_macro_mean": 0.1276424867219573,
+      "root_velocity_RMSE_mps_macro_mean": 0.13727245889899997,
+      "root_xy_rmse_m_macro_mean": 0.47390109598389835,
+      "root_z_rmse_m_macro_mean": 0.014362291945346094,
+      "unavailable": 14
+    }
+  ],
+  "latency": [
+    {
+      "source": "MoVi_F_S55_sideways_part2_v1",
+      "domain": "human",
+      "load_s": 12.255905002355576,
+      "variants": [
+        {
+          "name": "original_c4_b3",
+          "p50_ms": 622.6255036890507,
+          "p95_ms": 651.976965367794,
+          "hz": 1.594979454314822,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.07047206163406372
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5463267862796783
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.05487129092216492
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6183751821517944
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.77606675028801
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3298462927341461
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.46802982687950134
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.5788483619689941
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.8573109805583954
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.1370278000831604
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22881507873535156
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.18674731254577637
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 262.14986830949783
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.21068260073661804
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.22492945194244385
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 5.73952242732048
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.45646339654922485
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.408170729875565
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 17.98460066318512
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.445047676563263
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 21.81891232728958
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.0682668387889862
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.2931293845176697
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.66268819570541
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.017791688442230225
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.5472830832004547
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.05576774477958679
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.6029414534568787
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.6787136197090149
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5602830648422241
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.19107714295387268
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.1522253453731537
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.37322402000427246
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.10450690984725952
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3950321674346924
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.2111455798149109
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.5990913510322571
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 104.33403328061104
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.2994935512542725
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 30.939182490110397
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.8378377854824066
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 4.547919481992722
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b3",
+          "p50_ms": 469.2319184541702,
+          "p95_ms": 489.86802250146866,
+          "hz": 2.1156444490268083,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06491854786872864
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.519559383392334
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.05871430039405823
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5792828798294067
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.8762566447258
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3246478736400604
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.4982003569602967
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.6210155189037323
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.8910878896713257
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.13123005628585815
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22721752524375916
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.05643516778945923
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.266287624835968
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.1443435251712799
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 105.59485495090485
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.14060556888580322
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1790224015712738
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.039719343185424805
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.21141424775123596
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.22217288613319397
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.903896749019623
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.42139336466789246
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.354442954063416
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 17.89976790547371
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.3772454559803
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 21.332585364580154
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06493404507637024
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.2941925823688507
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.75356233119965
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.017330646514892578
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.553892344236374
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.04428356885910034
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.4474678039550781
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.6041684746742249
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5492173135280609
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.18443450331687927
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.14153525233268738
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.34610509872436523
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.10573789477348328
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.387805700302124
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.20203575491905212
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.7717102766036987
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 104.9739021062851
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.2288280725479126
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 31.125048100948334
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.7297604084014893
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 5.087485313415527
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c2_b3",
+          "p50_ms": 430.0931431353092,
+          "p95_ms": 436.14470586180687,
+          "hz": 2.3201947387936364,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.0651828944683075
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.48151105642318726
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.048122256994247437
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6000327467918396
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.74071404337883
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3017348051071167
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.4727388918399811
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.2959131598472595
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.873110681772232
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.13157710433006287
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.2288787066936493
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.056547969579696655
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.25716304779052734
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.14392852783203125
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 102.87550017237663
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.14890938997268677
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.16067788004875183
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.03905773162841797
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.20072385668754578
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.21883249282836914
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.890251904726028
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4190690815448761
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.436511993408203
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 15.007176846265793
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.417688846588135
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 19.89163801074028
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06512358784675598
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.30908018350601196
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.84773364663124
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.017121583223342896
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.5060314536094666
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.04288971424102783
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.5647463500499725
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.5853721499443054
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5275791883468628
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.168113112449646
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.14024540781974792
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.36021023988723755
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.09936362504959106
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.38232579827308655
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.20807549357414246
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.7906907796859741
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 105.14207154512405
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.259054481983185
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 31.170675605535507
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.729688286781311
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 4.585774838924408
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b6",
+          "p50_ms": 665.6328774988651,
+          "p95_ms": 676.9280917942524,
+          "hz": 1.5001287119736602,
+          "requested_hz": 5.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06643906235694885
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5895181000232697
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.058507174253463745
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6495062410831451
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.378158807754517
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3571510314941406
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 1.020609587430954
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 2.5295650959014893
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 3.865477740764618
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.1466219127178192
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22605478763580322
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.05704730749130249
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.30075326561927795
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.1465417444705963
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 112.72040247917175
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.14482378959655762
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1888522505760193
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.04027515649795532
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.2338138222694397
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.22590473294258118
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 5.056751519441605
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4330967366695404
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.47966068983078
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 23.434512466192245
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.488741159439087
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 24.58916276693344
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.0725671648979187
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.5550441145896912
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 118.92227962613106
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.02436026930809021
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 2.7197200059890747
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.0863271951675415
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 2.7487125992774963
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.7251150906085968
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.6023834645748138
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.23008033633232117
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.15909790992736816
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.3830133378505707
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.10749548673629761
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3903868794441223
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.33173903822898865
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 1.2224653363227844
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 209.24422726035118
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 3.8915692269802094
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 55.13774946331978
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 4.902182221412659
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 9.137063324451447
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b15",
+          "p50_ms": 1233.61936211586,
+          "p95_ms": 1239.2752930521965,
+          "hz": 0.8100193904917731,
+          "requested_hz": 2.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06626397371292114
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5988446374734243
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.051268438498179116
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6878624757130942
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.337206393480301
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3400007883707682
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 2.734268953402837
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 8.865098655223846
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 10.114347686370213
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.13487239678700766
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.24438127875328067
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.05770524342854818
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.292736291885376
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.1458577811717987
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 114.9387039244175
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.14402444163958233
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.20993972818056744
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.040265421072642006
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.2405849595864614
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.2286091446876526
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.869525631268819
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.44946496685345966
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.779940396547318
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 25.536121428012848
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.544486155112583
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 25.696890552838642
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.08901407321294148
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 1.2409478425979614
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 272.11383134126663
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.03962566455205281
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 6.251470247904459
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.17456809679667157
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 6.740557899077734
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.9024553000926971
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5557266374429067
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.24416098992029822
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.24803901712099707
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.4907322426637013
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.18624265988667804
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.45349448919296265
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.5526964863141378
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 2.2688768804073334
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 502.3381665349007
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 8.336095015207928
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 134.37781855463982
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 11.376245319843292
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 21.207689990599953
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "MoVi_F_S55_sideways_part2_v1",
+      "domain": "robot",
+      "load_s": 13.207113455981016,
+      "variants": [
+        {
+          "name": "original_c4_b3",
+          "p50_ms": 613.435011357069,
+          "p95_ms": 619.2609034478664,
+          "hz": 1.6280415714447782,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06797939538955688
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5160142481327057
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.04503980278968811
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.9033360481262207
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.24432709813118
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.31468868255615234
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.10282754898071289
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 2.786106914281845
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.7046722769737244
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.1295064389705658
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22056281566619873
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1645815372467041
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 257.5888627767563
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.21386593580245972
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.218382328748703
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.754879474639893
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4412566125392914
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 26.549798846244812
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 17.173953652381897
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.417586475610733
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 21.601455807685852
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06684660911560059
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.30838698148727417
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.48046040534973
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.02047806978225708
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 0.7850940525531769
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.03658115863800049
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 0.5876672267913818
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.7458136975765228
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5407170951366425
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.18728166818618774
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.14529049396514893
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.263168066740036
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.07812559604644775
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3868904709815979
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.16443267464637756
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.6369271874427795
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 103.83500799536705
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.1913447976112366
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 37.16158241033554
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.3412299156188965
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 4.622261673212051
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b3",
+          "p50_ms": 469.47137266397476,
+          "p95_ms": 474.1464890539646,
+          "hz": 2.1257575341295207,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06423071026802063
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.4976299405097961
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.045647770166397095
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5583938360214233
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.882525712251663
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3038574755191803
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.10244607925415039
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.6318681836128235
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.7167936265468597
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.12914463877677917
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.2204829454421997
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.06276965141296387
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.2426682412624359
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.14502733945846558
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 105.28402596712112
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.1498354971408844
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.17636507749557495
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.04028290510177612
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.20238563418388367
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.21633759140968323
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.739241153001785
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4173082113265991
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.29201051592827
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 17.159308046102524
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.402307718992233
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 21.035652458667755
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06591320037841797
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.3087380528450012
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 68.46210986375809
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.018075555562973022
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 0.7704801857471466
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.03259807825088501
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 0.6599564850330353
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.6351177394390106
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5186152458190918
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.18587350845336914
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.14121860265731812
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.24140000343322754
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.0879533588886261
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.35659030079841614
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.15845566987991333
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.5931377410888672
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 104.37186285853386
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.1754707396030426
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 37.230693101882935
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.3397839069366455
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 4.491338133811951
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c2_b3",
+          "p50_ms": 432.4427880346775,
+          "p95_ms": 441.0681426525116,
+          "hz": 2.3083546913462367,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06422847509384155
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.46813681721687317
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03673642873764038
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5459509193897247
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.271550476551056
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3100135922431946
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.10426536202430725
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.540147215127945
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.703016608953476
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.1404222846031189
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22207334637641907
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.05619227886199951
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.23862630128860474
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.1490853726863861
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 101.99026122689247
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.13809561729431152
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1645536720752716
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.03962814807891846
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.19787892699241638
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.21269455552101135
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.801372289657593
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4167620837688446
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.454987049102783
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 14.544309824705124
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.603420197963715
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 19.55187037587166
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.0658242404460907
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.2846597135066986
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.38309890031815
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.018523484468460083
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 0.7833142578601837
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.032338351011276245
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 0.5002062022686005
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.5863529443740845
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5091948807239532
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.1671057939529419
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.1425229012966156
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.24225592613220215
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.0858183205127716
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3620927035808563
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.1606602966785431
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.5955268442630768
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 104.1243927180767
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.1089066565036774
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 37.679306119680405
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.356491833925247
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 4.550654739141464
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b6",
+          "p50_ms": 671.76079377532,
+          "p95_ms": 681.0704283416271,
+          "hz": 1.486715380047203,
+          "requested_hz": 5.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06511956453323364
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5556195974349976
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.0390353798866272
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6339534521102905
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.84722352027893
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.33041566610336304
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.14892235398292542
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 3.6852943897247314
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 3.421159088611603
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.13369128108024597
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22605672478675842
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.05634278059005737
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.2567799389362335
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.15824511647224426
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 113.02686527371407
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.146884024143219
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1755198836326599
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.03981456160545349
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.22688984870910645
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.21694883704185486
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.857792109251022
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.42628422379493713
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.21284392476082
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 22.732576727867126
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.714660197496414
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 24.7571924328804
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.07242292165756226
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.5092987418174744
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 117.74725839495659
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.02658069133758545
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.137961596250534
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.03955245018005371
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.0796894133090973
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.6898856163024902
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.535314530134201
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.22686049342155457
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.1610344648361206
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.32600805163383484
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.11177420616149902
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3875921666622162
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.25790199637413025
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 1.193331927061081
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 207.32343539595604
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 4.604994505643845
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 70.76605021953583
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 4.760841280221939
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 9.954050928354263
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b15",
+          "p50_ms": 1254.3762139976025,
+          "p95_ms": 1273.0339750647545,
+          "hz": 0.7940884971167832,
+          "requested_hz": 2.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06708179910977682
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5949283639589945
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03914038340250651
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.726506898800532
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.662401139736176
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.34359271327654517
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.2870631714661916
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 6.766640643278757
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 8.22586938738823
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.13456568121910095
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22433052460352582
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.0573250154654185
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.2964685360590617
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.17022043466567993
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 117.26536775628725
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.16808708508809408
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1804990073045095
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.043406834204991654
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.23410941163698834
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.23202647765477497
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.842852304379145
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4642690221468607
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.50959707299868
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 24.661159763733547
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 25.07841239372889
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 25.840386748313904
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.08114129304885864
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 1.3655727108319602
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 271.1225268741449
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.040706495443979904
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.9887521862983704
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.07105718056360881
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 2.331689248482386
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.782108058532079
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5429585774739584
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.2511324981848399
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.23853406310081482
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.4506292442480723
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.1932201286156972
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.39709657430648804
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.43479204177856445
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 2.0685821771621704
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 500.2765394747257
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 8.680351326862972
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 171.16809263825417
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 10.554115722576777
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 21.409982691208523
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "external_tennis",
+      "domain": "human",
+      "load_s": 13.540605243295431,
+      "variants": [
+        {
+          "name": "original_c4_b3",
+          "p50_ms": 620.2337183058262,
+          "p95_ms": 643.9555212855339,
+          "hz": 1.6049358131752451,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06448522210121155
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5407530069351196
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.0345437228679657
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.8079735338687897
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.247934818267822
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.33289074897766113
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.4740011692047119
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.7148502171039581
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.8820841610431671
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.14917567372322083
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22361740469932556
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1716040074825287
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 260.87198227643967
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.20818307995796204
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.21660089492797852
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.805803745985031
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.43106451630592346
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.103807657957077
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 17.51449316740036
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.330969154834747
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 21.29612758755684
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06625309586524963
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.29662132263183594
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.43752866983414
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.01934528350830078
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.6175511479377747
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.04568725824356079
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.4705666899681091
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.7003882527351379
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5159318447113037
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.18639490008354187
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.1441819965839386
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.3416401147842407
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.0955839455127716
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3746025264263153
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.16849279403686523
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.8017648756504059
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 104.15323853492737
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.298658639192581
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 34.98290464282036
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.6982618868350983
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 5.523261874914169
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b3",
+          "p50_ms": 473.96647930145264,
+          "p95_ms": 500.26263669133186,
+          "hz": 2.0859443019528583,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06220623850822449
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5033980309963226
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.033152252435684204
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.571158766746521
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.184141904115677
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.31772658228874207
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.4381062090396881
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.6740620136260986
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.8577289581298828
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.1300385594367981
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.3384953737258911
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.05440637469291687
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.24830862879753113
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.15621349215507507
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 104.9681706726551
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.13341516256332397
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.1661933958530426
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.038390904664993286
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.2015484869480133
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.21082550287246704
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.806669503450394
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4103434085845947
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.05041351914406
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 17.469685524702072
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.296671003103256
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 21.202677339315414
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06569966673851013
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.3095985949039459
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.68740966916084
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.018631964921951294
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.5916736423969269
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.043973326683044434
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.480739265680313
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.606984943151474
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.4929552972316742
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.1900501549243927
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.14118388295173645
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.34398093819618225
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.09284928441047668
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3881792724132538
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.1684264838695526
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.7540115714073181
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 104.45965811610222
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.263599783182144
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 35.1061549782753
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.63863667845726
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 5.56062251329422
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c2_b3",
+          "p50_ms": 433.1185892224312,
+          "p95_ms": 440.42332097887993,
+          "hz": 2.302508494447081,
+          "requested_hz": 10.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06277456879615784
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.49641355872154236
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03631025552749634
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6307219862937927
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.549774527549744
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3112401068210602
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 0.46866923570632935
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 1.9434721767902374
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 1.8826338648796082
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.1330302655696869
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22337406873703003
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.06655395030975342
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.24984434247016907
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.14870867133140564
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 102.53103211522102
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.16106978058815002
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.16463696956634521
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.0411340594291687
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.20148307085037231
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.2298317849636078
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.8731666803359985
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.42242228984832764
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.30804505944252
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 14.686586409807205
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.526350051164627
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 19.568450450897217
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06630644202232361
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.2949891984462738
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 67.34274789690971
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.019252896308898926
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.6105492413043976
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.04307836294174194
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.2846198678016663
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.5723761022090912
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5064985156059265
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.17263397574424744
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.14063432812690735
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.3313496708869934
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.10564014315605164
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.37044063210487366
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.16496405005455017
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 0.8148574829101562
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 104.20016899704933
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 2.2241929173469543
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 35.06862714886665
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 2.6596373319625854
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 5.583620220422745
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b6",
+          "p50_ms": 672.8546731173992,
+          "p95_ms": 683.7143152952194,
+          "hz": 1.4835028517408166,
+          "requested_hz": 5.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.0639680027961731
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5720780789852142
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.035381466150283813
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6395503282546997
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.549052029848099
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.33139973878860474
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 1.9135448336601257
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 3.196222633123398
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 3.9148323237895966
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.1365552842617035
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.22715240716934204
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.0565667450428009
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.26606976985931396
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.15277892351150513
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 114.2154210805893
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.16247659921646118
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.18218964338302612
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.041623860597610474
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.2251654863357544
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.22451072931289673
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.9054935574531555
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4298721253871918
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.35812398791313
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 23.298670947551727
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.67202141880989
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 24.628597050905228
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.06801232695579529
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 0.5116254091262817
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 118.07607889175415
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.024163275957107544
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 2.765626311302185
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.08691936731338501
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 2.517869472503662
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.7049161195755005
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5657318234443665
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.23244932293891907
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.15517964959144592
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.3615429997444153
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.10552898049354553
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.3823532164096832
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.2582584321498871
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 1.0471487045288086
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 207.36021652817726
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 3.865000605583191
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 64.23518344759941
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 4.86902043223381
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 9.96455654501915
+            }
+          ]
+        },
+        {
+          "name": "cpuccd_c4_b15",
+          "p50_ms": 1262.0682641863823,
+          "p95_ms": 1267.1937197446823,
+          "hz": 0.7937713040476337,
+          "requested_hz": 2.0,
+          "missed": 1.0,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06485084692637126
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5733929574489594
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03502319256464641
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6083315014839172
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.290749828020731
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.33478115995724994
+            },
+            {
+              "name": "crop.gaussian_blur_cpu",
+              "ms": 5.858092755079269
+            },
+            {
+              "name": "crop.normalize_cpu",
+              "ms": 7.742185642321904
+            },
+            {
+              "name": "crop.resize_cpu",
+              "ms": 9.954699873924255
+            },
+            {
+              "name": "gv.camera_condition",
+              "ms": 0.13986031214396158
+            },
+            {
+              "name": "gv.camera_translation",
+              "ms": 0.2235017716884613
+            },
+            {
+              "name": "gv.cpu_ccd_fk_gpu",
+              "ms": 0.056224068005879715
+            },
+            {
+              "name": "gv.cpu_ccd_input_d2h",
+              "ms": 0.27861669659614563
+            },
+            {
+              "name": "gv.cpu_ccd_output_h2d",
+              "ms": 0.14875903725624084
+            },
+            {
+              "name": "gv.cpu_ccd_solve_cpu",
+              "ms": 115.18634955088297
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 0.15710095564524332
+            },
+            {
+              "name": "gv.input_h2d",
+              "ms": 0.19544387857119241
+            },
+            {
+              "name": "gv.leg_ik",
+              "ms": 0.041562815507253006
+            },
+            {
+              "name": "gv.normalize_input_cpu",
+              "ms": 0.22661089897155762
+            },
+            {
+              "name": "gv.output_d2h",
+              "ms": 0.23766880234082538
+            },
+            {
+              "name": "gv.output_decode",
+              "ms": 4.7849473853906
+            },
+            {
+              "name": "gv.pipeline",
+              "ms": 0.4411660134792328
+            },
+            {
+              "name": "gv.skeleton_fk",
+              "ms": 24.203530450661976
+            },
+            {
+              "name": "gv.static_camera_contact_correction",
+              "ms": 25.547106067339577
+            },
+            {
+              "name": "gv.temporal_network",
+              "ms": 24.454608807961144
+            },
+            {
+              "name": "gv.world_rotation_velocity_integration",
+              "ms": 25.59904505809148
+            },
+            {
+              "name": "hmr2.feature_d2h",
+              "ms": 0.08318498730659485
+            },
+            {
+              "name": "hmr2.input_h2d",
+              "ms": 1.2500109771887462
+            },
+            {
+              "name": "hmr2.network_forward",
+              "ms": 270.940787345171
+            },
+            {
+              "name": "hmr2.output_assemble_cpu",
+              "ms": 0.042463093996047974
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 6.328083823124568
+            },
+            {
+              "name": "service.crop",
+              "ms": 0.15278756618499756
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 5.826545010010401
+            },
+            {
+              "name": "service.detector",
+              "ms": 0.8612255255381267
+            },
+            {
+              "name": "service.gv",
+              "ms": 0.5368930598100027
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.24324630697568259
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 0.224519024292628
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 0.4248867432276408
+            },
+            {
+              "name": "vitpose.flip_input",
+              "ms": 0.18258790175120035
+            },
+            {
+              "name": "vitpose.flip_merge",
+              "ms": 0.39195393522580463
+            },
+            {
+              "name": "vitpose.heatmap_d2h",
+              "ms": 0.4213136931260427
+            },
+            {
+              "name": "vitpose.input_h2d",
+              "ms": 2.1850772202014923
+            },
+            {
+              "name": "vitpose.network_forward",
+              "ms": 500.6588528553645
+            },
+            {
+              "name": "vitpose.udp_decode_cpu",
+              "ms": 8.562730997800827
+            },
+            {
+              "name": "yolo.inference",
+              "ms": 157.5954521695773
+            },
+            {
+              "name": "yolo.postprocess",
+              "ms": 11.264009525378544
+            },
+            {
+              "name": "yolo.preprocess",
+              "ms": 24.099316696325936
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "archives": [
+    {
+      "name": "Toy",
+      "bytes": 1941694110,
+      "complete": true,
+      "recordings": 1
+    },
+    {
+      "name": "MotionPRO_2",
+      "bytes": 149452835306,
+      "complete": true,
+      "recordings": 93
+    },
+    {
+      "name": "MotionPRO_1",
+      "bytes": 133464625841,
+      "complete": true,
+      "recordings": 104
+    }
+  ],
+  "views": [
+    {
+      "model": "J_newscale",
+      "condition": "TEST",
+      "n": 248,
+      "mpjpe": 218.6626158484661
+    },
+    {
+      "model": "J_newscale_robotviews",
+      "condition": "TEST",
+      "n": 248,
+      "mpjpe": 217.04007229148883
+    }
+  ],
+  "motionpro": {
+    "recordings": 17,
+    "evaluations": 72,
+    "annotation_windows": 36,
+    "training_performed": false
+  },
+  "execution": {
+    "status": "complete_with_failures",
+    "gpu_hours": 9.601028934121132,
+    "hours": 2.697060465216637
+  },
+  "metric_reference": "Actual G1 execution versus executable robot pseudo-reference; independent human SMPL/pressure shown separately"
+}
