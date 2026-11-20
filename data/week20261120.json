@@ -205,10 +205,14 @@
       "group": "LAFAN跳跃机制验证",
       "src": "videos/week20261120/root_root_H_control_s511120.mp4",
       "poster": "videos/week20261120/root_root_H_control_s511120.jpg",
-      "metrics": {},
-      "model": "root_H_control_s511120",
+      "metrics": {
+        "有效腾空 / s": 0.205,
+        "腾空时序 IoU": 0.161,
+        "global MPJPE / mm": 1106.6
+      },
+      "model": "Human-only · 原目标60k续训",
       "split": "TRAIN",
-      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。",
+      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。 卡片指标为关闭heading的同一协议；该视频同时包含开启／关闭heading的窗口。",
       "sourceFile": "/data/video2action_motionpro/research51_run/learning/flight_diagnostics/root_H_control_s511120/TRAIN_executed_positive/cases/lafan_jumps1_subject1__robot_positive_control/render/same_video_native_vs_shared.mp4",
       "duration_seconds": 7.52
     },
@@ -217,10 +221,14 @@
       "group": "LAFAN跳跃机制验证",
       "src": "videos/week20261120/root_root_H_robot_events_s511120.mp4",
       "poster": "videos/week20261120/root_root_H_robot_events_s511120.jpg",
-      "metrics": {},
-      "model": "root_H_robot_events_s511120",
+      "metrics": {
+        "有效腾空 / s": 0.31,
+        "腾空时序 IoU": 0.877,
+        "global MPJPE / mm": 115.3
+      },
+      "model": "Human-only · 15%腾空正例",
       "split": "TRAIN",
-      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。",
+      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。 卡片指标为关闭heading的同一协议；该视频同时包含开启／关闭heading的窗口。",
       "sourceFile": "/data/video2action_motionpro/research51_run/learning/flight_diagnostics/root_H_robot_events_s511120/TRAIN_executed_positive/cases/lafan_jumps1_subject1__robot_positive_control/render/same_video_native_vs_shared.mp4",
       "duration_seconds": 7.52
     },
@@ -229,10 +237,14 @@
       "group": "LAFAN跳跃机制验证",
       "src": "videos/week20261120/root_root_H_robot_events_vertical_s511120.mp4",
       "poster": "videos/week20261120/root_root_H_robot_events_vertical_s511120.jpg",
-      "metrics": {},
-      "model": "root_H_robot_events_vertical_s511120",
+      "metrics": {
+        "有效腾空 / s": 0.335,
+        "腾空时序 IoU": 0.814,
+        "global MPJPE / mm": 108.7
+      },
+      "model": "Human-only · 15%腾空正例＋竖直监督",
       "split": "TRAIN",
-      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。",
+      "note": "同一输入、同一SONIC控制器；比较原生入口、heading on/off及参考，root高度见右下。 卡片指标为关闭heading的同一协议；该视频同时包含开启／关闭heading的窗口。",
       "sourceFile": "/data/video2action_motionpro/research51_run/learning/flight_diagnostics/root_H_robot_events_vertical_s511120/TRAIN_executed_positive/cases/lafan_jumps1_subject1__robot_positive_control/render/same_video_native_vs_shared.mp4",
       "duration_seconds": 7.52
     },
