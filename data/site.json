@@ -3465,16 +3465,6 @@
       "note": "托管平台与页面设计独立；部署构建产物"
     },
     {
-      "title": "汇报讲稿与问答",
-      "path": "documents/speaker-notes.md",
-      "note": "逐节讲述、视频顺序、常见问答"
-    },
-    {
-      "title": "研究叙述与汇报讲稿",
-      "path": "documents/research-narrative.md",
-      "note": "Markdown · 目标、方法、证据与下一步"
-    },
-    {
       "title": "Pipeline 逐模块论证",
       "path": "documents/pipeline-reasoning.md",
       "note": "Markdown · 模块作用、训练与部署"

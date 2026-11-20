@@ -625,10 +625,6 @@
       "isNew": true
     }
   ],
-  "notes": {
-    "pdf": "documents/weekly-speaker-notes-20261113.pdf",
-    "md": "documents/weekly-speaker-notes-20261113.md"
-  },
   "figures": {
     "matched": "figures/week-20261113/matched-frontend.svg",
     "scale": "figures/week-20261113/scale.svg"
