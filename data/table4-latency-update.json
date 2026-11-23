@@ -1815,5 +1815,131 @@
     ],
     "command_ready_p50_ms": 24471.058311065037,
     "pd_ready_p50_ms": 24483.91642794013
+  },
+  "latest_frame_actual": {
+    "status": "complete",
+    "strategy": "latest RGB batch with original source PTS and linear interpolation of observed visual features onto GV30FPS history",
+    "input_seconds": 8,
+    "input_frames": 240,
+    "input_fps": 30,
+    "model": "H_newscale_s501119@120000",
+    "gpu": "A40 physical3, concurrent evaluation",
+    "latency_p50_ms": 1038.4769408653183,
+    "latency_p95_ms": 1190.826095677912,
+    "latency_count": 14,
+    "latency_endpoint": "SONIC latent motion command ready, before controller;includes500ms lookahead",
+    "new_frames_per_update": 3,
+    "gv_history_seconds": 4,
+    "lookahead_ms": 500,
+    "processed_rgb_frames": 45,
+    "skipped_rgb_frames": 195,
+    "drop_fraction": 0.8125,
+    "command_count": 14,
+    "source_pts_verified": true,
+    "mean_service_ms": 540.8347191082107,
+    "service_p50_ms": 536.7772318422794,
+    "process_peak_vram_gib": 6.380859375,
+    "memory_samples": 35,
+    "unthrottled_best_tested_fps": 10.399116382746127,
+    "unthrottled_frames_per_batch": 15,
+    "unthrottled_steady_updates": 9,
+    "unthrottled_process_peak_vram_gib": 7.9296875,
+    "unthrottled_processed_rgb_frames": 240,
+    "unthrottled_dropped_rgb_frames": 0,
+    "quality_validated": false,
+    "same_as_author_configuration": false,
+    "production_evaluation_changed": false,
+    "notes_zh": [
+      "这是借鉴最新帧调度的实测原型，不是复制BeyondRetarget网络或作者完整配置。",
+      "45/240帧执行图像网络，保留真实时间戳并插值到GV所需时间网格；没有将跳帧后的时间压缩。",
+      "14个输出命令；脚部动作质量和长时间世界轨迹尚未在此策略下验证。",
+      "吞吐另测不限制输入速度，全部240帧处理；10.40FPS是本次15帧配置的满上下文稳态实测。"
+    ],
+    "records": [
+      {
+        "command_age_s": 1.0158350730935732,
+        "command_anchor_pts": 0.9333333333333333,
+        "command_ready_elapsed": 1.9491684064269066,
+        "input_last_frame_pts": 1.4333333333333333
+      },
+      {
+        "command_age_s": 1.0111622887353102,
+        "command_anchor_pts": 1.4333333333333333,
+        "command_ready_elapsed": 2.4444956220686436,
+        "input_last_frame_pts": 1.9333333333333333
+      },
+      {
+        "command_age_s": 1.0238539690772694,
+        "command_anchor_pts": 1.9333333333333331,
+        "command_ready_elapsed": 2.9571873024106026,
+        "input_last_frame_pts": 2.433333333333333
+      },
+      {
+        "command_age_s": 1.0249947572747868,
+        "command_anchor_pts": 2.433333333333333,
+        "command_ready_elapsed": 3.45832809060812,
+        "input_last_frame_pts": 2.933333333333333
+      },
+      {
+        "command_age_s": 1.0435838346680004,
+        "command_anchor_pts": 2.966666666666667,
+        "command_ready_elapsed": 4.010250501334667,
+        "input_last_frame_pts": 3.466666666666667
+      },
+      {
+        "command_age_s": 1.0479316785931587,
+        "command_anchor_pts": 3.5,
+        "command_ready_elapsed": 4.547931678593159,
+        "input_last_frame_pts": 4.0
+      },
+      {
+        "command_age_s": 1.0515133457879227,
+        "command_anchor_pts": 4.033333333333333,
+        "command_ready_elapsed": 5.084846679121256,
+        "input_last_frame_pts": 4.533333333333333
+      },
+      {
+        "command_age_s": 1.0392128785451256,
+        "command_anchor_pts": 4.566666666666666,
+        "command_ready_elapsed": 5.605879545211792,
+        "input_last_frame_pts": 5.066666666666666
+      },
+      {
+        "command_age_s": 1.037741003185511,
+        "command_anchor_pts": 5.1,
+        "command_ready_elapsed": 6.137741003185511,
+        "input_last_frame_pts": 5.6
+      },
+      {
+        "command_age_s": 1.0657012569407618,
+        "command_anchor_pts": 5.633333333333334,
+        "command_ready_elapsed": 6.6990345902740955,
+        "input_last_frame_pts": 6.133333333333334
+      },
+      {
+        "command_age_s": 1.0246675454080103,
+        "command_anchor_pts": 6.2,
+        "command_ready_elapsed": 7.2246675454080105,
+        "input_last_frame_pts": 6.7
+      },
+      {
+        "command_age_s": 1.0720554115871588,
+        "command_anchor_pts": 6.733333333333333,
+        "command_ready_elapsed": 7.805388744920492,
+        "input_last_frame_pts": 7.233333333333333
+      },
+      {
+        "command_age_s": 1.0368569985032083,
+        "command_anchor_pts": 7.3,
+        "command_ready_elapsed": 8.336856998503208,
+        "input_last_frame_pts": 7.8
+      },
+      {
+        "command_age_s": 1.4114002232750256,
+        "command_anchor_pts": 7.466666666666667,
+        "command_ready_elapsed": 8.878066889941692,
+        "input_last_frame_pts": 7.966666666666667
+      }
+    ]
   }
 }
