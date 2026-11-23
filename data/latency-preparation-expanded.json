@@ -1,0 +1,513 @@
+{
+  "schema": "fused_official_copy_trial_v1",
+  "status": "complete",
+  "elapsed_seconds": 3370.652970790863,
+  "metadata": {
+    "pid": 56686,
+    "started_unix": 1795425650.980209,
+    "budget_seconds": 3300,
+    "cuda_visible_devices": "",
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "niceness": 15,
+    "production_mutated": false,
+    "source_count": 6
+  },
+  "cases_completed": 15,
+  "errors": [],
+  "cases": [
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v0/ours/rgb30.mp4",
+      "first_frame": 0,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "af162a0495f90cf8b7b36694410b6db0f41b402284b487219df2488e5d90e964",
+          "af162a0495f90cf8b7b36694410b6db0f41b402284b487219df2488e5d90e964"
+        ]
+      },
+      "baseline_cut_seconds": 43.54038767144084,
+      "baseline_official_copy_seconds": 74.1212801411748,
+      "baseline_wall_seconds": 117.66166781261563,
+      "candidate_wall_seconds": 57.68455163016915,
+      "verification_seconds": 37.11217084154487,
+      "saved_seconds": 59.97711618244648,
+      "speedup": 2.039743128575837
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v1/ours/rgb30.mp4",
+      "first_frame": 0,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "candidate",
+        "baseline"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "adbd6a8bb0d99f63a0a65a8b9c402260db9c2d9dcb9dba3a4fa0b8e7541ce2dd",
+          "adbd6a8bb0d99f63a0a65a8b9c402260db9c2d9dcb9dba3a4fa0b8e7541ce2dd"
+        ]
+      },
+      "candidate_wall_seconds": 58.68334057927132,
+      "baseline_cut_seconds": 46.317645747214556,
+      "baseline_official_copy_seconds": 73.96458122506738,
+      "baseline_wall_seconds": 120.28222697228193,
+      "verification_seconds": 36.25324181467295,
+      "saved_seconds": 61.598886393010616,
+      "speedup": 2.0496826831083497
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v2/ours/rgb30.mp4",
+      "first_frame": 0,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "d717d8109932b7f24e35e97e8c2edcb1a8d21783ff18dbd73a38b709046e97ef",
+          "d717d8109932b7f24e35e97e8c2edcb1a8d21783ff18dbd73a38b709046e97ef"
+        ]
+      },
+      "baseline_cut_seconds": 52.95970460772514,
+      "baseline_official_copy_seconds": 78.53681602329016,
+      "baseline_wall_seconds": 131.4965206310153,
+      "candidate_wall_seconds": 60.099767822772264,
+      "verification_seconds": 44.29686559736729,
+      "saved_seconds": 71.39675280824304,
+      "speedup": 2.1879705262553486
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v3/ours/rgb30.mp4",
+      "first_frame": 0,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "candidate",
+        "baseline"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "80a5ffea21aa2f68d50d2e1cc0fe21f6d937617290f811c339ad8dc3242a2b21",
+          "80a5ffea21aa2f68d50d2e1cc0fe21f6d937617290f811c339ad8dc3242a2b21"
+        ]
+      },
+      "candidate_wall_seconds": 59.89458782970905,
+      "baseline_cut_seconds": 47.52549682930112,
+      "baseline_official_copy_seconds": 74.8008840456605,
+      "baseline_wall_seconds": 122.32638087496161,
+      "verification_seconds": 36.518631402403116,
+      "saved_seconds": 62.43179304525256,
+      "speedup": 2.042361176651841
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_01091c55591a_full_v0/ours/rgb30.mp4",
+      "first_frame": 0,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "08f531a51039ebcbb99066a6a476cd030a9d85ab926c79761b30e7d811191388",
+          "08f531a51039ebcbb99066a6a476cd030a9d85ab926c79761b30e7d811191388"
+        ]
+      },
+      "baseline_cut_seconds": 44.488022558391094,
+      "baseline_official_copy_seconds": 75.12150760367513,
+      "baseline_wall_seconds": 119.60953016206622,
+      "candidate_wall_seconds": 60.94785190373659,
+      "verification_seconds": 37.30038223788142,
+      "saved_seconds": 58.66167825832963,
+      "speedup": 1.9624896764365407
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_01091c55591a_full_v1/ours/rgb30.mp4",
+      "first_frame": 0,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "candidate",
+        "baseline"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "d1b4720b791d196b1c70cee501cd39b112208a849c2413eb6276ac2fde140987",
+          "d1b4720b791d196b1c70cee501cd39b112208a849c2413eb6276ac2fde140987"
+        ]
+      },
+      "candidate_wall_seconds": 59.69302149116993,
+      "baseline_cut_seconds": 46.57191603630781,
+      "baseline_official_copy_seconds": 77.24324567988515,
+      "baseline_wall_seconds": 123.81516171619296,
+      "verification_seconds": 36.34083066508174,
+      "saved_seconds": 64.12214022502303,
+      "speedup": 2.074198266785813
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v0/ours/rgb30.mp4",
+      "first_frame": 6897,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "f4b28c20a272994af58e510b144d35e02459d833a50c6fff75436ee7c3968f16",
+          "f4b28c20a272994af58e510b144d35e02459d833a50c6fff75436ee7c3968f16"
+        ]
+      },
+      "baseline_cut_seconds": 45.45287365466356,
+      "baseline_official_copy_seconds": 72.05597976595163,
+      "baseline_wall_seconds": 117.5088534206152,
+      "candidate_wall_seconds": 57.932836674153805,
+      "verification_seconds": 44.11088543012738,
+      "saved_seconds": 59.57601674646139,
+      "speedup": 2.0283635355463385
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v1/ours/rgb30.mp4",
+      "first_frame": 6897,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "candidate",
+        "baseline"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "0a60ca21a0481e479960c51122d1fb132e79f5aa0d7b3a413ba84ab36e4e1ecd",
+          "0a60ca21a0481e479960c51122d1fb132e79f5aa0d7b3a413ba84ab36e4e1ecd"
+        ]
+      },
+      "candidate_wall_seconds": 61.541811015456915,
+      "baseline_cut_seconds": 45.459232568740845,
+      "baseline_official_copy_seconds": 73.90043381974101,
+      "baseline_wall_seconds": 119.35966638848186,
+      "verification_seconds": 45.53804877027869,
+      "saved_seconds": 57.81785537302494,
+      "speedup": 1.9394890143629888
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v2/ours/rgb30.mp4",
+      "first_frame": 6897,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "babad6a0ef3add15b2f0a1fa503be79373430b2a9ee9c62d3fe8b23e7901e0ee",
+          "babad6a0ef3add15b2f0a1fa503be79373430b2a9ee9c62d3fe8b23e7901e0ee"
+        ]
+      },
+      "baseline_cut_seconds": 51.8427912555635,
+      "baseline_official_copy_seconds": 78.74063554778695,
+      "baseline_wall_seconds": 130.58342680335045,
+      "candidate_wall_seconds": 60.61861224099994,
+      "verification_seconds": 45.07391434535384,
+      "saved_seconds": 69.96481456235051,
+      "speedup": 2.154180407235209
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v3/ours/rgb30.mp4",
+      "first_frame": 6897,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "candidate",
+        "baseline"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "c21983c9d78d71ed90af63b42786770fc3c8f5b321e8d30e21dd8881868b6760",
+          "c21983c9d78d71ed90af63b42786770fc3c8f5b321e8d30e21dd8881868b6760"
+        ]
+      },
+      "candidate_wall_seconds": 59.17523097246885,
+      "baseline_cut_seconds": 45.854379430413246,
+      "baseline_official_copy_seconds": 74.11572549492121,
+      "baseline_wall_seconds": 119.97010492533445,
+      "verification_seconds": 45.879056971520185,
+      "saved_seconds": 60.7948739528656,
+      "speedup": 2.0273702857391513
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_01091c55591a_full_v0/ours/rgb30.mp4",
+      "first_frame": 11747,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "bbe3549fabb1b895e3f187474a989002ee8fa78f70770fd2493370283103e51d",
+          "bbe3549fabb1b895e3f187474a989002ee8fa78f70770fd2493370283103e51d"
+        ]
+      },
+      "baseline_cut_seconds": 50.15225934237242,
+      "baseline_official_copy_seconds": 76.45570061355829,
+      "baseline_wall_seconds": 126.60795995593071,
+      "candidate_wall_seconds": 58.962016716599464,
+      "verification_seconds": 44.17352568358183,
+      "saved_seconds": 67.64594323933125,
+      "speedup": 2.1472800118841087
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_01091c55591a_full_v1/ours/rgb30.mp4",
+      "first_frame": 11747,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "candidate",
+        "baseline"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "9d05cc3d20798b173200e7cb5a73f144501d42eb2fcb520da47487c840016570",
+          "9d05cc3d20798b173200e7cb5a73f144501d42eb2fcb520da47487c840016570"
+        ]
+      },
+      "candidate_wall_seconds": 59.80546157434583,
+      "baseline_cut_seconds": 47.970982026308775,
+      "baseline_official_copy_seconds": 77.00071622058749,
+      "baseline_wall_seconds": 124.97169824689627,
+      "verification_seconds": 45.88993504270911,
+      "saved_seconds": 65.16623667255044,
+      "speedup": 2.0896368819349465
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v0/ours/rgb30.mp4",
+      "first_frame": 13795,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "6d90350a2e2cc262f22e27230c81090f39cf532478864aa3b881bf00a86a839d",
+          "6d90350a2e2cc262f22e27230c81090f39cf532478864aa3b881bf00a86a839d"
+        ]
+      },
+      "baseline_cut_seconds": 46.127777855843306,
+      "baseline_official_copy_seconds": 71.86552479118109,
+      "baseline_wall_seconds": 117.9933026470244,
+      "candidate_wall_seconds": 56.08621959015727,
+      "verification_seconds": 44.700318053364754,
+      "saved_seconds": 61.90708305686712,
+      "speedup": 2.1037842006333296
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v1/ours/rgb30.mp4",
+      "first_frame": 13795,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "candidate",
+        "baseline"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "bb04f306c8757185581bf419fe96bbdb79916f368b23a520a00bc91c672b3bf0",
+          "bb04f306c8757185581bf419fe96bbdb79916f368b23a520a00bc91c672b3bf0"
+        ]
+      },
+      "candidate_wall_seconds": 59.65272951498628,
+      "baseline_cut_seconds": 45.924773167818785,
+      "baseline_official_copy_seconds": 76.37978300824761,
+      "baseline_wall_seconds": 122.3045561760664,
+      "verification_seconds": 43.83886310458183,
+      "saved_seconds": 62.65182666108012,
+      "speedup": 2.050275941612033
+    },
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v2/ours/rgb30.mp4",
+      "first_frame": 13795,
+      "frames": 1980,
+      "video_seconds": 66.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 1980,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 5474304000,
+        "decoded_rgb_sha256": [
+          "fd5481aeeeaff90e4057156a00710d25c92ee70db2b8e30782a3eb54ca572bcc",
+          "fd5481aeeeaff90e4057156a00710d25c92ee70db2b8e30782a3eb54ca572bcc"
+        ]
+      },
+      "baseline_cut_seconds": 50.07908559218049,
+      "baseline_official_copy_seconds": 79.97062344104052,
+      "baseline_wall_seconds": 130.049709033221,
+      "candidate_wall_seconds": 63.447672102600336,
+      "verification_seconds": 44.60137189924717,
+      "saved_seconds": 66.60203693062067,
+      "speedup": 2.049716005701824
+    }
+  ],
+  "all_exact_rgb_and_pts": true,
+  "interpretation": "CPU video preparation only; not end-to-end latency. No neural model outputs were re-run. Exact decoded model-input RGB/PTS parity is tested. The 60s core / 3s halo, offline tracking, GVHMR temporal support and mapper future context are unchanged.",
+  "aggregate": {
+    "baseline_wall_seconds": 122.3045561760664,
+    "candidate_wall_seconds": 59.69302149116993,
+    "saved_seconds": 62.43179304525256,
+    "speedup": 2.049716005701824,
+    "total_frames": 29700,
+    "total_baseline_seconds": 1844.5407657660544,
+    "total_candidate_seconds": 894.225711658597
+  }
+}

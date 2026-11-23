@@ -1,0 +1,1819 @@
+{
+  "schema": "table4_protocol_and_resident_measurements_20261123",
+  "publication_note_zh": "论文Table4的指标是输出延迟中位数、最大无输入限速吞吐、峰值显存。当前主流程离线发布；常驻实验测到了完整RGB→PD计算开销和已测试吞吐，但不是完整系统最低流式输出延迟。",
+  "official_table4": [
+    [
+      "GVHMR→GMR",
+      1369.4,
+      44.31,
+      9.18
+    ],
+    [
+      "GVHMR→NMR",
+      1305.7,
+      44.36,
+      9.73
+    ],
+    [
+      "BeyondRetarget",
+      192.8,
+      50.02,
+      7.03
+    ]
+  ],
+  "official_url": "https://arxiv.org/html/2609.29850v1#S4.T4",
+  "normal_module_rows": [
+    {
+      "source": "MoVi_F_S55_sideways_part2_v1",
+      "domain": "human",
+      "variants": [
+        {
+          "name": "original_c4_b3",
+          "p50_ms": 622.6255036890507,
+          "p95_ms": 651.976965367794,
+          "mean_ms": 626.9673238076815,
+          "new_frames": 3,
+          "fps": 4.784938362944465,
+          "command_updates_hz": 1.5949794543148217,
+          "steady_updates": 41,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06984873879246595
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6948962989376812
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.05723690477813163
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.9077076235922372
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 10.123139565310828
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3493703538324775
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.604893676391462
+            },
+            {
+              "name": "service.crop",
+              "ms": 4.379770377787148
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.7354161274142381
+            },
+            {
+              "name": "service.detector",
+              "ms": 39.27447319757648
+            },
+            {
+              "name": "service.gv",
+              "ms": 388.8213583608953
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.25121022651835184
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 68.65575300847613
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 108.75565813082021
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.2865912165583495
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_human_la0/variants/original_c4_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b3",
+          "p50_ms": 469.2319184541702,
+          "p95_ms": 489.86802250146866,
+          "mean_ms": 472.6692145554031,
+          "new_frames": 3,
+          "fps": 6.346933347080426,
+          "command_updates_hz": 2.1156444490268083,
+          "steady_updates": 41,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06497206120956235
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6469645332999345
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.05393320830856881
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6424734963149559
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.851359075889356
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.33575832480337564
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 130.1132786746432
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.6214723085484852
+            },
+            {
+              "name": "service.crop",
+              "ms": 4.102990939849761
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.5256093224374259
+            },
+            {
+              "name": "service.detector",
+              "ms": 39.11632717382617
+            },
+            {
+              "name": "service.gv",
+              "ms": 107.68031474293733
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.2448584248379963
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 68.35883228880603
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 108.06955933207418
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.2405106476167589
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_human_la0/variants/cpuccd_c4_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c2_b3",
+          "p50_ms": 430.0931431353092,
+          "p95_ms": 436.14470586180687,
+          "mean_ms": 430.99830513362025,
+          "new_frames": 3,
+          "fps": 6.960584216380909,
+          "command_updates_hz": 2.3201947387936364,
+          "steady_updates": 61,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06423573024937364
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.49329775034404194
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.05026882300611402
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6025635184811764
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.525112002599434
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.30810239373660475
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 112.66905368595826
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.5384664789575047
+            },
+            {
+              "name": "service.crop",
+              "ms": 4.034171949644558
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.5664486000772382
+            },
+            {
+              "name": "service.detector",
+              "ms": 39.215154029795386
+            },
+            {
+              "name": "service.gv",
+              "ms": 83.81595132780858
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.17475953600445732
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 68.25279676523364
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 108.43633115291595
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.251591388807924
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_human_la0/variants/cpuccd_c2_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b6",
+          "p50_ms": 665.6328774988651,
+          "p95_ms": 676.9280917942524,
+          "mean_ms": 666.609466253292,
+          "new_frames": 6,
+          "fps": 9.000772271841962,
+          "command_updates_hz": 1.5001287119736602,
+          "steady_updates": 21,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06523338102159046
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6502272472495125
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.04849866742179507
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6420611313411169
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.049289105903535
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3741257602260227
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 129.5707788141001
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 2.7435414847873503
+            },
+            {
+              "name": "service.crop",
+              "ms": 8.016257059006463
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 2.9088251647495085
+            },
+            {
+              "name": "service.detector",
+              "ms": 71.25033473684675
+            },
+            {
+              "name": "service.gv",
+              "ms": 105.49786899771009
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.30024065857841853
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 119.46983032283329
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 214.70492102560542
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.3174326959110658
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_human_la0/variants/cpuccd_c4_b6_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b15",
+          "p50_ms": 1233.61936211586,
+          "p95_ms": 1239.2752930521965,
+          "mean_ms": 1234.5383477707703,
+          "new_frames": 15,
+          "fps": 12.150290857376596,
+          "command_updates_hz": 0.8100193904917731,
+          "steady_updates": 9,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06512345539198981
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.63824239704344
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.049707376294665866
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6325906746917302
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.220239602857164
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.34504011273384094
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 128.96187976002693
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 6.4054061141279
+            },
+            {
+              "name": "service.crop",
+              "ms": 21.1084998316235
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 6.949157350593143
+            },
+            {
+              "name": "service.detector",
+              "ms": 166.95951008134418
+            },
+            {
+              "name": "service.gv",
+              "ms": 105.0812332994408
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.2654501133494907
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 272.87102407879297
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 513.6031272510687
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.38211627138980475
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_human_la0/variants/cpuccd_c4_b15_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        }
+      ]
+    },
+    {
+      "source": "MoVi_F_S55_sideways_part2_v1",
+      "domain": "robot",
+      "variants": [
+        {
+          "name": "original_c4_b3",
+          "p50_ms": 613.435011357069,
+          "p95_ms": 619.2609034478664,
+          "mean_ms": 614.234929586329,
+          "new_frames": 3,
+          "fps": 4.884124714334336,
+          "command_updates_hz": 1.6280415714447785,
+          "steady_updates": 41,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06723095004151507
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.5953847998526038
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.038239650610016614
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.9133137311877273
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.436546819966013
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3324390911474461
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 0.807704722009054
+            },
+            {
+              "name": "service.crop",
+              "ms": 4.071077377330966
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 0.6967951066610291
+            },
+            {
+              "name": "service.detector",
+              "ms": 44.75728095304675
+            },
+            {
+              "name": "service.gv",
+              "ms": 377.70983431397417
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.23104922800529293
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 67.61086632202311
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 106.72892430206625
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.2382422184070947
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_paired_robot_la0/variants/original_c4_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b3",
+          "p50_ms": 469.47137266397476,
+          "p95_ms": 474.1464890539646,
+          "mean_ms": 470.4205366532977,
+          "new_frames": 3,
+          "fps": 6.377272602388563,
+          "command_updates_hz": 2.1257575341295207,
+          "steady_updates": 41,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06438855354378863
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6146870735214978
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.037223736687404356
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5836406226565198
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.741738410984597
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3351956242468299
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 129.2316933594099
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 0.8156275058664927
+            },
+            {
+              "name": "service.crop",
+              "ms": 3.321250310031379
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 0.566859616012108
+            },
+            {
+              "name": "service.detector",
+              "ms": 44.94750990373332
+            },
+            {
+              "name": "service.gv",
+              "ms": 104.07659002557034
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.2514034873101769
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 68.38153511649226
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 107.21448718047724
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.23670612675385883
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_paired_robot_la0/variants/cpuccd_c4_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c2_b3",
+          "p50_ms": 432.4427880346775,
+          "p95_ms": 441.0681426525116,
+          "mean_ms": 433.208988093939,
+          "new_frames": 3,
+          "fps": 6.92506407403871,
+          "command_updates_hz": 2.3083546913462367,
+          "steady_updates": 61,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06383767382043307
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.4795768954714791
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03892763471994244
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5583802930644302
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.844046502328311
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3108022520776655
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 112.93170833196795
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 0.8090867615136944
+            },
+            {
+              "name": "service.crop",
+              "ms": 3.3687989487022647
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 0.5197958623776671
+            },
+            {
+              "name": "service.detector",
+              "ms": 45.05482932827512
+            },
+            {
+              "name": "service.gv",
+              "ms": 83.1218430253326
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.174395495750865
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 68.20826226326287
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 107.51585491368027
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.2088419115934812
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_paired_robot_la0/variants/cpuccd_c2_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b6",
+          "p50_ms": 671.76079377532,
+          "p95_ms": 681.0704283416271,
+          "mean_ms": 672.6237001518408,
+          "new_frames": 6,
+          "fps": 8.920292280283219,
+          "command_updates_hz": 1.486715380047203,
+          "steady_updates": 21,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06445550492831639
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6244015835580372
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03734585784730458
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.6190524966943833
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.978798453296934
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.336713201942898
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 129.83257554116705
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.132789467062269
+            },
+            {
+              "name": "service.crop",
+              "ms": 7.878576893182029
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 0.8550045036134266
+            },
+            {
+              "name": "service.detector",
+              "ms": 85.89443617633411
+            },
+            {
+              "name": "service.gv",
+              "ms": 104.28731693398386
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.25265983172825407
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 118.38531937627565
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 212.210168973321
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.23408535690532517
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_paired_robot_la0/variants/cpuccd_c4_b6_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b15",
+          "p50_ms": 1254.3762139976025,
+          "p95_ms": 1273.0339750647545,
+          "mean_ms": 1259.3054850068356,
+          "new_frames": 15,
+          "fps": 11.91132745675175,
+          "command_updates_hz": 0.7940884971167833,
+          "steady_updates": 9,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06794888112280105
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.626798305246565
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03668458925353157
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.597471535205841
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 10.824074347813925
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.33496899737252134
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 130.81566782461275
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 2.0175298882855306
+            },
+            {
+              "name": "service.crop",
+              "ms": 16.15633898311191
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 2.081573009490967
+            },
+            {
+              "name": "service.detector",
+              "ms": 204.6263296571043
+            },
+            {
+              "name": "service.gv",
+              "ms": 106.08599873052702
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.2593795458475749
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 273.5244979461034
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 509.9873675240411
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.26285524169588825
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/MoVi_F_S55_sideways_part2_v1_paired_robot_la0/variants/cpuccd_c4_b15_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        }
+      ]
+    },
+    {
+      "source": "external_tennis",
+      "domain": "human",
+      "variants": [
+        {
+          "name": "original_c4_b3",
+          "p50_ms": 620.2337183058262,
+          "p95_ms": 643.9555212855339,
+          "mean_ms": 623.0778775018889,
+          "new_frames": 3,
+          "fps": 4.814807439525736,
+          "command_updates_hz": 1.6049358131752454,
+          "steady_updates": 41,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06484994437636399
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6253181434259182
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.037097712842429555
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.858194154210207
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.427021552876727
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3312085641593468
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.600234246835476
+            },
+            {
+              "name": "service.crop",
+              "ms": 5.018403163043464
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.6150936120893897
+            },
+            {
+              "name": "service.detector",
+              "ms": 43.37066012184795
+            },
+            {
+              "name": "service.gv",
+              "ms": 383.3104472879956
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.2390707774860103
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 67.88448925788809
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 107.4412378777818
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.2545510850301298
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/external_tennis_human_la0/variants/original_c4_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b3",
+          "p50_ms": 473.96647930145264,
+          "p95_ms": 500.26263669133186,
+          "mean_ms": 479.3991858094204,
+          "new_frames": 3,
+          "fps": 6.257832905858575,
+          "command_updates_hz": 2.0859443019528583,
+          "steady_updates": 41,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.0633204855569979
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6243942714318996
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.035621134973153834
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.631576658748999
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.120864839088625
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.34196683909834885
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 131.94173401812228
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.6100070461994263
+            },
+            {
+              "name": "service.crop",
+              "ms": 5.087036457730503
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.401758321174761
+            },
+            {
+              "name": "service.detector",
+              "ms": 44.01409562404563
+            },
+            {
+              "name": "service.gv",
+              "ms": 107.14452622867212
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.24587951782273082
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 68.15230837318956
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 107.75471169774126
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.22938429582410436
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/external_tennis_human_la0/variants/cpuccd_c4_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c2_b3",
+          "p50_ms": 433.1185892224312,
+          "p95_ms": 440.42332097887993,
+          "mean_ms": 434.3089297658108,
+          "new_frames": 3,
+          "fps": 6.907525483341243,
+          "command_updates_hz": 2.302508494447081,
+          "steady_updates": 61,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.0627769432106956
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.48535072901209847
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.0338050552078935
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5897892537664193
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 8.75844275120829
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3194153675290405
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 112.36104442447913
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 1.5905210595639026
+            },
+            {
+              "name": "service.crop",
+              "ms": 4.942661365036105
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 1.3079897302096009
+            },
+            {
+              "name": "service.detector",
+              "ms": 43.49215322586357
+            },
+            {
+              "name": "service.gv",
+              "ms": 82.95720998869567
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.17461370004982246
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 68.03851599087481
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 107.96123675879885
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.23340342230488886
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/external_tennis_human_la0/variants/cpuccd_c2_b3_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b6",
+          "p50_ms": 672.8546731173992,
+          "p95_ms": 683.7143152952194,
+          "mean_ms": 674.0802680807454,
+          "new_frames": 6,
+          "fps": 8.9010171104449,
+          "command_updates_hz": 1.4835028517408166,
+          "steady_updates": 21,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06624736956187657
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6355008199101402
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03361914839063372
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5953500710782549
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.449558066470283
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3493743992987133
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 129.5465582183429
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 2.829503090608688
+            },
+            {
+              "name": "service.crop",
+              "ms": 10.83640239778019
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 2.675334612528483
+            },
+            {
+              "name": "service.detector",
+              "ms": 80.17352684622719
+            },
+            {
+              "name": "service.gv",
+              "ms": 104.4145171486196
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.24911104923202876
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 118.62334449376378
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 212.3466096818447
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.25571066708801027
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/external_tennis_human_la0/variants/cpuccd_c4_b6_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        },
+        {
+          "name": "cpuccd_c4_b15",
+          "p50_ms": 1262.0682641863823,
+          "p95_ms": 1267.1937197446823,
+          "mean_ms": 1259.8087067405384,
+          "new_frames": 15,
+          "fps": 11.906569560714505,
+          "command_updates_hz": 0.7937713040476336,
+          "steady_updates": 9,
+          "stages": [
+            {
+              "name": "control.fsq",
+              "ms": 0.06177441941367256
+            },
+            {
+              "name": "control.motion_features",
+              "ms": 0.6079897284507751
+            },
+            {
+              "name": "control.pd_target",
+              "ms": 0.03157514664861891
+            },
+            {
+              "name": "control.shared_mapper_cpu",
+              "ms": 1.5398706826898787
+            },
+            {
+              "name": "control.sonic_onnx",
+              "ms": 9.331811219453812
+            },
+            {
+              "name": "control.window_interpolation",
+              "ms": 0.3258734941482544
+            },
+            {
+              "name": "gv.cpu_ccd_total",
+              "ms": 128.32277019818625
+            },
+            {
+              "name": "service.box_selection",
+              "ms": 6.269608520799213
+            },
+            {
+              "name": "service.crop",
+              "ms": 27.190152141782974
+            },
+            {
+              "name": "service.decode_rgb_cpu",
+              "ms": 6.442645771635903
+            },
+            {
+              "name": "service.detector",
+              "ms": 193.4129065937466
+            },
+            {
+              "name": "service.gv",
+              "ms": 103.90297778778607
+            },
+            {
+              "name": "service.history_assembly",
+              "ms": 0.2670685450236003
+            },
+            {
+              "name": "service.hmr2",
+              "ms": 271.66201836533014
+            },
+            {
+              "name": "service.vitpose",
+              "ms": 510.13894917236433
+            },
+            {
+              "name": "service.uninstrumented",
+              "ms": 0.30071495307834084
+            }
+          ],
+          "source": "/data/video2action_motionpro/research51_run/latency/external_tennis_human_la0/variants/cpuccd_c4_b15_normal/measured_pipeline.json",
+          "module_protocol": "Non-diagnostic normal run; CUDA synchronization only complete update boundary; exclusive spans; full context only. Sum equals the same measured mean, not its p50."
+        }
+      ]
+    }
+  ],
+  "fresh_shared_gpu_profile": {
+    "date": "2026-11-23 18:32",
+    "gpu": "A40 physical 3, concurrent own evaluation",
+    "video": "external_tennis",
+    "input_seconds": 6,
+    "model": "H_newscale_s501119@120000",
+    "rows": [
+      {
+        "name": "original_c4_b3",
+        "p50_ms": 739.9153336882591,
+        "p95_ms": 749.5471574366093,
+        "mean_ms": 738.2736468598956,
+        "new_frames": 3,
+        "processing_fps": 4.063533911524433,
+        "steady_updates": 21,
+        "variant": "baseline",
+        "detailed": false,
+        "peak_torch_allocated_gib": 5.762104034423828,
+        "peak_torch_reserved_gib": 6.009765625,
+        "peak_process_vram_gib": null,
+        "nvidia_sample_count": 0
+      },
+      {
+        "name": "cpuccd_c4_b3",
+        "p50_ms": 534.7277969121933,
+        "p95_ms": 547.5776381790638,
+        "mean_ms": 536.0785316498507,
+        "new_frames": 3,
+        "processing_fps": 5.596195002935697,
+        "steady_updates": 21,
+        "variant": "cpuccd",
+        "detailed": false,
+        "peak_torch_allocated_gib": 5.762096405029297,
+        "peak_torch_reserved_gib": 6.009765625,
+        "peak_process_vram_gib": null,
+        "nvidia_sample_count": 0
+      },
+      {
+        "name": "cpuccd_c4_b15",
+        "p50_ms": 1758.6453258991241,
+        "p95_ms": 1767.3019140958786,
+        "mean_ms": 1747.6719111204147,
+        "new_frames": 15,
+        "processing_fps": 8.582846645617629,
+        "steady_updates": 5,
+        "variant": "cpuccd",
+        "detailed": false,
+        "peak_torch_allocated_gib": 6.96586799621582,
+        "peak_torch_reserved_gib": 7.55859375,
+        "peak_process_vram_gib": null,
+        "nvidia_sample_count": 0
+      }
+    ],
+    "memory_note": "Peak PyTorch reserved and allocated are measured; process VRAM unavailable because nvidia-smi reports host PIDs outside PID namespace. Do not relabel PyTorch reserved as total peak VRAM.",
+    "throughput_note": "new input frames / normal steady service time; largest of tested3/15-frame settings, not a proof of hardware maximal throughput. Commands generated once per batch; commandHz differs from videoFPS."
+  },
+  "preparation_trial": {
+    "cases": 15,
+    "sources": 6,
+    "frames": 29700,
+    "old_mean_seconds": 122.96938438440363,
+    "new_mean_seconds": 59.61504744390647,
+    "reduction_percent": 51.52041482329521,
+    "all_rgb_exact": true,
+    "all_pts_exact": true
+  },
+  "next_measurement": {
+    "arrival_fps": 30,
+    "timestamp_start": "each frame becomes available",
+    "timestamp_end": "corresponding robot reference or controller command ready, separate endpoints",
+    "latency": "median and p95 over actual emit minus source timestamps; report lookahead, queue, initial fill separately",
+    "throughput": "unthrottled stream separate run; batch sweep",
+    "memory": "same process totalpeak NVML; PyTorchreserved separate"
+  },
+  "paced_replay_actual": {
+    "name": "Video2Action 常驻原型 · 30FPS时钟回放 / FIFO保留全部帧",
+    "policy": "FIFO, process all frames, no dropping, 3-new-frame updates,4-second context, 0.5-second mapper lookahead",
+    "input_seconds": 6,
+    "input_frames": 180,
+    "input_fps": 30,
+    "published_commands": 51,
+    "capture": "Normalized recorded RGB file released using wall-clock deadlines started+(frame_index/30); actual emit timestamps sampled after CUDA synchronization and complete PD target calculation. Not an actual camera.",
+    "timing_endpoint": "SONIC latent command ready, before controller; PD target ready reported separately. No physics or motor response.",
+    "model": "H_newscale_s501119@120000",
+    "GPU": "A40 physical3; concurrent own evaluation remains running",
+    "latency_p50_ms": 24471.058311065037,
+    "latency_first_ms": 7472.329558928807,
+    "latency_last_ms": 35665.93873699506,
+    "service_p50_ms": 547.8375405073166,
+    "service_mean_ms": 548.4007802747544,
+    "steady_input_processing_fps": 5.4704517351287665,
+    "steady_command_hz": 1.823483911709589,
+    "observed_process_peak_vram_gib": 6.380859375,
+    "memory_sampling_period_seconds": 0.2,
+    "memory_host_pid": 62069,
+    "memory_sample_count": 159,
+    "cold_start_model_loading_excluded": true,
+    "unthrottled_best_tested_fps": 8.582846645617629,
+    "unthrottled_setting": "separate unrestricted run,4-second context,15-new-frame batch; 5 full-context steady updates",
+    "same_clock_metric_not_same_optimized_protocol": true,
+    "conclusion_zh": "这是6秒30FPS输入、全部帧保留FIFO策略的实测中位数据年龄。队列随处理速度不足而增长，因此不能解释为稳定系统的最低可达延迟。500ms前瞻来自当前模型。",
+    "rows": [
+      {
+        "input_last_frame_pts_seconds": 0.9666666666666667,
+        "command_anchor_pts_seconds": 0.4666666666666667,
+        "command_ready_wall_seconds": 7.938996225595474,
+        "pd_ready_wall_seconds": 7.953218299895525,
+        "command_age_seconds": 7.4723295589288075,
+        "pd_age_seconds": 7.486551847308874,
+        "service_seconds": 1.3025778755545616,
+        "context_frames": 30
+      },
+      {
+        "input_last_frame_pts_seconds": 1.0666666666666667,
+        "command_anchor_pts_seconds": 0.5666666666666667,
+        "command_ready_wall_seconds": 9.200723174959421,
+        "pd_ready_wall_seconds": 9.209940802305937,
+        "command_age_seconds": 8.634056508292755,
+        "pd_age_seconds": 8.643274385482073,
+        "service_seconds": 1.2567049600183964,
+        "context_frames": 33
+      },
+      {
+        "input_last_frame_pts_seconds": 1.1666666666666667,
+        "command_anchor_pts_seconds": 0.6666666666666667,
+        "command_ready_wall_seconds": 10.483527846634388,
+        "pd_ready_wall_seconds": 10.492904551327229,
+        "command_age_seconds": 9.816861179967722,
+        "pd_age_seconds": 9.826238103210926,
+        "service_seconds": 1.2829468064010143,
+        "context_frames": 36
+      },
+      {
+        "input_last_frame_pts_seconds": 1.2666666666666666,
+        "command_anchor_pts_seconds": 0.7666666666666666,
+        "command_ready_wall_seconds": 11.784185700118542,
+        "pd_ready_wall_seconds": 11.793306395411491,
+        "command_age_seconds": 11.017519033451876,
+        "pd_age_seconds": 11.026639949530363,
+        "service_seconds": 1.3003849051892757,
+        "context_frames": 39
+      },
+      {
+        "input_last_frame_pts_seconds": 1.3666666666666667,
+        "command_anchor_pts_seconds": 0.8666666666666667,
+        "command_ready_wall_seconds": 13.090956959873438,
+        "pd_ready_wall_seconds": 13.100106928497553,
+        "command_age_seconds": 12.22429029320677,
+        "pd_age_seconds": 12.233440529555082,
+        "service_seconds": 1.306782491505146,
+        "context_frames": 42
+      },
+      {
+        "input_last_frame_pts_seconds": 1.4666666666666666,
+        "command_anchor_pts_seconds": 0.9666666666666666,
+        "command_ready_wall_seconds": 14.403721008449793,
+        "pd_ready_wall_seconds": 14.412722788751125,
+        "command_age_seconds": 13.437054341783126,
+        "pd_age_seconds": 13.446056362241507,
+        "service_seconds": 1.3125994466245174,
+        "context_frames": 45
+      },
+      {
+        "input_last_frame_pts_seconds": 1.5666666666666667,
+        "command_anchor_pts_seconds": 1.0666666666666667,
+        "command_ready_wall_seconds": 15.706845324486494,
+        "pd_ready_wall_seconds": 15.716044373810291,
+        "command_age_seconds": 14.640178657819828,
+        "pd_age_seconds": 14.649389147758484,
+        "service_seconds": 1.3033026047050953,
+        "context_frames": 48
+      },
+      {
+        "input_last_frame_pts_seconds": 1.6666666666666667,
+        "command_anchor_pts_seconds": 1.1666666666666667,
+        "command_ready_wall_seconds": 17.035361673682928,
+        "pd_ready_wall_seconds": 17.04463555663824,
+        "command_age_seconds": 15.868695007016262,
+        "pd_age_seconds": 15.877969108521938,
+        "service_seconds": 1.328561156988144,
+        "context_frames": 51
+      },
+      {
+        "input_last_frame_pts_seconds": 1.7666666666666666,
+        "command_anchor_pts_seconds": 1.2666666666666666,
+        "command_ready_wall_seconds": 18.33299396559596,
+        "pd_ready_wall_seconds": 18.3421718403697,
+        "command_age_seconds": 17.066327298929295,
+        "pd_age_seconds": 17.075505401939154,
+        "service_seconds": 1.2975166328251362,
+        "context_frames": 54
+      },
+      {
+        "input_last_frame_pts_seconds": 1.8666666666666667,
+        "command_anchor_pts_seconds": 1.3666666666666667,
+        "command_ready_wall_seconds": 18.90298107638955,
+        "pd_ready_wall_seconds": 18.912149883806705,
+        "command_age_seconds": 17.536314409722884,
+        "pd_age_seconds": 17.545483469963074,
+        "service_seconds": 0.5699602663516998,
+        "context_frames": 57
+      },
+      {
+        "input_last_frame_pts_seconds": 1.9666666666666666,
+        "command_anchor_pts_seconds": 1.4666666666666666,
+        "command_ready_wall_seconds": 19.468972757458687,
+        "pd_ready_wall_seconds": 19.478615377098322,
+        "command_age_seconds": 18.002306090792022,
+        "pd_age_seconds": 18.011948939412832,
+        "service_seconds": 0.5608437061309814,
+        "context_frames": 60
+      },
+      {
+        "input_last_frame_pts_seconds": 2.066666666666667,
+        "command_anchor_pts_seconds": 1.5666666666666669,
+        "command_ready_wall_seconds": 20.021817564964294,
+        "pd_ready_wall_seconds": 20.03115202859044,
+        "command_age_seconds": 18.455150898297628,
+        "pd_age_seconds": 18.464485600590706,
+        "service_seconds": 0.5525177493691444,
+        "context_frames": 63
+      },
+      {
+        "input_last_frame_pts_seconds": 2.1666666666666665,
+        "command_anchor_pts_seconds": 1.6666666666666665,
+        "command_ready_wall_seconds": 20.580991871654987,
+        "pd_ready_wall_seconds": 20.590160749852657,
+        "command_age_seconds": 18.91432520498832,
+        "pd_age_seconds": 18.923494320362806,
+        "service_seconds": 0.5589903220534325,
+        "context_frames": 66
+      },
+      {
+        "input_last_frame_pts_seconds": 2.2666666666666666,
+        "command_anchor_pts_seconds": 1.7666666666666666,
+        "command_ready_wall_seconds": 21.13001710921526,
+        "pd_ready_wall_seconds": 21.13921357318759,
+        "command_age_seconds": 19.363350442548594,
+        "pd_age_seconds": 19.372547138482332,
+        "service_seconds": 0.5490370541810989,
+        "context_frames": 69
+      },
+      {
+        "input_last_frame_pts_seconds": 2.3666666666666667,
+        "command_anchor_pts_seconds": 1.8666666666666667,
+        "command_ready_wall_seconds": 21.69990650191903,
+        "pd_ready_wall_seconds": 21.70911940559745,
+        "command_age_seconds": 19.833239835252364,
+        "pd_age_seconds": 19.842452950775623,
+        "service_seconds": 0.5698881149291992,
+        "context_frames": 72
+      },
+      {
+        "input_last_frame_pts_seconds": 2.466666666666667,
+        "command_anchor_pts_seconds": 1.9666666666666668,
+        "command_ready_wall_seconds": 22.212961245328188,
+        "pd_ready_wall_seconds": 22.2228386066854,
+        "command_age_seconds": 20.24629457866152,
+        "pd_age_seconds": 20.25617218390107,
+        "service_seconds": 0.5137014910578728,
+        "context_frames": 75
+      },
+      {
+        "input_last_frame_pts_seconds": 2.566666666666667,
+        "command_anchor_pts_seconds": 2.066666666666667,
+        "command_ready_wall_seconds": 22.72085529193282,
+        "pd_ready_wall_seconds": 22.729945428669453,
+        "command_age_seconds": 20.654188625266155,
+        "pd_age_seconds": 20.66327902302146,
+        "service_seconds": 0.5070880986750126,
+        "context_frames": 78
+      },
+      {
+        "input_last_frame_pts_seconds": 2.6666666666666665,
+        "command_anchor_pts_seconds": 2.1666666666666665,
+        "command_ready_wall_seconds": 23.228451166301966,
+        "pd_ready_wall_seconds": 23.237663932144642,
+        "command_age_seconds": 21.061784499635298,
+        "pd_age_seconds": 21.070997525006533,
+        "service_seconds": 0.5077013857662678,
+        "context_frames": 81
+      },
+      {
+        "input_last_frame_pts_seconds": 2.7666666666666666,
+        "command_anchor_pts_seconds": 2.2666666666666666,
+        "command_ready_wall_seconds": 23.738499507308006,
+        "pd_ready_wall_seconds": 23.747695792466402,
+        "command_age_seconds": 21.47183284064134,
+        "pd_age_seconds": 21.481029365211725,
+        "service_seconds": 0.5100130997598171,
+        "context_frames": 84
+      },
+      {
+        "input_last_frame_pts_seconds": 2.8666666666666667,
+        "command_anchor_pts_seconds": 2.3666666666666667,
+        "command_ready_wall_seconds": 24.254412684589624,
+        "pd_ready_wall_seconds": 24.26350763067603,
+        "command_age_seconds": 21.887746017922957,
+        "pd_age_seconds": 21.8968412168324,
+        "service_seconds": 0.5157936923205853,
+        "context_frames": 87
+      },
+      {
+        "input_last_frame_pts_seconds": 2.966666666666667,
+        "command_anchor_pts_seconds": 2.466666666666667,
+        "command_ready_wall_seconds": 24.78507537767291,
+        "pd_ready_wall_seconds": 24.79419030621648,
+        "command_age_seconds": 22.318408711006242,
+        "pd_age_seconds": 22.32752387970686,
+        "service_seconds": 0.5226013325154781,
+        "context_frames": 90
+      },
+      {
+        "input_last_frame_pts_seconds": 3.066666666666667,
+        "command_anchor_pts_seconds": 2.566666666666667,
+        "command_ready_wall_seconds": 25.30554523319006,
+        "pd_ready_wall_seconds": 25.31470474973321,
+        "command_age_seconds": 22.738878566523393,
+        "pd_age_seconds": 22.748038314282894,
+        "service_seconds": 0.5204970873892307,
+        "context_frames": 93
+      },
+      {
+        "input_last_frame_pts_seconds": 3.1666666666666665,
+        "command_anchor_pts_seconds": 2.6666666666666665,
+        "command_ready_wall_seconds": 25.831297907978296,
+        "pd_ready_wall_seconds": 25.840397723019123,
+        "command_age_seconds": 23.16463124131163,
+        "pd_age_seconds": 23.173731297254562,
+        "service_seconds": 0.5256747230887413,
+        "context_frames": 96
+      },
+      {
+        "input_last_frame_pts_seconds": 3.2666666666666666,
+        "command_anchor_pts_seconds": 2.7666666666666666,
+        "command_ready_wall_seconds": 26.3525136038661,
+        "pd_ready_wall_seconds": 26.37373113632202,
+        "command_age_seconds": 23.585846937199435,
+        "pd_age_seconds": 23.607064701616764,
+        "service_seconds": 0.5333151146769524,
+        "context_frames": 99
+      },
+      {
+        "input_last_frame_pts_seconds": 3.3666666666666667,
+        "command_anchor_pts_seconds": 2.8666666666666667,
+        "command_ready_wall_seconds": 26.895784452557564,
+        "pd_ready_wall_seconds": 26.90559159964323,
+        "command_age_seconds": 24.029117785890897,
+        "pd_age_seconds": 24.038925159722567,
+        "service_seconds": 0.5318420417606831,
+        "context_frames": 102
+      },
+      {
+        "input_last_frame_pts_seconds": 3.466666666666667,
+        "command_anchor_pts_seconds": 2.966666666666667,
+        "command_ready_wall_seconds": 27.437724977731705,
+        "pd_ready_wall_seconds": 27.45058285072446,
+        "command_age_seconds": 24.471058311065036,
+        "pd_age_seconds": 24.48391642794013,
+        "service_seconds": 0.5449752695858479,
+        "context_frames": 105
+      },
+      {
+        "input_last_frame_pts_seconds": 3.566666666666667,
+        "command_anchor_pts_seconds": 3.066666666666667,
+        "command_ready_wall_seconds": 27.97729341313243,
+        "pd_ready_wall_seconds": 27.98672281578183,
+        "command_age_seconds": 24.910626746465763,
+        "pd_age_seconds": 24.920056376606226,
+        "service_seconds": 0.5361228324472904,
+        "context_frames": 108
+      },
+      {
+        "input_last_frame_pts_seconds": 3.6666666666666665,
+        "command_anchor_pts_seconds": 3.1666666666666665,
+        "command_ready_wall_seconds": 28.492873772978783,
+        "pd_ready_wall_seconds": 28.502589240670204,
+        "command_age_seconds": 25.326207106312115,
+        "pd_age_seconds": 25.335922800004482,
+        "service_seconds": 0.5158488564193249,
+        "context_frames": 111
+      },
+      {
+        "input_last_frame_pts_seconds": 3.7666666666666666,
+        "command_anchor_pts_seconds": 3.2666666666666666,
+        "command_ready_wall_seconds": 29.04778738692403,
+        "pd_ready_wall_seconds": 29.057658556848764,
+        "command_age_seconds": 25.781120720257363,
+        "pd_age_seconds": 25.790992137044668,
+        "service_seconds": 0.5550518780946732,
+        "context_frames": 114
+      },
+      {
+        "input_last_frame_pts_seconds": 3.8666666666666667,
+        "command_anchor_pts_seconds": 3.3666666666666667,
+        "command_ready_wall_seconds": 29.604105416685343,
+        "pd_ready_wall_seconds": 29.61547325178981,
+        "command_age_seconds": 26.237438750018676,
+        "pd_age_seconds": 26.248806845396757,
+        "service_seconds": 0.5577964819967747,
+        "context_frames": 117
+      },
+      {
+        "input_last_frame_pts_seconds": 3.966666666666667,
+        "command_anchor_pts_seconds": 3.466666666666667,
+        "command_ready_wall_seconds": 30.157692667096853,
+        "pd_ready_wall_seconds": 30.170923750847578,
+        "command_age_seconds": 26.691026000430185,
+        "pd_age_seconds": 26.704257428646088,
+        "service_seconds": 0.5489641278982162,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.066666666666666,
+        "command_anchor_pts_seconds": 3.5666666666666664,
+        "command_ready_wall_seconds": 30.70934560149908,
+        "pd_ready_wall_seconds": 30.71878667920828,
+        "command_age_seconds": 27.142678934832414,
+        "pd_age_seconds": 27.152120232582092,
+        "service_seconds": 0.5478375405073166,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.166666666666667,
+        "command_anchor_pts_seconds": 3.666666666666667,
+        "command_ready_wall_seconds": 31.260778859257698,
+        "pd_ready_wall_seconds": 31.270204085856676,
+        "command_age_seconds": 27.59411219259103,
+        "pd_age_seconds": 27.603537637740374,
+        "service_seconds": 0.5513995103538036,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.266666666666667,
+        "command_anchor_pts_seconds": 3.7666666666666666,
+        "command_ready_wall_seconds": 31.807570323348045,
+        "pd_ready_wall_seconds": 31.8169833868742,
+        "command_age_seconds": 28.04090365668138,
+        "pd_age_seconds": 28.050316970795393,
+        "service_seconds": 0.5467619672417641,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.366666666666666,
+        "command_anchor_pts_seconds": 3.8666666666666663,
+        "command_ready_wall_seconds": 32.358670588582754,
+        "pd_ready_wall_seconds": 32.36806769296527,
+        "command_age_seconds": 28.492003921916087,
+        "pd_age_seconds": 28.50140131264925,
+        "service_seconds": 0.5510656498372555,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.466666666666667,
+        "command_anchor_pts_seconds": 3.966666666666667,
+        "command_ready_wall_seconds": 32.90323360264301,
+        "pd_ready_wall_seconds": 32.91246745735407,
+        "command_age_seconds": 28.936566935976344,
+        "pd_age_seconds": 28.945801064372063,
+        "service_seconds": 0.5443784445524216,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.566666666666666,
+        "command_anchor_pts_seconds": 4.066666666666666,
+        "command_ready_wall_seconds": 33.45883114263415,
+        "pd_ready_wall_seconds": 33.46833813562989,
+        "command_age_seconds": 29.392164475967487,
+        "pd_age_seconds": 29.401671711355448,
+        "service_seconds": 0.5558526776731014,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.666666666666667,
+        "command_anchor_pts_seconds": 4.166666666666667,
+        "command_ready_wall_seconds": 34.00681038945913,
+        "pd_ready_wall_seconds": 34.016111362725496,
+        "command_age_seconds": 29.840143722792465,
+        "pd_age_seconds": 29.849444925785065,
+        "service_seconds": 0.5477535277605057,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.766666666666667,
+        "command_anchor_pts_seconds": 4.266666666666667,
+        "command_ready_wall_seconds": 34.55542824417353,
+        "pd_ready_wall_seconds": 34.564659371972084,
+        "command_age_seconds": 30.28876157750686,
+        "pd_age_seconds": 30.297992933541536,
+        "service_seconds": 0.5485310256481171,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.866666666666666,
+        "command_anchor_pts_seconds": 4.366666666666666,
+        "command_ready_wall_seconds": 35.104425963014364,
+        "pd_ready_wall_seconds": 35.113923855125904,
+        "command_age_seconds": 30.737759296347697,
+        "pd_age_seconds": 30.747257340699434,
+        "service_seconds": 0.5492477566003799,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 4.966666666666667,
+        "command_anchor_pts_seconds": 4.466666666666667,
+        "command_ready_wall_seconds": 35.66790680959821,
+        "pd_ready_wall_seconds": 35.67734207212925,
+        "command_age_seconds": 31.20124014293154,
+        "pd_age_seconds": 31.2106756567955,
+        "service_seconds": 0.5555663593113422,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.066666666666666,
+        "command_anchor_pts_seconds": 4.566666666666666,
+        "command_ready_wall_seconds": 36.21698895469308,
+        "pd_ready_wall_seconds": 36.226393319666386,
+        "command_age_seconds": 31.650322288026413,
+        "pd_age_seconds": 31.65972690284252,
+        "service_seconds": 0.5490332469344139,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.166666666666667,
+        "command_anchor_pts_seconds": 4.666666666666667,
+        "command_ready_wall_seconds": 36.760649129748344,
+        "pd_ready_wall_seconds": 36.77001653239131,
+        "command_age_seconds": 32.09398246308168,
+        "pd_age_seconds": 32.10335011407733,
+        "service_seconds": 0.5436062961816788,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.266666666666667,
+        "command_anchor_pts_seconds": 4.766666666666667,
+        "command_ready_wall_seconds": 37.30157742276788,
+        "pd_ready_wall_seconds": 37.31087352707982,
+        "command_age_seconds": 32.53491075610121,
+        "pd_age_seconds": 32.544207114726305,
+        "service_seconds": 0.5408397689461708,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.366666666666666,
+        "command_anchor_pts_seconds": 4.866666666666666,
+        "command_ready_wall_seconds": 37.84970236569643,
+        "pd_ready_wall_seconds": 37.8594763725996,
+        "command_age_seconds": 32.98303569902976,
+        "pd_age_seconds": 32.99280999973416,
+        "service_seconds": 0.5485811606049538,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.466666666666667,
+        "command_anchor_pts_seconds": 4.966666666666667,
+        "command_ready_wall_seconds": 38.394778579473495,
+        "pd_ready_wall_seconds": 38.40404016897082,
+        "command_age_seconds": 33.42811191280683,
+        "pd_age_seconds": 33.437373742461205,
+        "service_seconds": 0.5445381551980972,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.566666666666666,
+        "command_anchor_pts_seconds": 5.066666666666666,
+        "command_ready_wall_seconds": 38.940535083413124,
+        "pd_ready_wall_seconds": 38.95072916522622,
+        "command_age_seconds": 33.87386841674646,
+        "pd_age_seconds": 33.884062718600035,
+        "service_seconds": 0.546670388430357,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.666666666666667,
+        "command_anchor_pts_seconds": 5.166666666666667,
+        "command_ready_wall_seconds": 39.483098957687616,
+        "pd_ready_wall_seconds": 39.49245576933026,
+        "command_age_seconds": 34.31643229102095,
+        "pd_age_seconds": 34.32578932866454,
+        "service_seconds": 0.541708916425705,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.766666666666667,
+        "command_anchor_pts_seconds": 5.266666666666667,
+        "command_ready_wall_seconds": 40.02988673001528,
+        "pd_ready_wall_seconds": 40.04010210186243,
+        "command_age_seconds": 34.76322006334861,
+        "pd_age_seconds": 34.77343566715717,
+        "service_seconds": 0.547627791762352,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.866666666666666,
+        "command_anchor_pts_seconds": 5.366666666666666,
+        "command_ready_wall_seconds": 40.57586331292987,
+        "pd_ready_wall_seconds": 40.58528657630086,
+        "command_age_seconds": 35.2091966462632,
+        "pd_age_seconds": 35.218620128929615,
+        "service_seconds": 0.5451666377484798,
+        "context_frames": 120
+      },
+      {
+        "input_last_frame_pts_seconds": 5.966666666666667,
+        "command_anchor_pts_seconds": 5.466666666666667,
+        "command_ready_wall_seconds": 41.13260540366173,
+        "pd_ready_wall_seconds": 41.15467891097069,
+        "command_age_seconds": 35.66593873699506,
+        "pd_age_seconds": 35.68801246583462,
+        "service_seconds": 0.5612854361534119,
+        "context_frames": 120
+      }
+    ],
+    "command_ready_p50_ms": 24471.058311065037,
+    "pd_ready_p50_ms": 24483.91642794013
+  }
+}
