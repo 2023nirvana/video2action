@@ -1,0 +1,404 @@
+{
+  "created_local": "2026-11-23T16:21:34.455919+08:00",
+  "summary_snapshot_created_local": "2026-11-23T16:20:36.687156+08:00",
+  "scope": "front camera1; recording macro; continuous actual robot execution; compare against published generation metrics only as differently staged references",
+  "ours": {
+    "all_failures_retained": true,
+    "expected_candidates": 173,
+    "groups": {
+      "selected_H": {
+        "contact": {
+          "F1": 0.9537563488345309,
+          "FN": 59323,
+          "FP": 343799,
+          "TP": 4157113
+        },
+        "coverage": {
+          "actual_observed_frames": 2371790,
+          "common_expected_frames": 2712992,
+          "excluded_future_tail_frames": 4844,
+          "missing_actual_common_frames": 341202,
+          "missing_candidates_with_unknown_frame_denominator": 0,
+          "source_frames": 2717836,
+          "valid_metric_frames": 2371790
+        },
+        "expected_recordings": 173,
+        "failure_counts": {
+          "fall": 37,
+          "none_or_unavailable": 134
+        },
+        "micro": {
+          "Accel": 2.4040130624880023,
+          "EDE": 73.3677914791626,
+          "FS": 0.6292999927567968,
+          "FS_contact_only": 0.7498468525287143,
+          "Fail100": 0.500891416928432,
+          "Fail65": 28.364037694201546,
+          "FloorFloating_gt_contact_gt2cm_percent": 0.146023798297899,
+          "FloorPenetration_gt3cm_percent": 0.0,
+          "FloorPenetration_mean_mm": 0.8516167377354621,
+          "GlobalMorphMPJPE_initial_SE2_mm": 1048.5186197788473,
+          "Jitter": 4.148786550406661,
+          "MAMPJPE": 58.60721623942644,
+          "PhysicalContactSlip_cm_s": 1.2335538014977279,
+          "RTE": 592.8661891647151,
+          "RootRelativeMorphMPJPE_mm": 228.68191126100297,
+          "TDE": 12.487456519417291,
+          "Viol": 0.3606792907977079
+        },
+        "missing_candidates": 2,
+        "pressure_events": {
+          "double_support": {
+            "FN": 25827,
+            "FP": 13154,
+            "TP": 10515
+          },
+          "flight": {
+            "FN": 8,
+            "FP": 1573,
+            "TP": 5
+          },
+          "left_support": {
+            "FN": 11638,
+            "FP": 2215,
+            "TP": 4775
+          },
+          "right_support": {
+            "FN": 13193,
+            "FP": 2765,
+            "TP": 4948
+          }
+        },
+        "quality_windows": {
+          "complete": 11779,
+          "incomplete": 1549,
+          "partial_tail_or_crop": 170
+        },
+        "recording_macro": {
+          "Accel": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 2.44018374723539,
+            "recording_bootstrap95": [
+              2.292393301664104,
+              2.598862193229389
+            ]
+          },
+          "EDE": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 68.61801200142303,
+            "recording_bootstrap95": [
+              65.64300426227648,
+              71.19365204827314
+            ]
+          },
+          "FS": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 0.6948934940680636,
+            "recording_bootstrap95": [
+              0.6237550622028446,
+              0.7870746009476047
+            ]
+          },
+          "FS_contact_only": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 0.8128740397600552,
+            "recording_bootstrap95": [
+              0.7184029661843452,
+              0.9217814447764261
+            ]
+          },
+          "Fail100": {
+            "available_recordings": 167,
+            "expected_recordings": 173,
+            "mean": 0.7635352464178404,
+            "recording_bootstrap95": [
+              0.19077785425180124,
+              1.7506803522539933
+            ]
+          },
+          "Fail65": {
+            "available_recordings": 167,
+            "expected_recordings": 173,
+            "mean": 29.70203686363389,
+            "recording_bootstrap95": [
+              25.614430760048613,
+              33.83453565968585
+            ]
+          },
+          "FloorFloating_gt_contact_gt2cm_percent": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 0.17017585398036755,
+            "recording_bootstrap95": [
+              0.11972796016918857,
+              0.24369133300259255
+            ]
+          },
+          "FloorPenetration_gt3cm_percent": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 0.0,
+            "recording_bootstrap95": [
+              0.0,
+              0.0
+            ]
+          },
+          "FloorPenetration_mean_mm": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 0.8516769907862557,
+            "recording_bootstrap95": [
+              0.8452596984635166,
+              0.8585659949249766
+            ]
+          },
+          "GlobalMorphMPJPE_initial_SE2_mm": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 977.1554105310859,
+            "recording_bootstrap95": [
+              884.4128145905352,
+              1064.1716971779474
+            ]
+          },
+          "Jitter": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 4.231259856484943,
+            "recording_bootstrap95": [
+              4.046258502861808,
+              4.426442126778419
+            ]
+          },
+          "MAMPJPE": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 59.13587634094829,
+            "recording_bootstrap95": [
+              57.53936496471781,
+              60.61207675595762
+            ]
+          },
+          "PhysicalContactSlip_cm_s": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 1.2846332384860524,
+            "recording_bootstrap95": [
+              1.196209686680703,
+              1.3694692805319701
+            ]
+          },
+          "RTE": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 539.463830525766,
+            "recording_bootstrap95": [
+              464.80756244443654,
+              611.4952711497846
+            ]
+          },
+          "RootRelativeMorphMPJPE_mm": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 219.3137938812389,
+            "recording_bootstrap95": [
+              212.12408812664947,
+              226.26693216103524
+            ]
+          },
+          "TDE": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 11.996985395175654,
+            "recording_bootstrap95": [
+              11.330899932019761,
+              12.73753988672271
+            ]
+          },
+          "Viol": {
+            "available_recordings": 171,
+            "expected_recordings": 173,
+            "mean": 0.4489308149800444,
+            "recording_bootstrap95": [
+              0.32305411145176166,
+              0.6406833606308241
+            ]
+          }
+        },
+        "recordings": 171,
+        "scored_candidates": 171,
+        "sufficient_statistics": {
+          "Accel": {
+            "count": 42686064,
+            "sum": 102617855.44219886
+          },
+          "EDE": {
+            "count": 4743580,
+            "sum": 348025988.3047262
+          },
+          "FS": {
+            "count": 4048106,
+            "sum": 2547473.076478746
+          },
+          "FS_contact_only": {
+            "count": 4177574,
+            "sum": 3132540.715105791
+          },
+          "Fail100": {
+            "count": 11779,
+            "sum": 5900.0
+          },
+          "Fail65": {
+            "count": 11779,
+            "sum": 334100.0
+          },
+          "FloorFloating_gt_contact_gt2cm_percent": {
+            "count": 4216436,
+            "sum": 615700.0
+          },
+          "FloorPenetration_gt3cm_percent": {
+            "count": 4743580,
+            "sum": 0.0
+          },
+          "FloorPenetration_mean_mm": {
+            "count": 4743580,
+            "sum": 4039712.1247871835
+          },
+          "GlobalMorphMPJPE_initial_SE2_mm": {
+            "count": 42692220,
+            "sum": 44763587589.6949
+          },
+          "Jitter": {
+            "count": 42682986,
+            "sum": 177082598.2479958
+          },
+          "MAMPJPE": {
+            "count": 2371790,
+            "sum": 139004009.40450925
+          },
+          "PhysicalContactSlip_cm_s": {
+            "count": 4465076,
+            "sum": 5507911.473776269
+          },
+          "RTE": {
+            "count": 2371790,
+            "sum": 1406154098.7989798
+          },
+          "RootRelativeMorphMPJPE_mm": {
+            "count": 42692220,
+            "sum": 9762938465.575216
+          },
+          "TDE": {
+            "count": 2371790,
+            "sum": 29617624.498188738
+          },
+          "Viol": {
+            "count": 4215102,
+            "sum": 1520300.0
+          }
+        }
+      }
+    },
+    "missing_candidates": [
+      {
+        "common_expected_frames": 16663,
+        "common_genuine_end_s": 555.4333333333334,
+        "fps": 30.0,
+        "model_id": "selected_H",
+        "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-15-03-17",
+        "source_directory": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_278ae390ead4_full_v1",
+        "source_frames": 16691,
+        "source_id": "motionpro_278ae390ead4_full_v1",
+        "source_metadata": {
+          "annotation_frames": 39,
+          "archive": "MotionPRO_2.zip",
+          "camera": 1,
+          "cohort": "fresh",
+          "pressure_available": false,
+          "previously_used": false,
+          "video_annotation_frame_difference": 16652,
+          "video_clock_probed": true
+        },
+        "status": "missing_score"
+      },
+      {
+        "common_expected_frames": 14948,
+        "common_genuine_end_s": 498.2666666666667,
+        "fps": 30.0,
+        "model_id": "selected_H",
+        "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-10-05-23",
+        "source_directory": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_8991ec335d12_full_v1",
+        "source_frames": 14976,
+        "source_id": "motionpro_8991ec335d12_full_v1",
+        "source_metadata": {
+          "annotation_frames": 7,
+          "archive": "MotionPRO_2.zip",
+          "camera": 1,
+          "cohort": "fresh",
+          "pressure_available": false,
+          "previously_used": false,
+          "video_annotation_frame_difference": 14969,
+          "video_clock_probed": true
+        },
+        "status": "missing_score"
+      }
+    ],
+    "schema": "motionpro_full_scoring_v1_aggregate",
+    "scored_candidates": 171,
+    "uncertainty_unit": "recording; four cameras are repeated measures"
+  },
+  "ours_windows600": {
+    "selected_H": {
+      "ExecSR600_percent": null,
+      "completed_source_receipts": 171,
+      "completed_windows": 4383,
+      "confirmed_success_percent_all_planned": 94.04600811907984,
+      "eligible_windows": 4434,
+      "expected_candidates": 173,
+      "failed_windows": 213,
+      "partial_tail_completed": 171,
+      "partial_tail_pending": 2,
+      "partial_tail_percent_completed": 97.07602339181287,
+      "partial_tail_seconds": 1751.939999999999,
+      "partial_tail_successes": 166,
+      "partial_tail_windows": 173,
+      "pending_windows": 51,
+      "percent_completed": 95.14031485284052,
+      "recording_macro": {
+        "ExecSR600_percent": null,
+        "available_recordings": 171,
+        "completed_recordings": 171,
+        "confirmed_success_percent_all_planned": 93.12118483378477,
+        "expected_recordings": 173,
+        "percent_completed": 94.2103214985074
+      },
+      "successes": 4170
+    }
+  },
+  "paper": {
+    "url": "https://arxiv.org/html/2609.29850v1",
+    "Table1": {
+      "MAMPJPE_mm": 26.36,
+      "RTE_mm": 80.74,
+      "Jitter_10m_per_s3": 1.41,
+      "Accel_mm_per_frame2": 1.51,
+      "Fail65_percent": 0,
+      "Fail100_percent": 0,
+      "FS_mm_per_frame": 1.71,
+      "Exec_successes": 347,
+      "Exec_clips": 362,
+      "Exec_MAMPJPE_mm": 35.04
+    },
+    "Table3_full_model": {
+      "TDE_deg": 2.95,
+      "EDE_deg": 15.29,
+      "Viol_percent": 6.17,
+      "Jitter_10m_per_s3": 1.42
+    }
+  },
+  "invalid_baseline_excluded": true
+}

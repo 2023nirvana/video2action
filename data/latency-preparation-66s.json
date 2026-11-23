@@ -1,0 +1,32 @@
+{
+  "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v0/ours/rgb30.mp4",
+  "first_frame": 0,
+  "frames": 1980,
+  "video_seconds": 66.0,
+  "execution_order": [
+    "baseline",
+    "candidate"
+  ],
+  "parity": {
+    "frames": 1980,
+    "changed_frames": 0,
+    "exact_rgb_equal": true,
+    "exact_pts_equal": true,
+    "max_abs_pixel": 0,
+    "mean_abs_pixel": 0.0,
+    "rmse_pixel": 0.0,
+    "different_pixel_values": 0,
+    "total_pixel_values": 5474304000,
+    "decoded_rgb_sha256": [
+      "af162a0495f90cf8b7b36694410b6db0f41b402284b487219df2488e5d90e964",
+      "af162a0495f90cf8b7b36694410b6db0f41b402284b487219df2488e5d90e964"
+    ]
+  },
+  "baseline_cut_seconds": 43.54038767144084,
+  "baseline_official_copy_seconds": 74.1212801411748,
+  "baseline_wall_seconds": 117.66166781261563,
+  "candidate_wall_seconds": 57.68455163016915,
+  "verification_seconds": 37.11217084154487,
+  "saved_seconds": 59.97711618244648,
+  "speedup": 2.039743128575837
+}

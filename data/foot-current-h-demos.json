@@ -1,0 +1,40 @@
+[
+  {
+    "src": "videos/week20261120/foot_current_H_S66.mp4",
+    "poster": "videos/week20261120/foot_current_H_S66.jpg",
+    "title": "当前H：同动作中官方入口与共享映射均真实离地",
+    "group": "当前冻结H · 同动作归因",
+    "split": "TEST诊断",
+    "duration_seconds": 4.8,
+    "model": "H_newscale_s501119 · 120k · heading开启",
+    "metrics": {
+      "官方真实腾空 / s": 0.18,
+      "当前H真实腾空 / s": 0.245
+    },
+    "note": "S66：左为真人RGB，中为GV→官方SONIC，右为当前H共享映射→SONIC；两条机器人均是同初态、同控制器、同源时钟的实际物理执行。腾空排除起始0.5秒、要求全部地面法向力≤1N持续至少50ms。两者均稳定落地；腾空更长不直接等于人体跟随更准确。",
+    "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/demos_gpu/MoVi_F_S66_vertical_jumping_part2_v1__human.mp4",
+    "physicsReceiptFiles": [
+      "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S66_vertical_jumping_part2_v1__human/official_sonic_human/completed.json",
+      "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S66_vertical_jumping_part2_v1__human/shared_heading_on/completed.json"
+    ]
+  },
+  {
+    "src": "videos/week20261120/foot_current_H_S61.mp4",
+    "poster": "videos/week20261120/foot_current_H_S61.jpg",
+    "title": "当前H：官方入口离地，共享映射未起跳",
+    "group": "当前冻结H · 同动作归因",
+    "split": "TEST诊断",
+    "duration_seconds": 3.88,
+    "model": "H_newscale_s501119 · 120k · heading开启",
+    "metrics": {
+      "官方真实腾空 / s": 0.185,
+      "当前H真实腾空 / s": 0.0
+    },
+    "note": "S61：左为真人RGB，中为GV→官方SONIC，右为当前H共享映射→SONIC；两条机器人均是同初态、同控制器、同源时钟的实际物理执行。腾空排除起始0.5秒、要求全部地面法向力≤1N持续至少50ms。该动作把损失定位到学习映射，官方控制器能执行起跳。",
+    "sourceFile": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/demos_gpu/MoVi_F_S61_vertical_jumping_part2_v1__human.mp4",
+    "physicsReceiptFiles": [
+      "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S61_vertical_jumping_part2_v1__human/official_sonic_human/completed.json",
+      "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S61_vertical_jumping_part2_v1__human/shared_heading_on/completed.json"
+    ]
+  }
+]

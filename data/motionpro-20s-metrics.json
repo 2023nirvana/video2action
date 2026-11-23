@@ -1,0 +1,2890 @@
+{
+  "schema": "motionpro_front_camera1_full600_metric_comparison_v1",
+  "generated_utc": "2026-11-23T08:21:17.262442+00:00",
+  "source_root": "/data/video2action_motionpro/full_eval_20261122",
+  "selection": "candidates.csv camera==1 and model_id==selected_H; only source completed.json windows receipts; score source_metadata episode.kind==full600; partial tails excluded",
+  "aggregation": "micro=sum sufficient_statistics.sum / sum sufficient_statistics.count for each metric; MAMPJPE count is valid source frames; episode_macro=unweighted average of each episode metric; recording_macro=unweighted average of within-recording micro",
+  "failure_policy": "All full600 attempted windows retained. Failed rollouts contribute finite observed prefixes only; missing future frames are not zero-filled or penalty-imputed. Successful-only results are diagnostic secondary values.",
+  "report_snapshot": {
+    "ExecSR600_percent": null,
+    "completed_source_receipts": 171,
+    "completed_windows": 4383,
+    "confirmed_success_percent_all_planned": 94.04600811907984,
+    "eligible_windows": 4434,
+    "expected_candidates": 173,
+    "failed_windows": 213,
+    "partial_tail_completed": 171,
+    "partial_tail_pending": 2,
+    "partial_tail_percent_completed": 97.07602339181287,
+    "partial_tail_seconds": 1751.939999999999,
+    "partial_tail_successes": 166,
+    "partial_tail_windows": 173,
+    "pending_windows": 51,
+    "percent_completed": 95.14031485284052,
+    "recording_macro": {
+      "ExecSR600_percent": null,
+      "available_recordings": 171,
+      "completed_recordings": 171,
+      "confirmed_success_percent_all_planned": 93.12118483378477,
+      "expected_recordings": 173,
+      "percent_completed": 94.2103214985074
+    },
+    "successes": 4170
+  },
+  "sources_completed": 171,
+  "sources_expected": 173,
+  "missing_source_ids": [
+    "motionpro_278ae390ead4_full_v1",
+    "motionpro_8991ec335d12_full_v1"
+  ],
+  "missing_score_paths": [],
+  "all_full600_attempts": {
+    "windows": 4383,
+    "recordings": 171,
+    "coverage": {
+      "source_frames": 2629800,
+      "common_expected_frames": 2629800,
+      "actual_observed_frames": 2525536,
+      "valid_metric_frames": 2525536,
+      "missing_actual_common_frames": 104264,
+      "invalid_gt_frames": 0,
+      "clock_gap_count": 0
+    },
+    "failure_counts": {
+      "None": 4170,
+      "fall": 213
+    },
+    "micro": {
+      "Accel": 2.4140846892600947,
+      "EDE": 37.99796845988386,
+      "FS": 0.7335087763643499,
+      "FS_contact_only": 0.8670674981863253,
+      "Fail100": 0.6120826709062003,
+      "Fail65": 26.55007949125596,
+      "FloorFloating_gt_contact_gt2cm_percent": 0.30103569976366057,
+      "FloorPenetration_gt3cm_percent": 0.0,
+      "FloorPenetration_mean_mm": 0.8569321615462824,
+      "GlobalMorphMPJPE_initial_SE2_mm": 286.5062917392996,
+      "Jitter": 4.502942695344882,
+      "MAMPJPE": 58.19603281018429,
+      "PhysicalContactSlip_cm_s": 1.3222528857793094,
+      "RTE": 106.79068804156395,
+      "RootRelativeMorphMPJPE_mm": 137.45993512257607,
+      "TDE": 9.09816963980163,
+      "Viol": 0.557807775370717
+    },
+    "sufficient_statistics": {
+      "Accel": {
+        "sum": 109362526.62100431,
+        "count": 45301860
+      },
+      "EDE": {
+        "sum": 191930474.54460248,
+        "count": 5051072
+      },
+      "FS": {
+        "sum": 3137896.999146014,
+        "count": 4277927
+      },
+      "FS_contact_only": {
+        "sum": 3831303.350628432,
+        "count": 4418691
+      },
+      "Fail100": {
+        "sum": 7700.0,
+        "count": 12580
+      },
+      "Fail65": {
+        "sum": 334000.0,
+        "count": 12580
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "sum": 1345200.0,
+        "count": 4468573
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "sum": 0.0,
+        "count": 5051072
+      },
+      "FloorPenetration_mean_mm": {
+        "sum": 4328426.047085904,
+        "count": 5051072
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "sum": 13024475172.25387,
+        "count": 45459648
+      },
+      "Jitter": {
+        "sum": 203636424.41152996,
+        "count": 45222966
+      },
+      "MAMPJPE": {
+        "sum": 146976175.9193016,
+        "count": 2525536
+      },
+      "PhysicalContactSlip_cm_s": {
+        "sum": 6237508.494684853,
+        "count": 4717334
+      },
+      "RTE": {
+        "sum": 269703727.11373925,
+        "count": 2525536
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "sum": 6248880264.775145,
+        "count": 45459648
+      },
+      "TDE": {
+        "sum": 22977754.959426053,
+        "count": 2525536
+      },
+      "Viol": {
+        "sum": 2491700.0,
+        "count": 4466951
+      }
+    },
+    "episode_macro": {
+      "Accel": {
+        "mean": 2.8282152321849248,
+        "episodes": 4383
+      },
+      "EDE": {
+        "mean": 37.79166741587354,
+        "episodes": 4383
+      },
+      "FS": {
+        "mean": 1.520355664789415,
+        "episodes": 4352
+      },
+      "FS_contact_only": {
+        "mean": 1.6741843350299743,
+        "episodes": 4354
+      },
+      "Fail100": {
+        "mean": 0.63950734249171,
+        "episodes": 4222
+      },
+      "Fail65": {
+        "mean": 26.575082899099954,
+        "episodes": 4222
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 1.3273692381027602,
+        "episodes": 4356
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "episodes": 4383
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 0.8688556576478618,
+        "episodes": 4383
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 290.0559810200973,
+        "episodes": 4383
+      },
+      "Jitter": {
+        "mean": 5.656277168165718,
+        "episodes": 4383
+      },
+      "MAMPJPE": {
+        "mean": 60.19557963368132,
+        "episodes": 4383
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 2.02815835647012,
+        "episodes": 4383
+      },
+      "RTE": {
+        "mean": 106.8193899466893,
+        "episodes": 4383
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 141.73411972078605,
+        "episodes": 4383
+      },
+      "TDE": {
+        "mean": 10.160225501664653,
+        "episodes": 4383
+      },
+      "Viol": {
+        "mean": 1.4116292745303145,
+        "episodes": 4354
+      }
+    },
+    "recording_macro_of_within_recording_micro": {
+      "Accel": {
+        "mean": 2.518658985264783,
+        "recordings": 171
+      },
+      "EDE": {
+        "mean": 37.703711277596135,
+        "recordings": 171
+      },
+      "FS": {
+        "mean": 0.8566234484432425,
+        "recordings": 171
+      },
+      "FS_contact_only": {
+        "mean": 0.9884401336158888,
+        "recordings": 171
+      },
+      "Fail100": {
+        "mean": 0.8433108216901092,
+        "recordings": 170
+      },
+      "Fail65": {
+        "mean": 28.44993417455528,
+        "recordings": 170
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 0.44407314728083785,
+        "recordings": 171
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "recordings": 171
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 0.8609341009844369,
+        "recordings": 171
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 294.77563988877,
+        "recordings": 171
+      },
+      "Jitter": {
+        "mean": 4.701566551848475,
+        "recordings": 171
+      },
+      "MAMPJPE": {
+        "mean": 58.971487577506146,
+        "recordings": 171
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 1.4195565791393334,
+        "recordings": 171
+      },
+      "RTE": {
+        "mean": 109.799491193068,
+        "recordings": 171
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 139.68715600385204,
+        "recordings": 171
+      },
+      "TDE": {
+        "mean": 9.391538996169954,
+        "recordings": 171
+      },
+      "Viol": {
+        "mean": 0.7173498924355272,
+        "recordings": 171
+      }
+    }
+  },
+  "successful_full600_only": {
+    "windows": 4170,
+    "recordings": 170,
+    "coverage": {
+      "source_frames": 2502000,
+      "common_expected_frames": 2502000,
+      "actual_observed_frames": 2502000,
+      "valid_metric_frames": 2502000,
+      "missing_actual_common_frames": 0,
+      "invalid_gt_frames": 0,
+      "clock_gap_count": 0
+    },
+    "failure_counts": {
+      "None": 4170
+    },
+    "micro": {
+      "Accel": 2.397908877268924,
+      "EDE": 38.058577548314915,
+      "FS": 0.7073108813786196,
+      "FS_contact_only": 0.8404071044214153,
+      "Fail100": 0.5755395683453237,
+      "Fail65": 26.498800959232614,
+      "FloorFloating_gt_contact_gt2cm_percent": 0.22790231236091854,
+      "FloorPenetration_gt3cm_percent": 0.0,
+      "FloorPenetration_mean_mm": 0.8569145977427767,
+      "GlobalMorphMPJPE_initial_SE2_mm": 286.24547737805926,
+      "Jitter": 4.459385018876191,
+      "MAMPJPE": 58.07551701448037,
+      "PhysicalContactSlip_cm_s": 1.3114413705793433,
+      "RTE": 106.61863831273538,
+      "RootRelativeMorphMPJPE_mm": 137.20721733013485,
+      "TDE": 8.979384263638737,
+      "Viol": 0.496856628243539
+    },
+    "sufficient_statistics": {
+      "Accel": {
+        "sum": 107632250.11602764,
+        "count": 44885880
+      },
+      "EDE": {
+        "sum": 190445122.05176783,
+        "count": 5004000
+      },
+      "FS": {
+        "sum": 3000322.9303261694,
+        "count": 4241873
+      },
+      "FS_contact_only": {
+        "sum": 3682073.1253802334,
+        "count": 4381297
+      },
+      "Fail100": {
+        "sum": 7200.0,
+        "count": 12510
+      },
+      "Fail65": {
+        "sum": 331500.0,
+        "count": 12510
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "sum": 1009700.0,
+        "count": 4430407
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "sum": 0.0,
+        "count": 5004000
+      },
+      "FloorPenetration_mean_mm": {
+        "sum": 4288000.647104855,
+        "count": 5004000
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "sum": 12891351319.198277,
+        "count": 45036000
+      },
+      "Jitter": {
+        "sum": 199828699.39155763,
+        "count": 44810820
+      },
+      "MAMPJPE": {
+        "sum": 145304943.5702299,
+        "count": 2502000
+      },
+      "PhysicalContactSlip_cm_s": {
+        "sum": 6139112.786749169,
+        "count": 4681195
+      },
+      "RTE": {
+        "sum": 266759833.05846393,
+        "count": 2502000
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "sum": 6179264239.679954,
+        "count": 45036000
+      },
+      "TDE": {
+        "sum": 22466419.42762412,
+        "count": 2502000
+      },
+      "Viol": {
+        "sum": 2200500.0,
+        "count": 4428843
+      }
+    },
+    "episode_macro": {
+      "Accel": {
+        "mean": 2.397908877268925,
+        "episodes": 4170
+      },
+      "EDE": {
+        "mean": 38.058577548314915,
+        "episodes": 4170
+      },
+      "FS": {
+        "mean": 0.7634919198639619,
+        "episodes": 4170
+      },
+      "FS_contact_only": {
+        "mean": 0.9162701772035223,
+        "episodes": 4170
+      },
+      "Fail100": {
+        "mean": 0.5755395683453237,
+        "episodes": 4170
+      },
+      "Fail65": {
+        "mean": 26.498800959232614,
+        "episodes": 4170
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 0.273621656255378,
+        "episodes": 4170
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "episodes": 4170
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 0.8569145977427768,
+        "episodes": 4170
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 286.2454773780594,
+        "episodes": 4170
+      },
+      "Jitter": {
+        "mean": 4.4593850188761985,
+        "episodes": 4170
+      },
+      "MAMPJPE": {
+        "mean": 58.07551701448049,
+        "episodes": 4170
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 1.3694504378136665,
+        "episodes": 4170
+      },
+      "RTE": {
+        "mean": 106.6186383127354,
+        "episodes": 4170
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 137.20721733013465,
+        "episodes": 4170
+      },
+      "TDE": {
+        "mean": 8.979384263638734,
+        "episodes": 4170
+      },
+      "Viol": {
+        "mean": 0.572331423678262,
+        "episodes": 4170
+      }
+    },
+    "recording_macro_of_within_recording_micro": {
+      "Accel": {
+        "mean": 2.473364756514884,
+        "recordings": 170
+      },
+      "EDE": {
+        "mean": 37.72894244310119,
+        "recordings": 170
+      },
+      "FS": {
+        "mean": 0.7809970535919196,
+        "recordings": 170
+      },
+      "FS_contact_only": {
+        "mean": 0.9093484154953622,
+        "recordings": 170
+      },
+      "Fail100": {
+        "mean": 0.81766891470946,
+        "recordings": 170
+      },
+      "Fail65": {
+        "mean": 28.53461892488056,
+        "recordings": 170
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 0.26263979010595395,
+        "recordings": 170
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "recordings": 170
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 0.8608673300487101,
+        "recordings": 170
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 293.55598629732265,
+        "recordings": 170
+      },
+      "Jitter": {
+        "mean": 4.577857062814559,
+        "recordings": 170
+      },
+      "MAMPJPE": {
+        "mean": 58.82664852353357,
+        "recordings": 170
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 1.3859547671953165,
+        "recordings": 170
+      },
+      "RTE": {
+        "mean": 109.39517942602117,
+        "recordings": 170
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 139.08145839079063,
+        "recordings": 170
+      },
+      "TDE": {
+        "mean": 9.17073522142682,
+        "recordings": 170
+      },
+      "Viol": {
+        "mean": 0.5646490937968686,
+        "recordings": 170
+      }
+    }
+  },
+  "failed_full600_finite_prefixes": {
+    "windows": 213,
+    "recordings": 39,
+    "coverage": {
+      "source_frames": 127800,
+      "common_expected_frames": 127800,
+      "actual_observed_frames": 23536,
+      "valid_metric_frames": 23536,
+      "missing_actual_common_frames": 104264,
+      "invalid_gt_frames": 0,
+      "clock_gap_count": 0
+    },
+    "failure_counts": {
+      "fall": 213
+    },
+    "micro": {
+      "Accel": 4.159518498429595,
+      "EDE": 31.554905099309217,
+      "FS": 3.815778244295994,
+      "FS_contact_only": 3.9907532023372094,
+      "Fail100": 7.142857142857143,
+      "Fail65": 35.714285714285715,
+      "FloorFloating_gt_contact_gt2cm_percent": 8.790546559765236,
+      "FloorPenetration_gt3cm_percent": 0.0,
+      "FloorPenetration_mean_mm": 0.858799285797183,
+      "GlobalMorphMPJPE_initial_SE2_mm": 314.232223580887,
+      "Jitter": 9.238777083782146,
+      "MAMPJPE": 71.00749273758176,
+      "PhysicalContactSlip_cm_s": 2.722701456478684,
+      "RTE": 125.08047481624959,
+      "RootRelativeMorphMPJPE_mm": 164.32515931903524,
+      "TDE": 21.7256769120481,
+      "Viol": 7.6414401175606175
+    },
+    "sufficient_statistics": {
+      "Accel": {
+        "sum": 1730276.504976743,
+        "count": 415980
+      },
+      "EDE": {
+        "sum": 1485352.4928346835,
+        "count": 47072
+      },
+      "FS": {
+        "sum": 137574.06881984777,
+        "count": 36054
+      },
+      "FS_contact_only": {
+        "sum": 149230.22524819762,
+        "count": 37394
+      },
+      "Fail100": {
+        "sum": 500.0,
+        "count": 70
+      },
+      "Fail65": {
+        "sum": 2500.0,
+        "count": 70
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "sum": 335500.0,
+        "count": 38166
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "sum": 0.0,
+        "count": 47072
+      },
+      "FloorPenetration_mean_mm": {
+        "sum": 40425.399981045,
+        "count": 47072
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "sum": 133123853.05559564,
+        "count": 423648
+      },
+      "Jitter": {
+        "sum": 3807725.0199724766,
+        "count": 412146
+      },
+      "MAMPJPE": {
+        "sum": 1671232.349071724,
+        "count": 23536
+      },
+      "PhysicalContactSlip_cm_s": {
+        "sum": 98395.70793568317,
+        "count": 36139
+      },
+      "RTE": {
+        "sum": 2943894.05527525,
+        "count": 23536
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "sum": 69616025.09519064,
+        "count": 423648
+      },
+      "TDE": {
+        "sum": 511335.5318019641,
+        "count": 23536
+      },
+      "Viol": {
+        "sum": 291200.0,
+        "count": 38108
+      }
+    },
+    "episode_macro": {
+      "Accel": {
+        "mean": 11.25252274392068,
+        "episodes": 213
+      },
+      "EDE": {
+        "mean": 32.5662436962467,
+        "episodes": 213
+      },
+      "FS": {
+        "mean": 18.861684325993476,
+        "episodes": 182
+      },
+      "FS_contact_only": {
+        "mean": 18.850825846640326,
+        "episodes": 184
+      },
+      "Fail100": {
+        "mean": 5.769230769230769,
+        "episodes": 52
+      },
+      "Fail65": {
+        "mean": 32.69230769230769,
+        "episodes": 52
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 24.95171018597149,
+        "episodes": 186
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "episodes": 213
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 1.1026313374798073,
+        "episodes": 213
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 364.6559818994309,
+        "episodes": 213
+      },
+      "Jitter": {
+        "mean": 29.088391076791527,
+        "episodes": 213
+      },
+      "MAMPJPE": {
+        "mean": 101.70103091099352,
+        "episodes": 213
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 14.92398944002604,
+        "episodes": 213
+      },
+      "RTE": {
+        "mean": 110.74959799170247,
+        "episodes": 213
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 230.359391875792,
+        "episodes": 213
+      },
+      "TDE": {
+        "mean": 33.278103260200254,
+        "episodes": 213
+      },
+      "Viol": {
+        "mean": 20.432672959601287,
+        "episodes": 184
+      }
+    },
+    "recording_macro_of_within_recording_micro": {
+      "Accel": {
+        "mean": 4.600603838642945,
+        "recordings": 39
+      },
+      "EDE": {
+        "mean": 27.52768576711306,
+        "recordings": 39
+      },
+      "FS": {
+        "mean": 4.57941694757633,
+        "recordings": 39
+      },
+      "FS_contact_only": {
+        "mean": 4.61621171307441,
+        "recordings": 39
+      },
+      "Fail100": {
+        "mean": 3.277777777777778,
+        "recordings": 30
+      },
+      "Fail65": {
+        "mean": 26.11111111111111,
+        "recordings": 30
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 6.184053917596305,
+        "recordings": 39
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "recordings": 39
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 0.9351020624294628,
+        "recordings": 39
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 285.52152198007974,
+        "recordings": 39
+      },
+      "Jitter": {
+        "mean": 10.36813109070641,
+        "recordings": 39
+      },
+      "MAMPJPE": {
+        "mean": 70.46073449281609,
+        "recordings": 39
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 3.461878510986486,
+        "recordings": 39
+      },
+      "RTE": {
+        "mean": 103.54570472002585,
+        "recordings": 39
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 145.26323214739972,
+        "recordings": 39
+      },
+      "TDE": {
+        "mean": 18.5250511061945,
+        "recordings": 39
+      },
+      "Viol": {
+        "mean": 6.412912215079043,
+        "recordings": 39
+      }
+    }
+  },
+  "partial_tail_separate": {
+    "windows": 171,
+    "recordings": 171,
+    "coverage": {
+      "source_frames": 51581,
+      "common_expected_frames": 51581,
+      "actual_observed_frames": 50095,
+      "valid_metric_frames": 50095,
+      "missing_actual_common_frames": 1486,
+      "invalid_gt_frames": 0,
+      "clock_gap_count": 0
+    },
+    "failure_counts": {
+      "None": 166,
+      "fall": 5
+    },
+    "micro": {
+      "Accel": 2.6577249835424146,
+      "EDE": 37.01846966069592,
+      "FS": 0.9408187817180813,
+      "FS_contact_only": 1.2397331281398605,
+      "Fail100": 5.747126436781609,
+      "Fail65": 37.35632183908046,
+      "FloorFloating_gt_contact_gt2cm_percent": 0.8180030894537285,
+      "FloorPenetration_gt3cm_percent": 0.0,
+      "FloorPenetration_mean_mm": 0.8570679613948246,
+      "GlobalMorphMPJPE_initial_SE2_mm": 279.3675152514511,
+      "Jitter": 4.835294268805194,
+      "MAMPJPE": 64.04705785373024,
+      "PhysicalContactSlip_cm_s": 1.4545084222793374,
+      "RTE": 104.98271115921204,
+      "RootRelativeMorphMPJPE_mm": 132.14572360724094,
+      "TDE": 8.816328334619778,
+      "Viol": 1.053691432317887
+    },
+    "sufficient_statistics": {
+      "Accel": {
+        "sum": 2380136.2399113434,
+        "count": 895554
+      },
+      "EDE": {
+        "sum": 3708880.4753051247,
+        "count": 100190
+      },
+      "FS": {
+        "sum": 76487.6261348983,
+        "count": 81299
+      },
+      "FS_contact_only": {
+        "sum": 104463.63257644906,
+        "count": 84263
+      },
+      "Fail100": {
+        "sum": 1000.0,
+        "count": 174
+      },
+      "Fail65": {
+        "sum": 6500.0,
+        "count": 174
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "sum": 69900.0,
+        "count": 85452
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "sum": 0.0,
+        "count": 100190
+      },
+      "FloorPenetration_mean_mm": {
+        "sum": 85869.63905214747,
+        "count": 100190
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "sum": 251908482.177386,
+        "count": 901710
+      },
+      "Jitter": {
+        "sum": 4315471.123143023,
+        "count": 892494
+      },
+      "MAMPJPE": {
+        "sum": 3208437.3631826164,
+        "count": 50095
+      },
+      "PhysicalContactSlip_cm_s": {
+        "sum": 132665.71319609837,
+        "count": 91210
+      },
+      "RTE": {
+        "sum": 5259108.915520728,
+        "count": 50095
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "sum": 119157120.43388522,
+        "count": 901710
+      },
+      "TDE": {
+        "sum": 441653.96792277775,
+        "count": 50095
+      },
+      "Viol": {
+        "sum": 90000.0,
+        "count": 85414
+      }
+    },
+    "episode_macro": {
+      "Accel": {
+        "mean": 3.1871708285277034,
+        "episodes": 170
+      },
+      "EDE": {
+        "mean": 31.249076150941168,
+        "episodes": 171
+      },
+      "FS": {
+        "mean": 2.074443550852634,
+        "episodes": 169
+      },
+      "FS_contact_only": {
+        "mean": 2.390831525099046,
+        "episodes": 169
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 2.2947639601870224,
+        "episodes": 169
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "episodes": 171
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 0.8678312081322413,
+        "episodes": 171
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 252.3273682420723,
+        "episodes": 171
+      },
+      "Jitter": {
+        "mean": 6.573380032583762,
+        "episodes": 169
+      },
+      "MAMPJPE": {
+        "mean": 65.7859839724049,
+        "episodes": 171
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 2.380369270464826,
+        "episodes": 171
+      },
+      "RTE": {
+        "mean": 89.0344567242721,
+        "episodes": 171
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 122.9745859099341,
+        "episodes": 171
+      },
+      "TDE": {
+        "mean": 10.003793736167118,
+        "episodes": 171
+      },
+      "Viol": {
+        "mean": 2.320030291712909,
+        "episodes": 169
+      },
+      "Fail100": {
+        "mean": 6.018518518518518,
+        "episodes": 108
+      },
+      "Fail65": {
+        "mean": 37.96296296296296,
+        "episodes": 108
+      }
+    },
+    "recording_macro_of_within_recording_micro": {
+      "Accel": {
+        "mean": 3.1871708285277034,
+        "recordings": 170
+      },
+      "EDE": {
+        "mean": 31.249076150941168,
+        "recordings": 171
+      },
+      "FS": {
+        "mean": 2.074443550852634,
+        "recordings": 169
+      },
+      "FS_contact_only": {
+        "mean": 2.390831525099046,
+        "recordings": 169
+      },
+      "Fail100": {
+        "mean": 6.018518518518518,
+        "recordings": 108
+      },
+      "Fail65": {
+        "mean": 37.96296296296296,
+        "recordings": 108
+      },
+      "FloorFloating_gt_contact_gt2cm_percent": {
+        "mean": 2.2947639601870224,
+        "recordings": 169
+      },
+      "FloorPenetration_gt3cm_percent": {
+        "mean": 0.0,
+        "recordings": 171
+      },
+      "FloorPenetration_mean_mm": {
+        "mean": 0.8678312081322413,
+        "recordings": 171
+      },
+      "GlobalMorphMPJPE_initial_SE2_mm": {
+        "mean": 252.3273682420723,
+        "recordings": 171
+      },
+      "Jitter": {
+        "mean": 6.573380032583762,
+        "recordings": 169
+      },
+      "MAMPJPE": {
+        "mean": 65.7859839724049,
+        "recordings": 171
+      },
+      "PhysicalContactSlip_cm_s": {
+        "mean": 2.380369270464826,
+        "recordings": 171
+      },
+      "RTE": {
+        "mean": 89.0344567242721,
+        "recordings": 171
+      },
+      "RootRelativeMorphMPJPE_mm": {
+        "mean": 122.9745859099341,
+        "recordings": 171
+      },
+      "TDE": {
+        "mean": 10.003793736167118,
+        "recordings": 171
+      },
+      "Viol": {
+        "mean": 2.320030291712909,
+        "recordings": 169
+      }
+    }
+  },
+  "units": {
+    "Accel": "mm/frame^2",
+    "EDE": "deg",
+    "FS": "mm/frame",
+    "Fail100": "%",
+    "Fail65": "%",
+    "Jitter": "10 m/s^3",
+    "MAMPJPE": "mm",
+    "RTE": "mm",
+    "TDE": "deg",
+    "Viol": "%"
+  },
+  "score_schema": "motionpro_full_scoring_v1_result",
+  "metric_contract": {
+    "FS": "independent pressure contact AND human forward foot speed<0.15m/s; both adjacent endpoints",
+    "GlobalMorphMPJPE_target_root": "shared18 target translated to released SMPL transl before fixed initial SE2",
+    "MAMPJPE_target_root": "SMPL skeletal pelvis",
+    "PhysicalContactSlip_cm_s": "actual virtual forefoot marker during force contact; not the moving geometric contact point",
+    "RTE_target_root": "released SMPL transl",
+    "Viol": "official per-foot median predicted contact ground; actual plane metrics separately named",
+    "pressure_events": "all target events inside common source support retained; unmatched unexecuted events count FN",
+    "units": {
+      "Accel": "mm/frame^2",
+      "EDE": "deg",
+      "FS": "mm/frame",
+      "Fail100": "%",
+      "Fail65": "%",
+      "Jitter": "10 m/s^3",
+      "MAMPJPE": "mm",
+      "RTE": "mm",
+      "TDE": "deg",
+      "Viol": "%"
+    }
+  },
+  "alignment_type_counts": {
+    "initial_SE2_once_per_independent_episode": 4383
+  },
+  "score_manifest_sha256": "ccce17751351798e19eff0e06ef5be7d102860a8c594db1418ef137d3d80e557",
+  "sources": [
+    {
+      "source_id": "motionpro_0023065a4da1_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-11-31-49",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "e35472fbff11a97bbe3040ef54f36434ebfc218b01d475134eb7cd514b197311",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_01091c55591a_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-10-29-18",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_01091c55591a_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "5e9628976e5cc5c584b47563826460936d1d70e9edb92fd2e599bea932be02e6",
+      "full600_total": 42,
+      "successes": 42
+    },
+    {
+      "source_id": "motionpro_035308f6708a_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-11-30-08",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_035308f6708a_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "61d9109f9e07c328e97fedd9a0ea3bccd00471f5caf695d0f0014128d1b173bd",
+      "full600_total": 26,
+      "successes": 10
+    },
+    {
+      "source_id": "motionpro_04f0c1065c04_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-14-44-27",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_04f0c1065c04_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "2d40aeeb0d9b929e1edb44d9a10a516360409dbed3739944adb34351ebe50999",
+      "full600_total": 24,
+      "successes": 24
+    },
+    {
+      "source_id": "motionpro_055064cfd156_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-10-21-17",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_055064cfd156_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "1d7a091c2fb506ef339e9e0beb6ed06fd25e3c7169523ff50ea771674e8826f9",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_0573fd46344b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-16-43-58",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0573fd46344b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0991df3c2c97c420be67b61d38fffee64f49506478d089ab8053bb0d9ef358b0",
+      "full600_total": 22,
+      "successes": 21
+    },
+    {
+      "source_id": "motionpro_069de963cf7a_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-15-53-53",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_069de963cf7a_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "2194f9eb930a51d86736afe57e031f19ed252e7728196d309d9ba06c9ee46d6f",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_0a6b68ce2e97_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-15-49-57",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0a6b68ce2e97_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "2eb65cb258a1c0b3c4e3bfa7030467dfcfedd5681c3237588094883b5029a44a",
+      "full600_total": 26,
+      "successes": 10
+    },
+    {
+      "source_id": "motionpro_0b01bc5432e4_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-15-41-15",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0b01bc5432e4_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "87ba2343fef394d1446365d995def8f11450483c4c7acf49a044f8947bece1f4",
+      "full600_total": 27,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_0e2039a127fa_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-14-31-44",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0e2039a127fa_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "618108d27b6623593d19f623e8ca073581c749d92697198bda91c237176b8b43",
+      "full600_total": 24,
+      "successes": 24
+    },
+    {
+      "source_id": "motionpro_157c13298050_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-10-38-26",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_157c13298050_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "8d2299e1c32f716b60e5aa141f04201b76f427b9f7391a154b25db0fa0ae1d55",
+      "full600_total": 28,
+      "successes": 28
+    },
+    {
+      "source_id": "motionpro_19067dd34c0f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-14-54-25",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_19067dd34c0f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "9e6d8ab07694ec01bc5c41069007c4e3aab653480252f7eca00523ec40da5acb",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_1c7a717f6104_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-14-29-16",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_1c7a717f6104_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0494ee6ba2c2377b9238a4ea3b472e58c8597319c4c93a9bb55209f830485540",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_257496400295_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-16-32-43",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_257496400295_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "f2748d307f1a10b1c6efd0bd8a3037fa63048ad343d2902114023d6e8e074d74",
+      "full600_total": 21,
+      "successes": 9
+    },
+    {
+      "source_id": "motionpro_25d57a95ed2e_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-15-26-50",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_25d57a95ed2e_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "833e54bb02443fa90edf055e77d5eab20ae3590da1624254fdd586354d0b9bad",
+      "full600_total": 21,
+      "successes": 21
+    },
+    {
+      "source_id": "motionpro_264243a691da_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-11-49-19",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_264243a691da_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a5530215cc2a4974251f1943ddf56e55204731f1bd56909d397e61de88819384",
+      "full600_total": 28,
+      "successes": 28
+    },
+    {
+      "source_id": "motionpro_2642ec854b27_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-11-55-58",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_2642ec854b27_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "9d201dd38c33963da98ed066710d373c7a549bfadf2e3c1707eba79f849191b6",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_267be7aba80b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-10-04-26",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_267be7aba80b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "045ccb8ac0d7b5293a5c183c18d0b3d0b3a9a4b34370c77d17e5fe6ac61e3ede",
+      "full600_total": 24,
+      "successes": 24
+    },
+    {
+      "source_id": "motionpro_28694745fef5_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-15-28-40",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_28694745fef5_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "fd8f29c1cbf278f67c99c02ea4c5bcbaa7d53c746d54a0ee0286080ac26f7a5f",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_28df139bc33f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-14-31-59",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_28df139bc33f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "1a37d8db205ef21141e84f779f95b93bf8c0e01564c108026413b6a5ff68253c",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_298bfab6fb93_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-17-19-22",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_298bfab6fb93_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0fdd15773b7e6ecd3bcdbd94bca6ab2fefcb1621862e6bb1c980db0b59cca524",
+      "full600_total": 21,
+      "successes": 8
+    },
+    {
+      "source_id": "motionpro_29e230686f84_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-10-22-02",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_29e230686f84_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "bb0ecda69ce9b9190be94841df511c923da80036b08083fd6e9a05cadcd9c3e1",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_2a8f1a8947e2_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-10-47-02",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_2a8f1a8947e2_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "7cd198b4615bd4b028f97c88373990a8db5054ec6e177ae4bfb10b7be37b6ced",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_2aa58354eeb6_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-15-31-17",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_2aa58354eeb6_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "cf39c4cf9d0b6a975217c7d1f48ff2da1ac37b756d6d5f76d72f3c0eb69d7f0b",
+      "full600_total": 18,
+      "successes": 17
+    },
+    {
+      "source_id": "motionpro_2c64354eff28_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-10-43-04",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_2c64354eff28_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "80c0efb49de9df4ed5e176601f8d30ab1a94ca39219940bd628eca1b70706129",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_2c84f25f229b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-16-39-53",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_2c84f25f229b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "3d7cce4b992acdb5370bc85bbc2581b1029fa43b615bc4f993a26324f8ca2cba",
+      "full600_total": 8,
+      "successes": 0
+    },
+    {
+      "source_id": "motionpro_300cca7a80d0_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-14-17-56",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_300cca7a80d0_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "598b7298ab4dcf0d0389f05dd5a77f75740276dfb548f0ea8f22fc7c067fb41e",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_321feab0d3de_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-16-44-39",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_321feab0d3de_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "d4bffda469c247790d07cc3da3749714064ed9154c0c4ab280d482c1d0c3c847",
+      "full600_total": 9,
+      "successes": 9
+    },
+    {
+      "source_id": "motionpro_322c14226337_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-15-13-05",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_322c14226337_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "05e8f6371320a8cd6dbc2a233cc8ead942e1eabf268ec068232dd8df6378e700",
+      "full600_total": 11,
+      "successes": 11
+    },
+    {
+      "source_id": "motionpro_32615e5d2c19_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-11-04-42",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_32615e5d2c19_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "3bd84589394a8098657a145300adc3717963e8c5095733bb842fedbd46dd7c83",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_32821370ddeb_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-14-42-17",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_32821370ddeb_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "086c607d580d122354884019ca5fb4c1ea38258041ca24e35af49efbcaf693d5",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_36a076f5a9d4_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-10-23-10",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_36a076f5a9d4_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "54b4c42bc7a0ce050ea496fadf402d72af56b74138a62aa413f6e45313a199e2",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_37efe8efce28_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-15-35-37",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_37efe8efce28_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "7981ece58d612c0d5e6905956cf508c504ca364d991ff0d15446bc681b104755",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_385a760ae692_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-10-08-06",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_385a760ae692_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "c6cfab4ca57d7dc83496f12a6da125eca2f1c4b8ba537192152411396a523759",
+      "full600_total": 33,
+      "successes": 33
+    },
+    {
+      "source_id": "motionpro_38b0cf25bcbc_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-14-40-39",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_38b0cf25bcbc_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "55b2700865a18820c04bca554fa53d0ed708badba85ccb54b61444397b0e2625",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_3945b9198861_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-16-46-42",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_3945b9198861_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "32c18eecbdcfba53663f0205e317d29dfeb570f208139d3629353bef06b680cd",
+      "full600_total": 16,
+      "successes": 16
+    },
+    {
+      "source_id": "motionpro_39a3688db60f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-11-38-40",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_39a3688db60f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0669a5046dc2423c43be470e4c35cff34ab2652b39e42ecc29e84c24cd5233f4",
+      "full600_total": 30,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_3cc3b4705efa_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-11-31-33",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_3cc3b4705efa_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "e125db79da57d2f39f266a92ecfb494eaa18015401da835e49b3e886993a07d9",
+      "full600_total": 23,
+      "successes": 23
+    },
+    {
+      "source_id": "motionpro_3dbbd55c7482_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-10-54-30",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_3dbbd55c7482_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "2728c38b4d8307ebc9243ebd77d72aecb3972befe11be381a326a910b8532773",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_3f808a76ce83_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-14-19-08",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_3f808a76ce83_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0385f42baf7f2583f060a6595989f5e6dd927ecd31f725cc9759d0ee2864ba7f",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_4425d39f812f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-10-13-09",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_4425d39f812f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "7a8792b240ca373058eda9e0a87f4ab96e1ea1b816bb5ea844aa88ee1e35fb32",
+      "full600_total": 28,
+      "successes": 28
+    },
+    {
+      "source_id": "motionpro_45430751d683_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-16-17-40",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_45430751d683_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "bee96606bb7f6fc9f65a55bedd5c0dffdf62a8ca901b9f546dec7b026f6ca71c",
+      "full600_total": 29,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_455236026562_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-15-47-16",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_455236026562_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "d9556103733d80b3bf6ba8936be28077ab2d1dc6ffc793d172ead6c4b4fbdc55",
+      "full600_total": 9,
+      "successes": 9
+    },
+    {
+      "source_id": "motionpro_480cef59129f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-15-34-50",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_480cef59129f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "f1896016b06ea55f018527e9fbc5f1195190a290422ad1c8a04816f7feffcdf6",
+      "full600_total": 42,
+      "successes": 42
+    },
+    {
+      "source_id": "motionpro_4a7030bfc9db_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-11-28-26",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_4a7030bfc9db_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "913205dab9ec58e6ba2419a9f75e5e72a3b19810f1b1c39c41c6601582a67fde",
+      "full600_total": 29,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_4b3800fc66b2_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-16-10-00",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_4b3800fc66b2_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "2f733452ba731adc63e85662d2f0b0fce79f5bd246dc89ac7708ce9c6896bb4c",
+      "full600_total": 11,
+      "successes": 11
+    },
+    {
+      "source_id": "motionpro_4bce6ccf4ce9_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-15-23-18",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_4bce6ccf4ce9_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "1ec84e99c97034333adba1fd12ed07fc99ebf14eb91dce14fd796c002a004bf0",
+      "full600_total": 15,
+      "successes": 15
+    },
+    {
+      "source_id": "motionpro_4e7160139a5f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-16-33-41",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_4e7160139a5f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "fc56af8962ed5aed71f043b9bf7bedd62a30dd0ce1d5b9a01319aa1089e653d8",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_50a8de229daf_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-15-51-16",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_50a8de229daf_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "defb41838eb43ae9edf84a9b5aef9aecad13bde2efef023d5f215c090182e226",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_50c30185e4ab_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-09-53-22",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_50c30185e4ab_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "d7c2efda7cfa263d7dc70fd4827c592878b65aac47a8733ebd6a64211c842f8d",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_5281dcf7c645_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-11-08-37",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_5281dcf7c645_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "17a41b9ff01464fd30291124c8954abce60217b13e6d85112b3a295e2aa9e8bd",
+      "full600_total": 24,
+      "successes": 24
+    },
+    {
+      "source_id": "motionpro_5758705c90ff_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-14-12-29",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_5758705c90ff_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "26dada18ca6dab291823f4997a521ac0754c6d322cc38d2da1fa27782b8b4382",
+      "full600_total": 17,
+      "successes": 17
+    },
+    {
+      "source_id": "motionpro_5ada66a0f386_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-15-52-41",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_5ada66a0f386_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "029e4795983dd625a275e32b4f45f2152d1cf76d2d79da9241d3031416a8a593",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_5c37af725a41_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-15-18-52",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_5c37af725a41_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "4f7c522de5dbe1c86052a054d2e1e0ea5e0a518efea4697c0429ea7c4d427d56",
+      "full600_total": 21,
+      "successes": 21
+    },
+    {
+      "source_id": "motionpro_5cedda5127a2_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-15-13-36",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_5cedda5127a2_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "bac2a34fd3e190caf75195a62d2557fcf4576dfaf5f0acecd7ed999f9fcd6583",
+      "full600_total": 8,
+      "successes": 8
+    },
+    {
+      "source_id": "motionpro_607bfe598c22_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-11-10-32",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_607bfe598c22_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "01abe74a1db61ecdbfe857f32476dee2c0daf54cbf7f1226d41d3167153fa930",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_60a241263d9f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-15-08-31",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_60a241263d9f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "cd78eb3c586b5f4a808b15784e388d4da86a4d39fa8e5b8480e70791d2a0e9e1",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_63dd391d9be7_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-11-51-44",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_63dd391d9be7_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6519bdba7fa318f9f4f18155dfc7a5a829f3e6b26533a5b26a47291fbfd7fd43",
+      "full600_total": 29,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_65455a909414_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-16-38-17",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_65455a909414_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "e51c737ec4acc47b85dd4cd6595b7a88b3a90f37ed1f46f27e23d74baf81f5a1",
+      "full600_total": 22,
+      "successes": 22
+    },
+    {
+      "source_id": "motionpro_661a9d771d0c_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-17-03-08",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_661a9d771d0c_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "add21bd282ab7432ecc82718a27a680f12a1e33805ab16fa7e59d065440b83fc",
+      "full600_total": 23,
+      "successes": 23
+    },
+    {
+      "source_id": "motionpro_66c7d6a3d93a_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-15-59-17",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_66c7d6a3d93a_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "7f888c80c335f6d83bb8347f51823fc6b0556cc52d85fa5b7a1d4e2d9fed6f80",
+      "full600_total": 22,
+      "successes": 22
+    },
+    {
+      "source_id": "motionpro_684b4365ccd1_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-15-06-28",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_684b4365ccd1_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6816554bdb7d4ec70ada9cbb2f876f7ea561ce3c1f848e01fd27d654dd98e079",
+      "full600_total": 42,
+      "successes": 42
+    },
+    {
+      "source_id": "motionpro_6a95c6fd9247_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-11-39-23",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_6a95c6fd9247_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "92c365d90021f39caaacc6c3cb7a58734c6ddcc0dd7fd712d4bfca47ea11be01",
+      "full600_total": 25,
+      "successes": 11
+    },
+    {
+      "source_id": "motionpro_6d26c627b3be_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-09-53-04",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_6d26c627b3be_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0934c77eedbd2c3a7efdf3db9d9cc36aa7e53a80210553911fb628beabdaf8a1",
+      "full600_total": 31,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_6d650a6e7081_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-16-07-50",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_6d650a6e7081_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a66584cf9e0765bbbdb4068ca1f462bde8cf6e19df9139c750a315c22b05aa32",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_6f16d29d7f49_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-16-17-39",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_6f16d29d7f49_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "905842393297dc4b178e72fa978f997fb9fac63f7174d7d5e15344e40e4a046b",
+      "full600_total": 27,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_70c558b2c166_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-15-34-25",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_70c558b2c166_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "90019a0cca74e639a6d018496d89c9a0be7b8a47a23f343f381f7be019232710",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_71b0bdb1aedd_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-11-01-30",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_71b0bdb1aedd_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "959ab473d96fe16a1943f6437a6ccddb7bedf0cf4f98695c52ee5fdea4d96b79",
+      "full600_total": 42,
+      "successes": 42
+    },
+    {
+      "source_id": "motionpro_71c5bc62a3df_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-12-01-55",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_71c5bc62a3df_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a3cbb11164f4f068173e1b9ccb9658617fdeb4fe0dc5aa9407a5504aa8893049",
+      "full600_total": 26,
+      "successes": 11
+    },
+    {
+      "source_id": "motionpro_752840a6370e_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-12-22-13",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_752840a6370e_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "186c468707957fdd9af45ffff0ded5b3db57f412e43b026b3d821f8a0a4a6891",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_7596b6d8dfdc_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-14-25-58",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_7596b6d8dfdc_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "4494055666d70387fab79c574c00a74855dc0a2a7efe60173ef2dbe575c0932a",
+      "full600_total": 11,
+      "successes": 11
+    },
+    {
+      "source_id": "motionpro_761187a6091d_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-12-13-44",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_761187a6091d_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "63e4f0697493a749e4f01efd6441951857ecbc1db2a3f40b621cd89ea12226a8",
+      "full600_total": 22,
+      "successes": 20
+    },
+    {
+      "source_id": "motionpro_76556c7e6b9f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-14-26-50",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_76556c7e6b9f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0d548eb0648b0efb6d043182655b99b8179995fbc618333b6f6a19e862edb35a",
+      "full600_total": 9,
+      "successes": 9
+    },
+    {
+      "source_id": "motionpro_76cf839c9d6f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-15-45-31",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_76cf839c9d6f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "06e1ffe64619db27a86a6f49f2c54ef4e35b53e933a5aa1675a4ceeee33f567f",
+      "full600_total": 13,
+      "successes": 13
+    },
+    {
+      "source_id": "motionpro_76edaa154c57_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-14-30-38",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_76edaa154c57_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "7a8705cec0d34cc8f41936e98e702d6ac82c5e66e04a24c2034764cbdbc5d3c4",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_792edaebc7a3_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-10-20-12",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_792edaebc7a3_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "95384280799758d435a82270e8908e9fc523b03edcd74f1e518ce12bc3500343",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_7973b5cc18be_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-09-51-09",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_7973b5cc18be_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "03a33c1568ed1d8a04b67049bd10362fd1c765822b10aa8aee8ce14a965faf1d",
+      "full600_total": 27,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_7adcab5ee9ef_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-11-39-18",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_7adcab5ee9ef_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "1ad0c9b6ea89ca88612f98d15c509ee68e1c00dc68947637d9cb770ecaf03cce",
+      "full600_total": 22,
+      "successes": 22
+    },
+    {
+      "source_id": "motionpro_7ce60a1f763c_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-13-52-22",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_7ce60a1f763c_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "343899ddd7cf9ae6fd4747b6e30242ba7ae7bac525ac7ace201bd23fb8c64d1d",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_7d932a837f62_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-12-11-04",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_7d932a837f62_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "3b613d9a9bb56d6718231eadfe3491a8b861bc87e9955c3c55f0619a54aa1e57",
+      "full600_total": 22,
+      "successes": 21
+    },
+    {
+      "source_id": "motionpro_828a197f497b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-14-18-02",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_828a197f497b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6ac7c099e445ba426c4db3ef7f5ff0ee744c5eea102776a3132280c43257eb1c",
+      "full600_total": 12,
+      "successes": 12
+    },
+    {
+      "source_id": "motionpro_844cdad5f81d_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-11-41-26",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_844cdad5f81d_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0c40029b5191d9183381cafb12804ee97ca5d02a41bad2c3ea483e76e5c5cf9a",
+      "full600_total": 42,
+      "successes": 42
+    },
+    {
+      "source_id": "motionpro_845e9570f1e5_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-10-43-02",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_845e9570f1e5_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "b3df60b38bce83a4e41c7b55e6e488d735f9b35371785d02ff2f691c6591934b",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_84f4665553ae_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-16-06-07",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_84f4665553ae_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6e71a2615996d280fbe045ff762deed6fc6cf2032113247fb113e42551595eb7",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_864ad4226a62_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-15-16-02",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_864ad4226a62_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "9fc1a038884390d4dcba84711dc5abda44e4fd3ba4b4f33509e1e4d03aa53b81",
+      "full600_total": 13,
+      "successes": 13
+    },
+    {
+      "source_id": "motionpro_866a28da84e5_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-11-16-24",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_866a28da84e5_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6228c894e9dda1855777c40708dc824f337c6a9728ebda9932bddec31ac948ee",
+      "full600_total": 31,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_8798cc21f6cc_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-16-26-36",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_8798cc21f6cc_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "b3fd441138c7b1f859275989cd1e31691e50d802ec8445d630c13ac9e39b6f0b",
+      "full600_total": 16,
+      "successes": 9
+    },
+    {
+      "source_id": "motionpro_8953ad22405b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-09-43-35",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_8953ad22405b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "2762abdc952336a193a54cc68d3af0584dbab7b098dbf01e14893c2894693789",
+      "full600_total": 27,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_8ab1ecb526a3_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-14-59-03",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_8ab1ecb526a3_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "cc4a178e33a8175884db3c1a04b5ab5ac6a394aaeb8968b8b4be01dbc1000104",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_8b1fc1b6357f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-15-46-18",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_8b1fc1b6357f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "50e4c5aa74bbdb85556e5f6032864fd9eb3b66cb5d8e70631447903a0e463352",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_8f833bcc6582_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-09-50-15",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_8f833bcc6582_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "51c920273605a93981ae8cf2cf26e381df08e698cd44c9fc2cecaa949bbe818d",
+      "full600_total": 33,
+      "successes": 33
+    },
+    {
+      "source_id": "motionpro_93e2111846ee_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-16-32-50",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_93e2111846ee_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "d7159e76106f124717a7260b5c72a90e943ae4881ce45f7e426cce676aa2418a",
+      "full600_total": 9,
+      "successes": 4
+    },
+    {
+      "source_id": "motionpro_96933488ac70_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-11-19-48",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_96933488ac70_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "de1b8b6dae79ef5b8785e61098b5abfdde93700b60e7d8b1331f873a13fa79c5",
+      "full600_total": 29,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_9748965a1cb4_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-09-30-07",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9748965a1cb4_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "380135041ad98cabe68594c4de00e3c55b2090d8776e9c31024908702c581b13",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_9b11b48e26c2_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-16-57-24",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9b11b48e26c2_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a729d1bcf1950ea7bd2d952cecf1aa45163dbc645520a1a5f2ed161b8d65e494",
+      "full600_total": 29,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_9c95c1cbb407_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-15-19-20",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9c95c1cbb407_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "ef9a9cf562695ab4929ba4b8cbbccb19b7ba490a354566a27ebf5e78960c163c",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_9c98f1059879_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-14-32-45",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9c98f1059879_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "940d49b3bae76f8d59a25f7a327460b99c46888dd47b579cf754ccefadc1cb4c",
+      "full600_total": 23,
+      "successes": 20
+    },
+    {
+      "source_id": "motionpro_9e5816620338_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-15-38-07",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9e5816620338_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "76c8fdff5dadd86335d13e62920d6e83aa64a587d48527c06c73fe8e340cfc94",
+      "full600_total": 15,
+      "successes": 15
+    },
+    {
+      "source_id": "motionpro_9f65b23a4631_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-11-52-53",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9f65b23a4631_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "4646e57d03cfdec77dbf45d17ca797cdf1221901a87597a7edd94eda247edf04",
+      "full600_total": 29,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_9f950ee0e04e_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-16-02-00",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9f950ee0e04e_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "932d9316132fee9320e1bce5f1ac2364055025c4370fad9ea24b30fd4735a89b",
+      "full600_total": 1,
+      "successes": 1
+    },
+    {
+      "source_id": "motionpro_9f9a06a6d2f7_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-09-26-55",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9f9a06a6d2f7_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "4094c5fb9d714be5b2adaf10c74442cd6cc0bdceab299c68121f1ea80e5bdf6d",
+      "full600_total": 14,
+      "successes": 14
+    },
+    {
+      "source_id": "motionpro_9fdbe5ecaf6b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-14-40-20",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_9fdbe5ecaf6b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "43813a7dedf6ca2bc78f2a40c220809b1d49a42013864d75ddc8e191160d9de3",
+      "full600_total": 27,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_a0629f1bbb07_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-15-09-19",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a0629f1bbb07_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a9acc0bd868e5c01b6f797326e8b47632eaecea9b4898f4c37e3205c05773a50",
+      "full600_total": 27,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_a1a253bdb54b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-11-19-44",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a1a253bdb54b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "9a73b43b5e1ff2a4d41ff7ea3746d9b0ba5a9b454be15859d219fc8ef36c644c",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_a242b727a225_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-17-30-39",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a242b727a225_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "c47063c14a46249b2dacf28484bc58bf7f191a9897651fbc7586376cb64beec3",
+      "full600_total": 18,
+      "successes": 18
+    },
+    {
+      "source_id": "motionpro_a27db4e14e9b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-17-09-31",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a27db4e14e9b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "198fc43d719d44a90e49b54df60abbf909e9981e75a2ebabc996bb31de6cb153",
+      "full600_total": 22,
+      "successes": 22
+    },
+    {
+      "source_id": "motionpro_a2e37019b572_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-15-39-39",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a2e37019b572_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "3787102e58c71a94652343d88d0d13de426f8208dca42094a5ea0bf25c0d4130",
+      "full600_total": 29,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_a65c8e5e6847_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-10-53-41",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a65c8e5e6847_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "9b43a3637ff14259c4cf8762bacbb917f87746218b576051502cf5ede0f6f087",
+      "full600_total": 42,
+      "successes": 41
+    },
+    {
+      "source_id": "motionpro_a69777d825da_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0731/yxy/2024-07-31-10-14-56",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a69777d825da_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "1770dbb589d9eb62c3cb1e0faae022f8139d0b0db14efaf4d67649dd7c9f1ec5",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_a6d83fd52609_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-15-05-21",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a6d83fd52609_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "7d4a10e271f1aeab4d43e1a4c14175a82ad138df81eb8a368858e35e88771835",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_a846cdd024db_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-15-13-04",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_a846cdd024db_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "e7ef5ed1433d2c3fd6ed370c36d9772bd0c7174ea0ecb931a41a45a40cd81f48",
+      "full600_total": 41,
+      "successes": 40
+    },
+    {
+      "source_id": "motionpro_aacc47d24321_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-12-06-42",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_aacc47d24321_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "0292566d57dbc3ccff952e0ff18f069cb26a9631672f404f49c91b2345618e4d",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_ab197965023e_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-10-49-16",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_ab197965023e_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "f72cd07409f331f81ccfcd1535d64169633870653288733ede11852f437316b0",
+      "full600_total": 13,
+      "successes": 13
+    },
+    {
+      "source_id": "motionpro_ab1e67e1c4fc_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-14-53-16",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_ab1e67e1c4fc_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "58632e9accfa6fdb0a68d829d7f8d1da0247ea7382a4b9be11b0a6ca346d9824",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_af49e2656830_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-16-06-21",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_af49e2656830_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a321054e077b5d1606c8a0427be5ed4369bf2ca031b3ec81011fdab9331319a7",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_b17f373ee543_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0731/yxy/2024-07-31-10-02-56",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b17f373ee543_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "58decbf3588a3f657f62b360cf5e1c21feadb231d20270c1db00b82f70a0d1f1",
+      "full600_total": 34,
+      "successes": 34
+    },
+    {
+      "source_id": "motionpro_b29fe87e6b1c_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-10-09-31",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b29fe87e6b1c_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "590017f3d2cffac329038cd212ab5bed5129c4f5f87cd0251a0da67dc868e324",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_b37323786219_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-16-10-24",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b37323786219_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "ac07e164bd024835e458f13d3df104de3d22147fafff60e9915c16ed083c0d27",
+      "full600_total": 29,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_b3c0e73218f5_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-10-43-27",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b3c0e73218f5_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "08b1cda5e4821274441fa08758b0ac5b75fc796d7515254dc0d9b67554b14bb7",
+      "full600_total": 42,
+      "successes": 41
+    },
+    {
+      "source_id": "motionpro_b5319dac8aab_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-15-52-39",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b5319dac8aab_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "188fa97449339a28ea14d6a70a8bf9d5b39c6b2b469741b87a762034072f3a45",
+      "full600_total": 18,
+      "successes": 18
+    },
+    {
+      "source_id": "motionpro_b53fc569d7c7_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-09-26-26",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b53fc569d7c7_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "f20294681c003fa3f04d73b2f7de111ca74ed63463d43730cea844c5bcdd7291",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_b549772c7534_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-16-14-19",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b549772c7534_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "8d243fe1c6f16d3c8bbc4d51537b5bd5ba9e7fdf35f2b07900fde859da38a946",
+      "full600_total": 39,
+      "successes": 39
+    },
+    {
+      "source_id": "motionpro_b5f3b08991d8_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-12-26-17",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b5f3b08991d8_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "1197a2e4825bc46cd6175baa537b4034e24c90bdfcb62d0f8dfb7bd7d4a20554",
+      "full600_total": 22,
+      "successes": 22
+    },
+    {
+      "source_id": "motionpro_b690cb9f5339_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-10-14-13",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b690cb9f5339_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "cc790d6dbffa1f3c63e2d4bc4c19fb8ab10b28b3d6539f6049cb71b3ea4d6f53",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_b71234d02550_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-15-59-50",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_b71234d02550_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "64ccb8a3656745dd4b19eaef9f60fd21763db3990d8d59c9edb12789d1fafbe1",
+      "full600_total": 2,
+      "successes": 2
+    },
+    {
+      "source_id": "motionpro_bc60b722af2d_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-15-34-52",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_bc60b722af2d_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a0d8eb5e4043d8bd2a91573e41967f29776d2f6180aaf65d091d21f78200bf06",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_bcf86dc7292c_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-10-59-26",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_bcf86dc7292c_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "d94184d1afa257d7bdc1e524b7d9eab29454c76e0aa8f3c50698544ad08e4c4a",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_be588c26bcb2_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-16-18-30",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_be588c26bcb2_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "4d5ccd9753963104610459d201dbdeaf7928ce75b961b4fedb156da0b7ddde8e",
+      "full600_total": 31,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_bf2b3a6899d0_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-15-18-08",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_bf2b3a6899d0_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "712ba779bb31661be37a4973dec1de19258eb4beb926f69952b6e770d9a59055",
+      "full600_total": 42,
+      "successes": 42
+    },
+    {
+      "source_id": "motionpro_c034510759e3_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-09-58-38",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c034510759e3_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "3796e5251684a8cd6232f7d687567cfc3c4263ff2a992aa59434bed20dbb4a5b",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_c071d325141f_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-11-08-40",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c071d325141f_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a88002b81568c4d7a78e300665a6b1d809958b96b0dba213ea525bd4ad55b3bc",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_c230da8e31b2_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-16-21-00",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c230da8e31b2_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a31d3881f3eb54fa3ff0633800853cf0b6a8574a12b08c203253db586f13b584",
+      "full600_total": 25,
+      "successes": 11
+    },
+    {
+      "source_id": "motionpro_c5ffb1de8151_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-14-06-44",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c5ffb1de8151_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "04e273e2312b0fbf302eb149baaab20a0549cb37bee98afca8ebf4a52aaa18a3",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_c63299a2b504_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-11-19-17",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c63299a2b504_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "432d090a4ab70b5f9db44337ed2991576cadb0a2be1cad25f518f6d581cddf69",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_c81f906f3bee_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-16-32-40",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c81f906f3bee_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "32714531ebb78b189bc383c8d4984a87ed03cd0a981322694aa4fbda4fc216f1",
+      "full600_total": 11,
+      "successes": 9
+    },
+    {
+      "source_id": "motionpro_c87c695311c4_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-15-03-13",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c87c695311c4_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "ccd3e9fb04b3fe0bebe8a3b4aca52afde74f1a852d5281185003cf633bcc15f4",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_c91f58c06369_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-16-12-39",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_c91f58c06369_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "ef6abba2fd161a9d044933e6b8ecd68633db880b379d2de0093a3b95dc3b234c",
+      "full600_total": 13,
+      "successes": 10
+    },
+    {
+      "source_id": "motionpro_ca19ce7fe9d4_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-10-48-44",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_ca19ce7fe9d4_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "5122e6ba44af2f328a130de978749524b0cf35b71241aaff5edd4bc3bb3f2f29",
+      "full600_total": 30,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_cbaf0af99965_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/hw/2024-08-02-10-02-35",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_cbaf0af99965_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "646c418accae44160c9cc7a40cda3ec1c0405e3356d44f789534f6d5fd9f8116",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_cd4bcbca2f99_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-16-49-39",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_cd4bcbca2f99_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "545b4a51067d96ce3676c3db10918f82462aae5ad0187237c519b91ee6bbbeac",
+      "full600_total": 13,
+      "successes": 13
+    },
+    {
+      "source_id": "motionpro_cdf2e0b4735d_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-12-03-30",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_cdf2e0b4735d_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "21a7dc6fadee53f8fd07b7b2f9ecc290f1e37ec6356679b81adb8520ebba32d7",
+      "full600_total": 27,
+      "successes": 12
+    },
+    {
+      "source_id": "motionpro_cf60624339c0_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-11-48-46",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_cf60624339c0_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "36f069f9b529d3c7b02ade04f42482e42abf9c54400b86ebe3f9b48572628e80",
+      "full600_total": 22,
+      "successes": 22
+    },
+    {
+      "source_id": "motionpro_d09f3c783f73_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-11-27-19",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d09f3c783f73_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "5e2f39191d26ca0f0ed8b77e2cc0d8cd31ff05ccff960da52dc030d6ae4ba91e",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_d1091467036c_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-12-20-44",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d1091467036c_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "5ced788b3ed0215285b85704342e79499d7aac9e1e6fe5ff20e0418428476d27",
+      "full600_total": 26,
+      "successes": 23
+    },
+    {
+      "source_id": "motionpro_d1fa25d2be43_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-11-20-45",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d1fa25d2be43_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6a6d14640fa80c56e6481f597958584c8e386e90508b2fdfb49a54c5a8079386",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_d5e0792c0b40_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-14-56-58",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d5e0792c0b40_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "8d4eea3e69254c702711a3a97a8634a91c24d5c1f193d8b5f5eaa608c6ed45ab",
+      "full600_total": 27,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_d6fc2a63b814_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/zf/2024-08-05-11-05-20",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d6fc2a63b814_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "41a678308a6e2ba571b69f872721ae2b046240f3696207f24f7352207bf905b8",
+      "full600_total": 25,
+      "successes": 25
+    },
+    {
+      "source_id": "motionpro_d80aa8f6f1f8_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-10-57-17",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d80aa8f6f1f8_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "c9f980b7a90de47744be3980ad9e6e1c9cbf1f1e3bea27be2e66e4788d22b36d",
+      "full600_total": 32,
+      "successes": 30
+    },
+    {
+      "source_id": "motionpro_d8f341db58fc_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-14-51-06",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d8f341db58fc_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "7e47ce37781d05285a2aa52f3ffe22446f75ec20985248c377ec57d36940a406",
+      "full600_total": 28,
+      "successes": 28
+    },
+    {
+      "source_id": "motionpro_d95706149701_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/csy/2024-07-29-10-32-44",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_d95706149701_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6b99c8b5d53735593e4209d6da4a83997e8db783eeb8e11ca6b16df4ab7d4cbf",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_da23e2dba093_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-12-09-01",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_da23e2dba093_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "72117d82aa55e159a014ddb671acc39318c79663718e9decba936e7ddddad5f5",
+      "full600_total": 14,
+      "successes": 12
+    },
+    {
+      "source_id": "motionpro_dbf80af6b568_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/lh/2024-08-01-14-08-43",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_dbf80af6b568_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "19e29774061067557121fa0b63d6666c5227ae9543fc11226010b7c765fd1a4e",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_df91648956e8_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-16-52-41",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_df91648956e8_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "3c55a0c9ca66e1b2d0eb283dab084fe3f5625f20870433c521bc9cff09096f96",
+      "full600_total": 19,
+      "successes": 9
+    },
+    {
+      "source_id": "motionpro_e0625057688c_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-10-29-47",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_e0625057688c_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a0cae26aa964fec700412df22c0b4310f473b14fcb4c434a22885502bb28f18c",
+      "full600_total": 27,
+      "successes": 27
+    },
+    {
+      "source_id": "motionpro_e2fa07b70754_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0804/zyh/2024-08-04-14-22-15",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "prior",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_e2fa07b70754_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a5a92105d22e6be1cb3f9bcd225b761ba98ceae9cca8a4660ff832d3caba8224",
+      "full600_total": 12,
+      "successes": 12
+    },
+    {
+      "source_id": "motionpro_e481edda82a9_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-16-01-36",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_e481edda82a9_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "da4bcfc85742dcee3fbeaa8a29589ece26f3844171bf1b5221fee687df16fa1a",
+      "full600_total": 15,
+      "successes": 15
+    },
+    {
+      "source_id": "motionpro_e4d271068169_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-14-30-14",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_e4d271068169_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "63f3e9955d47af0b81022eb2342e080d7934c5cebb0267f144dce83181084d26",
+      "full600_total": 28,
+      "successes": 28
+    },
+    {
+      "source_id": "motionpro_e698669995d5_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-15-30-24",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_e698669995d5_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "13608da08bd9fc67dddcdb241297d4748f1f2f7c3d721c6bb6db943598649862",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_e9df1582e3f2_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0801/hcc/2024-08-01-11-17-15",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_e9df1582e3f2_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "ebf8787d7813ecee924d893e07a99462079467d6ff35d6d3de491990593095b7",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_eb914bfefda4_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0729/qnx/2024-07-29-16-46-00",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_eb914bfefda4_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "31bdd5492099d4444abb605f7e1e3d9aa622f480cb71a7b44b862123a262a10c",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_ebb1035bfeec_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-14-02-15",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_ebb1035bfeec_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "39fdb448eb12d47aa3e7dc5e6c55e7ab3d052ebd9d334d860ce258530947296a",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_ec612dcaf871_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0802/zyy/2024-08-02-14-51-21",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_ec612dcaf871_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "c404a7b1bb22d125db68b2fc2fc6505dba5fe4d235faf8a4877abf61782ffa8a",
+      "full600_total": 32,
+      "successes": 32
+    },
+    {
+      "source_id": "motionpro_ee0defa3bfb5_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/zxy/2024-07-30-10-30-28",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_ee0defa3bfb5_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "223afd6755b3f9aca14ed76980e2ac3f4ae884d38e905c07b3276c016150f149",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_f110fe249f16_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-16-30-42",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_f110fe249f16_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "c7f001025821be1c574ffea0f283349b8a4aaaf3736fac2043b545f729c5beae",
+      "full600_total": 22,
+      "successes": 22
+    },
+    {
+      "source_id": "motionpro_f5c233ebb65b_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-15-46-58",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_f5c233ebb65b_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "6abd69cfdd24438c9d2e04a7417901bd815a60f43b5f381e0097bde11be9ade1",
+      "full600_total": 31,
+      "successes": 31
+    },
+    {
+      "source_id": "motionpro_f9d79177d3dd_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-14-42-03",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_f9d79177d3dd_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "d136b1ee4de18a9acc4c5bc78feaf2b34b4509b4f5831adf79e83241e6829074",
+      "full600_total": 24,
+      "successes": 24
+    },
+    {
+      "source_id": "motionpro_fa1a36e63167_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0731/yxy/2024-07-31-09-45-39",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_fa1a36e63167_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "a1e8315879bd5a4f99f8f7bd8cab5db66f7decfecff0dc672b3d8ff56dfe4a55",
+      "full600_total": 29,
+      "successes": 29
+    },
+    {
+      "source_id": "motionpro_fa39c9b9e1f9_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0730/xty/2024-07-30-15-21-16",
+      "archive": "MotionPRO_1.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_fa39c9b9e1f9_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "c92b601ce088dd56b79186368a8bd6aac63a83822168a6e8db76be177152c8f8",
+      "full600_total": 26,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_fb02bdd2d83d_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/zr/2024-08-06-09-36-39",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_fb02bdd2d83d_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "193e89311e977ca232a4180eda45c22c950da1b9713784b7257596ca6caec85b",
+      "full600_total": 14,
+      "successes": 14
+    },
+    {
+      "source_id": "motionpro_fb66d11f0b67_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0806/ljh/2024-08-06-16-15-19",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_fb66d11f0b67_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "62535a5760166f9f1c2e7ab702ad956ef7ee7b2056177a8e56293c62dc978b69",
+      "full600_total": 29,
+      "successes": 26
+    },
+    {
+      "source_id": "motionpro_ffbf5532b0d3_full_v1",
+      "recording_id": "nasdata/shenghao/Pressure_release_new/0805/jyt/2024-08-05-14-15-23",
+      "archive": "MotionPRO_2.zip",
+      "cohort": "fresh",
+      "receipt": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_ffbf5532b0d3_full_v1/windows600/selected_H/completed.json",
+      "receipt_sha256": "15356b84c4f8611818041fc0284a90d3bcdaec1a1babec0e31edf464b6aa6761",
+      "full600_total": 26,
+      "successes": 26
+    }
+  ],
+  "failed_examples": [
+    {
+      "score_path": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_035308f6708a_full_v1/windows600/selected_H/w00004/metrics/score.json",
+      "coverage": {
+        "actual_observed_frames": 341,
+        "clock_gap_count": 0,
+        "common_expected_frames": 600,
+        "common_fraction": 0.5683333333333334,
+        "conditional_errors_include_finite_failure_prefix": true,
+        "excluded_future_tail_frames": 0,
+        "invalid_gt_frames": 0,
+        "missing_actual_common_frames": 259,
+        "source_fraction": 0.5683333333333334,
+        "source_frames": 600,
+        "valid_metric_frames": 341
+      },
+      "completion": {
+        "failure": "fall",
+        "executed_seconds": 11.38,
+        "rollout_status": "complete",
+        "full_input_completed": false
+      },
+      "MAMPJPE": 64.55777660868758
+    },
+    {
+      "score_path": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_035308f6708a_full_v1/windows600/selected_H/w00005/metrics/score.json",
+      "coverage": {
+        "actual_observed_frames": 12,
+        "clock_gap_count": 0,
+        "common_expected_frames": 600,
+        "common_fraction": 0.02,
+        "conditional_errors_include_finite_failure_prefix": true,
+        "excluded_future_tail_frames": 0,
+        "invalid_gt_frames": 0,
+        "missing_actual_common_frames": 588,
+        "source_fraction": 0.02,
+        "source_frames": 600,
+        "valid_metric_frames": 12
+      },
+      "completion": {
+        "failure": "fall",
+        "executed_seconds": 0.4,
+        "rollout_status": "complete",
+        "full_input_completed": false
+      },
+      "MAMPJPE": 112.95358659176712
+    },
+    {
+      "score_path": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_035308f6708a_full_v1/windows600/selected_H/w00006/metrics/score.json",
+      "coverage": {
+        "actual_observed_frames": 12,
+        "clock_gap_count": 0,
+        "common_expected_frames": 600,
+        "common_fraction": 0.02,
+        "conditional_errors_include_finite_failure_prefix": true,
+        "excluded_future_tail_frames": 0,
+        "invalid_gt_frames": 0,
+        "missing_actual_common_frames": 588,
+        "source_fraction": 0.02,
+        "source_frames": 600,
+        "valid_metric_frames": 12
+      },
+      "completion": {
+        "failure": "fall",
+        "executed_seconds": 0.4,
+        "rollout_status": "complete",
+        "full_input_completed": false
+      },
+      "MAMPJPE": 119.47853020085635
+    },
+    {
+      "score_path": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_035308f6708a_full_v1/windows600/selected_H/w00012/metrics/score.json",
+      "coverage": {
+        "actual_observed_frames": 227,
+        "clock_gap_count": 0,
+        "common_expected_frames": 600,
+        "common_fraction": 0.37833333333333335,
+        "conditional_errors_include_finite_failure_prefix": true,
+        "excluded_future_tail_frames": 0,
+        "invalid_gt_frames": 0,
+        "missing_actual_common_frames": 373,
+        "source_fraction": 0.37833333333333335,
+        "source_frames": 600,
+        "valid_metric_frames": 227
+      },
+      "completion": {
+        "failure": "fall",
+        "executed_seconds": 7.5600000000000005,
+        "rollout_status": "complete",
+        "full_input_completed": false
+      },
+      "MAMPJPE": 57.25856753184155
+    },
+    {
+      "score_path": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_035308f6708a_full_v1/windows600/selected_H/w00013/metrics/score.json",
+      "coverage": {
+        "actual_observed_frames": 16,
+        "clock_gap_count": 0,
+        "common_expected_frames": 600,
+        "common_fraction": 0.02666666666666667,
+        "conditional_errors_include_finite_failure_prefix": true,
+        "excluded_future_tail_frames": 0,
+        "invalid_gt_frames": 0,
+        "missing_actual_common_frames": 584,
+        "source_fraction": 0.02666666666666667,
+        "source_frames": 600,
+        "valid_metric_frames": 16
+      },
+      "completion": {
+        "failure": "fall",
+        "executed_seconds": 0.54,
+        "rollout_status": "complete",
+        "full_input_completed": false
+      },
+      "MAMPJPE": 113.04512798367743
+    }
+  ]
+}

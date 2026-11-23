@@ -1,0 +1,65 @@
+{
+  "schema": "fused_official_copy_trial_v1",
+  "status": "complete",
+  "elapsed_seconds": 11.415363550186157,
+  "metadata": {
+    "pid": 53115,
+    "started_unix": 1795425585.829712,
+    "budget_seconds": 3300,
+    "cuda_visible_devices": "",
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "niceness": 15,
+    "production_mutated": false,
+    "source_count": 6
+  },
+  "cases_completed": 1,
+  "errors": [],
+  "cases": [
+    {
+      "source": "/data/video2action_motionpro/full_eval_20261122/sources/motionpro_0023065a4da1_full_v0/ours/rgb30.mp4",
+      "first_frame": 210,
+      "frames": 90,
+      "video_seconds": 3.0,
+      "execution_order": [
+        "baseline",
+        "candidate"
+      ],
+      "parity": {
+        "frames": 90,
+        "changed_frames": 0,
+        "exact_rgb_equal": true,
+        "exact_pts_equal": true,
+        "max_abs_pixel": 0,
+        "mean_abs_pixel": 0.0,
+        "rmse_pixel": 0.0,
+        "different_pixel_values": 0,
+        "total_pixel_values": 248832000,
+        "decoded_rgb_sha256": [
+          "0d1ea2a84e0f67df41426e74f73aed6e89efe14f10c103ad449be2aee9755f3e",
+          "0d1ea2a84e0f67df41426e74f73aed6e89efe14f10c103ad449be2aee9755f3e"
+        ]
+      },
+      "baseline_cut_seconds": 2.6666357964277267,
+      "baseline_official_copy_seconds": 3.418025329709053,
+      "baseline_wall_seconds": 6.08466112613678,
+      "candidate_wall_seconds": 3.3234449923038483,
+      "verification_seconds": 1.994325753301382,
+      "saved_seconds": 2.7612161338329315,
+      "speedup": 1.8308294977732809
+    }
+  ],
+  "all_exact_rgb_and_pts": true,
+  "interpretation": "CPU video preparation only; not end-to-end latency. No neural model outputs were re-run. Exact decoded model-input RGB/PTS parity is tested. The 60s core / 3s halo, offline tracking, GVHMR temporal support and mapper future context are unchanged.",
+  "aggregate": {
+    "baseline_wall_seconds": 6.08466112613678,
+    "candidate_wall_seconds": 3.3234449923038483,
+    "saved_seconds": 2.7612161338329315,
+    "speedup": 1.8308294977732809,
+    "total_frames": 90,
+    "total_baseline_seconds": 6.08466112613678,
+    "total_candidate_seconds": 3.3234449923038483
+  }
+}

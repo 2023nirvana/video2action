@@ -1,0 +1,77 @@
+{
+  "source_id": "motionpro_ae086b03177e_w00_v1",
+  "common_start_s": 0.5,
+  "common_end_s": 11.5,
+  "all_initial_and_warmup_arrays_equal": true,
+  "rows": [
+    {
+      "arm": "independent_SMPL_official_SONIC",
+      "common_start_s": 0.5,
+      "common_end_s": 11.5,
+      "airborne_seconds": 0.13,
+      "root_z_range_m": 0.3925472209245616,
+      "same_initialization": {
+        "initial_full_qpos": true,
+        "initial_full_qvel": true,
+        "warmup_end_full_qpos": true,
+        "warmup_end_full_qvel": true
+      },
+      "flight_intervals_relative_to_0p5": [
+        {
+          "start_s": 7.445,
+          "end_s": 7.575,
+          "duration_s": 0.13,
+          "landing_observed": true,
+          "landing_survived_0p5s": true
+        }
+      ],
+      "receipt": "/data/video2action_motionpro/research51_run/motionpro/native_smpl/toy/001/native/completed.json"
+    },
+    {
+      "arm": "official_sonic_human",
+      "common_start_s": 0.5,
+      "common_end_s": 11.5,
+      "airborne_seconds": 0,
+      "root_z_range_m": 0.2680836858015162,
+      "same_initialization": {
+        "initial_full_qpos": true,
+        "initial_full_qvel": true,
+        "warmup_end_full_qpos": true,
+        "warmup_end_full_qvel": true
+      },
+      "flight_intervals_relative_to_0p5": [],
+      "receipt": "/data/video2action_motionpro/research51_run/motionpro/evaluation/toy/001/selected_H/cases/motionpro_ae086b03177e_w00_v1__human__oblique/official_sonic_human/completed.json"
+    },
+    {
+      "arm": "shared_heading_on",
+      "common_start_s": 0.5,
+      "common_end_s": 11.5,
+      "airborne_seconds": 0,
+      "root_z_range_m": 0.28325435910774177,
+      "same_initialization": {
+        "initial_full_qpos": true,
+        "initial_full_qvel": true,
+        "warmup_end_full_qpos": true,
+        "warmup_end_full_qvel": true
+      },
+      "flight_intervals_relative_to_0p5": [],
+      "receipt": "/data/video2action_motionpro/research51_run/motionpro/evaluation/toy/001/selected_H/cases/motionpro_ae086b03177e_w00_v1__human__oblique/shared_heading_on/completed.json"
+    },
+    {
+      "arm": "shared_heading_off",
+      "common_start_s": 0.5,
+      "common_end_s": 11.5,
+      "airborne_seconds": 0,
+      "root_z_range_m": 0.28427494475244064,
+      "same_initialization": {
+        "initial_full_qpos": true,
+        "initial_full_qvel": true,
+        "warmup_end_full_qpos": true,
+        "warmup_end_full_qvel": true
+      },
+      "flight_intervals_relative_to_0p5": [],
+      "receipt": "/data/video2action_motionpro/research51_run/motionpro/evaluation/toy/001/selected_H/cases/motionpro_ae086b03177e_w00_v1__human__oblique/shared_heading_off/completed.json"
+    }
+  ],
+  "interpretation": "Same SONIC decoder and physics; independent fitted SMPL is a privileged representation control, not a deployable video method; same-index human sensor alignment is not independently hardware verified."
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "src": "videos/motionpro_20261123/motionpro_04f0c1065c04_full_v1.mp4",
+    "poster": "videos/motionpro_20261123/motionpro_04f0c1065c04_full_v1.jpg",
+    "title": "连续上肢、转身与步态动作",
+    "group": "MotionPRO · 连续执行摘录",
+    "split": "未参与映射训练",
+    "duration_seconds": 45,
+    "model": "当前扩量模型：H120k",
+    "metrics": {
+      "片段MAMPJPE": "62.83 mm",
+      "原视频时段": "155–200 s"
+    },
+    "note": "左：原始真人视频；右：模型实际控制后的G1。来自整段连续执行，中间没有为本摘录重置；指标为所示时间范围、有效帧的形态对齐关节位置误差，未与20秒独立重置结果混合。",
+    "sourceFile": "motionpro_04f0c1065c04_full_v1"
+  },
+  {
+    "src": "videos/motionpro_20261123/motionpro_c63299a2b504_full_v1.mp4",
+    "poster": "videos/motionpro_20261123/motionpro_c63299a2b504_full_v1.jpg",
+    "title": "全身连续动作与姿态变化",
+    "group": "MotionPRO · 连续执行摘录",
+    "split": "未参与映射训练",
+    "duration_seconds": 45,
+    "model": "当前扩量模型：H120k",
+    "metrics": {
+      "片段MAMPJPE": "47.42 mm",
+      "原视频时段": "335–380 s"
+    },
+    "note": "左：原始真人视频；右：模型实际控制后的G1。来自整段连续执行，中间没有为本摘录重置；指标为所示时间范围、有效帧的形态对齐关节位置误差，未与20秒独立重置结果混合。",
+    "sourceFile": "motionpro_c63299a2b504_full_v1"
+  },
+  {
+    "src": "videos/motionpro_20261123/motionpro_e481edda82a9_full_v1.mp4",
+    "poster": "videos/motionpro_20261123/motionpro_e481edda82a9_full_v1.jpg",
+    "title": "抬臂与全身协调动作",
+    "group": "MotionPRO · 连续执行摘录",
+    "split": "未参与映射训练",
+    "duration_seconds": 45,
+    "model": "当前扩量模型：H120k",
+    "metrics": {
+      "片段MAMPJPE": "39.73 mm",
+      "原视频时段": "65–110 s"
+    },
+    "note": "左：原始真人视频；右：模型实际控制后的G1。来自整段连续执行，中间没有为本摘录重置；指标为所示时间范围、有效帧的形态对齐关节位置误差，未与20秒独立重置结果混合。",
+    "sourceFile": "motionpro_e481edda82a9_full_v1"
+  },
+  {
+    "src": "videos/motionpro_20261123/motionpro_29e230686f84_full_v1.mp4",
+    "poster": "videos/motionpro_20261123/motionpro_29e230686f84_full_v1.jpg",
+    "title": "连续动作与重心变化",
+    "group": "MotionPRO · 连续执行摘录",
+    "split": "未参与映射训练",
+    "duration_seconds": 45,
+    "model": "当前扩量模型：H120k",
+    "metrics": {
+      "片段MAMPJPE": "47.38 mm",
+      "原视频时段": "380–425 s"
+    },
+    "note": "左：原始真人视频；右：模型实际控制后的G1。来自整段连续执行，中间没有为本摘录重置；指标为所示时间范围、有效帧的形态对齐关节位置误差，未与20秒独立重置结果混合。",
+    "sourceFile": "motionpro_29e230686f84_full_v1"
+  },
+  {
+    "src": "videos/motionpro_20261123/motionpro_04f0c1065c04_full_v0_20s.mp4",
+    "poster": "videos/motionpro_20261123/motionpro_04f0c1065c04_full_v0_20s.jpg",
+    "title": "另一输入视角 · camera0",
+    "group": "MotionPRO · 多视角观察",
+    "split": "未参与映射训练",
+    "duration_seconds": 20,
+    "model": "当前扩量模型：H120k",
+    "metrics": {
+      "片段MAMPJPE": "77.82 mm"
+    },
+    "note": "该视角RGB独立经过完整模型，右侧为实际执行。此处展示开头20秒，不能单凭精选片段推断全库跨视角收益；完整多视角汇总仍在进行。",
+    "sourceFile": "motionpro_04f0c1065c04_full_v0"
+  },
+  {
+    "src": "videos/motionpro_20261123/motionpro_04f0c1065c04_full_v2_20s.mp4",
+    "poster": "videos/motionpro_20261123/motionpro_04f0c1065c04_full_v2_20s.jpg",
+    "title": "另一输入视角 · camera2",
+    "group": "MotionPRO · 多视角观察",
+    "split": "未参与映射训练",
+    "duration_seconds": 20,
+    "model": "当前扩量模型：H120k",
+    "metrics": {
+      "片段MAMPJPE": "74.80 mm"
+    },
+    "note": "该视角RGB独立经过完整模型，右侧为实际执行。此处展示开头20秒，不能单凭精选片段推断全库跨视角收益；完整多视角汇总仍在进行。",
+    "sourceFile": "motionpro_04f0c1065c04_full_v2"
+  }
+]

@@ -1,0 +1,504 @@
+{
+  "rows": [
+    {
+      "source_id": "MoVi_F_S61_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "official_sonic_human",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.185,
+      "root_height_range_after_0p5s": 0.17772691580141764,
+      "support_foot_speed_cmps": 3.0744794476805657,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S61_vertical_jumping_part2_v1__human/official_sonic_human/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S61_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_on",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.07795957428425637,
+      "support_foot_speed_cmps": 0.511712022926918,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S61_vertical_jumping_part2_v1__human/shared_heading_on/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S61_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_off",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.07919605059240065,
+      "support_foot_speed_cmps": 0.5875767708441946,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S61_vertical_jumping_part2_v1__human/shared_heading_off/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S61_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "native_blend_0p5",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.1312201330882845,
+      "support_foot_speed_cmps": 1.908200494264557,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S61_vertical_jumping_part2_v1__human/native_blend_0p5/completed.json",
+      "privileged_blend": true
+    },
+    {
+      "source_id": "MoVi_F_S63_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "official_sonic_human",
+      "requested_seconds": 3.0,
+      "actual_seconds": 3.0,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.15,
+      "root_height_range_after_0p5s": 0.19857925592357972,
+      "support_foot_speed_cmps": 3.553236918579873,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S63_vertical_jumping_part2_v1__human/official_sonic_human/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S63_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_on",
+      "requested_seconds": 3.0,
+      "actual_seconds": 3.0,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.07,
+      "root_height_range_after_0p5s": 0.1619165594436186,
+      "support_foot_speed_cmps": 5.181421737694407,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S63_vertical_jumping_part2_v1__human/shared_heading_on/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S63_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_off",
+      "requested_seconds": 3.0,
+      "actual_seconds": 3.0,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.09495683495729323,
+      "support_foot_speed_cmps": 4.3104544336374335,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S63_vertical_jumping_part2_v1__human/shared_heading_off/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S63_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "native_blend_0p5",
+      "requested_seconds": 3.0,
+      "actual_seconds": 3.0,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.32,
+      "root_height_range_after_0p5s": 0.21472601685825965,
+      "support_foot_speed_cmps": 6.410298210471008,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S63_vertical_jumping_part2_v1__human/native_blend_0p5/completed.json",
+      "privileged_blend": true
+    },
+    {
+      "source_id": "MoVi_F_S66_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "official_sonic_human",
+      "requested_seconds": 4.8,
+      "actual_seconds": 4.8,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.18,
+      "root_height_range_after_0p5s": 0.3467373799468719,
+      "support_foot_speed_cmps": 1.8720669828300607,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S66_vertical_jumping_part2_v1__human/official_sonic_human/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S66_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_on",
+      "requested_seconds": 4.8,
+      "actual_seconds": 4.8,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.245,
+      "root_height_range_after_0p5s": 0.439311908912195,
+      "support_foot_speed_cmps": 2.318791969218072,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S66_vertical_jumping_part2_v1__human/shared_heading_on/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S66_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_off",
+      "requested_seconds": 4.8,
+      "actual_seconds": 4.8,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.255,
+      "root_height_range_after_0p5s": 0.43264289100150327,
+      "support_foot_speed_cmps": 2.4633616771320015,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S66_vertical_jumping_part2_v1__human/shared_heading_off/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S66_vertical_jumping_part2_v1",
+      "domain": "human",
+      "split": "TEST",
+      "model": "H_newscale_s501119",
+      "arm": "native_blend_0p5",
+      "requested_seconds": 4.8,
+      "actual_seconds": 4.8,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0.21,
+      "root_height_range_after_0p5s": 0.40385564778756405,
+      "support_foot_speed_cmps": 1.909806587748357,
+      "stable_landing_0p5s": true,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S66_vertical_jumping_part2_v1__human/native_blend_0p5/completed.json",
+      "privileged_blend": true
+    },
+    {
+      "source_id": "MoVi_F_S3_vertical_jumping_v1",
+      "domain": "robot_positive_control",
+      "split": "QUARANTINED_EVAL_ONLY",
+      "model": "H_newscale_s501119",
+      "arm": "official_sonic_human",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.1009578684445045,
+      "support_foot_speed_cmps": 1.100873972866334,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S3_vertical_jumping_v1__robot_positive_control/official_sonic_human/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S3_vertical_jumping_v1",
+      "domain": "robot_positive_control",
+      "split": "QUARANTINED_EVAL_ONLY",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_on",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.1195831096803337,
+      "support_foot_speed_cmps": 2.2906019294897964,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S3_vertical_jumping_v1__robot_positive_control/shared_heading_on/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S3_vertical_jumping_v1",
+      "domain": "robot_positive_control",
+      "split": "QUARANTINED_EVAL_ONLY",
+      "model": "H_newscale_s501119",
+      "arm": "shared_heading_off",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.12084849176330537,
+      "support_foot_speed_cmps": 1.9674785839162392,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S3_vertical_jumping_v1__robot_positive_control/shared_heading_off/completed.json",
+      "privileged_blend": false
+    },
+    {
+      "source_id": "MoVi_F_S3_vertical_jumping_v1",
+      "domain": "robot_positive_control",
+      "split": "QUARANTINED_EVAL_ONLY",
+      "model": "H_newscale_s501119",
+      "arm": "native_blend_0p5",
+      "requested_seconds": 3.9,
+      "actual_seconds": 3.9,
+      "complete": true,
+      "failure": null,
+      "airborne_after_0p5s": 0,
+      "root_height_range_after_0p5s": 0.11336863016877419,
+      "support_foot_speed_cmps": 1.0328008123130734,
+      "stable_landing_0p5s": false,
+      "receipt": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/cases/MoVi_F_S3_vertical_jumping_v1__robot_positive_control/native_blend_0p5/completed.json",
+      "privileged_blend": true
+    }
+  ],
+  "encoder_audits": [
+    {
+      "GV_SMPL_world_y_vertical_range_m": 0.2819206714630127,
+      "GV_human_ankle_root_frame_z_ranges_m": [
+        0.14631623029708862,
+        0.14094096422195435
+      ],
+      "case_id": "MoVi_F_S61_vertical_jumping_part2_v1__human",
+      "config": {
+        "bytes": 9810,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/configs/MoVi_F_S61_vertical_jumping_part2_v1__human.json",
+        "sha256": "b30128ffbbcc209a70003db78172fb4694e842e1defd2b8c30a13a49eace3d0d"
+      },
+      "controller_positive_evidence": false,
+      "counterfactuals": [
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "constant_world_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        },
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "remove_vertical_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        }
+      ],
+      "domain": "human",
+      "excursion_comparison": "Separate amplitudes in each morphology; not human-to-robot ground-truth MPJPE",
+      "explanation": "If the same SONIC decoder flies under the robot encoder, native-video failure cannot by itself establish decoder inability",
+      "mapping": "Official human fixed SMPL skeleton ankle indices 7/8; measured G1 ankle_roll_link origins",
+      "measured_G1_ankle_root_frame_z_ranges_m": [
+        0.05991232511702338,
+        0.050455050191957174
+      ],
+      "measured_G1_world_z_vertical_range_m": 0.05453457212412782,
+      "missing_control": "An independent measured/ground-truth SMPL trajectory is needed to separate GV reconstruction from official human encoder limitations",
+      "native_global_translation_and_derived_root_velocity_input": false,
+      "native_gt_SMPL_motion_available": false,
+      "producer": {
+        "bytes": 43078,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/research47/diagnosis.py",
+        "sha256": "16456f7896c1cf68d3d2dbdedf400e4895d60694cabce77d8bd929a7127da6ee"
+      },
+      "source_id": "MoVi_F_S61_vertical_jumping_part2_v1",
+      "split": "TEST",
+      "status": "complete"
+    },
+    {
+      "GV_SMPL_world_y_vertical_range_m": 0.48689961433410645,
+      "GV_human_ankle_root_frame_z_ranges_m": [
+        0.18578535318374634,
+        0.18399333953857422
+      ],
+      "case_id": "MoVi_F_S63_vertical_jumping_part2_v1__human",
+      "config": {
+        "bytes": 10011,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/configs/MoVi_F_S63_vertical_jumping_part2_v1__human.json",
+        "sha256": "60cee947d4f7ff7181a3b335e18c535a392b61dd03eaeb930f216d7a2bcc87a1"
+      },
+      "controller_positive_evidence": false,
+      "counterfactuals": [
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "constant_world_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        },
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "remove_vertical_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        }
+      ],
+      "domain": "human",
+      "excursion_comparison": "Separate amplitudes in each morphology; not human-to-robot ground-truth MPJPE",
+      "explanation": "If the same SONIC decoder flies under the robot encoder, native-video failure cannot by itself establish decoder inability",
+      "mapping": "Official human fixed SMPL skeleton ankle indices 7/8; measured G1 ankle_roll_link origins",
+      "measured_G1_ankle_root_frame_z_ranges_m": [
+        0.09301268318997469,
+        0.07684848406569411
+      ],
+      "measured_G1_world_z_vertical_range_m": 0.09689751369759103,
+      "missing_control": "An independent measured/ground-truth SMPL trajectory is needed to separate GV reconstruction from official human encoder limitations",
+      "native_global_translation_and_derived_root_velocity_input": false,
+      "native_gt_SMPL_motion_available": false,
+      "producer": {
+        "bytes": 43078,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/research47/diagnosis.py",
+        "sha256": "16456f7896c1cf68d3d2dbdedf400e4895d60694cabce77d8bd929a7127da6ee"
+      },
+      "source_id": "MoVi_F_S63_vertical_jumping_part2_v1",
+      "split": "TEST",
+      "status": "complete"
+    },
+    {
+      "GV_SMPL_world_y_vertical_range_m": 0.6683321595191956,
+      "GV_human_ankle_root_frame_z_ranges_m": [
+        0.31173455715179443,
+        0.322062611579895
+      ],
+      "case_id": "MoVi_F_S66_vertical_jumping_part2_v1__human",
+      "config": {
+        "bytes": 9900,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/configs/MoVi_F_S66_vertical_jumping_part2_v1__human.json",
+        "sha256": "9cce0a57ffd9ceade17422a54d8e66fa298983a905448f8ce36e473df9dd1bd4"
+      },
+      "controller_positive_evidence": false,
+      "counterfactuals": [
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "constant_world_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        },
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "remove_vertical_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        }
+      ],
+      "domain": "human",
+      "excursion_comparison": "Separate amplitudes in each morphology; not human-to-robot ground-truth MPJPE",
+      "explanation": "If the same SONIC decoder flies under the robot encoder, native-video failure cannot by itself establish decoder inability",
+      "mapping": "Official human fixed SMPL skeleton ankle indices 7/8; measured G1 ankle_roll_link origins",
+      "measured_G1_ankle_root_frame_z_ranges_m": [
+        0.1821722208867762,
+        0.16143995109125142
+      ],
+      "measured_G1_world_z_vertical_range_m": 0.17339524923164973,
+      "missing_control": "An independent measured/ground-truth SMPL trajectory is needed to separate GV reconstruction from official human encoder limitations",
+      "native_global_translation_and_derived_root_velocity_input": false,
+      "native_gt_SMPL_motion_available": false,
+      "producer": {
+        "bytes": 43078,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/research47/diagnosis.py",
+        "sha256": "16456f7896c1cf68d3d2dbdedf400e4895d60694cabce77d8bd929a7127da6ee"
+      },
+      "source_id": "MoVi_F_S66_vertical_jumping_part2_v1",
+      "split": "TEST",
+      "status": "complete"
+    },
+    {
+      "GV_SMPL_world_y_vertical_range_m": 0.24827885627746582,
+      "GV_human_ankle_root_frame_z_ranges_m": [
+        0.3333092927932739,
+        0.32058829069137573
+      ],
+      "case_id": "MoVi_F_S3_vertical_jumping_v1__robot_positive_control",
+      "config": {
+        "bytes": 9836,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/configs/MoVi_F_S3_vertical_jumping_v1__robot_positive_control.json",
+        "sha256": "c6d4152a4fd6e9b5aea0499d2693b22f463216c8cef3ad23c8561fa9e170e9fa"
+      },
+      "controller_positive_evidence": true,
+      "counterfactuals": [
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "constant_world_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        },
+        {
+          "checked_control_states": 7,
+          "interpretation": "Same commands and initialization imply identical deterministic rollout; no second rollout billed",
+          "intervention": "remove_vertical_translation",
+          "local72_all_frames_identical": true,
+          "physical_rollout_repeated": false,
+          "pre_FSQ_max_abs_difference": 0.0,
+          "rotation_all_frames_identical": true,
+          "tokens_exactly_identical": true
+        }
+      ],
+      "domain": "robot_positive_control",
+      "excursion_comparison": "Separate amplitudes in each morphology; not human-to-robot ground-truth MPJPE",
+      "explanation": "If the same SONIC decoder flies under the robot encoder, native-video failure cannot by itself establish decoder inability",
+      "mapping": "Official human fixed SMPL skeleton ankle indices 7/8; measured G1 ankle_roll_link origins",
+      "measured_G1_ankle_root_frame_z_ranges_m": [
+        0.10948338498041943,
+        0.11269794389645382
+      ],
+      "measured_G1_world_z_vertical_range_m": 0.22970051304081507,
+      "missing_control": "An independent measured/ground-truth SMPL trajectory is needed to separate GV reconstruction from official human encoder limitations",
+      "native_global_translation_and_derived_root_velocity_input": false,
+      "native_gt_SMPL_motion_available": false,
+      "producer": {
+        "bytes": 43078,
+        "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/research47/diagnosis.py",
+        "sha256": "16456f7896c1cf68d3d2dbdedf400e4895d60694cabce77d8bd929a7127da6ee"
+      },
+      "source_id": "MoVi_F_S3_vertical_jumping_v1",
+      "split": "QUARANTINED_EVAL_ONLY",
+      "status": "complete"
+    }
+  ],
+  "protocol": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/outputs/foot_diagnosis_20261123/protocol.json",
+  "semantics": "Actual physics; separate from kinematic animation. No independent human event labels for these legacy sources. Blend is privileged diagnosis only."
+}
